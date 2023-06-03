@@ -10,7 +10,12 @@
   --navitems-hover: purple;
   --navsitelink-color: black;
   --navsitelink-font: sans-serif;
-  --navsitelink-hover: purple;
+  --navsitelink-hover: linear-gradient(
+        90deg,
+        black,
+        #00FFF,
+        black
+  );
   --headertext-color: gray;
   --headertext-font: sans-serif;
     /* H1/H2: COLOR/FONT VARIABLES */
