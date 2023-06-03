@@ -41,16 +41,15 @@ header {
   justify-content: center;
   font-family: var(--headertext-font);
 }
-/*
+
 #nav-items {
   list-style: none;
   display: flex;
   align-items: center;
   gap: 10px;
   margin-right: 3rem;
-  color: var(--navitems-hover), var(--navsitelink-color);
 }
-*/
+
 #nav-items li a {
   color: green;
   display: flex;
@@ -63,16 +62,6 @@ header {
   color: orange;
 }
 
-/*
-a.nav-link:hover, a#site-link:hover {
-color: var(--navitems-hover), #00FFFF !important;
-}
-*/
-/*
-#nav-items li a:hover {
-  color: var(--navitems-hover);
-}
-*/
 #site-link {
   display: flex;
   justify-content: center;
@@ -104,13 +93,3 @@ color: var(--navitems-hover), #00FFFF !important;
   color: var(--homeh2-color);
   font-family: var(--homeh2-font);
 }
-/*
-header {
-color: var(--navitems-color);
-}
-*/
-/*
-header div a {
-color: green;
-}
-*/
