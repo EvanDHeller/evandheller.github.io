@@ -14,10 +14,10 @@
   --headertext-color: gray;
   --headertext-font: sans-serif;
     /* H1/H2: COLOR/FONT VARIABLES */
-  --hometitle-color: blue;
-  --hometitle-font: sans-serif;
-  --homesubtitle-color: blue;
-  --homesubtitle-font: sans-serif;
+  --homeh1-color: blue;
+  --homeh1-font: sans-serif;
+  --homeh2-color: blue;
+  --homeh2-font: sans-serif;
     /* HOMEPAGE CONTAINERS: COLOR/FONT VARIABLES */
 
 }
@@ -77,12 +77,16 @@ header {
   padding-top: 7rem;
 }
 
-h1 {
+#homepage-title-container {
+
+}
+
+#homepage-h1 {
   color: var(--hometitle-color);
   font-family: var(--hometitle-font);
 }
 
-h2 {
+#homepage-h2 {
   color: var(--homesubtitle-color);
   font-family: var(--homesubtitle-font);
 }
