@@ -8,12 +8,10 @@
   --header-background: #CCCCCC;
   --navbarlinks-color: #4682B4;
   --navbarlinks-font: sans-serif;
-  --navitems-hover: linear-gradient(
-        90deg, black, #00FFFF 15%, #00FFFF 85%, black), #00FFFF;
+  --navitems-hover: #00FFFF;
   --navsitelink-color: white;
   --navsitelink-font: sans-serif;
-  --navsitelink-hover: linear-gradient(
-        90deg, black, #00FFFF 15%, #00FFFF 85%, black), #00FFFF;
+  --navsitelink-hover: #00FFFF;
   --headertext-color: white;
   --headertext-font: sans-serif;
     
@@ -46,7 +44,7 @@ header {
 }
 
 #nav-items li a {
-  color: var(--navitems-hover), green;
+  color: var(--navbarlinks-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,7 +52,7 @@ header {
 }
 
 #nav-items li a:hover {
-  color: orange;
+  color: var(--navitems-hover);
 }
 
 #site-link {
@@ -62,12 +60,12 @@ header {
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  color: var(--navitems-hover), green;
+  color: var(--navbarlinks-color);
   font-family: var(--navsitelink-font);
 }
 
 #site-link:hover {
-  color: orange;
+  color: var(--navitems-hover);
 }
 
     /* HOMEPAGE CONTAINERS: COLOR/FONT VARIABLES */
