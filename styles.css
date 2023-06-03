@@ -77,10 +77,6 @@ header {
   padding-top: 7rem;
 }
 
-#homepage-title-container {
-
-}
-
 #homepage-h1 {
   color: var(--homeh1-color);
   font-family: var(--homeh1-font);
