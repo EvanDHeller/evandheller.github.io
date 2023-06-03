@@ -1,23 +1,23 @@
 :root {
     /* BODY: COLOR/FONT VARIABLES */
+    
   --body-background: #1c1c1c;
   --bodytext-color: white;
   --bodytext-font: sans-serif;
+    
     /* HEADER: COLOR/FONT VARIABLES */
   --header-background: #f2f2f2;
   --navbarlinks-color: #4682B4;
   --navbarlinks-font: sans-serif;
-  --navitems-hover: purple;
+  --navitems-hover: linear-gradient(
+        90deg, black, #00FFF, black);
   --navsitelink-color: black;
   --navsitelink-font: sans-serif;
   --navsitelink-hover: linear-gradient(
-        90deg,
-        black,
-        #00FFF,
-        black
-  );
+        90deg, black, #00FFF, black);
   --headertext-color: gray;
   --headertext-font: sans-serif;
+    
     /* H1/H2: COLOR/FONT VARIABLES */
   --homeh1-color: white;
   --homeh1-font: sans-serif;
