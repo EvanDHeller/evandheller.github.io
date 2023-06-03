@@ -100,3 +100,7 @@ color: var(--navitems-hover), #00FFFF !important;
   color: var(--homeh2-color);
   font-family: var(--homeh2-font);
 }
+
+header {
+color: var(--navitems-color);
+}
