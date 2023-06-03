@@ -48,11 +48,11 @@ header {
   align-items: center;
   gap: 10px;
   margin-right: 3rem;
-  color: var(--navlinks-color);
+  color: var(--navitems-hover), var(--navsitelink-color);
 }
 
 #nav-items li a {
-  color: var(--navlinks-hover);
+  color: var(--navitems-hover), var(--navsitelink-color);
   display: flex;
   justify-content: center;
   align-items: center;
