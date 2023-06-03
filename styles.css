@@ -63,9 +63,11 @@ a.nav-link:hover, a#site-link:hover {
 color: var(--navitems-hover), #00FFFF !important;
 }
 
+/*
 #nav-items li a:hover {
   color: var(--navitems-hover);
 }
+*/
 
 #site-link {
   display: flex;
@@ -76,9 +78,11 @@ color: var(--navitems-hover), #00FFFF !important;
   font-family: var(--navsitelink-font);
 }
 
+/*
 #site-link:hover {
   color: var(--navsitelink-hover);
 }
+*/
 
 #page-head {
   padding-top: 7rem;
