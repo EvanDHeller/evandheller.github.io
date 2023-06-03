@@ -2,6 +2,7 @@
   --body-background: #1c1c1c;
   --bodytext-color: white;
   --bodytext-font: sans-serif;
+  
   --header-background: #f2f2f2;
   --navbarlinks-color: #4682B4;
   --navbarlinks-font: sans-serif;
@@ -11,8 +12,11 @@
   --navsitelink-hover: purple;
   --headertext-color: gray;
   --headertext-font: sans-serif;
-  --subheadtext-color: blue;
-  --subheadtext-font: sans-serif;
+  
+  --hometitle-color: blue;
+  --hometitle-font: sans-serif;
+  --homesubtitle-color: blue;
+  --homesubtitle-font: sans-serif;
 
 }
 
@@ -39,7 +43,7 @@ header {
   align-items: center;
   gap: 10px;
   margin-right: 3rem;
-  color: var(--navlinks-hover);
+  color: var(--navlinks-color);
 }
 
 #nav-items li a {
