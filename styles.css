@@ -78,6 +78,10 @@ header {
   color: var(--navitems-hover);
 }
 
+#header-img {
+  max-height: 10vh;
+}
+
     /* HOMEPAGE CONTAINERS: COLOR/FONT VARIABLES */
 body {
   font-family: var(bodytext-font);
