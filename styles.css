@@ -60,7 +60,7 @@ header {
 }
 
 a.nav-link:hover, a#site-link:hover {
-color: #00FFFF !important;
+color: var(--navitems-hover), #00FFFF !important;
 }
 
 #nav-items li a:hover {
