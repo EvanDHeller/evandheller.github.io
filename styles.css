@@ -46,7 +46,7 @@ header {
 }
 
 #nav-items li a {
-  color: green;
+  color: var(--navitems-hover), green;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,7 +62,7 @@ header {
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  color: green;
+  color: var(--navitems-hover), green;
   font-family: var(--navsitelink-font);
 }
 
