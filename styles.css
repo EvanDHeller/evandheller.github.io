@@ -18,10 +18,8 @@
   --homeh1-font: sans-serif;
   --homeh2-color: white;
   --homeh2-font: sans-serif;
-    /* HOMEPAGE CONTAINERS: COLOR/FONT VARIABLES */
-
 }
-
+    /* HOMEPAGE CONTAINERS: COLOR/FONT VARIABLES */
 body {
   font-family: var(bodytext-font);
   background-color: var(--body-background);
