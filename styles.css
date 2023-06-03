@@ -82,11 +82,11 @@ header {
 }
 
 #homepage-h1 {
-  color: var(--hometitle-color);
-  font-family: var(--hometitle-font);
+  color: var(--homeh1-color);
+  font-family: var(--homeh1-font);
 }
 
 #homepage-h2 {
-  color: var(--homesubtitle-color);
-  font-family: var(--homesubtitle-font);
+  color: var(--homeh2-color);
+  font-family: var(--homeh2-font);
 }
