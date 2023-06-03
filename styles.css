@@ -10,11 +10,11 @@
   --navbarlinks-color: #4682B4;
   --navbarlinks-font: sans-serif;
   --navitems-hover: linear-gradient(
-        90deg, black, #00FFFF 15%, black 85%);
+        90deg, black, #00FFFF 15%, black 85%), #00FFFF;
   --navsitelink-color: black;
   --navsitelink-font: sans-serif;
   --navsitelink-hover: linear-gradient(
-        90deg, black, #00FFFF 15%, black 85%);
+        90deg, black, #00FFFF 15%, black 85%), #00FFFF;
   --headertext-color: gray;
   --headertext-font: sans-serif;
     
