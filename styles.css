@@ -11,11 +11,11 @@
   --navbarlinks-font: sans-serif;
   --navitems-hover: linear-gradient(
         90deg, black, #00FFFF 15%, #00FFFF 85%, black), #00FFFF;
-  --navsitelink-color: black;
+  --navsitelink-color: white;
   --navsitelink-font: sans-serif;
   --navsitelink-hover: linear-gradient(
         90deg, black, #00FFFF 15%, #00FFFF 85%, black), #00FFFF;
-  --headertext-color: gray;
+  --headertext-color: white;
   --headertext-font: sans-serif;
     
     /* H1/H2: COLOR/FONT VARIABLES */
