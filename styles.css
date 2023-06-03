@@ -23,12 +23,8 @@
   --homeh2-color: white;
   --homeh2-font: sans-serif;
 }
-    /* HOMEPAGE CONTAINERS: COLOR/FONT VARIABLES */
-body {
-  font-family: var(bodytext-font);
-  background-color: var(--body-background);
-}
 
+    /* HEADER & NAVBAR */
 header {
   position: fixed;
   top: 0;
@@ -72,6 +68,12 @@ header {
 
 #site-link:hover {
   color: orange;
+}
+
+    /* HOMEPAGE CONTAINERS: COLOR/FONT VARIABLES */
+body {
+  font-family: var(bodytext-font);
+  background-color: var(--body-background);
 }
 
 #page-head {
