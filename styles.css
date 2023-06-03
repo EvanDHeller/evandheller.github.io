@@ -56,7 +56,7 @@ header {
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  text-shadow: 0 3px 3px #FFF;
+  text-shadow: 0 1px 1px #FFF;
 }
 
 #nav-items li a:hover {
