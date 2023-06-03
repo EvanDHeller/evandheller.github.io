@@ -35,6 +35,10 @@ header {
   font-family: var(--headertext-font);
 }
 
+#header-items {
+  width: 70vw;
+}
+
 #nav-items {
   list-style: none;
   display: flex;
