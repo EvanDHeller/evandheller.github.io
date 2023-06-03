@@ -1,1 +1,56 @@
+header {
+  font-family: sans-serif;
+}
 
+body {
+  font-family: sans-serif;
+  background-color: beige;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 15vh;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+}
+
+#nav-items {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: 3rem;
+  color: #4682B4;
+}
+
+#nav-items li a {
+  color: #4682B4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold; 
+}
+
+#nav-items li a:hover {
+  color: purple;
+}
+
+#site-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #4682B4;
+}
+
+#site-link:hover {
+  color: purple;
+}
+
+#page-head {
+  padding-top: 7rem;
+}
