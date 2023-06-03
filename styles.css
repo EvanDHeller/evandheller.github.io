@@ -55,7 +55,8 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: bold; 
+  font-weight: bold;
+  text-shadow: 0 3px 3px #FFF;
 }
 
 #nav-items li a:hover {
