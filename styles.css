@@ -57,6 +57,7 @@ header {
   align-items: center;
   font-weight: bold;
   text-shadow: 0 1px 1px #FFF;
+  text-decoration: none;
 }
 
 #nav-items li a:hover {
