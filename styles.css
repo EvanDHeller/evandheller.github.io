@@ -59,6 +59,10 @@ header {
   font-weight: bold; 
 }
 
+a.nav-link:hover, a#site-link:hover {
+color: green;
+}
+
 #nav-items li a:hover {
   color: var(--navitems-hover);
 }
