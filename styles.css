@@ -1,8 +1,9 @@
 :root {
+    /* BODY: COLOR/FONT VARIABLES */
   --body-background: #1c1c1c;
   --bodytext-color: white;
   --bodytext-font: sans-serif;
-  
+    /* HEADER: COLOR/FONT VARIABLES */
   --header-background: #f2f2f2;
   --navbarlinks-color: #4682B4;
   --navbarlinks-font: sans-serif;
@@ -12,11 +13,12 @@
   --navsitelink-hover: purple;
   --headertext-color: gray;
   --headertext-font: sans-serif;
-  
+    /* H1/H2: COLOR/FONT VARIABLES */
   --hometitle-color: blue;
   --hometitle-font: sans-serif;
   --homesubtitle-color: blue;
   --homesubtitle-font: sans-serif;
+    /* HOMEPAGE CONTAINERS: COLOR/FONT VARIABLES */
 
 }
 
