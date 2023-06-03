@@ -101,11 +101,11 @@ body {
 #homepage-h1 {
   color: var(--homeh1-color);
   font-family: var(--homeh1-font);
-  text-shadow: 0 3px 3px #000;
+  text-shadow: -2px -2px 2px rgba(0, 0, 0, 0.5);
 }
 
 #homepage-h2 {
   color: var(--homeh2-color);
   font-family: var(--homeh2-font);
-  text-shadow: 0 3px 3px #000;
+  text-shadow: -2px -2px 2px rgba(0, 0, 0, 0.5);
 }
