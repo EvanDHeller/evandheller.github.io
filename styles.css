@@ -76,3 +76,13 @@ header {
 #page-head {
   padding-top: 7rem;
 }
+
+h1 {
+  color: var(--hometitle-color);
+  font-family: var(--hometitle-font);
+}
+
+h2 {
+  color: var(--homesubtitle-color);
+  font-family: var(--homesubtitle-font);
+}
