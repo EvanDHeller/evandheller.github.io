@@ -78,7 +78,8 @@ header {
 }
 
 #homepage-title-container {
-  position: relative;
+  position: absolute;
+  top: 50%;
 }
 
 #homepage-h1 {
