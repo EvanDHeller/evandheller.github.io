@@ -27,7 +27,7 @@ header {
   position: fixed;
   top: 5%;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 15vh;
   background-color: var(--header-background);
   display: flex;
