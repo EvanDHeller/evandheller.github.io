@@ -80,7 +80,8 @@ header {
 }
 
 #header-img {
-  height: auto;
+  height: 95%;
+  width: auto;
   max-width: 100%;
   margin-left: 2rem;
 }
