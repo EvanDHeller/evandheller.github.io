@@ -110,6 +110,39 @@ body {
   background-color: var(--body-background);
 }
 
+.nested-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-gap: 10px;
+  background-color: white;
+}
+
+.grid-item {
+  background-color: #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.screenshot {
+  position: relative;
+  padding-bottom: 56.25%; /* Aspect ratio for a 16:9 screenshot */
+}
+
+.screenshot img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.caption {
+  margin-top: 5px;
+}
+
 #homepage-title-container {
   position: absolute;
   top: 50%;
