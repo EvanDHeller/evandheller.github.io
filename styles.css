@@ -166,11 +166,13 @@ div.screenshot-captionUrl {
 span.project-involvement {
   color: var(--projectcaptioninfo-color);
   font-family: var(--projectcaptioninfo-font);
+  text-align: left;
 }
 
 span.project-date {
   color: var(--projectcaptioninfo-color);
   font-family: var(--projectcaptioninfo-font);
+  text-align: right;
 }
 
 .snapshot-iframe {
