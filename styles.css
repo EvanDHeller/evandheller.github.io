@@ -154,6 +154,9 @@ body {
 
 .caption {
   margin-top: 5px;
+}
+
+.project-info-pair {
   display: flex;
 }
 
