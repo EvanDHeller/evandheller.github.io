@@ -22,10 +22,10 @@
 
     /* HOMEPAGE COLUMN-RIGHT: COLOR/FONT VARIABLES */
   --homerightcontainer-color: #cccccc;
-  --projectcaptioninfo-color:
-  --projectcaptioninfo-font:
-  --projectcaptionurl-color:
-  --projectcaptionurl-font:
+  --projectcaptioninfo-color: #a683c3;
+  --projectcaptioninfo-font: sans-serif;
+  --projectcaptionurl-color: #9368B7;
+  --projectcaptionurl-font: sans-serif;
   
 }
 
