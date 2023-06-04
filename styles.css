@@ -151,6 +151,7 @@ body {
 .caption {
   margin-top: 5px;
   align-text: center;
+  position: relative;
 }
 
 .screenshot-captionUrl {
