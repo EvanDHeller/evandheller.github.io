@@ -96,6 +96,20 @@ body {
   padding-top: 7rem;
 }
 
+.home-grid-container {
+  display: grid;
+  grid-template-columns: 30vw 1fr; /* Set the column widths */
+  grid-gap: 10px; /* Optional: Set the gap between columns */
+}
+
+.home-left-column {
+  background-color: #ccc;
+}
+
+.home-right-column {
+  background-color: #eee;
+}
+
 #homepage-title-container {
   position: absolute;
   top: 50%;
