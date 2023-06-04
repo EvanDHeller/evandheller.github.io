@@ -112,7 +112,6 @@ body {
 
 .home-right-column {
   background-color: var(--body-background);
-  display: grid;
 }
 
 .nested-grid {
