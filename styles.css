@@ -20,6 +20,9 @@
   --homeh1-font: sans-serif;
   --homeh2-color: white;
   --homeh2-font: sans-serif;
+
+    /* HOMEPAGE COLUMN-RIGHT: COLOR/FONT VARIABLES */
+  --homerightcontainer-color: #cccccc;  
 }
 
     /* HEADER & NAVBAR */
@@ -115,7 +118,7 @@ body {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(6, 1fr);
   grid-gap: 10px;
-  background-color: white;
+  background-color: var(--homerightcontainer-color);
 }
 
 .grid-item {
