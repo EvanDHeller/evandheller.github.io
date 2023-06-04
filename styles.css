@@ -21,7 +21,12 @@
   --homeh2-font: sans-serif;
 
     /* HOMEPAGE COLUMN-RIGHT: COLOR/FONT VARIABLES */
-  --homerightcontainer-color: #cccccc;  
+  --homerightcontainer-color: #cccccc;
+  --projectcaptioninfo-color:
+  --projectcaptioninfo-font:
+  --projectcaptionurl-color:
+  --projectcaptionurl-font:
+  
 }
 
     /* HEADER & NAVBAR */
@@ -149,19 +154,23 @@ body {
 
 .caption {
   margin-top: 5px;
-  align-text: center;
 }
 
 div.screenshot-captionUrl {
+  color: var(--projectcaptionurl-color);
+  font-family: var(--projectcaptionurl-font);
   font-weight: bold;
+  text-align: center;                         
 }
 
 span.project-involvement {
-
+  color: var(--projectcaptioninfo-color);
+  font-family: var(--projectcaptioninfo-font);
 }
 
 span.project-date {
-
+  color: var(--projectcaptioninfo-color);
+  font-family: var(--projectcaptioninfo-font);
 }
 
 .snapshot-iframe {
