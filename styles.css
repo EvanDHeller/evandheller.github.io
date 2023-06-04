@@ -98,16 +98,16 @@ body {
 
 .home-grid-container {
   display: grid;
-  grid-template-columns: 30vw 1fr; /* Set the column widths */
+  grid-template-columns: 40vw 1fr; /* Set the column widths */
   grid-gap: 10px; /* Optional: Set the gap between columns */
 }
 
 .home-left-column {
-  background-color: #ccc;
+  background-color: var(--body-background);
 }
 
 .home-right-column {
-  background-color: #eee;
+  background-color: var(--body-background);
 }
 
 #homepage-title-container {
