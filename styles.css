@@ -152,8 +152,16 @@ body {
   align-text: center;
 }
 
-.screenshot-captionUrl {
+div.screenshot-captionUrl {
   font-weight: bold;
+}
+
+span.project-involvement {
+
+}
+
+span.project-date {
+
 }
 
 .snapshot-iframe {
@@ -161,6 +169,7 @@ body {
   height: 100%;
   border: none;
 }
+
 
 #homepage-title-container {
   position: absolute;
