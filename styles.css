@@ -135,7 +135,8 @@ body {
 
 .screenshot {
   position: relative;
-  padding-bottom: 56.25%; /* Aspect ratio for a 16:9 screenshot */
+ /* padding-bottom: 56.25%; /* Aspect ratio for a 16:9 screenshot */
+  padding-bottom: 2%;
 }
 
 .screenshot img {
@@ -149,6 +150,11 @@ body {
 
 .caption {
   margin-top: 5px;
+  align-text: center;
+}
+
+.screenshot-captionUrl {
+  font-weight: bold;
 }
 
 .snapshot-iframe {
