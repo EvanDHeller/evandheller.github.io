@@ -35,15 +35,10 @@ header {
   font-family: var(--headertext-font);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), -2px -2px 4px rgba(255, 255, 255, 0.5);
 }
-/*
+
 #header-items {
-  width: 70vw;
+  /* width: 70vw; */
   display: inherit;
-}
-*/
-#header-items {
-display: inline-block;
-width: calc((100vw - 200px) / 3);
 }
 
 #nav-items {
@@ -54,6 +49,7 @@ width: calc((100vw - 200px) / 3);
   margin-right: 3rem;
   margin-top: 1.5em;
   font-size: 1.1em;
+    flex: 1;
 }
 
 #nav-items li a {
@@ -84,7 +80,8 @@ width: calc((100vw - 200px) / 3);
 }
 
 #header-img {
-  max-height: 12vh;
+  height: auto;
+  max-width: 100%;
   margin-left: 2rem;
 }
 
