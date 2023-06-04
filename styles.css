@@ -6,12 +6,11 @@
     
     /* HEADER: COLOR/FONT VARIABLES */
   --header-background: #666666;
-  --navbarlinks-color: #00FF00;
+  --navitems-color: #00FFFF;
   --navbarlinks-font: sans-serif;
   --navitems-hover: #00FFFF;
   --navsitelink-color: white;
   --navsitelink-font: sans-serif;
-  --navsitelink-hover: #00FFFF;
   --headertext-color: white;
   --headertext-font: sans-serif;
     
@@ -58,7 +57,7 @@ header {
 }
 
 #nav-items li a {
-  color: var(--navbarlinks-color);
+  color: var(--navitems-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,7 +75,7 @@ header {
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  color: var(--navbarlinks-color);
+  color: var(--navitems-color);
   font-family: var(--navsitelink-font);
 }
 
