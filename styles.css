@@ -151,6 +151,12 @@ body {
   margin-top: 5px;
 }
 
+.snapshot-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 #homepage-title-container {
   position: absolute;
   top: 50%;
