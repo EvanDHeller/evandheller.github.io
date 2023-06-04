@@ -154,25 +154,26 @@ body {
 
 .caption {
   margin-top: 5px;
+  display: flex;
 }
 
 div.screenshot-captionUrl {
   color: var(--projectcaptionurl-color);
   font-family: var(--projectcaptionurl-font);
   font-weight: bold;
-  text-align: center;                         
+  justify-self: center;                         
 }
 
 span.project-involvement {
   color: var(--projectcaptioninfo-color);
   font-family: var(--projectcaptioninfo-font);
-  text-align: left;
+  justify-self: flex-start;
 }
 
 span.project-date {
   color: var(--projectcaptioninfo-color);
   font-family: var(--projectcaptioninfo-font);
-  text-align: right;
+  justify-self: flex-end;
 }
 
 .snapshot-iframe {
