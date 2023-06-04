@@ -37,6 +37,8 @@ header {
   justify-content: center;
   font-family: var(--headertext-font);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), -2px -2px 4px rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 #header-items {
