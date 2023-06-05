@@ -61,7 +61,7 @@ img.headeroverlay {
   margin-left: 0;
 }
 
-headeroverlay {
+.headeroverlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -70,7 +70,7 @@ headeroverlay {
   z-index: 1;
   background-image: url('./images/circuitvector.png');
   background-size: 200% auto; /* Adjust the size as desired */
-  background-repeat: repeat-x;
+  /*background-repeat: repeat-x;*/
   background-position: left;
   padding-left: 0;
   margin-left: 0;
