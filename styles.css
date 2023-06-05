@@ -130,7 +130,7 @@ body {
   padding: 3%;
   border-radius: 15px;
   overflow: hidden;
-  border: solid 4px rgba(147, 104, 183, .5); /* rgba(147, 104, 183, 1) rgba(0.576, 0.408, 0.718, .5)  #9368B7;*/
+  border: solid 4px rgba(0.576, 0.408, 0.718, .5); /* rgba(147, 104, 183, .5) rgba(0.576, 0.408, 0.718, .5)  #9368B7;*/
 }
 
 .grid-item {
