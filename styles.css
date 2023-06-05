@@ -210,12 +210,14 @@ a.screetshoturltitle {
   font-weight: bold; 
 }
 
-.pleasework {
+.urltitle {
   text-align: center;
   text-decoration: none;
   color: var(--projectcaptionurl-color);
   font-family: var(--projectcaptionurl-font);
-  font-weight: bold; 
+  font-weight: bold;
+  margin-top: 2px;
+  margin-bottom: 2px;
 }
 
 span.project-involvement {
