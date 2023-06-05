@@ -21,7 +21,8 @@
   --homeh2-font: sans-serif;
 
     /* HOMEPAGE COLUMN-RIGHT: COLOR/FONT VARIABLES */
-  --homerightcontainer-color: #e6e6fa; /*#cccccc*/
+  --homerightcontainer-color: #d6d1ec ; /*#cccccc, #e6e6fa*/
+  --homegriditemcontainer-color: #cccccc; /*#ddd, */
   --projectcaptioninfo-color: #a683c3;
   --projectcaptioninfo-font: sans-serif;
   --projectcaptionurl-color: #9368B7;
@@ -132,7 +133,7 @@ body {
 }
 
 .grid-item {
-  background-color: #ddd;
+  background-color: var(--homegriditemcontainer-color);
   padding: 10px;
   margin-bottom: 10px;
   box-sizing: border-box;
