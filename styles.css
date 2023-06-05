@@ -70,6 +70,9 @@ header {
   font-weight: bold;
   text-shadow: 0 .15em .1em #1c1c1c;
   text-decoration: none;
+  -webkit-text-stroke: .3px #5cabff; /* Outline width and color */
+  text-stroke: .3px #5cabff; /* Outline width and color */
+  font-size: 1.15em;
 }
 
 #nav-items li a:hover {
