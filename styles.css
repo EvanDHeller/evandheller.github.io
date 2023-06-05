@@ -151,13 +151,12 @@ header {
 }
 
 #header-img {
-  height: 90%;
+  height: 13vh;
   width: auto;
   max-width: 30vw;
-  max-height: 90%;
+  max-height: 14vh;
   margin: 5px;
   z-index: 2;
-  position: relative;
 }
 
     /* HOMEPAGE CONTAINERS: COLOR/FONT VARIABLES */
