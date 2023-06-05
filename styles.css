@@ -23,9 +23,9 @@
     /* HOMEPAGE COLUMN-RIGHT: COLOR/FONT VARIABLES */
   --homerightcontainer-color: #d6d1ec ; /*#cccccc, #e6e6fa*/
   --homegriditemcontainer-color: #cccccc; /*#ddd, */
-  --projectcaptioninfo-color: #a683c3;
+  --projectcaptioninfo-color: #99caff;
   --projectcaptioninfo-font: sans-serif;
-  --projectcaptionurl-color: #9368B7;
+  --urltitle-color: #C2DFFF;
   --projectcaptionurl-font: sans-serif;
   
 }
