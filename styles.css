@@ -184,6 +184,13 @@ span.project-date {
   margin-left: auto;
 }
 
+.project-info-pair-span {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .snapshot-iframe {
   width: 100%;
   height: 100%;
