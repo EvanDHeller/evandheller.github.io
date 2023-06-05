@@ -5,7 +5,7 @@
   --bodytext-font: sans-serif;
     
     /* HEADER: COLOR/FONT VARIABLES */
-  --header-background: linear-gradient(#666666, #8f8f8f 10%, #8f8f8f 90%, #666666);
+  --header-background: linear-gradient(#666666, #8f8f8f 15%, #8f8f8f 85%, #666666);
   --navitems-color: #99CAFF;
   --navbarlinks-font: sans-serif;
   --navitems-hover: #00FFFF;
