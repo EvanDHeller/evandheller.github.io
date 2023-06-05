@@ -175,6 +175,13 @@ a.screenshot-captionUrl {
   justify-self: center;                         
 }
 
+.screenshoturl-span {
+  color: var(--projectcaptionurl-color);
+  font-family: var(--projectcaptionurl-font);
+  font-weight: bold;
+  justify-self: center;  
+}
+
 span.project-involvement {
   color: var(--projectcaptioninfo-color);
   font-family: var(--projectcaptioninfo-font);
