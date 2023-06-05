@@ -193,6 +193,14 @@ body {
   font-weight: bold;    
 }
 
+a.screetshoturltitle {
+  text-align: center;
+  text-decoration: none;
+  color: var(--projectcaptionurl-color);
+  font-family: var(--projectcaptionurl-font);
+  font-weight: bold;    
+}
+
 .urlscreenshottittle {
   text-align: center;
   text-decoration: none;
