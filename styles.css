@@ -150,6 +150,7 @@ header {
   width: auto;
   max-width: 100%;
   margin-left: 2rem;
+  display: flex;
 }
 
     /* HOMEPAGE CONTAINERS: COLOR/FONT VARIABLES */
