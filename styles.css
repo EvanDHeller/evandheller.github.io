@@ -46,7 +46,7 @@ header {
   overflow: hidden;
 }
 
-img.headeroverlay {
+img.header-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -61,7 +61,7 @@ img.headeroverlay {
   margin-left: 0;
 }
 
-.headeroverlay {
+.header-overlay {
   position: absolute;
   top: 0;
   left: 0;
