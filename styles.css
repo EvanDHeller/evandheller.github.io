@@ -174,34 +174,7 @@ body {
   color: var(--projectcaptionurl-color);
   font-family: var(--projectcaptionurl-font);
   font-weight: bold;
-  display: grid;
-  flex-direction: row;
-  justify-items: center;
-}
 
-.screenshoturl-span {
-  color: var(--projectcaptionurl-color);
-  font-family: var(--projectcaptionurl-font);
-  font-weight: bold;
-  justify-self: center;
-  text-decoration: none;
-}
-
-.screetshoturltitle {
-  text-align: center;
-  text-decoration: none;
-  color: var(--projectcaptionurl-color);
-  font-family: var(--projectcaptionurl-font);
-  font-weight: bold;    
-}
-
-a.screetshoturltitle {
-  text-align: center;
-  text-decoration: none;
-  color: var(--projectcaptionurl-color);
-  font-family: var(--projectcaptionurl-font);
-  font-weight: bold;    
-}
 
 .urlscreenshottittle {
   text-align: center;
@@ -245,6 +218,7 @@ span.project-date {
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin-top: 1.5px;
 }
 
 .snapshot-iframe {
