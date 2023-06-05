@@ -161,7 +161,7 @@ body {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
 }
 
 div.screenshot-captionUrl {
@@ -174,14 +174,14 @@ div.screenshot-captionUrl {
 span.project-involvement {
   color: var(--projectcaptioninfo-color);
   font-family: var(--projectcaptioninfo-font);
-  flex-direction: flex-start;
+  justify-self: flex-start;
 }
 
 span.project-date {
   color: var(--projectcaptioninfo-color);
   font-family: var(--projectcaptioninfo-font);
-  flex-direction: flex-end;
-    /* margin-left: auto; */
+  justify-self: flex-end;
+  margin-left: auto;
 }
 
 .snapshot-iframe {
