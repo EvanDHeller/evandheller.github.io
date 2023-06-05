@@ -213,7 +213,7 @@ a.screetshoturltitle {
 .urltitle {
   text-align: center;
   text-decoration: none;
-  color: var(--projectcaptionurl-color);
+  color: var(--navitems-color);
   font-family: var(--projectcaptionurl-font);
   font-weight: bold;
   margin-top: 2px;
