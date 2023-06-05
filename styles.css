@@ -265,6 +265,7 @@ span.project-date {
   height: 100px;
   position: relative;
   top: 16vh;
+  opacity: .5;
 }
 
 .gear {
