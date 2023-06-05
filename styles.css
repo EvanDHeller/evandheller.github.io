@@ -174,12 +174,14 @@ div.screenshot-captionUrl {
 span.project-involvement {
   color: var(--projectcaptioninfo-color);
   font-family: var(--projectcaptioninfo-font);
+  flex-direction: flex-start;
 }
 
 span.project-date {
   color: var(--projectcaptioninfo-color);
   font-family: var(--projectcaptioninfo-font);
-  margin-left: auto;
+  flex-direction: flex-end;
+    /* margin-left: auto; */
 }
 
 .snapshot-iframe {
