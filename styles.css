@@ -141,6 +141,7 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   border-radius: 7px;
   overflow: hidden;
+  border: solid 2px rgba(0.576, 0.408, 0.718, .5);
   
 }
 
