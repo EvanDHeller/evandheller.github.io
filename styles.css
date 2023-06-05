@@ -169,6 +169,7 @@ body {
   align-items: center;
 }
 
+/*
 .screenshot-captionUrl {
   color: var(--projectcaptionurl-color);
   font-family: var(--projectcaptionurl-font);
@@ -208,7 +209,7 @@ a.screetshoturltitle {
   color: var(--projectcaptionurl-color);
   font-family: var(--projectcaptionurl-font);
   font-weight: bold; 
-}
+} */
 
 .urltitle {
   text-align: center;
