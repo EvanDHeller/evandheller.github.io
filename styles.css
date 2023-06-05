@@ -57,6 +57,8 @@ header {
   background-size: 200% auto; /* Adjust the size as desired */
   background-repeat: repeat-x;
   background-position: left;
+  padding-left: 0;
+  margin-left: 0;
 }
 
 #header-items {
