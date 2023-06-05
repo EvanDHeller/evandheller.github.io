@@ -154,13 +154,12 @@ body {
 
 .caption {
   margin-top: 5px;
-  display: flex;
-  justify-content: space-between;
 }
 
 .project-info-pair {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   align-items: center;
 }
 
