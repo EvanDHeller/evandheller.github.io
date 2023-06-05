@@ -151,6 +151,7 @@ header {
   width: auto;
   max-width: 35vw;
   max-height: 14vh;
+  margin: 5px;
   z-index: 2;
 }
 
