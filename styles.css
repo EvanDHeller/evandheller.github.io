@@ -46,8 +46,20 @@ header {
   overflow: hidden;
 }
 
+.headeroverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-image: url('overlay.png');
+  background-size: cover;
+}
+
 #header-items {
   display: inherit;
+  z-index: 2;
 }
 
 #nav-items {
