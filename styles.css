@@ -54,7 +54,8 @@ header {
   height: 100%;
   z-index: 1;
   background-image: url('./images/circuitvector.png');
-  background-size: cover;
+  background-size: 200% auto; /* Adjust the size as desired */
+  background-repeat: repeat-x;
 }
 
 #header-items {
