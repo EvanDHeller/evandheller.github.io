@@ -65,6 +65,7 @@ header {
 
 #overlay-right {
   right: 0;
+  transform: rotate(180deg);
 }
 
 /*img.header-overlay {
