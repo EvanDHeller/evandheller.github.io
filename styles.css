@@ -259,3 +259,26 @@ span.project-date {
   font-family: var(--homeh2-font);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
+
+.gear {
+  width: 100px;
+  height: 100px;
+  animation: rotation 2s linear infinite;
+}
+
+.gear-teeth {
+  fill: #ccc;
+}
+
+.gear-center {
+  fill: #333;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
