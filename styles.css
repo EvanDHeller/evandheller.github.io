@@ -162,6 +162,10 @@ body {
   object-fit: cover;
 }
 
+iframe {
+overflow-y: auto;
+}
+
 .caption {
   margin-top: 5px;
 }
