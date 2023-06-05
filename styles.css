@@ -269,7 +269,7 @@ span.project-date {
 .gear {
   width: 100px;
   height: 100px;
-  background-image: url('path/to/gear-image.png');
+  background-image: url('./images/golden-gear.png');
   background-size: contain;
   animation: rotation 2s linear infinite;
 }
