@@ -21,7 +21,7 @@
   --homeh2-font: sans-serif;
 
     /* HOMEPAGE COLUMN-RIGHT: COLOR/FONT VARIABLES */
-  --homerightcontainer-color: rgba(150, 209, 236, 0.7); /*#96d1ec #cccccc, #e6e6fa*/
+  --homerightcontainer-color: #96d1ecb2; /*#96d1ec rgba(150, 209, 236, 0.7) #cccccc, #e6e6fa*/
   --homegriditemcontainer-color: #cccccc; /*#ddd, */
   --projectcaptioninfo-color: #99caff;
   --projectcaptioninfo-font: sans-serif;
