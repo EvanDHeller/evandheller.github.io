@@ -219,12 +219,15 @@ a.screetshoturltitle {
   font-weight: bold;
   margin-top: 2px;
   margin-bottom: 2px;
+  text-shadow: 0 .15em .1em #1c1c1c;
 }
 
 span.project-involvement {
   color: var(--projectcaptioninfo-color);
   font-family: var(--projectcaptioninfo-font);
   justify-self: flex-start;
+  text-shadow: 0 .15em .1em #1c1c1c;
+  text-weight: bold;
 }
 
 span.project-date {
@@ -232,6 +235,8 @@ span.project-date {
   font-family: var(--projectcaptioninfo-font);
   justify-self: flex-end;
   margin-left: auto;
+  text-shadow: 0 .15em .1em #1c1c1c;
+  text-weight: bold;
 }
 
 .project-info-pair-span {
@@ -257,7 +262,7 @@ span.project-date {
 #homepage-h1 {
   color: var(--homeh1-color);
   font-family: var(--homeh1-font);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 .15em .1em rgba(0, 0, 0, 0.4);
 }
 
 #homepage-h2 {
