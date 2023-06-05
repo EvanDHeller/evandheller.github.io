@@ -6,9 +6,9 @@
     
     /* HEADER: COLOR/FONT VARIABLES */
   --header-background: linear-gradient(#666666, #8f8f8f 10%, #8f8f8f 90%, #666666);
-  --navitems-color: #00FFFF;
+  --navitems-color: #99CAFF;
   --navbarlinks-font: sans-serif;
-  --navitems-hover: #ACD7B9;
+  --navitems-hover: #00FFFF;
   --navsitelink-color: white;
   --navsitelink-font: sans-serif;
   --headertext-color: white;
