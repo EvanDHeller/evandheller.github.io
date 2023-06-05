@@ -99,6 +99,7 @@ header {
 
 #header-items {
   display: inherit;
+  align-items: center;
   z-index: 2;
 }
 
