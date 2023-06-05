@@ -168,7 +168,7 @@ body {
   align-items: center;
 }
 
-screenshot-captionUrl {
+.screenshot-captionUrl {
   color: var(--projectcaptionurl-color);
   font-family: var(--projectcaptionurl-font);
   font-weight: bold;
