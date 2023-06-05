@@ -133,7 +133,7 @@ body {
 }
 
 .grid-item {
-  background-color: var(--header-background);
+  background-image: var(--header-background);
   padding: 10px;
   margin-bottom: 10px;
   box-sizing: border-box;
