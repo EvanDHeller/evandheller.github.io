@@ -131,7 +131,7 @@ header {
   color: var(--navitems-hover);
 }
 
-/*#site-link {
+*#site-link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -147,12 +147,10 @@ header {
 #header-img {
   height: 95%;
   width: auto;
-  max-width: 100%;
-  margin-left: 2rem;
-  display: flex;
-  position: absolute;
+  max-width: 35vw;
+  max-height: 14vh;
   z-index: 2;
-} */
+}
 
     /* HOMEPAGE CONTAINERS: COLOR/FONT VARIABLES */
 body {
