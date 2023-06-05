@@ -131,7 +131,7 @@ header {
   color: var(--navitems-hover);
 }
 
-#site-link {
+/*#site-link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -152,7 +152,7 @@ header {
   display: flex;
   position: absolute;
   z-index: 2;
-}
+} */
 
     /* HOMEPAGE CONTAINERS: COLOR/FONT VARIABLES */
 body {
