@@ -130,6 +130,7 @@ body {
   padding: 3%;
   border-radius: 15px;
   overflow: hidden;
+  border: solid 4px #9368B7;
 }
 
 .grid-item {
