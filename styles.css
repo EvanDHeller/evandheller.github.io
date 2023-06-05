@@ -53,8 +53,8 @@ img.header-overlay {
   width: 100%;
   height: 100%;
   z-index: 1;
-  background-image: url('./images/circuitvector.png');
-  background-repeat: no-repeat;
+  /*background-image: url('./images/circuitvector.png');
+  background-repeat: no-repeat;*/
   margin: 0;
   padding: 0;
 }
