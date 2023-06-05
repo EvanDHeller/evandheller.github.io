@@ -193,6 +193,14 @@ body {
   font-weight: bold;    
 }
 
+.urlscreenshottittle {
+  text-align: center;
+  text-decoration: none;
+  color: var(--projectcaptionurl-color);
+  font-family: var(--projectcaptionurl-font);
+  font-weight: bold; 
+}
+
 span.project-involvement {
   color: var(--projectcaptioninfo-color);
   font-family: var(--projectcaptioninfo-font);
