@@ -111,10 +111,23 @@ header {
 }
 
 #overlay-middle5 {
-  top: 8vh;
-  right: 20vw;
+  top: 0;
+  right: 45vw;
   transform: rotate(180deg);
 }
+
+#overlay-middle6 {
+  top: 0;
+  right: 45vw;
+  transform: rotate(180deg);
+}
+
+#overlay-middle7 {
+  top: 0;
+  right: 45vw;
+  transform: rotate(180deg);
+}
+
 
 /*img.header-overlay {
   position: absolute;
