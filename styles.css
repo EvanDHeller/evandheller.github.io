@@ -5,7 +5,7 @@
   --bodytext-font: sans-serif;
     
     /* HEADER: COLOR/FONT VARIABLES */
-  --header-background: linear-gradient(#666666, #8f8f8f 15%, #8f8f8f 85%, #666666);
+  --header-background: linear-gradient(black, #666666 3%, #8f8f8f 20%, #8f8f8f 80%, #666666 97%, black);
   --navitems-color: #99CAFF;
   --navbarlinks-font: sans-serif;
   --navitems-hover: #00FFFF;
@@ -23,6 +23,7 @@
     /* HOMEPAGE COLUMN-RIGHT: COLOR/FONT VARIABLES */
   --homerightcontainer-color: #d6d1ecb9; /*#96d1ecn2 rgba(150, 209, 236, 0.7) #cccccc, #e6e6fa*/
   --homegriditemcontainer-color: #cccccc; /*#ddd, */
+  --griditem-color: linear-gradient(#666666, #8f8f8f 15%, #8f8f8f 85%, #666666);
   --projectcaptioninfo-color: #99caff;
   --projectcaptioninfo-font: sans-serif;
   --urltitle-color: #e8e8e9;
