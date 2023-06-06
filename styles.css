@@ -92,17 +92,25 @@ header {
 }
 
 #overlay-middle2 {
-  top: 8vh;
-  right: 10vw;
-  transform: rotate(180deg);
-}
-
-#overlay-middle3 {
   left: 35vw;
   top: -2vh;
   width: 150%;
   transform: scaleX(1.3);
 }
+
+#overlay-middle3 {
+  top: 8vh;
+  right: 10vw;
+  transform: rotate(180deg);
+}
+
+#overlay-middle4 {
+  top: 8vh;
+  right: 15vw;
+  transform: rotate(180deg);
+}
+
+
 
 /*img.header-overlay {
   position: absolute;
