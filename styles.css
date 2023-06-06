@@ -37,7 +37,7 @@ header {
   top: 2.5vh;
   left: 0;
   width: 100vw;
-  height: 15vh;
+  height: 14vh;
   background-image: var(--header-background);
   display: flex;
   justify-content: center;
