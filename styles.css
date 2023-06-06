@@ -280,7 +280,6 @@ span.project-involvement {
   font-family: var(--projectcaptioninfo-font);
   justify-self: flex-start;
   text-shadow: 0 .1em .05em #1c1c1c;
-  text-weight: bold;
 }
 
 span.project-date {
@@ -289,7 +288,6 @@ span.project-date {
   justify-self: flex-end;
   margin-left: auto;
   text-shadow: 0 .1em .05em #1c1c1c;
-  font-weight: bold;
 }
 
 .project-info-pair-span {
@@ -299,7 +297,7 @@ span.project-date {
   align-items: center;
   width: 100%;
   margin-top: 1.5px;
-  text-weight: bold;
+  font-weight: bold;
 }
 
 .snapshot-iframe {
