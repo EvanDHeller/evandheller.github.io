@@ -317,14 +317,12 @@ span.project-date {
   color: var(--homeh1-color);
   font-family: var(--homeh1-font);
   text-shadow: 0 .15em .1em rgba(0, 0, 0, 0.4);
-  z-index: 2;
 }
 
 #homepage-h2 {
   color: var(--homeh2-color);
   font-family: var(--homeh2-font);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  z-index: 2;
 }
 
 .gear-container {
