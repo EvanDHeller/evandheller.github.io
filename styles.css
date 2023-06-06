@@ -70,7 +70,7 @@ header {
   background-repeat: no-repeat;
   margin: 0;
   padding: 0;
-  opacity: .3;
+  opacity: 1;
 }
 
 #overlay-left {
@@ -90,7 +90,7 @@ top: -2vh;
 }
 
 #overlay-middle2 {
-top: 8vh
+top: 8vh;
 right: 10vw;
 transform: rotate(180deg);
 }
