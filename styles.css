@@ -60,6 +60,19 @@ header {
   opacity: .5;
 }
 
+.header-overlay2 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-image: url('./images/circuitmiddle.png');
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  opacity: .3;
+}
+
 #overlay-left {
   left: 0;
   width: 150%;
@@ -69,6 +82,19 @@ header {
 #overlay-right {
   right: 0;
   transform: rotate(180deg);
+}
+
+#overlay-middle1 {
+left:20vw;
+}
+
+#overlay-middle2 {
+left: 35vw;
+transform: rotate(180deg);
+}
+
+#overlay-middle3 {
+left: 70vw;
 }
 
 /*img.header-overlay {
