@@ -110,7 +110,11 @@ header {
   transform: rotate(180deg);
 }
 
-
+#overlay-middle5 {
+  top: 9vh;
+  right: 22vw;
+  transform: rotate(180deg);
+}
 
 /*img.header-overlay {
   position: absolute;
