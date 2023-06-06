@@ -86,15 +86,18 @@ header {
 
 #overlay-middle1 {
 left:20vw;
+top: -2vh;
 }
 
 #overlay-middle2 {
-left: 35vw;
+top: 8vh
+right: 10vw;
 transform: rotate(180deg);
 }
 
 #overlay-middle3 {
-left: 70vw;
+right: 15vw;
+top: 6vh;
 }
 
 /*img.header-overlay {
