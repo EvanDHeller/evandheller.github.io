@@ -247,7 +247,6 @@ body {
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-  text-weight: bold;
 }
 
 /*
@@ -300,6 +299,7 @@ span.project-date {
   align-items: center;
   width: 100%;
   margin-top: 1.5px;
+  text-weight: bold;
 }
 
 .snapshot-iframe {
