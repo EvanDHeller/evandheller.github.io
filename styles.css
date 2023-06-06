@@ -138,6 +138,10 @@ header {
   color: var(--navitems-hover);
 }
 
+ul#nav-items {
+  max-width: 95vw;
+}
+
 *#site-link {
   display: flex;
   justify-content: center;
