@@ -123,9 +123,11 @@ header {
 }
 
 #overlay-middle7 {
-  bottom: 0;
-  right: 25vw;
-  transform: rotate(180deg);
+  top: 2vh;
+  right: 62vw;
+  transform: rotate(-59deg);
+  widthL: 6%;
+  max-width: 57px;
 }
 
 
