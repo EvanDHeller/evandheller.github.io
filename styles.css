@@ -103,6 +103,7 @@ header {
   top: 8vh;
   right: 10vw;
   transform: rotate(180deg);
+  opacity: .6;
 }
 
 #overlay-middle4 {
