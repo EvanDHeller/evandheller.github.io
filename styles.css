@@ -309,7 +309,7 @@ span.project-date {
 
 
 #homepage-title-container {
-  position: absolute;
+  position: fixed;
   top: 50%;
 }
 
