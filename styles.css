@@ -85,8 +85,10 @@ header {
 }
 
 #overlay-middle1 {
-left:20vw;
+left: 30vw;
 top: -2vh;
+width: 150%;
+transform: scaleX(1.3);
 }
 
 #overlay-middle2 {
