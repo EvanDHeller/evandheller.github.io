@@ -258,9 +258,13 @@ body {
  .nested-grid {
     grid-template-columns: repeat(1, 1fr); /* Set a single column */ 
     }
+ .grid-item {
+    grid-template-columns: repeat(1, 1fr); /* Set a single column */ 
+    }
   #page-head {
     padding-top: 2rem;
     }
+    
     .header {
     display: flex;
     justify-content: space-between;
