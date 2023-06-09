@@ -265,12 +265,12 @@ body {
     display: flex !important;
     width: 100% !important;
   }
-  .nav-bar {
+  .nav-items {
     width: 100% !important;
   }
   #homepage-title-container {
     position: initial !important;
-    padding-bottom: 2rem !important;
+    padding-bottom: 1rem !important;
     padding-top: 3rem;
 }
     .left-column-overlay {
