@@ -265,12 +265,9 @@ body {
     }
   #page-head {
     padding-top: 2rem;
-    }
-    
-    .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    }  
+   header {
+    display: none;
   }
   .nav-bar {
     width: 100%;
@@ -295,6 +292,11 @@ body {
   .nav-icon:after {
     content: '≡';
   }
+  #homepage-title-container {
+    position: relative;
+    top: 3rem;
+    padding-bottom: 2rem;
+}
 }
 
 .home-left-column {
