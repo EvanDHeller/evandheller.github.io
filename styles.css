@@ -274,7 +274,7 @@ body {
     padding-top: 3rem;
 }
     .left-column-overlay {
-    display: none !important;
+    position: relative !important;
     }
     .header-overlay1 {
     display: none !important;
