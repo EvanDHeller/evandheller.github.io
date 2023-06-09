@@ -284,6 +284,9 @@ body {
  .nested-grid {
     grid-template-columns: 1fr; /* Set a single column */ 
     }
+  #page-head {
+    padding-top: 2rem;
+    }
 }
 
 .home-left-column {
