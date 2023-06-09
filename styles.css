@@ -277,10 +277,13 @@ body {
 }
 
 
-  /* Media query for portrait-style displays or phones */
-  @media (max-width: 600px) {
-    grid-template-columns: 1fr; /* Single column for smaller screens */
+@media screen and (max-width: 767px) {
+  .home-grid-container {
+    grid-template-columns: 1fr; /* Set a single column */
   }
+ .nested-grid {
+    grid-template-columns: 1fr; /* Set a single column */ 
+    }
 }
 
 .home-left-column {
