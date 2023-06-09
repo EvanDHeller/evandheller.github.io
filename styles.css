@@ -259,13 +259,13 @@ body {
     grid-template-columns: none !important; /* Set a single column */ 
     }
   #page-head {
-    padding-top: 2rem !important;
+    padding-top: 1rem !important;
     }  
    header {
     display: flex !important;
     width: 100% !important;
   }
-  .nav-items {
+  #nav-items {
     width: 100% !important;
   }
   #homepage-title-container {
