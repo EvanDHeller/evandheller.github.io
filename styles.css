@@ -282,7 +282,7 @@ body {
     grid-template-columns: 1fr; /* Set a single column */
   }
  .nested-grid {
-    grid-template-columns: 1fr; /* Set a single column */ 
+    grid-template-columns: repeat(1, 1fr); /* Set a single column */ 
     }
   #page-head {
     padding-top: 2rem;
