@@ -233,32 +233,6 @@ ul#nav-items {
   z-index: 2;
 }
 
-/* Media query for portrait-style displays or phones */
-@media (max-width: 600px) {
-  header {
-    display: none; /* Hide the menu by default */
-  }
-
-  /* Show the sandwich menu icon */
-  #nav-items {
-    display: block;
-    cursor: pointer;
-    padding: 5px;
-    background-color: #ccc;
-    color: #333;
-  }
-
-  /* Show the menu items when the sandwich menu is clicked */
-  #nav-items:checked + header {
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* Styling for the sandwich menu icon */
-  .navitems::before {
-    content: "\2630";
-  }
-}
 
     /* HOMEPAGE CONTAINERS: COLOR/FONT VARIABLES */
 body {
@@ -287,6 +261,34 @@ body {
   #page-head {
     padding-top: 2rem;
     }
+    .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-bar {
+    width: 100%;
+  }
+  .nav-items {
+    display: none;
+  }
+  .nav-icon {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .nav-icon:hover {
+    background-color: lightgray;
+  }
+  .nav-icon:after {
+    content: '≡';
+  }
 }
 
 .home-left-column {
