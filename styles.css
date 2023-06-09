@@ -256,12 +256,10 @@ body {
     grid-template-columns: 1fr; /* Set a single column */
   }
  .nested-grid {
-    grid-template-columns: 1fr; /* Set a single column */ 
-    grid-template-rows: auto;
+    grid-template-columns: none; /* Set a single column */ 
     }
  .grid-item {
-    grid-template-columns: repeat(1, 1fr); /* Set a single column */ 
-    grid-template-rows: auto;
+    grid-template-columns: none; /* Set a single column */ 
     }
   #page-head {
     padding-top: 2rem;
@@ -293,7 +291,7 @@ body {
     content: '≡';
   }
   #homepage-title-container {
-    position: relative;
+    position: initial;
     top: 3rem;
     padding-bottom: 2rem;
 }
