@@ -251,44 +251,22 @@ body {
 }
 
 
-@media screen, (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .home-grid-container {
-    grid-template-columns: 1fr; /* Set a single column */
+    grid-template-columns: none; /* Set a single column */
   }
  .nested-grid {
-    grid-template-columns: none; /* Set a single column */ 
-    }
- .grid-item {
     grid-template-columns: none; /* Set a single column */ 
     }
   #page-head {
     padding-top: 2rem;
     }  
    header {
-    display: none;
+    display: flex;
+    width: 100%
   }
   .nav-bar {
     width: 100%;
-  }
-  .nav-items {
-    display: none;
-  }
-  .nav-icon {
-    display: block;
-    width: 30px;
-    height: 30px;
-    background-color: black;
-    color: white;
-    text-align: center;
-    line-height: 30px;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  .nav-icon:hover {
-    background-color: lightgray;
-  }
-  .nav-icon:after {
-    content: '≡';
   }
   #homepage-title-container {
     position: initial;
