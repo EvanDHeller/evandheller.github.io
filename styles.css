@@ -253,34 +253,34 @@ body {
 
 @media screen and (max-width: 767px) {
   .home-grid-container {
-    grid-template-columns: none; /* Set a single column */
+    grid-template-columns: none !important; /* Set a single column */
   }
  .nested-grid {
-    grid-template-columns: none; /* Set a single column */ 
+    grid-template-columns: none !important; /* Set a single column */ 
     }
   #page-head {
-    padding-top: 2rem;
+    padding-top: 2rem !important;
     }  
    header {
-    display: flex;
-    width: 100%;
+    display: flex !important;
+    width: 100% !important;
   }
   .nav-bar {
-    width: 100%;
+    width: 100% !important;
   }
   #homepage-title-container {
-    position: initial;
-    top: 3rem;
-    padding-bottom: 2rem;
+    position: initial !important;
+    top: 3rem !important;
+    padding-bottom: 2rem !important;
 }
     .left-column-overlay {
-    display: none;
+    display: none !important;
     }
     .header-overlay1 {
-    display: none;
+    display: none !important;
     }
     .header-overlay2 {
-    display: none;
+    display: none !important;
     }
 }
 
