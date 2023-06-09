@@ -295,6 +295,15 @@ body {
     top: 3rem;
     padding-bottom: 2rem;
 }
+    .left-column-overlay {
+    display: none;
+    }
+    .header-overlay1 {
+    display: none;
+    }
+    .header-overlay2 {
+    display: none;
+    }
 }
 
 .home-left-column {
