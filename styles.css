@@ -267,6 +267,7 @@ body {
   }
   #nav-items {
     width: 100% !important;
+    gap: 1em !important;
   }
   #homepage-title-container {
     position: initial !important;
@@ -280,6 +281,12 @@ body {
     display: none !important;
     }
     .header-overlay2 {
+    display: none !important;
+    }
+    #header-image {
+    display: none !important;
+    }
+    #site-link {
     display: none !important;
     }
 }
