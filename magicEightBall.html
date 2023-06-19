@@ -122,9 +122,10 @@
     const shakeButton = document.querySelector('#shake');
     const magicBall = document.querySelector('.eightball img');
 
-    shakeButton.addEventListener('click', () => {
-      magicBall.style.animation = 'shake 2s linear';
 
+shakeButton.addEventListener('click', () => {
+  magicBall.style.animation = 'shake 2s linear';
+});
 
       setTimeout(() => {
         magicBall.style.animation = '';
