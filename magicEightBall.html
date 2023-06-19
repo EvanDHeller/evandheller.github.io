@@ -58,6 +58,8 @@
       color: yellow;
       font-weight: bold;
       font-family: sans-serif;
+      box-shadow: 0 0 3px 3px #000;
+      overflow: hidden;
     }
 
     .eightball img {
@@ -123,9 +125,8 @@
     const magicBall = document.querySelector('.eightball img');
 
 
-shakeButton.addEventListener('click', () => {
-  magicBall.style.animation = 'shake 2s linear';
-});
+ shakeButton.addEventListener('click', () => {
+      magicBall.style.animation = 'shake 2s linear';
 
       setTimeout(() => {
         magicBall.style.animation = '';
