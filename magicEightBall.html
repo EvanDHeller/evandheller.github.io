@@ -67,54 +67,42 @@
       animation: shake 2s linear;
     }
 
-    @keyframes shake {
-      0% {
-        transform: translate(0, 0);
-      }
-      10% {
-        transform: translate(-10px, 0);
-      }
-      20% {
-        transform: translate(0, 0);
-      }
-      30% {
-        transform: translate(10px, 0);
-      }
-      40% {
-        transform: translate(0, 0);
-      }
-      50% {
-        transform: translate(-10px, 0);
-      }
-      60% {
-        transform: translate(0, 0);
-      }
-      70% {
-        transform: translate(10px, 0);
-      }
-      80% {
-        transform: translate(0, 0);
-      }
-      90% {
-        transform: translate(-10px, 0);
-      }
-      100% {
-        transform: translate(0, 0);
-      }
+    .hidden {
+      display: none;
+    }
+
+    .message {
+      text-align: center;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+
+    .reload-button {
+      display: block;
+      width: 100px;
+      margin: 0 auto;
+      margin-top: 10px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Magic Crystal Ball</h1>
-    <p>What is your name?</p>
+    <p id="nameLabel">What is your name?</p>
     <input type="text" name="name" id="name">
-    <p>What is your question?</p>
+    <p id="questionLabel">What is your question?</p>
     <input type="text" name="question" id="question">
     <button type="submit" id="shake">Shake</button>
     <div class="eightball">
       <img src="./images/magicball2.png" alt="Magic 8 Ball" id="magicBall">
       <div class="answer"></div>
+      <div class="message hidden"></div>
+      <button class="reload-button hidden" onclick="location.reload()">Play Again</button>
     </div>
   </div>
 
@@ -122,6 +110,12 @@
     const shakeButton = document.querySelector('#shake');
     const magicBall = document.querySelector('#magicBall');
     const eightball = document.querySelector('.answer');
+    const nameLabel = document.querySelector('#nameLabel');
+    const questionLabel = document.querySelector('#questionLabel');
+    const nameInput = document.querySelector('#name');
+    const questionInput = document.querySelector('#question');
+    const messageContainer = document.querySelector('.message');
+    const reloadButton = document.querySelector('.reload-button');
 
     shakeButton.addEventListener('click', () => {
       magicBall.classList.add('shake-animation');
@@ -129,7 +123,7 @@
       setTimeout(() => {
         magicBall.classList.remove('shake-animation');
         const randomNumber = Math.floor(Math.random() * 8);
-        eightball.textContent = [
+        const answer = [
           'It is certain',
           'It is decidedly so',
           'Reply hazy try again',
@@ -139,6 +133,23 @@
           'Outlook not so good',
           'Signs point to yes',
         ][randomNumber];
+
+        const username = nameInput.value;
+        const message = `I have seen into your future, ${username}, and this is what the crystal ball has to say: "${answer}"`;
+        
+        // Hide input fields, labels, and shake button
+        nameInput.classList.add('hidden');
+        questionInput.classList.add('hidden');
+        shakeButton.classList.add('hidden');
+        nameLabel.classList.add('hidden');
+        questionLabel.classList.add('hidden');
+
+        // Display result message
+        messageContainer.textContent = message;
+        messageContainer.classList.remove('hidden');
+
+        // Display reload button
+        reloadButton.classList.remove('hidden');
       }, 2000);
     });
   </script>
