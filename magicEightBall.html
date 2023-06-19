@@ -127,6 +127,9 @@
       text-align: center;
       margin-bottom: 10px;
     }
+    .button-line {
+      display: flex-inline;
+    }
   </style>
 </head>
 <body>
@@ -136,7 +139,7 @@
     <input type="text" name="name" id="name">
     <p>What is your question?</p>
     <input type="text" name="question" id="question">
-    <div><button type="submit" id="shake">Shake</button>
+    <div class="button-line"><button type="submit" id="shake">Shake</button>
     <div id="errorMessage" class="error-message" style="display: none;"></div>
     <div class="replacement-text" id="replacementText"></div></div>
     <div class="eightball">
