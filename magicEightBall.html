@@ -80,40 +80,9 @@
       padding: 20px;
     }
 
-    @keyframes shake {
-      0% {
-        transform: translate(0, 0);
-      }
-      10% {
-        transform: translate(-10px, 0);
-      }
-      20% {
-        transform: translate(0, 0);
-      }
-      30% {
-        transform: translate(10px, 0);
-      }
-      40% {
-        transform: translate(0, 0);
-      }
-      50% {
-        transform: translate(-10px, 0);
-      }
-      60% {
-        transform: translate(0, 0);
-      }
-      70% {
-        transform: translate(10px, 0);
-      }
-      80% {
-        transform: translate(0, 0);
-      }
-      90% {
-        transform: translate(-10px, 0);
-      }
-      100% {
-        transform: translate(0, 0);
-      }
+    .play-again {
+      text-align: center;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -130,6 +99,9 @@
       <img src="./images/magicball2.png" alt="Magic 8 Ball" id="magicBall">
       <div class="answer"></div>
     </div>
+        <div class="play-again" id="playAgain" style="display: none;">
+      <button type="button" onclick="location.reload()">Play Again</button>
+    </div>
   </div>
 
   <script>
@@ -137,42 +109,44 @@
     const magicBall = document.querySelector('#magicBall');
     const eightball = document.querySelector('.answer');
     const replacementText = document.querySelector('#replacementText');
+    const playAgain = document.querySelector('#playAgain');
 
     shakeButton.addEventListener('click', () => {
       magicBall.classList.add('shake-animation');
 
-  setTimeout(() => {
-    magicBall.classList.remove('shake-animation');
-    const randomNumber = Math.floor(Math.random() * 8);
-    eightball.textContent = [
-      'It is certain',
-      'It is decidedly so',
-      'Reply hazy try again',
-      'Cannot predict now',
-      'Do not count on it',
-      'My sources say no',
-      'Outlook not so good',
-      'Signs point to yes',
-    ][randomNumber];
+      setTimeout(() => {
+        magicBall.classList.remove('shake-animation');
+        const randomNumber = Math.floor(Math.random() * 8);
+        eightball.textContent = [
+          'It is certain',
+          'It is decidedly so',
+          'Reply hazy try again',
+          'Cannot predict now',
+          'Do not count on it',
+          'My sources say no',
+          'Outlook not so good',
+          'Signs point to yes',
+        ][randomNumber];
 
-    // Get the inputted name and question
-    const inputtedName = document.querySelector('#name').value;
-    const inputtedQuestion = document.querySelector('#question').value;
+        // Get the inputted name and question
+        const inputtedName = document.querySelector('#name').value;
+        const inputtedQuestion = document.querySelector('#question').value;
 
-    // Update the replacement text
-    replacementText.textContent = `I have seen into your future, ${inputtedName}, and here is what the crystal ball has to say...`;
+        // Update the replacement text
+        replacementText.textContent = `I have seen into your future, ${inputtedName}, and here is what the crystal ball has to say...`;
 
-    // Show the replacement text
-    replacementText.style.display = 'block';
+        // Show the replacement text and play again button
+        replacementText.style.display = 'block';
+        playAgain.style.display = 'block';
 
-    // Hide the labels, input fields, and shake button
-    document.querySelectorAll('p').forEach(label => {
-      label.style.display = 'none';
-    });
-    document.querySelector('#name').style.display = 'none';
-    document.querySelector('#question').style.display = 'none';
-    shakeButton.style.display = 'none';
-  }, 2000);
+        // Hide the labels, input fields, and shake button
+        document.querySelectorAll('p').forEach(label => {
+          label.style.display = 'none';
+        });
+        document.querySelector('#name').style.display = 'none';
+        document.querySelector('#question').style.display = 'none';
+        shakeButton.style.display = 'none';
+      }, 2000);
     });
   </script>
 </body>
