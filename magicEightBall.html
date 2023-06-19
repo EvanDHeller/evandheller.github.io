@@ -3,127 +3,140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Magic 8 Ball</title>
-<style>
-html {
-max-width: 100vw;
-max-height: 100vh;
-}
-.container {
-  width: 400px;
-  margin: 0 auto;
-}
+  <title>Magic 8 Ball</title>
+  <style>
+    html {
+      max-width: 100vw;
+      max-height: 100vh;
+    }
 
-h1 {
-  text-align: center;
-}
+    .container {
+      width: 400px;
+      margin: 0 auto;
+    }
 
-p {
-  margin-bottom: 10px;
-}
+    h1 {
+      text-align: center;
+    }
 
-input {
-  width: 100%;
-  height: 30px;
-  border: 1px solid #ccc;
-  padding: 10px;
-}
+    p {
+      margin-bottom: 10px;
+    }
 
-button {
-  width: 100px;
-  height: 30px;
-  background-color: #000;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
+    input {
+      width: 100%;
+      height: 30px;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
 
-.eightball, img {
-  width: 300px;
-  height: 300px;
-  margin: 0 auto;
-  max-heighL: 400px;
-  max-width: 400px;
-}
+    button {
+      width: 100px;
+      height: 30px;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
 
-.answer {
-  text-align: center;
-  font-size: 20px;
-}
+    .eightball, img {
+      width: 300px;
+      height: 300px;
+      margin: 0 auto;
+      max-height: 400px;
+      max-width: 400px;
+      position: relative;
+    }
 
-.eightball img {
-  animation: shake 1s linear infinite;
-}
+    .answer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      font-size: 20px;
+    }
 
-@keyframes shake {
-  0% {
-    transform: translate(0, 0);
-  }
-  10% {
-    transform: translate(-10px, 0);
-  }
-  20% {
-    transform: translate(0, 0);
-  }
-  30% {
-    transform: translate(10px, 0);
-  }
-  40% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(-10px, 0);
-  }
-  60% {
-    transform: translate(0, 0);
-  }
-  70% {
-    transform: translate(10px, 0);
-  }
-  80% {
-    transform: translate(0, 0);
-  }
-  90% {
-    transform: translate(-10px, 0);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-}
-</style>
+    .eightball img {
+      animation: shake 2s linear;
+    }
+
+    @keyframes shake {
+      0% {
+        transform: translate(0, 0);
+      }
+      10% {
+        transform: translate(-10px, 0);
+      }
+      20% {
+        transform: translate(0, 0);
+      }
+      30% {
+        transform: translate(10px, 0);
+      }
+      40% {
+        transform: translate(0, 0);
+      }
+      50% {
+        transform: translate(-10px, 0);
+      }
+      60% {
+        transform: translate(0, 0);
+      }
+      70% {
+        transform: translate(10px, 0);
+      }
+      80% {
+        transform: translate(0, 0);
+      }
+      90% {
+        transform: translate(-10px, 0);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-<h1>Magic 8 Ball</h1>
-<p>What is your name?</p>
-<input type="text" name="name" id="name">
-<p>What is your question?</p>
-<input type="text" name="question" id="question">
-<button type="submit" id="shake">Shake</button>
-<div class="eightball">
-<img src="./images/magicball2.png" alt="Magic 8 Ball">
-<div class="answer"></div>
-</div>
-</div>
-<script>
-const eightball = document.querySelector('.answer');
-const nameInput = document.querySelector('#name');
-const questionInput = document.querySelector('#question');
-const shakeButton = document.querySelector('#shake');
+  <div class="container">
+    <h1>Magic 8 Ball</h1>
+    <p>What is your name?</p>
+    <input type="text" name="name" id="name">
+    <p>What is your question?</p>
+    <input type="text" name="question" id="question">
+    <button type="submit" id="shake">Shake</button>
+    <div class="eightball">
+      <img src="./images/magicball2.png" alt="Magic 8 Ball">
+      <div class="answer"></div>
+    </div>
+  </div>
 
-shakeButton.addEventListener('click', () => {
-  const randomNumber = Math.floor(Math.random() * 8);
-  eightball.innerHTML = [
-    'It is certain',
-    'It is decidedly so',
-    'Reply hazy try again',
-    'Cannot predict now',
-    'Do not count on it',
-    'My sources say no',
-    'Outlook not so good',
-    'Signs point to yes',
-  ][randomNumber];
-});
-</script>
+  <script>
+    const eightball = document.querySelector('.answer');
+    const nameInput = document.querySelector('#name');
+    const questionInput = document.querySelector('#question');
+    const shakeButton = document.querySelector('#shake');
+    const magicBall = document.querySelector('.eightball img');
+
+    shakeButton.addEventListener('click', () => {
+      magicBall.style.animation = 'shake 2s linear';
+
+      setTimeout(() => {
+        magicBall.style.animation = '';
+        const randomNumber = Math.floor(Math.random() * 8);
+        eightball.textContent = [
+          'It is certain',
+          'It is decidedly so',
+          'Reply hazy try again',
+          'Cannot predict now',
+          'Do not count on it',
+          'My sources say no',
+          'Outlook not so good',
+          'Signs point to yes',
+        ][randomNumber];
+      }, 2000);
+    });
+  </script>
 </body>
-</html> 
+</html>
