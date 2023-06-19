@@ -119,6 +119,12 @@
       text-align: center;
       margin-top: 20px;
     }
+
+    .error-message {
+      color: red;
+      text-align: center;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
@@ -129,6 +135,7 @@
     <p>What is your question?</p>
     <input type="text" name="question" id="question">
     <button type="submit" id="shake">Shake</button>
+    <div id="errorMessage" class="error-message" style="display: none;"></div>
     <div class="replacement-text" id="replacementText"></div>
     <div class="eightball">
       <img src="./images/magicball2.png" alt="Magic 8 Ball" id="magicBall">
@@ -147,6 +154,29 @@
     const playAgain = document.querySelector('#playAgain');
 
     shakeButton.addEventListener('click', () => {
+      const inputtedName = document.querySelector('#name').value.trim();
+      const inputtedQuestion = document.querySelector('#question').value.trim();
+      let errorMessage = '';
+
+      if (inputtedName === '' && inputtedQuestion === '') {
+        errorMessage = 'Please enter your name and question before shaking!';
+      } else if (inputtedName === '') {
+        errorMessage = 'Please enter your name before shaking!';
+      } else if (inputtedQuestion === '') {
+        errorMessage = 'Please enter your question before shaking!';
+      }
+
+      if (errorMessage !== '') {
+        const errorElement = document.querySelector('#errorMessage');
+        errorElement.textContent = errorMessage;
+        errorElement.style.display = 'block';
+        return; // Exit the event listener if there's an error
+      }
+
+      // Clear any previous error messages
+      document.querySelector('#errorMessage').style.display = 'none';
+
+      // Rest of the shake logic...
       magicBall.classList.add('shake-animation');
 
       setTimeout(() => {
@@ -162,10 +192,6 @@
           'Outlook not so good',
           'Signs point to yes',
         ][randomNumber];
-
-        // Get the inputted name and question
-        const inputtedName = document.querySelector('#name').value;
-        const inputtedQuestion = document.querySelector('#question').value;
 
         // Update the replacement text
         replacementText.textContent = `I have seen into your future, ${inputtedName}, and here is what the crystal ball has to say...`;
