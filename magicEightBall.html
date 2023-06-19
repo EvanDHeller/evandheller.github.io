@@ -55,14 +55,14 @@
       transform: translate(-50%, -50%);
       text-align: center;
       font-size: 20px;
-      color: red;
+      color: yellow;
       font-weight: bold;
       font-family: sans-serif;
-      text-shadow: 1px 1px yellow;
+      text-shadow: 0 0 3px 3px #000;
       overflow: hidden;
     }
 
-    .eightball img {
+    .eightball img.shake-animation {
       animation: shake 2s linear;
     }
 
@@ -112,24 +112,21 @@
     <input type="text" name="question" id="question">
     <button type="submit" id="shake">Shake</button>
     <div class="eightball">
-      <img src="./images/magicball2.png" alt="Magic 8 Ball">
+      <img src="./images/magicball2.png" alt="Magic 8 Ball" id="magicBall">
       <div class="answer"></div>
     </div>
   </div>
 
   <script>
-    const eightball = document.querySelector('.answer');
-    const nameInput = document.querySelector('#name');
-    const questionInput = document.querySelector('#question');
     const shakeButton = document.querySelector('#shake');
-    const magicBall = document.querySelector('.eightball img');
+    const magicBall = document.querySelector('#magicBall');
+    const eightball = document.querySelector('.answer');
 
-
- shakeButton.addEventListener('click', () => {
-      magicBall.style.animation = 'shake 2s linear';
+    shakeButton.addEventListener('click', () => {
+      magicBall.classList.add('shake-animation');
 
       setTimeout(() => {
-        magicBall.style.animation = '';
+        magicBall.classList.remove('shake-animation');
         const randomNumber = Math.floor(Math.random() * 8);
         eightball.textContent = [
           'It is certain',
