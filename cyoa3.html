@@ -89,29 +89,31 @@
       };
       
       // Helper functions for displaying messages, options, and managing user input
+     
       function showMessage(message) {
         const messageElement = document.getElementById("message");
-        messageElement.textContent += message + "\n";
-      }
-      
-      function showOptions(options) {
-        const optionsElement = document.getElementById("options");
-        optionsElement.innerHTML = "";
-        options.forEach((option, index) => {
-          const button = document.createElement("button");
-          button.innerText = option.text;
-          button.className = "option-button";
-          button.onclick = option.action;
-          optionsElement.appendChild(button);
-        });
-        
-        const continueButton = document.getElementById("continue-button");
-        if (options.length === 0) {
-          continueButton.style.display = "inline-block";
-        } else {
-          continueButton.style.display = "none";
+        messageElement.textContent = message + "\n"; // Update the message content instead of appending
         }
-      }
+      
+     function showOptions(options) {
+  const optionsElement = document.getElementById("options");
+  optionsElement.innerHTML = "";
+  options.forEach((option, index) => {
+    const button = document.createElement("button");
+    button.innerText = option.text;
+    button.className = "option-button";
+    button.onclick = option.action;
+    optionsElement.appendChild(button);
+  });
+
+  const continueButton = document.getElementById("continue-button");
+  if (options.length === 0) {
+    continueButton.style.display = "inline-block";
+    continueButton.onclick = continueGame;
+  } else {
+    continueButton.style.display = "none";
+  }
+}
       
       function startGame() {
         document.getElementById("start-button").style.display = "none";
@@ -123,13 +125,23 @@
         story.startGame();
       }
       
-      function continueGame() {
-        const optionButtons = document.getElementsByClassName("option-button");
-        while (optionButtons.length > 0) {
-          optionButtons[0].parentNode.removeChild(optionButtons[0]);
-        }
-        story[story.currentScene]();
-      }
+function continueGame() {
+  const optionButtons = document.getElementsByClassName("option-button");
+  while (optionButtons.length > 0) {
+    optionButtons[0].parentNode.removeChild(optionButtons[0]);
+  }
+
+  const messageElement = document.getElementById("message");
+  messageElement.innerHTML = ""; // Clear the message element
+
+  story[story.currentScene]();
+}
+
+  const messageElement = document.getElementById("message");
+  messageElement.textContent = ""; // Clear the message element
+
+  story[story.currentScene]();
+}
       
       function showNameInput() {
         const nameInput = document.getElementById("name-input");
