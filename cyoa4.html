@@ -53,9 +53,6 @@
         },
         
         scene3: function(option) {
-          // Clear the previous message
-          document.getElementById("message").innerHTML = "";
-          
           switch (option) {
             case 1:
               showMessage("You kick at the rusted lock, but it doesn't budge. It seems sturdy.");
@@ -89,3 +86,75 @@
           showOptions([{ text: "Play Again", action: () => this.startGame() }]);
           this.currentScene = "startGame";
         },
+      };
+      
+      // Helper functions for displaying messages, options, and managing user input
+      function showMessage(message) {
+        const messageElement = document.getElementById("message");
+        messageElement.textContent += message + "\n";
+      }
+      
+      function showOptions(options) {
+        const optionsElement = document.getElementById("options");
+        optionsElement.innerHTML = "";
+        options.forEach((option, index) => {
+          const button = document.createElement("button");
+          button.innerText = option.text;
+          button.className = "option-button";
+          button.onclick = option.action;
+          optionsElement.appendChild(button);
+        });
+        
+        const continueButton = document.getElementById("continue-button");
+        if (options.length === 0) {
+          continueButton.style.display = "inline-block";
+        } else {
+          continueButton.style.display = "none";
+        }
+      }
+      
+      function startGame() {
+        document.getElementById("start-button").style.display = "none";
+        document.getElementById("continue-button").style.display = "none";
+        document.getElementById("play-again-button").style.display = "none";
+        document.getElementById("name-input").style.display = "none";
+        document.getElementById("message").textContent = "";
+        document.getElementById("options").textContent = "";
+        story.startGame();
+      }
+      
+      function continueGame() {
+  const optionButtons = document.getElementsByClassName("option-button");
+  while (optionButtons.length > 0) {
+    optionButtons[0].parentNode.removeChild(optionButtons[0]);
+  }
+
+  const messageElement = document.getElementById("message");
+  messageElement.textContent = ""; // Clear the message element
+
+  story[story.currentScene]();
+}
+      
+      function showNameInput() {
+        const nameInput = document.getElementById("name-input");
+        nameInput.style.display = "block";
+      }
+      
+      function saveName() {
+        const nameField = document.getElementById("name-field");
+        const playerName = nameField.value;
+        if (playerName.trim() === "") {
+          showMessage("Please enter a valid name.");
+        } else {
+          story.playerName = playerName;
+          document.getElementById("name-input").style.display = "none";
+          story.scene2();
+        }
+      }
+      
+      function showEndMessage() {
+        document.getElementById("play-again-button").style.display = "inline-block";
+      }
+    </script>
+  </body>
+</html>
