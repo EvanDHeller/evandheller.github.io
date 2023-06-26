@@ -53,6 +53,9 @@
         },
         
         scene3: function(option) {
+          // Clear the previous message
+          document.getElementById("message").innerHTML = "";
+          
           switch (option) {
             case 1:
               showMessage("You kick at the rusted lock, but it doesn't budge. It seems sturdy.");
@@ -79,12 +82,10 @@
               showMessage("Please choose a valid option.");
               break;
           }
-          
-          // Clear the previous message
-          this.clearMessage();
         },
         
         endGame: function() {
           showMessage("Congratulations, you have reached the end of the game!");
           showOptions([{ text: "Play Again", action: () => this.startGame() }]);
-          this.currentScene = "start
+          this.currentScene = "startGame";
+        },
