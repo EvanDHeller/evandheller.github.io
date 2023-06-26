@@ -451,6 +451,17 @@ function getRandomItem() {
     }
 }
 
+function handleOptionClick(nextScene) {
+    if (!scenes.includes(nextScene)) {
+        throw new Error("Invalid scene: " + nextScene);
+    }
+
+    showMessage('');
+    showOptions([]);
+
+    // ...implement the logic for the scene...
+}
+        
 // ...previous code...
 
 } else if (nextScene === 'scene1.2.1') {
