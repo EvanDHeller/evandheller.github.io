@@ -28,7 +28,39 @@
     <script>
       // Define your story object with scenes and options
       const story = {
-  ...
+  currentScene: "startGame",
+  playerName: null,
+
+  startGame: function() {
+    this.playerName = null;
+    showMessage("You have just woken up, you don't know where you are, or how you got there.");
+    showMessage("You don't even remember your name!");
+    showMessage("As you yawn and rub your eyes, you realize even a temporary name may be helpful...");
+
+    showNameInput();
+  },
+
+  scene2: function() {
+    showMessage("Thank you, " + this.playerName + ", your adventure begins now!");
+    showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.");
+
+    this.currentScene = "scene3";
+    showOptions([
+      {
+        text: "Kick at the rusted lock, hoping it will open.",
+        action: () => this.scene3(1),
+      },
+      {
+        text: "Look around to see if there is anything you can use to open the chest.",
+        action: () => this.scene3(2),
+      },
+      {
+        text: "You know, this is someone's property, I should probably leave it alone.",
+        action: () => this.scene3(3),
+      },
+    ]);
+  },
+
   scene3: function(option) {
     switch (option) {
       case 1:
@@ -65,27 +97,17 @@
           },
         ]);
         break;
+      case 3:
+        showMessage("You decide to leave the chest alone and continue on your way.");
+        this.currentScene = "endGame";
+        showOptions([{ text: "Play Again", action: () => this.startGame() }]);
+        break;
       default:
         break;
     }
 
     if (this.currentScene !== "scene4") {
-      showOptions([{ text: "Continue", action: () => this.scene3() }]);
-    } else {
-      showOptions([
-        {
-          text: "Look around to see if there is anything you can use to open the chest.",
-          action: () => this.scene4(1),
-        },
-        {
-          text: "You know, this is someone's property, I should probably leave it alone.",
-          action: () => this.scene4(2),
-        },
-      ]);
-    }
-  },
-  ...
-};
+      showOptions([{ text: "Continue", action: () => this.scene3()
       
    /*   const story = {
         currentScene: "startGame",
