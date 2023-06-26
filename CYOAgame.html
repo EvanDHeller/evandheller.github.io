@@ -218,6 +218,20 @@ function handleOptionClick(nextScene) {
 
 // ...previous code...
 
+<script type="text/javascript">
+        languagePluginLoader.then(() => {
+            // Run Python code
+            pyodide.runPython(`
+                # Python code goes here
+                message = "Hello, World!"
+                print(message)
+                
+                # Access HTML elements
+                output_element = document.getElementById("output")
+                output_element.textContent = message
+            `);
+        });
+        
 } else if (nextScene === 'scene2.3.2') {
     showMessage("Beartholomy looks at you suspiciously before asking... 'Your name... is Humanee?'");
     input("Press Enter to continue...");
