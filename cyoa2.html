@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Adventure Game</title>
+    <style>
+      #message {
+        margin-bottom: 10px;
+      }
+      .option-button {
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="message"></div>
+    <div id="options"></div>
+    <button id="start-button" onclick="startGame()">Start</button>
+    <button id="continue-button" onclick="continueGame()" style="display: none;">Continue</button>
+    <button id="play-again-button" onclick="startGame()" style="display: none;">Play Again</button>
+
+    <script>
+      // Define your story object with scenes and options
+      const story = {
+        currentScene: "startGame",
+        
+        startGame: function() {
+          showMessage("You have just woken up, you don't know where you are, or how you got there.");
+          showMessage("You don't even remember your name!");
+          showMessage("As you yawn and rub your eyes, you realize even a temporary name may be helpful...");
+          
+          let validName = false;
+          while (!validName) {
+            let name = prompt("You decide that for now, your name will be: ");
+            if (/^[a-zA-Z]+$/.test(name)) {
+              validName = true;
+            } else {
+              showMessage("Please choose a valid name (letters only).");
+            }
+          }
+          
+          showMessage("Thank you, " + name + ", your adventure begins now!");
+          showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.");
+          
+          this.currentScene = "scene2";
+          showOptions([
+            { text: "Kick at the rusted lock, hoping it will open.", action: () => this.scene2(1) },
+            { text: "Look around to see if there is anything you can use to open the chest.", action: () => this.scene2(2) },
+            { text: "You know, this is someone's property, I should probably leave it alone.", action: () => this.scene2(3) }
+          ]);
+        },
+        
+        scene2: function(option) {
+          switch (option) {
+            case 1:
+              showMessage("You kick at the rusted lock, but it doesn't budge. It seems sturdy.");
+              this.currentScene = "scene3";
+              showOptions([
+                { text: "Look around to see if there is anything you can use to open the chest.", action: () => this.scene3(1) },
+                { text: "You know, this is someone's property, I should probably leave it alone.", action: () => this.scene3(2) }
+              ]);
+              break;
+            case 2:
+              showMessage("You search the area and find a crowbar hidden behind a tree. It might come in handy.");
+              this.currentScene = "scene3";
+              showOptions([
+                { text: "Try using the crowbar to open the chest.", action: () => this.scene3(1) },
+                { text: "You know, this is someone's property, I should probably leave it alone.", action: () => this.scene3(2) }
+              ]);
+              break;
+            case 3:
+              showMessage("You decide it's best not to meddle with someone else's property and leave the chest alone.");
+              this.currentScene = "endGame";
+              showEndMessage();
+              break;
+            default:
+              showMessage("Please choose a valid option.");
+              break;
+          }
+        },
+        
+        // Define other scenes and their corresponding logic here...
+        
+        endGame: function() {
+          showMessage("Congratulations, you have reached the end of the game!");
+          showOptions([{ text: "Play Again", action: () => this.startGame() }]);
+          this.currentScene = "startGame";
+        },
+      };
+      
+      // Helper functions for displaying messages, options, and managing user input
+      function showMessage(message) {
+        const messageElement = document.getElementById("message");
+        messageElement.textContent += message + "\n";
+      }
+      
+      function showOptions(options) {
+        const optionsElement = document.getElementById("options");
+        optionsElement.innerHTML = "";
+        options.forEach((option, index) => {
+          const button = document.createElement("button");
+          button.innerText = option.text;
+          button.className = "option-button";
+          button.onclick = option.action;
+          optionsElement.appendChild(button);
+        });
+      }
+      
+      function startGame() {
+        document.getElementById("start-button").style.display = "none";
+        document.getElementById("continue-button").style.display = "inline-block";
+        document.getElementById("play-again-button").style.display = "none";
+        document.getElementById("message").textContent = "";
+        document.getElementById("options").textContent = "";
+        story.startGame();
+      }
+      
+      function continueGame() {
+        const optionButtons = document.getElementsByClassName("option-button");
+        while (optionButtons.length > 0) {
+          optionButtons[0].parentNode.removeChild(optionButtons[0]);
+        }
+        story[story.currentScene]();
+      }
+    </script>
+  </body>
+</html>
