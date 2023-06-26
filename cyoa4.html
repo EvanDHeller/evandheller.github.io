@@ -28,6 +28,66 @@
     <script>
       // Define your story object with scenes and options
       const story = {
+  ...
+  scene3: function(option) {
+    switch (option) {
+      case 1:
+        showMessage("You kick at the rusted lock, but it doesn't budge. It seems sturdy.");
+        this.currentScene = "scene4";
+        showOptions([
+          {
+            text: "Look around to see if there is anything you can use to open the chest.",
+            action: () => this.scene4(1),
+          },
+          {
+            text: "You know, this is someone's property, I should probably leave it alone.",
+            action: () => this.scene4(2),
+          },
+        ]);
+        break;
+      case 2:
+        showMessage("While you were busy examining the chest, something crept up behind you. A twig snaps under the foot of something heavy.");
+
+        showMessage("You spin around and see a giant black bear standing on its hind legs. It opens its mouth wide and you shudder, expecting a powerful roar.");
+
+        showMessage("Bear: 'I do apologize, I've had a cold and it's been absolutely grizzly.'");
+
+        showMessage("Bear: 'I saw you checking out my little treasure box. I appreciate you leaving it alone. I can't begin to tell how many times humans have tried to steal my special stash.'");
+
+        showOptions([
+          {
+            text: "My name's [insert user inputted name], it's nice to meet you!",
+            action: () => this.scene2.3.1(),
+          },
+          {
+            text: "Thinking of a quick lie, you say 'Hi Beartholomy! I'm... Humanee Personby... And I totally wasn't ever thinking of breaking into your treasure box. I mean, what treasure box? Oh THIS treasure box? Now that you mention it, I do see it now. How did I miss that before?'",
+            action: () => this.scene2.3.2(),
+          },
+        ]);
+        break;
+      default:
+        break;
+    }
+
+    if (this.currentScene !== "scene4") {
+      showOptions([{ text: "Continue", action: () => this.scene3() }]);
+    } else {
+      showOptions([
+        {
+          text: "Look around to see if there is anything you can use to open the chest.",
+          action: () => this.scene4(1),
+        },
+        {
+          text: "You know, this is someone's property, I should probably leave it alone.",
+          action: () => this.scene4(2),
+        },
+      ]);
+    }
+  },
+  ...
+};
+      
+   /*   const story = {
         currentScene: "startGame",
         playerName: null,
         
@@ -61,7 +121,7 @@
                 { text: "Look around to see if there is anything you can use to open the chest.", action: () => this.scene4(1) },
                 { text: "You know, this is someone's property, I should probably leave it alone.", action: () => this.scene4(2) }
               ]);
-              break;
+              break; */
     /*  } else if (nextScene === 'scene2.3') {
         showMessage("While you were busy examining the chest, something crept up behind you. A twig snaps under the foot of something heavy.");
         input("Press Enter to continue...");
