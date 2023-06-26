@@ -30,20 +30,39 @@
       const story = {
         currentScene: "startGame",
         playerName: null,
-        
+        messages: [],
+        messageIndex: 0,
+
         startGame: function() {
           this.playerName = null;
-          showMessage("You have just woken up, you don't know where you are, or how you got there.");
-          showMessage("You don't even remember your name!");
-          showMessage("As you yawn and rub your eyes, you realize even a temporary name may be helpful...");
-          
-          showNameInput();
+          this.messages = [
+            "You have just woken up, you don't know where you are, or how you got there.",
+            "You don't even remember your name!",
+            "As you yawn and rub your eyes, you realize even a temporary name may be helpful..."
+          ];
+          this.messageIndex = 0;
+          this.displayNextMessage();
         },
-        
+
+        displayNextMessage: function() {
+          if (this.messageIndex < this.messages.length) {
+            showMessage(this.messages[this.messageIndex]);
+
+            if (this.messageIndex === this.messages.length - 1) {
+              // Last message, show name input instead of continue button
+              showNameInput();
+            } else {
+              showContinueButton();
+            }
+
+            this.messageIndex++;
+          }
+        },
+
         scene2: function() {
           showMessage("Thank you, " + this.playerName + ", your adventure begins now!");
           showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.");
-          
+
           this.currentScene = "scene3";
           showOptions([
             { text: "Kick at the rusted lock, hoping it will open.", action: () => this.scene3(1) },
@@ -51,7 +70,7 @@
             { text: "You know, this is someone's property, I should probably leave it alone.", action: () => this.scene3(3) }
           ]);
         },
-        
+
         scene3: function(option) {
           switch (option) {
             case 1:
@@ -80,24 +99,28 @@
               break;
           }
         },
-        
+
         endGame: function() {
           showMessage("Congratulations, you have reached the end of the game!");
           showOptions([{ text: "Play Again", action: () => this.startGame() }]);
           this.currentScene = "startGame";
         },
       };
-      
+
       // Helper functions for displaying messages, options, and managing user input
-     
+
       function showMessage(message) {
         const messageElement = document.getElementById("message");
-        messageElement.textContent = message + "\n"; // Update the message content instead of appending
-        }
-      
+        messageElement.textContent = message + "\n";
+
+        const optionsElement = document.getElementById("options");
+        optionsElement.innerHTML = "";
+      }
+
       function showOptions(options) {
         const optionsElement = document.getElementById("options");
         optionsElement.innerHTML = "";
+
         options.forEach((option, index) => {
           const button = document.createElement("button");
           button.innerText = option.text;
@@ -105,15 +128,16 @@
           button.onclick = option.action;
           optionsElement.appendChild(button);
         });
-        
+
         const continueButton = document.getElementById("continue-button");
-        if (options.length === 0) {
-          continueButton.style.display = "inline-block";
-        } else {
-          continueButton.style.display = "none";
-        }
+        continueButton.style.display = "none";
       }
-      
+
+      function showContinueButton() {
+        const continueButton = document.getElementById("continue-button");
+        continueButton.style.display = "inline-block";
+      }
+
       function startGame() {
         document.getElementById("start-button").style.display = "none";
         document.getElementById("continue-button").style.display = "none";
@@ -123,24 +147,16 @@
         document.getElementById("options").textContent = "";
         story.startGame();
       }
-      
+
       function continueGame() {
-  const optionButtons = document.getElementsByClassName("option-button");
-  while (optionButtons.length > 0) {
-    optionButtons[0].parentNode.removeChild(optionButtons[0]);
-  }
+        story.displayNextMessage();
+      }
 
-  const messageElement = document.getElementById("message");
-  messageElement.textContent = ""; // Clear the message element
-
-  story[story.currentScene]();
-}
-      
       function showNameInput() {
         const nameInput = document.getElementById("name-input");
         nameInput.style.display = "block";
       }
-      
+
       function saveName() {
         const nameField = document.getElementById("name-field");
         const playerName = nameField.value;
@@ -152,7 +168,7 @@
           story.scene2();
         }
       }
-      
+
       function showEndMessage() {
         document.getElementById("play-again-button").style.display = "inline-block";
       }
