@@ -100,6 +100,25 @@
           }
         },
 
+        scene4: function(option) {
+          switch (option) {
+            case 1:
+              showMessage("You use the crowbar to pry open the chest. Inside, you find a map and a key.");
+              showMessage("The map reveals the location of a hidden treasure nearby. Excited, you decide to go searching for it.");
+              this.currentScene = "endGame";
+              showEndMessage();
+              break;
+            case 2:
+              showMessage("You decide it's best not to meddle with someone else's property and leave the chest alone.");
+              this.currentScene = "endGame";
+              showEndMessage();
+              break;
+            default:
+              showMessage("Please choose a valid option.");
+              break;
+          }
+        },
+
         endGame: function() {
           showMessage("Congratulations, you have reached the end of the game!");
           showOptions([{ text: "Play Again", action: () => this.startGame() }]);
@@ -155,6 +174,8 @@
       function showNameInput() {
         const nameInput = document.getElementById("name-input");
         nameInput.style.display = "block";
+        const continueButton = document.getElementById("continue-button");
+        continueButton.style.display = "none";
       }
 
       function saveName() {
@@ -170,6 +191,7 @@
       }
 
       function showEndMessage() {
+        document.getElementById("continue-button").style.display = "none";
         document.getElementById("play-again-button").style.display = "inline-block";
       }
     </script>
