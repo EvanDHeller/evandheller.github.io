@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Adventure Game</title>
+    <style>
+      #message {
+        margin-bottom: 10px;
+      }
+      .option-button {
+        margin-right: 5px;
+      }
+      #name-input {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="message"></div>
+    <div id="options"></div>
+    <div id="name-input">
+      <input type="text" id="name-field" placeholder="Enter your name" />
+      <button id="name-button" onclick="saveName()">Save</button>
+    </div>
+    <button id="start-button" onclick="startGame()">Start</button>
+    <button id="continue-button" onclick="continueGame()" style="display: none;">Continue</button>
+    <button id="play-again-button" onclick="startGame()" style="display: none;">Play Again</button>
+
+    <script>
+      // Define your story object with scenes and options
+      const story = {
+        currentScene: "startGame",
+        playerName: null,
+        
+        startGame: function() {
+          this.playerName = null;
+          showMessage("You have just woken up, you don't know where you are, or how you got there.");
+          showMessage("You don't even remember your name!");
+          showMessage("As you yawn and rub your eyes, you realize even a temporary name may be helpful...");
+          
+          showNameInput();
+        },
+        
+        scene2: function() {
+          showMessage("Thank you, " + this.playerName + ", your adventure begins now!");
+          showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.");
+          
+          this.currentScene = "scene3";
+          showOptions([
+            { text: "Kick at the rusted lock, hoping it will open.", action: () => this.scene3(1) },
+            { text: "Look around to see if there is anything you can use to open the chest.", action: () => this.scene3(2) },
+            { text: "You know, this is someone's property, I should probably leave it alone.", action: () => this.scene3(3) }
+          ]);
+        },
+        
+        scene3: function(option) {
+          switch (option) {
+            case 1:
+              showMessage("You kick at the rusted lock, but it doesn't budge. It seems sturdy.");
+              this.currentScene = "scene4";
+              showOptions([
+                { text: "Look around to see if there is anything you can use to open the chest.", action: () => this.scene4(1) },
+                { text: "You know, this is someone's property, I should probably leave it alone.", action: () => this.scene4(2) }
+              ]);
+              break;
+    /*  } else if (nextScene === 'scene2.3') {
+        showMessage("While you were busy examining the chest, something crept up behind you. A twig snaps under the foot of something heavy.");
+        input("Press Enter to continue...");
+        
+        showMessage("You spin around and see a giant black bear standing on its hind legs. It opens its mouth wide and you shudder, expecting a powerful roar.");
+        input("Press Enter to continue...");
+        
+        showMessage("You stare in fear as the bear makes a terrifying sound from the back of its throat.");
+        input("Press Enter to continue...");
+        
+        showMessage("Bear: 'I do apologize, I've had a cold and it's been absolutely grizzly.'");
+        input("Press Enter to continue...");
+        
+        showMessage("Bear: 'I saw you checking out my little treasure box. I appreciate you leaving it alone. I can't begin to tell how many times humans have tried to steal my special stash.'");
+        input("Press Enter to continue...");
+        
+        showMessage("Bear: 'My name is Beartholomy, and who might you be?'");
+        showOptions([
+            { text: "My name's [insert user inputted name], it's nice to meet you!", nextScene: "scene2.3.1" },
+            { text: "Thinking of a quick lie, you say 'Hi Beartholomy! I'm... Humanee Personby... And I totally wasn't ever thinking of breaking into your treasure box. I mean, what treasure box? Oh THIS treasure box? Now that you mention it, I do see it now. How did I miss that before?'", nextScene: "scene2.3.2" }
+        ]);
+    } else if (nextScene === 'scene2.3.1') {
+        showMessage("Bear: 'It's so nice to finally meet someone with some manners! Here, have some tea, it's been so long since I've had good company.'");
+        input("Press Enter to continue...");
+        
+        showMessage("The bear busies himself, taking kettles and tea cups out from various hiding places, holes in trees, in the hollow trunk of a fallen tree, and even a small jar of honey that he seemed to take from his person, though you try not to think where he had it hidden.");
+        input("Press Enter to continue...");
+        
+        showMessage("After carefully brewing tea, Beartholomy pours a cup of tea, drizzles some honey into it, and hands it to you while steeping his own cup with his other paw.");
+        input("Press Enter to continue...");
+        
+        showOptions([
+            { text: "Thank Beartholomy and gratefully accept the cup of tea.", nextScene: "scene2.3.1.1" },
+            { text: "Hesitantly take the tea and...", nextScene: "scene2.3.1.2" }
+        ]); */
+          }
+        },
+        
+        endGame: function() {
+          showMessage("Congratulations, you have reached the end of the game!");
+          showOptions([{ text: "Play Again", action: () => this.startGame() }]);
+          this.currentScene = "startGame";
+        },
+      };
+      
+      // Helper functions for displaying messages, options, and managing user input
+      function showMessage(message) {
+        const messageElement = document.getElementById("message");
+        messageElement.textContent += message + "\n";
+      }
+      
+      function showOptions(options) {
+        const optionsElement = document.getElementById("options");
+        optionsElement.innerHTML = "";
+        options.forEach((option, index) => {
+          const button = document.createElement("button");
+          button.innerText = option.text;
+          button.className = "option-button";
+          button.onclick = option.action;
+          optionsElement.appendChild(button);
+        });
+        
+        const continueButton = document.getElementById("continue-button");
+        if (options.length === 0) {
+          continueButton.style.display = "inline-block";
+        } else {
+          continueButton.style.display = "none";
+        }
+      }
+      
+      function startGame() {
+        document.getElementById("start-button").style.display = "none";
+        document.getElementById("continue-button").style.display = "none";
+        document.getElementById("play-again-button").style.display = "none";
+        document.getElementById("name-input").style.display = "none";
+        document.getElementById("message").textContent = "";
+        document.getElementById("options").textContent = "";
+        story.startGame();
+      }
+      
+      function continueGame() {
+        const optionButtons = document.getElementsByClassName("option-button");
+        while (optionButtons.length > 0) {
+          optionButtons[0].parentNode.removeChild(optionButtons[0]);
+        }
+        story[story.currentScene]();
+      }
+      
+      function showNameInput() {
+        const nameInput = document.getElementById("name-input");
+        nameInput.style.display = "block";
+      }
+      
+      function saveName() {
+        const nameField = document.getElementById("name-field");
+        const playerName = nameField.value;
+        if (playerName.trim() === "") {
+          showMessage("Please enter a valid name.");
+        } else {
+          story.playerName = playerName;
+          document.getElementById("name-input").style.display = "none";
+          story.scene2();
+        }
+      }
+      
+      function showEndMessage() {
+        document.getElementById("play-again-button").style.display = "inline-block";
+      }
+    </script>
+  </body>
+</html>
