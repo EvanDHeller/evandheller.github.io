@@ -89,10 +89,11 @@
       };
       
       // Helper functions for displaying messages, options, and managing user input
+     
       function showMessage(message) {
         const messageElement = document.getElementById("message");
-        messageElement.textContent += message + "\n";
-      }
+        messageElement.textContent = message + "\n"; // Update the message content instead of appending
+        }
       
       function showOptions(options) {
         const optionsElement = document.getElementById("options");
