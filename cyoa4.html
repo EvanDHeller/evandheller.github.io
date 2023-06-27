@@ -123,12 +123,26 @@
     #start-button:hover {
       background-color: #a020f0;
     }
+
+
+      .image-container {
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .message-image {
+        max-width: 300px;
+        max-height: 300px;
+      }
     </style>
   </head>
   <body>
     <div id="message"></div>
+    <div class="image-container">
+      <img class="message-image" id="message-image" src="" alt="" />
+    </div>
     <div id="options"></div>
-    <div id="name-input">
+    <div id="name-input" style="display: none;">
       <input type="text" id="name-field" placeholder="Enter your name" />
       <button id="name-button" onclick="saveName()">Save</button>
     </div>
@@ -137,114 +151,229 @@
     <button id="play-again-button" onclick="startGame()" style="display: none;">Play Again</button>
 
     <script>
-      // Define your story object with scenes and options
       const story = {
         currentScene: "startGame",
         playerName: null,
         messages: [],
         messageIndex: 0,
 
-        startGame: function() {
+        startGame: function () {
           this.playerName = null;
           this.messages = [
             "You have just woken up, you don't know where you are, or how you got there.",
             "You don't even remember your name!",
-            "As you yawn and rub your eyes, you realize even a temporary name may be helpful..."
+            "As you yawn and rub your eyes, you realize even a temporary name may be helpful...",
           ];
           this.messageIndex = 0;
           this.displayNextMessage();
         },
 
-        displayNextMessage: function() {
+        displayNextMessage: function () {
           if (this.messageIndex < this.messages.length) {
             showMessage(this.messages[this.messageIndex]);
-
-            if (this.messageIndex === this.messages.length - 1) {
-              // Last message, show name input instead of continue button
-              showNameInput();
-            } else {
-              showContinueButton();
-            }
-
             this.messageIndex++;
           }
         },
 
-        scene2: function() {
-          showMessage("Thank you, " + this.playerName + ", your adventure begins now!");
-          showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.");
+        scene2: function () {
+          showMessage(
+            "Thank you, " + this.playerName + ", your adventure begins now!"
+          );
+          showMessage(
+            "As you look around and take in your surroundings, you find yourself in a small wooded enclave."
+          );
 
           this.currentScene = "scene3";
           showOptions([
-            { text: "Kick at the rusted lock, hoping it will open.", action: () => this.scene3(1) },
-            { text: "Look around to see if there is anything you can use to open the chest.", action: () => this.scene3(2) },
-            { text: "You know, this is someone's property, I should probably leave it alone.", action: () => this.scene3(3) }
+            {
+              text: "Kick at the rusted lock, hoping it will open.",
+              action: () => this.scene3(1),
+            },
+            {
+              text: "Look around to see if there is anything you can use to open the chest.",
+              action: () => this.scene3(2),
+            },
+            {
+              text: "You know, this is someone's property, I should probably leave it alone.",
+              action: () => this.scene3(3),
+            },
           ]);
         },
 
-        scene3: function(option) {
+        scene3: function (option) {
           switch (option) {
             case 1:
-              showMessage("You kick at the rusted lock, but it doesn't budge. It seems sturdy.");
+              showMessage(
+                "You kick at the rusted lock, but it doesn't budge. It seems sturdy."
+              );
               this.currentScene = "scene4";
               showOptions([
-                { text: "Look around to see if there is anything you can use to open the chest.", action: () => this.scene4(1) },
-                { text: "You know, this is someone's property, I should probably leave it alone.", action: () => this.scene4(2) }
+                {
+                  text: "Look around to see if there is anything you can use to open the chest.",
+                  action: () => this.scene4(1),
+                },
+                {
+                  text: "You know, this is someone's property, I should probably leave it alone.",
+                  action: () => this.scene4(2),
+                },
               ]);
               break;
             case 2:
-              showMessage("You search the area and find a crowbar hidden behind a tree. It might come in handy.");
+              showMessage(
+                "You search the area and find a crowbar hidden behind a nearby tree stump."
+              );
               this.currentScene = "scene4";
               showOptions([
-                { text: "Try using the crowbar to open the chest.", action: () => this.scene4(1) },
-                { text: "You know, this is someone's property, I should probably leave it alone.", action: () => this.scene4(2) }
+                {
+                  text: "Use the crowbar to pry open the lock.",
+                  action: () => this.scene4(3),
+                },
+                {
+                  text: "You know, this is someone's property, I should probably leave it alone.",
+                  action: () => this.scene4(2),
+                },
               ]);
               break;
             case 3:
-              showMessage("You decide it's best not to meddle with someone else's property and leave the chest alone.");
-              this.currentScene = "endGame";
-              showEndMessage();
-              break;
-            default:
-              showMessage("Please choose a valid option.");
+              showMessage(
+                "You decide it's best to respect the property and leave the chest alone."
+              );
+              this.currentScene = "scene4";
+              showOptions([
+                {
+                  text: "Look around to see if there is anything else of interest.",
+                  action: () => this.scene4(4),
+                },
+                {
+                  text: "You know, this is someone's property, I should probably leave.",
+                  action: () => this.scene4(2),
+                },
+              ]);
               break;
           }
         },
 
-        scene4: function(option) {
+        scene4: function (option) {
           switch (option) {
             case 1:
-              showMessage("You use the crowbar to pry open the chest. Inside, you find a map and a key.");
-              showMessage("The map reveals the location of a hidden treasure nearby. Excited, you decide to go searching for it.");
-              this.currentScene = "endGame";
-              showEndMessage();
+              showMessage(
+                "You search the area and find a crowbar hidden behind a nearby tree stump."
+              );
+              this.currentScene = "scene5";
+              showOptions([
+                {
+                  text: "Use the crowbar to pry open the lock.",
+                  action: () => this.scene5(1),
+                },
+                {
+                  text: "You know, this is someone's property, I should probably leave it alone.",
+                  action: () => this.scene5(2),
+                },
+              ]);
               break;
             case 2:
-              showMessage("You decide it's best not to meddle with someone else's property and leave the chest alone.");
-              this.currentScene = "endGame";
-              showEndMessage();
+              showMessage(
+                "You decide it's best to respect the property and leave the chest alone."
+              );
+              this.currentScene = "scene5";
+              showOptions([
+                {
+                  text: "Look around to see if there is anything else of interest.",
+                  action: () => this.scene5(3),
+                },
+                {
+                  text: "You know, this is someone's property, I should probably leave.",
+                  action: () => this.scene5(2),
+                },
+              ]);
               break;
-            default:
-              showMessage("Please choose a valid option.");
+            case 3:
+              showMessage("The lock gives way with a satisfying click.");
+              showMessage("Inside the chest, you find a map and a key.");
+              showMessage("The map seems to lead to a nearby village.");
+              showMessage(
+                "You wonder what adventures await you there."
+              );
+              showMessage(
+                "With the key and map in hand, you set off toward the village."
+              );
+              this.currentScene = "scene6";
+              showOptions([
+                {
+                  text: "Continue your journey toward the village.",
+                  action: () => this.scene6(),
+                },
+              ]);
+              break;
+            case 4:
+              showMessage("You find a small path leading deeper into the woods.");
+              this.currentScene = "scene6";
+              showOptions([
+                {
+                  text: "Follow the path deeper into the woods.",
+                  action: () => this.scene6(),
+                },
+              ]);
               break;
           }
         },
 
-        endGame: function() {
-          showMessage("Congratulations, you have reached the end of the game!");
-          showOptions([{ text: "Play Again", action: () => this.startGame() }]);
-          this.currentScene = "startGame";
+        scene5: function (option) {
+          switch (option) {
+            case 1:
+              showMessage("The lock gives way with a satisfying click.");
+              showMessage("Inside the chest, you find a map and a key.");
+              showMessage("The map seems to lead to a nearby village.");
+              showMessage(
+                "You wonder what adventures await you there."
+              );
+              showMessage(
+                "With the key and map in hand, you set off toward the village."
+              );
+              this.currentScene = "scene6";
+              showOptions([
+                {
+                  text: "Continue your journey toward the village.",
+                  action: () => this.scene6(),
+                },
+              ]);
+              break;
+            case 2:
+              showMessage("You decide it's best to respect the property and leave the chest alone.");
+              showMessage("You continue exploring the area.");
+              this.currentScene = "scene6";
+              showOptions([
+                {
+                  text: "Follow the path deeper into the woods.",
+                  action: () => this.scene6(),
+                },
+              ]);
+              break;
+          }
+        },
+
+        scene6: function () {
+          showMessage(
+            "You follow the path for a while until you reach a small village."
+          );
+          showMessage(
+            "The villagers seem friendly and welcome you with open arms."
+          );
+          showMessage(
+            "They offer you a place to stay and tell you stories of the adventures that await in the surrounding lands."
+          );
+          showMessage("You feel excited to embark on your own adventure.");
+          showMessage("The end.");
+
+          this.currentScene = null;
+          hideOptions();
+          showPlayAgainButton();
         },
       };
 
-      // Helper functions for displaying messages, options, and managing user input
-
       function showMessage(message) {
         const messageElement = document.getElementById("message");
-        messageElement.textContent = message + "\n";
-
-        const optionsElement = document.getElementById("options");
-        optionsElement.innerHTML = "";
+        messageElement.innerHTML = message;
       }
 
       function showOptions(options) {
@@ -253,57 +382,58 @@
 
         options.forEach((option, index) => {
           const button = document.createElement("button");
-          button.innerText = option.text;
-          button.className = "option-button";
+          button.innerHTML = option.text;
           button.onclick = option.action;
           optionsElement.appendChild(button);
         });
-
-        const continueButton = document.getElementById("continue-button");
-        continueButton.style.display = "none";
       }
 
-      function showContinueButton() {
-        const continueButton = document.getElementById("continue-button");
-        continueButton.style.display = "inline-block";
+      function hideOptions() {
+        const optionsElement = document.getElementById("options");
+        optionsElement.innerHTML = "";
+      }
+
+      function showPlayAgainButton() {
+        const playAgainButton = document.getElementById("play-again-button");
+        playAgainButton.style.display = "block";
       }
 
       function startGame() {
-        document.getElementById("start-button").style.display = "none";
-        document.getElementById("continue-button").style.display = "none";
-        document.getElementById("play-again-button").style.display = "none";
-        document.getElementById("name-input").style.display = "none";
-        document.getElementById("message").textContent = "";
-        document.getElementById("options").textContent = "";
+        const startButton = document.getElementById("start-button");
+        const continueButton = document.getElementById("continue-button");
+        const nameInput = document.getElementById("name-input");
+
+        startButton.style.display = "none";
+        continueButton.style.display = "block";
+        nameInput.style.display = "none";
+
         story.startGame();
       }
 
       function continueGame() {
-        story.displayNextMessage();
-      }
-
-      function showNameInput() {
-        const nameInput = document.getElementById("name-input");
-        nameInput.style.display = "block";
+        const startButton = document.getElementById("start-button");
         const continueButton = document.getElementById("continue-button");
-        continueButton.style.display = "none";
+        const nameInput = document.getElementById("name-input");
+
+        startButton.style.display = "none";
+        continueButton.style.display = "block";
+        nameInput.style.display = "none";
+
+        story.displayNextMessage();
       }
 
       function saveName() {
         const nameField = document.getElementById("name-field");
-        const playerName = nameField.value;
-        if (playerName.trim() === "") {
-          showMessage("Please enter a valid name.");
-        } else {
-          story.playerName = playerName;
-          document.getElementById("name-input").style.display = "none";
-          story.scene2();
-        }
-      }
+        const nameButton = document.getElementById("name-button");
+        const nameInput = document.getElementById("name-input");
 
-      function showEndMessage() {
-        document.getElementById("continue-button").style.display = "none";
-        document.getElementById("play-again-button").style.display = "inline-block";
+        story.playerName = nameField.value;
+
+        nameField.disabled = true;
+        nameButton.disabled = true;
+        nameInput.style.display = "none";
+
+        story.scene2();
       }
     </script>
   </body>
