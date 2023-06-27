@@ -279,7 +279,7 @@
 
       // Helper functions for displaying messages, options, and managing user input
 
-    /*  function showMessage(message, image = "") {
+     function showMessage(message, image = "") {
         const messageElement = document.getElementById("message");
         messageElement.textContent = message + "\n";
 
@@ -291,7 +291,7 @@
 
         const optionsElement = document.getElementById("options");
         optionsElement.innerHTML = "";
-      } */
+      } 
 /*
             function showMessage(message, image = "", imageId = "", messageId = "") {
   const messageElement = document.getElementById("message");
@@ -315,29 +315,7 @@
 } */
 
 
-function showMessage(message, image = "", imageId = "", messageId = "") {
-  const messageElement = document.getElementById("message");
-  messageElement.textContent = message + "\n";
-
-  if (image !== "") {
-    const imageElement = document.createElement("img");
-    imageElement.src = image;
-    if (imageId !== "") {
-      imageElement.id = imageId;
-    }
-    messageElement.appendChild(imageElement);
-  }
-
-  if (messageId !== "") {
-    messageElement.id = messageId;
-  }
-
-  const optionsElement = document.getElementById("options");
-  optionsElement.innerHTML = "";
-}
-
-
-  /*    function showOptions(options) {
+    function showOptions(options) {
         const optionsElement = document.getElementById("options");
         optionsElement.innerHTML = "";
 
@@ -351,25 +329,7 @@ function showMessage(message, image = "", imageId = "", messageId = "") {
 
         const continueButton = document.getElementById("continue-button");
         continueButton.style.display = "none"; 
-      } */
-
-function showOptions(options) {
-  const optionsElement = document.getElementById("options");
-  optionsElement.innerHTML = "";
-
-  options.forEach((option, index) => {
-    const button = document.createElement("button");
-    button.innerText = option.text;
-    button.className = "option-button";
-    button.onclick = option.action;  // Assign the action directly to the onclick handler
-    optionsElement.appendChild(button);
-  });
-
-  const continueButton = document.getElementById("continue-button");
-  continueButton.style.display = "none";
-}
-
-
+      } 
       
 function startGame() {
   document.getElementById("start-button").style.display = "none";
