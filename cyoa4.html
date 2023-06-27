@@ -171,7 +171,7 @@
     font-size: 37px;
 }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 677px) {
     body {
       align-items: flex-start;
     }
@@ -186,10 +186,12 @@
       margin-left: 0;
       width: 100%;
       font-size: 16px;
+      order: 1;
     }
 
     #options {
       padding-left: 0;
+      order: 3;
     }
 
     .option-button {
@@ -212,6 +214,10 @@
       position: static;
       margin-top: 20px;
       width: 100%;
+    }
+
+    img, #image {
+      order: 2;
     }
   }
       
