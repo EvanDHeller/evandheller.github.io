@@ -121,14 +121,29 @@
         cursor: pointer;
         transition: background-color 0.3s ease;
         position: absolute;
+        border: 4px solid white;
       }
 
       #start-button:hover {
         background-color: #a020f0;
       }
+      img#intro-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      h1 {
+        color: white;
+      }
+      
     </style>
   </head>
   <body>
+    <img id="intro-image" src="./cyoaimages/stump.png" style="display: block; margin-bottom: 20px;">
+    <h1 id="game-title" style="display: none;">Welcome to:<br>Stumped?!</h1>
     <div id="message"></div>
     <div id="options"></div>
     <div id="name-input">
@@ -277,15 +292,18 @@
         continueButton.style.display = "inline-block";
       }
 
-      function startGame() {
-        document.getElementById("start-button").style.display = "none";
-        document.getElementById("continue-button").style.display = "none";
-        document.getElementById("play-again-button").style.display = "none";
-        document.getElementById("name-input").style.display = "none";
-        document.getElementById("message").textContent = "";
-        document.getElementById("options").textContent = "";
-        story.startGame();
-      }
+function startGame() {
+  document.getElementById("start-button").style.display = "none";
+  document.getElementById("intro-image").style.display = "none";
+  document.getElementById("game-title").style.display = "none";
+  document.getElementById("continue-button").style.display = "none";
+  document.getElementById("play-again-button").style.display = "none";
+  document.getElementById("name-input").style.display = "none";
+  document.getElementById("message").textContent = "";
+  document.getElementById("options").textContent = "";
+  story.startGame();
+}
+
 
       function continueGame() {
         story.displayNextMessage();
