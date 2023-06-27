@@ -353,7 +353,7 @@ function showMessage(message, image = "", imageId = "", messageId = "") {
         continueButton.style.display = "none"; 
       } */
 
-    function showOptions(options) {
+function showOptions(options) {
   const optionsElement = document.getElementById("options");
   optionsElement.innerHTML = "";
 
@@ -361,19 +361,13 @@ function showMessage(message, image = "", imageId = "", messageId = "") {
     const button = document.createElement("button");
     button.innerText = option.text;
     button.className = "option-button";
-    button.onclick = option.action;  // Assign the action directly to the onclick handler
+    button.addEventListener("click", option.action);
     optionsElement.appendChild(button);
   });
 
   const continueButton = document.getElementById("continue-button");
   continueButton.style.display = "none";
 }
-
-
-      function showContinueButton() {
-        const continueButton = document.getElementById("continue-button");
-        continueButton.style.display = "inline-block";
-      }
 
 function startGame() {
   document.getElementById("start-button").style.display = "none";
