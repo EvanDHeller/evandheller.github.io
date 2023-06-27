@@ -239,7 +239,12 @@
 
       // Helper functions for displaying messages, options, and managing user input
 
-function showMessage(message, image) {
+const startButton = document.getElementById("start-button");
+startButton.onclick = () => {
+  showMessage("Welcome to Stumped! A choose your own adventure game!", "./images/magicball2.png");
+};
+      
+  function showMessage(message, image) {
   const messageElement = document.getElementById("message");
   messageElement.textContent = message + "\n";
 
