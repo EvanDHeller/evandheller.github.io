@@ -158,6 +158,7 @@
   #h1title {
     font-size: 37px;
 }
+      
     </style>
   </head>
   <body>
@@ -279,7 +280,7 @@
 
       // Helper functions for displaying messages, options, and managing user input
 
-   /*  function showMessage(message, image = "") {
+      function showMessage(message, image = "") {
         const messageElement = document.getElementById("message");
         messageElement.textContent = message + "\n";
 
@@ -291,30 +292,9 @@
 
         const optionsElement = document.getElementById("options");
         optionsElement.innerHTML = "";
-      } */
+      }
 
-            function showMessage(message, image = "", imageId = "", messageId = "") {
-  const messageElement = document.getElementById("message");
-  messageElement.textContent = message + "\n";
-
-  if (image !== "") {
-    const imageElement = document.createElement("img");
-    imageElement.src = image;
-    if (imageId !== "") {
-      imageElement.id = imageId;
-    }
-    messageElement.appendChild(imageElement);
-  }
-
-  if (messageId !== "") {
-    messageElement.id = messageId;
-  }
-
-  const optionsElement = document.getElementById("options");
-  optionsElement.innerHTML = "";
-} 
-
-    function showOptions(options) {
+      function showOptions(options) {
         const optionsElement = document.getElementById("options");
         optionsElement.innerHTML = "";
 
@@ -327,9 +307,14 @@
         });
 
         const continueButton = document.getElementById("continue-button");
-        continueButton.style.display = "none"; 
-      } 
-      
+        continueButton.style.display = "none";
+      }
+
+      function showContinueButton() {
+        const continueButton = document.getElementById("continue-button");
+        continueButton.style.display = "inline-block";
+      }
+
 function startGame() {
   document.getElementById("start-button").style.display = "none";
   document.getElementById("intro-image").style.display = "none";
