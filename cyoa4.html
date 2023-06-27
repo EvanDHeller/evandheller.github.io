@@ -239,77 +239,84 @@
 
       // Helper functions for displaying messages, options, and managing user input
 
-      function showMessage(message, image) {
-        const messageElement = document.getElementById("message");
-        messageElement.textContent = message + "\n";
-//adds optional extra parameter to add image
-//example: showMessage("You see a beautiful flower.", "/static/image.jpg");
-        const imageElement = document.createElement("img");
-        imageElement.src = image;
-        imageElement.style.display = "block";
-        imageElement.style.margin-top = "20px";
-        messageElement.appendChild(imageElement);
-      }
+function showMessage(message, image) {
+  const messageElement = document.getElementById("message");
+  messageElement.textContent = message + "\n";
 
+  if (image != "") {
+    const imageElement = document.createElement("img");
+    imageElement.src = image;
+    imageElement.style.display = "block";
+    imageElement.style.margin-top = "20px";
+    messageElement.appendChild(imageElement);
+  }
 
-      function showOptions(options) {
-        const optionsElement = document.getElementById("options");
-        optionsElement.innerHTML = "";
+  const optionsElement = document.getElementById("options");
+  optionsElement.innerHTML = "";
+}
 
-        options.forEach((option, index) => {
-          const button = document.createElement("button");
-          button.innerText = option.text;
-          button.className = "option-button";
-          button.onclick = option.action;
-          optionsElement.appendChild(button);
-        });
+function showOptions(options) {
+  const optionsElement = document.getElementById("options");
+  optionsElement.innerHTML = "";
 
-        const continueButton = document.getElementById("continue-button");
-        continueButton.style.display = "none";
-      }
+  options.forEach((option, index) => {
+    const button = document.createElement("button");
+    button.innerText = option.text;
+    button.className = "option-button";
+    button.onclick = option.action;
+    optionsElement.appendChild(button);
+  });
 
-      function showContinueButton() {
-        const continueButton = document.getElementById("continue-button");
-        continueButton.style.display = "inline-block";
-      }
+  const continueButton = document.getElementById("continue-button");
+  continueButton.style.display = "none";
+}
 
-      function startGame() {
-        document.getElementById("start-button").style.display = "none";
-        document.getElementById("continue-button").style.display = "none";
-        document.getElementById("play-again-button").style.display = "none";
-        document.getElementById("name-input").style.display = "none";
-        document.getElementById("message").textContent = "";
-        document.getElementById("options").textContent = "";
-        story.startGame();
-      }
+function showContinueButton() {
+  const continueButton = document.getElementById("continue-button");
+  continueButton.style.display = "inline-block";
+}
 
-      function continueGame() {
-        story.displayNextMessage();
-      }
+function startGame() {
+  document.getElementById("start-button").style.display = "none";
+  document.getElementById("continue-button").style.display = "none";
+  document.getElementById("play-again-button").style.display = "none";
+  document.getElementById("name-input").style.display = "none";
+  document.getElementById("message").textContent = "";
+  document.getElementById("options").textContent = "";
+  story.startGame();
+}
 
-      function showNameInput() {
-        const nameInput = document.getElementById("name-input");
-        nameInput.style.display = "block";
-        const continueButton = document.getElementById("continue-button");
-        continueButton.style.display = "none";
-      }
+function continueGame() {
+  story.displayNextMessage();
+}
 
-      function saveName() {
-        const nameField = document.getElementById("name-field");
-        const playerName = nameField.value;
-        if (playerName.trim() === "") {
-          showMessage("Please enter a valid name.");
-        } else {
-          story.playerName = playerName;
-          document.getElementById("name-input").style.display = "none";
-          story.scene2();
-        }
-      }
+function showNameInput() {
+  const nameInput = document.getElementById("name-input");
+  nameInput.style.display = "block";
+  const continueButton = document.getElementById("continue-button");
+  continueButton.style.display = "none";
+}
 
-      function showEndMessage() {
-        document.getElementById("continue-button").style.display = "none";
-        document.getElementById("play-again-button").style.display = "inline-block";
-      }
+function saveName() {
+  const nameField = document.getElementById("name-field");
+  const playerName = nameField.value;
+  if (playerName.trim() === "") {
+    showMessage("Please enter a valid name.");
+  } else {
+    story.playerName = playerName;
+    document.getElementById("name-input").style.display = "none";
+    story.scene2();
+  }
+}
+
+function showEndMessage() {
+  document.getElementById("continue-button").style.display = "none";
+  document.getElementById("play-again-button").style.display = "inline-block";
+}
+
+function showImage(image) {
+  showMessage(image, image);
+}
     </script>
   </body>
 </html>
