@@ -125,186 +125,128 @@
     #start-button:hover {
       background-color: #a020f0;
     }
-
-
-      .image-container {
-        margin-top: 20px;
-        text-align: center;
-      }
-
-      .message-image {
-        max-width: 300px;
-        max-height: 300px;
-      }
-      
-      #message-image {
-        display: block;
-        margin: 0 auto;
-        max-width: 300px;
-        max-height: 300px;
-      }
-      
     </style>
-   </head>
+  </head>
   <body>
-    <h1>Text Adventure Game</h1>
     <div id="message"></div>
-    <img class="message-image" id="message-image" src="" alt="" />
     <div id="options"></div>
-    <button id="start-button" onclick="startGame()">Start Game</button>
-    <button id="continue-button" onclick="continueGame()">Continue</button>
     <div id="name-input">
       <input type="text" id="name-field" placeholder="Enter your name" />
       <button id="name-button" onclick="saveName()">Save</button>
     </div>
-    <button id="play-again-button" onclick="window.location.reload()">Play Again</button>
+    <button id="start-button" onclick="startGame()">Start</button>
+    <button id="continue-button" onclick="continueGame()" style="display: none;">Continue</button>
+    <button id="play-again-button" onclick="startGame()" style="display: none;">Play Again</button>
 
     <script>
+      // Define your story object with scenes and options
       const story = {
-        playerName: "",
-        currentScene: null,
+        currentScene: "startGame",
+        playerName: null,
+        messages: [],
+        messageIndex: 0,
 
-        startGame: function () {
-          showMessage("You wake up in a dense forest, not knowing how you got there.");
-          this.currentScene = "scene1";
-          showOptions([
-            {
-              text: "Look around",
-              action: () => this.scene1(),
-            },
-          ]);
+        startGame: function() {
+          this.playerName = null;
+          this.messages = [
+            "You have just woken up, you don't know where you are, or how you got there.",
+            "You don't even remember your name!",
+            "As you yawn and rub your eyes, you realize even a temporary name may be helpful..."
+          ];
+          this.messageIndex = 0;
+          this.displayNextMessage();
         },
 
-        displayNextMessage: function () {
-          if (this.currentScene) {
-            this[this.currentScene]();
+        displayNextMessage: function() {
+          if (this.messageIndex < this.messages.length) {
+            showMessage(this.messages[this.messageIndex]);
+
+            if (this.messageIndex === this.messages.length - 1) {
+              // Last message, show name input instead of continue button
+              showNameInput();
+            } else {
+              showContinueButton();
+            }
+
+            this.messageIndex++;
           }
         },
 
-        scene1: function () {
-          showMessage("You look around and see trees stretching out in every direction.");
-          showMessage("There is a small path to the east.");
-          showMessage("What do you do?");
-          this.currentScene = "scene2";
-          showOptions([
-            {
-              text: "Follow the path to the east.",
-              action: () => this.scene2(),
-            },
-            {
-              text: "Stay put and keep observing.",
-              action: () => this.scene2(),
-            },
-          ]);
-        },
+        scene2: function() {
+          showMessage("Thank you, " + this.playerName + ", your adventure begins now!");
+          showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.");
 
-        scene2: function () {
-          showMessage("As you continue along the path, you come across an abandoned chest.");
-          showMessage("What do you do?");
           this.currentScene = "scene3";
           showOptions([
-            {
-              text: "Try to open the chest.",
-              action: () => this.scene3(),
-            },
-            {
-              text: "Leave the chest and keep exploring.",
-              action: () => this.scene4(4),
-            },
+            { text: "Kick at the rusted lock, hoping it will open.", action: () => this.scene3(1) },
+            { text: "Look around to see if there is anything you can use to open the chest.", action: () => this.scene3(2) },
+            { text: "You know, this is someone's property, I should probably leave it alone.", action: () => this.scene3(3) }
           ]);
         },
 
-        scene3: function () {
-          showMessage("The chest is locked and seems to be in good condition.");
-          showMessage("What do you do?");
-          this.currentScene = "scene4";
-          showOptions([
-            {
-              text: "Search the area for a key or something to help open the chest.",
-              action: () => this.scene4(1),
-            },
-            {
-              text: "Give up and continue exploring.",
-              action: () => this.scene4(2),
-            },
-          ]);
-        },
-
-        scene4: function (choice) {
-          switch (choice) {
+        scene3: function(option) {
+          switch (option) {
             case 1:
-              showMessage("After searching around, you find a small key hidden under a rock.");
-              showMessage("You use the key to unlock the chest.");
-              showMessage("Inside, you find a shiny gem and a map of the surrounding area.");
-              this.currentScene = "scene5";
+              showMessage("You kick at the rusted lock, but it doesn't budge. It seems sturdy.");
+              this.currentScene = "scene4";
               showOptions([
-                {
-                  text: "Take the gem and map.",
-                  action: () => this.scene5(),
-                },
-                {
-                  text: "Leave the contents in the chest and continue exploring.",
-                  action: () => this.scene5(),
-                },
+                { text: "Look around to see if there is anything you can use to open the chest.", action: () => this.scene4(1) },
+                { text: "You know, this is someone's property, I should probably leave it alone.", action: () => this.scene4(2) }
               ]);
               break;
             case 2:
-              showMessage("You decide it's best to respect the property and leave the chest alone.");
-              showMessage("You continue exploring the area.");
-              this.currentScene = "scene6";
+              showMessage("You search the area and find a crowbar hidden behind a tree. It might come in handy.");
+              this.currentScene = "scene4";
               showOptions([
-                {
-                  text: "Follow the path deeper into the woods.",
-                  action: () => this.scene6(),
-                },
+                { text: "Try using the crowbar to open the chest.", action: () => this.scene4(1) },
+                { text: "You know, this is someone's property, I should probably leave it alone.", action: () => this.scene4(2) }
               ]);
               break;
-            case 4:
-              showMessage("You decide it's best to respect the property and leave the chest alone.");
-              showMessage("You continue exploring the area.");
-              this.currentScene = "scene6";
-              showOptions([
-                {
-                  text: "Follow the path deeper into the woods.",
-                  action: () => this.scene6(),
-                },
-              ]);
+            case 3:
+              showMessage("You decide it's best not to meddle with someone else's property and leave the chest alone.");
+              this.currentScene = "endGame";
+              showEndMessage();
+              break;
+            default:
+              showMessage("Please choose a valid option.");
               break;
           }
         },
 
-        scene5: function () {
-          showMessage("You take the gem and map from the chest.");
-          showMessage("What do you do next?");
-          this.currentScene = "scene6";
-          showOptions([
-            {
-              text: "Follow the path deeper into the woods.",
-              action: () => this.scene6(),
-            },
-            {
-              text: "Return to where you woke up in the forest.",
-              action: () => this.scene6(),
-            },
-          ]);
+        scene4: function(option) {
+          switch (option) {
+            case 1:
+              showMessage("You use the crowbar to pry open the chest. Inside, you find a map and a key.");
+              showMessage("The map reveals the location of a hidden treasure nearby. Excited, you decide to go searching for it.");
+              this.currentScene = "endGame";
+              showEndMessage();
+              break;
+            case 2:
+              showMessage("You decide it's best not to meddle with someone else's property and leave the chest alone.");
+              this.currentScene = "endGame";
+              showEndMessage();
+              break;
+            default:
+              showMessage("Please choose a valid option.");
+              break;
+          }
         },
 
-        scene6: function () {
-          showMessage("You follow the path for a while until you reach a small village.");
-          showMessage("The villagers seem friendly and welcome you with open arms.");
-          showMessage("They offer you a place to stay and tell you stories of the adventures that await in the surrounding lands.");
-          showMessage("You feel excited to embark on your own adventure.");
-          showMessage("The end.");
-
-          this.currentScene = null;
-          hideOptions();
-          showPlayAgainButton();
+        endGame: function() {
+          showMessage("Congratulations, you have reached the end of the game!");
+          showOptions([{ text: "Play Again", action: () => this.startGame() }]);
+          this.currentScene = "startGame";
         },
       };
 
+      // Helper functions for displaying messages, options, and managing user input
+
       function showMessage(message) {
         const messageElement = document.getElementById("message");
-        messageElement.innerHTML = message;
+        messageElement.textContent = message + "\n";
+
+        const optionsElement = document.getElementById("options");
+        optionsElement.innerHTML = "";
       }
 
       function showOptions(options) {
@@ -313,63 +255,57 @@
 
         options.forEach((option, index) => {
           const button = document.createElement("button");
-          button.innerHTML = option.text;
+          button.innerText = option.text;
+          button.className = "option-button";
           button.onclick = option.action;
           optionsElement.appendChild(button);
         });
+
+        const continueButton = document.getElementById("continue-button");
+        continueButton.style.display = "none";
       }
 
-      function hideOptions() {
-        const optionsElement = document.getElementById("options");
-        optionsElement.innerHTML = "";
-      }
-
-      function showPlayAgainButton() {
-        const playAgainButton = document.getElementById("play-again-button");
-        playAgainButton.style.display = "block";
+      function showContinueButton() {
+        const continueButton = document.getElementById("continue-button");
+        continueButton.style.display = "inline-block";
       }
 
       function startGame() {
-        const startButton = document.getElementById("start-button");
-        const continueButton = document.getElementById("continue-button");
-        const nameInput = document.getElementById("name-input");
-
-        startButton.style.display = "none";
-        continueButton.style.display = "block";
-        nameInput.style.display = "none";
-
+        document.getElementById("start-button").style.display = "none";
+        document.getElementById("continue-button").style.display = "none";
+        document.getElementById("play-again-button").style.display = "none";
+        document.getElementById("name-input").style.display = "none";
+        document.getElementById("message").textContent = "";
+        document.getElementById("options").textContent = "";
         story.startGame();
       }
 
       function continueGame() {
-        const startButton = document.getElementById("start-button");
-        const continueButton = document.getElementById("continue-button");
-        const nameInput = document.getElementById("name-input");
+        story.displayNextMessage();
+      }
 
-        startButton.style.display = "none";
-        continueButton.style.display = "none";
+      function showNameInput() {
+        const nameInput = document.getElementById("name-input");
         nameInput.style.display = "block";
+        const continueButton = document.getElementById("continue-button");
+        continueButton.style.display = "none";
       }
 
       function saveName() {
         const nameField = document.getElementById("name-field");
-        const nameButton = document.getElementById("name-button");
-
-        if (nameField.value !== "") {
-          story.playerName = nameField.value;
-          showMessage(`Welcome, ${story.playerName}!`);
-          nameField.disabled = true;
-          nameButton.disabled = true;
-          continueButton.style.display = "none";
-          showOptions([
-            {
-              text: "Continue the adventure",
-              action: () => story.displayNextMessage(),
-            },
-          ]);
-        } else {
+        const playerName = nameField.value;
+        if (playerName.trim() === "") {
           showMessage("Please enter a valid name.");
+        } else {
+          story.playerName = playerName;
+          document.getElementById("name-input").style.display = "none";
+          story.scene2();
         }
+      }
+
+      function showEndMessage() {
+        document.getElementById("continue-button").style.display = "none";
+        document.getElementById("play-again-button").style.display = "inline-block";
       }
     </script>
   </body>
