@@ -60,6 +60,7 @@
     #continue-button,
     #play-again-button {
       margin-top: 150px;
+      position: absolute;
       
     }
       
@@ -295,31 +296,6 @@
         }
       }
 
-function showContinueButton() {
-  const continueButton = document.getElementById("continue-button");
-  continueButton.style.display = "inline-block";
-  continueButton.style.grid = "none";
-  continueButton.style.margin-top = "20px";
-}
-
-function showSaveButton() {
-  const saveButton = document.getElementById("save-button");
-  saveButton.style.display = "inline-block";
-  saveButton.style.grid = "none";
-  saveButton.style.margin-top = "20px";
-}
-
-function showPlayAgainButton() {
-  const playAgainButton = document.getElementById("play-again-button");
-  playAgainButton.style.display = "inline-block";
-  playAgainButton.style.grid = "none";
-  playAgainButton.style.margin-top = "20px";
-}
-
-function showStartButton() {
-  const startButton = document.getElementById("start-button");
-  startButton.style.display = "inline-block";
-}
       function showEndMessage() {
         document.getElementById("continue-button").style.display = "none";
         document.getElementById("play-again-button").style.display = "inline-block";
