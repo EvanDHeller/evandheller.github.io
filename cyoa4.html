@@ -126,6 +126,11 @@
       #start-button:hover {
         background-color: #a020f0;
       }
+      img#intro-image {
+        display: none;
+        margin-bottom: 20px;
+      }
+      
     </style>
   </head>
   <body>
@@ -280,6 +285,7 @@
 
       function startGame() {
         document.getElementById("start-button").style.display = "none";
+        document.getElementById("intro-image").style.display = "none"; // Hide the image
         document.getElementById("continue-button").style.display = "none";
         document.getElementById("play-again-button").style.display = "none";
         document.getElementById("name-input").style.display = "none";
