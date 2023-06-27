@@ -280,7 +280,7 @@
 
       // Helper functions for displaying messages, options, and managing user input
 
-      function showMessage(message, image = "") {
+     /* function showMessage(message, image = "") {
         const messageElement = document.getElementById("message");
         messageElement.textContent = message + "\n";
 
@@ -292,7 +292,24 @@
 
         const optionsElement = document.getElementById("options");
         optionsElement.innerHTML = "";
-      }
+      } */
+
+      function showMessage(message, image = "", imageId = "") {
+  const messageElement = document.getElementById("message");
+  messageElement.textContent = message + "\n";
+
+  if (image !== "") {
+    const imageElement = document.createElement("img");
+    imageElement.src = image;
+    if (imageId !== "") {
+      imageElement.id = imageId;
+    }
+    messageElement.appendChild(imageElement);
+  }
+
+  const optionsElement = document.getElementById("options");
+  optionsElement.innerHTML = "";
+}
 
       function showOptions(options) {
         const optionsElement = document.getElementById("options");
