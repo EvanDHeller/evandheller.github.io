@@ -239,13 +239,18 @@
 
       // Helper functions for displaying messages, options, and managing user input
 
-      function showMessage(message) {
+      function showMessage(message, image) {
         const messageElement = document.getElementById("message");
         messageElement.textContent = message + "\n";
-
-        const optionsElement = document.getElementById("options");
-        optionsElement.innerHTML = "";
+//adds optional extra parameter to add image
+//example: showMessage("You see a beautiful flower.", "/static/image.jpg");
+        const imageElement = document.createElement("img");
+        imageElement.src = image;
+        imageElement.style.display = "block";
+        imageElement.style.margin-top = "20px";
+        messageElement.appendChild(imageElement);
       }
+
 
       function showOptions(options) {
         const optionsElement = document.getElementById("options");
