@@ -158,12 +158,10 @@
   #h1title {
     font-size: 37px;
 }
-  div#options {
-  display: flex;
-  position: relative;
-}    
-      
 
+  img#forestenclave {
+    transform: scale(1.5);
+  }
       
     </style>
   </head>
@@ -219,7 +217,7 @@
 
         scene2: function() {
           showMessage("Thank you, " + this.playerName + ", your adventure begins now!");
-          showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.", "./cyoaimages/forestenclave.png", "forestenclave", "enclavemsg");
+          showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.", "./cyoaimages/forestenclave.png", "forestenclave");
 
           this.currentScene = "scene3";
           showOptions([
@@ -286,20 +284,6 @@
 
       // Helper functions for displaying messages, options, and managing user input
 
-    /*  function showMessage(message, image = "") {
-        const messageElement = document.getElementById("message");
-        messageElement.textContent = message + "\n";
-
-        if (image !== "") {
-          const imageElement = document.createElement("img");
-          imageElement.src = image;
-          messageElement.appendChild(imageElement);
-        }
-
-        const optionsElement = document.getElementById("options");
-        optionsElement.innerHTML = "";
-      } 
-
       function showMessage(message, image = "", imageId = "") {
   const messageElement = document.getElementById("message");
   messageElement.textContent = message + "\n";
@@ -315,30 +299,7 @@
 
   const optionsElement = document.getElementById("options");
   optionsElement.innerHTML = "";
-} */
-
-      function showMessage(message, image = "", imageId = "", messageId = "") {
-  const messageElement = document.getElementById("message");
-  messageElement.textContent = message + "\n";
-
-  if (image !== "") {
-    const imageElement = document.createElement("img");
-    imageElement.src = image;
-    if (imageId !== "") {
-      imageElement.id = imageId;
-    }
-    messageElement.appendChild(imageElement);
-  }
-
-  if (messageId !== "") {
-    messageElement.id = messageId;
-  }
-
-  const optionsElement = document.getElementById("options");
-  optionsElement.innerHTML = "";
 }
-
-
 
       function showOptions(options) {
         const optionsElement = document.getElementById("options");
