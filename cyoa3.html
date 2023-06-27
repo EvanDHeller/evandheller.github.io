@@ -39,6 +39,10 @@
         font-size: 18px;
         position: relative;
         margin-left: 40px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        user-select: none;
+        width: 400px;
       }
 
       #options {
@@ -48,6 +52,7 @@
         padding-top: 20px;
         padding-left: 20px;
         padding-right: 20px;
+        padding-left: 40px;
       }
 
       .option-button,
@@ -283,20 +288,6 @@
       };
 
       // Helper functions for displaying messages, options, and managing user input
-
-     /* function showMessage(message, image = "") {
-        const messageElement = document.getElementById("message");
-        messageElement.textContent = message + "\n";
-
-        if (image !== "") {
-          const imageElement = document.createElement("img");
-          imageElement.src = image;
-          messageElement.appendChild(imageElement);
-        }
-
-        const optionsElement = document.getElementById("options");
-        optionsElement.innerHTML = "";
-      } */
 
       function showMessage(message, image = "", imageId = "") {
   const messageElement = document.getElementById("message");
