@@ -35,9 +35,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding-top: 20px;
     }
 
-    .option-button {
+    .option-button,
+    #continue-button,
+    #play-again-button {
       margin-top: 10px;
       width: 220px;
       height: auto;
@@ -54,7 +57,9 @@
       transition: background-color 0.3s ease;
     }
 
-    .option-button:hover {
+    .option-button:hover,
+    #continue-button:hover,
+    #play-again-button:hover {
       background-color: #2c3e93;
     }
 
@@ -90,9 +95,7 @@
       background-color: #2c3e93;
     }
 
-    #start-button,
-    #continue-button,
-    #play-again-button {
+    #start-button {
       padding: 8px 16px;
       font-size: 14px;
       font-weight: bold;
@@ -105,11 +108,9 @@
       transition: background-color 0.3s ease;
     }
 
-    #start-button:hover,
-    #continue-button:hover,
-    #play-again-button:hover {
+    #start-button:hover {
       background-color: #2c3e93;
-    }    
+    }  
     </style>
   </head>
   <body>
