@@ -125,19 +125,26 @@
       #start-button:hover {
         background-color: #a020f0;
       }
+
+      #main-image {
+        width: 300px;
+        height: auto;
+        margin-bottom: 20px;
+        
     </style>
   </head>
   <body>
-    <div id="message"></div>
-    <div id="options"></div>
-    <div id="name-input">
-      <input type="text" id="name-field" placeholder="Enter your name" />
-      <button id="name-button" onclick="saveName()">Save</button>
-    </div>
-    <button id="start-button" onclick="startGame()">Start</button>
-    <button id="continue-button" onclick="continueGame()" style="display: none;">Continue</button>
-    <button id="play-again-button" onclick="startGame()" style="display: none;">Play Again</button>
-
+     <div id="game-container">
+      <img id="main-image" src="./images/magicball2.png" alt="Game Title Image">
+      <div id="message"></div>
+      <div id="options"></div>
+      <div id="name-input">
+        <input type="text" id="name-field" placeholder="Enter your name" />
+        <button id="name-button" onclick="saveName()">Save</button>
+      </div>
+      <button id="start-button" onclick="startGame()">Start</button>
+      <button id="continue-button" onclick="continueGame()" style="display: none;">Continue</button>
+      <button id="play-again-button" onclick="startGame()" style="display: none;">Play Again</button>
     <script>
       // Define your story object with scenes and options
       const story = {
