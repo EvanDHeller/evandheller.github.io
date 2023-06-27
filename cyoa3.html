@@ -5,127 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stumped?!</title>
     <style>
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background-color: #f5f5f5;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
-    }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f5f5f5;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+      }
 
-    #game-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      width: 400px;
-      height: 400px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-    }
+      #game-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 400px;
+        height: 400px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
 
-    #message {
-      text-align: center;
-      margin-bottom: 20px;
-      font-size: 18px;
-      position: absolute;
-    }
+      #message {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 18px;
+        position: relative;
+      }
 
-    #options {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 20px;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
+      #options {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
 
-    .option-button,
-    #continue-button,
-    #play-again-button {
-      margin-top: 15px;
-      width: 220px;
-      height: auto;
-      padding: 12px 16px;
-      font-size: 16px;
-      font-weight: bold;
-      text-align: center;
-      text-transform: uppercase;
-      color: #fff;
-      background-color: #8768b5;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
+      .option-button,
+      #continue-button,
+      #play-again-button {
+        margin-top: 15px;
+        width: 220px;
+        height: auto;
+        padding: 12px 16px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        color: #fff;
+        background-color: #8768b5;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
 
-    #continue-button,
-    #play-again-button {
-      margin-top: 150px;
-      position: absolute;
-      
-    }
-      
-    .option-button:hover,
-    #continue-button:hover,
-    #play-again-button:hover {
-      background-color: #a020f0;
-    }
+      #continue-button,
+      #play-again-button {
+        margin-top: 150px;
+        position: absolute;
+      }
 
-    #name-input {
-      display: none;
-      margin-top: 150px;
-      position: absolute;
-    }
+      .option-button:hover,
+      #continue-button:hover,
+      #play-again-button:hover {
+        background-color: #a020f0;
+      }
 
-    #name-field {
-      width: 220px;
-      height: 32px;
-      padding: 6px 8px;
-      font-size: 14px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
+      #name-input {
+        display: none;
+        margin-top: 150px;
+        position: absolute;
+      }
 
-    #name-button {
-      margin-top: 10px;
-      padding: 8px 16px;
-      font-size: 14px;
-      font-weight: bold;
-      text-transform: uppercase;
-      color: #fff;
-      background-color: #8768b5;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
+      #name-field {
+        width: 220px;
+        height: 32px;
+        padding: 6px 8px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
 
-    #name-button:hover {
-      background-color: #a020f0;
-    }
+      #name-button {
+        margin-top: 10px;
+        padding: 8px 16px;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fff;
+        background-color: #8768b5;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
 
-    #start-button {
-      padding: 8px 16px;
-      font-size: 14px;
-      font-weight: bold;
-      text-transform: uppercase;
-      color: #fff;
-      background-color: #8768b5;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      position: absolute;
-    }
+      #name-button:hover {
+        background-color: #a020f0;
+      }
 
-    #start-button:hover {
-      background-color: #a020f0;
-    }
+      #start-button {
+        padding: 8px 16px;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: #fff;
+        background-color: #8768b5;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        position: absolute;
+      }
+
+      #start-button:hover {
+        background-color: #a020f0;
+      }
     </style>
   </head>
   <body>
@@ -150,9 +149,9 @@
         startGame: function() {
           this.playerName = null;
           this.messages = [
-            "You have just woken up, you don't know where you are, or how you got there.",
-            "You don't even remember your name!",
-            "As you yawn and rub your eyes, you realize even a temporary name may be helpful..."
+            { text: "You have just woken up, you don't know where you are, or how you got there.", image: "" },
+            { text: "You don't even remember your name!", image: "" },
+            { text: "As you yawn and rub your eyes, you realize even a temporary name may be helpful...", image: "" }
           ];
           this.messageIndex = 0;
           this.displayNextMessage();
@@ -160,7 +159,7 @@
 
         displayNextMessage: function() {
           if (this.messageIndex < this.messages.length) {
-            showMessage(this.messages[this.messageIndex]);
+            showMessage(this.messages[this.messageIndex].text, this.messages[this.messageIndex].image);
 
             if (this.messageIndex === this.messages.length - 1) {
               // Last message, show name input instead of continue button
@@ -242,9 +241,15 @@
 
       // Helper functions for displaying messages, options, and managing user input
 
-      function showMessage(message) {
+      function showMessage(message, image = "") {
         const messageElement = document.getElementById("message");
         messageElement.textContent = message + "\n";
+
+        if (image !== "") {
+          const imageElement = document.createElement("img");
+          imageElement.src = image;
+          messageElement.appendChild(imageElement);
+        }
 
         const optionsElement = document.getElementById("options");
         optionsElement.innerHTML = "";
