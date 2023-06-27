@@ -361,7 +361,7 @@ function showOptions(options) {
     const button = document.createElement("button");
     button.innerText = option.text;
     button.className = "option-button";
-    button.addEventListener("click", option.action);
+    button.onclick = option.action;  // Assign the action directly to the onclick handler
     optionsElement.appendChild(button);
   });
 
@@ -369,6 +369,8 @@ function showOptions(options) {
   continueButton.style.display = "none";
 }
 
+
+      
 function startGame() {
   document.getElementById("start-button").style.display = "none";
   document.getElementById("intro-image").style.display = "none";
