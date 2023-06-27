@@ -283,16 +283,17 @@
         continueButton.style.display = "inline-block";
       }
 
-      function startGame() {
-        document.getElementById("start-button").style.display = "none";
-        document.getElementById("intro-image").style.display = "none"; // Hide the image
-        document.getElementById("continue-button").style.display = "none";
-        document.getElementById("play-again-button").style.display = "none";
-        document.getElementById("name-input").style.display = "none";
-        document.getElementById("message").textContent = "";
-        document.getElementById("options").textContent = "";
-        story.startGame();
-      }
+function startGame() {
+  document.getElementById("start-button").style.display = "none";
+  document.getElementById("intro-image").style.display = "none";
+  document.getElementById("continue-button").style.display = "none";
+  document.getElementById("play-again-button").style.display = "none";
+  document.getElementById("name-input").style.display = "none";
+  document.getElementById("message").textContent = "";
+  document.getElementById("options").textContent = "";
+  story.startGame();
+}
+
 
       function continueGame() {
         story.displayNextMessage();
