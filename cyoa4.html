@@ -152,7 +152,7 @@
   </head>
   <body>
     <img id="intro-image" src="./cyoaimages/stump.png" style="display: block; margin-bottom: 20px;">
-   <h1 id="game-title" style="display: none; z-index: 2;">Welcome to:<br>Stumped?!</h1>
+   <h1 id="game-title" style="display: block; z-index: 2;">Welcome to:<br>Stumped?!</h1>
     <div id="message"></div>
     <div id="options"></div>
     <div id="name-input">
@@ -304,7 +304,7 @@
 function startGame() {
   document.getElementById("start-button").style.display = "none";
   document.getElementById("intro-image").style.display = "none";
-  document.getElementById("game-title").style.display = "block";
+  document.getElementById("game-title").style.display = "none";
   document.getElementById("continue-button").style.display = "none";
   document.getElementById("play-again-button").style.display = "none";
   document.getElementById("name-input").style.display = "none";
