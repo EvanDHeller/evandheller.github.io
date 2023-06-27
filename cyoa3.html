@@ -337,7 +337,7 @@ function showMessage(message, image = "", imageId = "", messageId = "") {
 }
 
 
-      function showOptions(options) {
+  /*    function showOptions(options) {
         const optionsElement = document.getElementById("options");
         optionsElement.innerHTML = "";
 
@@ -350,8 +350,25 @@ function showMessage(message, image = "", imageId = "", messageId = "") {
         });
 
         const continueButton = document.getElementById("continue-button");
-        continueButton.style.display = "none";
-      }
+        continueButton.style.display = "none"; 
+      } */
+
+    function showOptions(options) {
+  const optionsElement = document.getElementById("options");
+  optionsElement.innerHTML = "";
+
+  options.forEach((option, index) => {
+    const button = document.createElement("button");
+    button.innerText = option.text;
+    button.className = "option-button";
+    button.onclick = option.action;  // Assign the action directly to the onclick handler
+    optionsElement.appendChild(button);
+  });
+
+  const continueButton = document.getElementById("continue-button");
+  continueButton.style.display = "none";
+}
+
 
       function showContinueButton() {
         const continueButton = document.getElementById("continue-button");
