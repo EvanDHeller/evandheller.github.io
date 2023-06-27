@@ -8,6 +8,8 @@
       align-items: center;
       justify-content: center;
       height: 100vh;
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
     }
 
     #game-container {
@@ -17,13 +19,16 @@
       justify-content: space-between;
       width: 400px;
       height: 400px;
-      border: 2px solid #ccc;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       padding: 20px;
     }
 
     #message {
       text-align: center;
       margin-bottom: 20px;
+      font-size: 18px;
     }
 
     #options {
@@ -34,14 +39,77 @@
 
     .option-button {
       margin-top: 10px;
-      width: 200px;
+      width: 220px;
       height: auto;
-      white-space: normal;
+      padding: 12px 16px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      color: #fff;
+      background-color: #3f51b5;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .option-button:hover {
+      background-color: #2c3e93;
     }
 
     #name-input {
       display: none;
+      margin-top: 10px;
     }
+
+    #name-field {
+      width: 220px;
+      height: 32px;
+      padding: 6px 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    #name-button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #fff;
+      background-color: #3f51b5;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #name-button:hover {
+      background-color: #2c3e93;
+    }
+
+    #start-button,
+    #continue-button,
+    #play-again-button {
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #fff;
+      background-color: #3f51b5;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #start-button:hover,
+    #continue-button:hover,
+    #play-again-button:hover {
+      background-color: #2c3e93;
+    }    
     </style>
   </head>
   <body>
