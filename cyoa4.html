@@ -220,7 +220,11 @@
   top: 60px;
  }     
       
-
+@media only screen and (max-width: 220px) {
+  iframe {
+    text-size: 12px; 
+  }
+}
       
 @media only screen and (max-width: 767px) {
   body {
@@ -249,9 +253,7 @@
     margin-top: 30px;
     max-width: 50%;
    /* position: absolute; */
-    top: 60px;
-    left: 5px;
-}
+    top: 90px;
   }
 
   img, #image {
@@ -382,9 +384,7 @@ h1 {
 
   #message {
     font-size: 1em;
-    top: 60px;
-    left: 5px;
-}
+    top: 0;
   }
 
   .game-container {
@@ -428,9 +428,7 @@ h1 {
    #enclavemsg {
   position: relative;
   top: 0;
- }
-  img#forestenclave, #forestenclave {
-    right: 50px;
+ }     
 }
 }
 
@@ -713,5 +711,3 @@ function startGame() {
     </script>
   </body>
 </html>
-
-   
