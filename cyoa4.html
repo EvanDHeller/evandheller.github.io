@@ -549,6 +549,16 @@
   const messageElement = document.getElementById("message");
   messageElement.textContent = message + "\n";
 
+function showMessage(message, image = "", imageId = "", textId = "") {
+  const messageElement = document.getElementById("message");
+  const textElement = document.createElement("p");
+  textElement.textContent = message;
+  if (textId !== "") {
+    textElement.id = textId;
+  }
+  messageElement.innerHTML = "";
+  messageElement.appendChild(textElement);
+
   if (image !== "") {
     const imageElement = document.createElement("img");
     imageElement.src = image;
