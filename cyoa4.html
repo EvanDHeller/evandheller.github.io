@@ -640,9 +640,19 @@ function startGame() {
       }
 
       function showEndMessage() {
-        document.getElementById("continue-button").style.display = "none";
-        document.getElementById("play-again-button").style.display = "inline-block";
-      }
+  const optionsElement = document.getElementById("options");
+  const optionButtons = optionsElement.querySelectorAll(".option-button");
+  const hasOptions = optionButtons.length > 0;
+
+  if (!hasOptions) {
+    const playAgainButton = document.getElementById("play-again-button");
+    playAgainButton.style.display = "inline-block";
+  } else {
+    const continueButton = document.getElementById("continue-button");
+    continueButton.style.display = "inline-block";
+  }
+}
+
     </script>
   </body>
 </html>
