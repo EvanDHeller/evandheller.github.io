@@ -545,7 +545,6 @@
 
       // Helper functions for displaying messages, options, and managing user input
 
-      
 function showMessage(message, image = "", imageId = "", textId = "") {
   const messageElement = document.getElementById("message");
   const textElement = document.createElement("p");
@@ -568,12 +567,13 @@ function showMessage(message, image = "", imageId = "", textId = "") {
   // Preserve the existing buttons
   const optionsElement = document.getElementById("options");
   const existingButtons = optionsElement.querySelectorAll(".option-button");
+  const playAgainButton = document.getElementById("play-again-button");
   optionsElement.innerHTML = "";
   existingButtons.forEach((button) => {
     optionsElement.appendChild(button);
   });
+  optionsElement.appendChild(playAgainButton);
 }
-
 
       function showOptions(options) {
         const optionsElement = document.getElementById("options");
