@@ -461,20 +461,24 @@
           this.displayNextMessage();
         },
 
-        displayNextMessage: function() {
-          if (this.messageIndex < this.messages.length) {
-            showMessage(this.messages[this.messageIndex].text, this.messages[this.messageIndex].image);
+displayNextMessage: function() {
+  if (this.messageIndex < this.messages.length) {
+    showMessage(this.messages[this.messageIndex].text, this.messages[this.messageIndex].image);
 
-            if (this.messageIndex === this.messages.length - 1) {
-              // Last message, show name input instead of continue button
-              showNameInput();
-            } else {
-              showContinueButton();
-            }
+    if (this.messageIndex === this.messages.length - 1) {
+      if (this.currentScene !== "endGame") {
+        showContinueButton();
+      } else {
+        showEndMessage();
+      }
+    } else {
+      showContinueButton();
+    }
 
-            this.messageIndex++;
-          }
-        },
+    this.messageIndex++;
+  }
+},
+
 
         scene2: function() {
           showMessage("Thank you, " + this.playerName + ", your adventure begins now!");
