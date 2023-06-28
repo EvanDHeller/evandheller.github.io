@@ -289,7 +289,7 @@
     width: 70%;
     height: 60%;
     z-index: -1; /* Set the z-index to 0 */
-    opacity: .9;
+    opacity: .8;
   
   #start-button {
     position: static;
@@ -566,14 +566,21 @@ function showMessage(message, image = "", imageId = "", textId = "") {
 
   // Preserve the existing buttons
   const optionsElement = document.getElementById("options");
-  const existingButtons = optionsElement.querySelectorAll(".option-button");
-  const playAgainButton = document.getElementById("play-again-button");
+  const existingButtons = Array.from(optionsElement.querySelectorAll(".option-button"));
   optionsElement.innerHTML = "";
   existingButtons.forEach((button) => {
     optionsElement.appendChild(button);
   });
-  optionsElement.appendChild(playAgainButton);
+
+  // Add event listeners to the preserved buttons
+  existingButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      // Handle button click event
+      // Add your logic here
+    });
+  });
 }
+
 
       function showOptions(options) {
         const optionsElement = document.getElementById("options");
