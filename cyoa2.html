@@ -191,8 +191,8 @@
     img#intro-image {
     position: absolute;
     top: 40px;
-    left: 19%;
-    width: 60%;
+    /* left: 0; */
+    width: 80%;
     height: 90%;
     z-index: 0;
   }
@@ -207,22 +207,14 @@
     color: #FFECDB;
     font-size: 27px;
     font-family: 'Cinzel Decorative', 'Blackwood Castle',/* "ITC Benguiat",*/ sans-serif;
-    /*text-shadow: 0 1px 2px black; */
-    text-shadow: 2px 7px 7px black;
+    text-shadow: 0 1px 2px black;
   }
 
   #h1title {
     font-size: 37px;
 }
 
- #enclavemsg {
-  position: relative;
-  top: 60px;
- }     
-      
-
-      
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 600px) {
   body {
   display: flex;
   flex-direction: column;
@@ -247,11 +239,6 @@
     flex: 1;
     padding-top: 50px;
     margin-top: 30px;
-    max-width: 50%;
-   /* position: absolute; */
-    top: 60px;
-    left: 5px;
-}
   }
 
   img, #image {
@@ -269,51 +256,16 @@
   }
 
   .option-button {
-    width: 90%;
-    margin-left: 0;
-    max-width: 70%;
-  }
-
-/*  #name-input {
-    margin-top: 50px;
-  }
-
-  #name-field {
-    width: auto;
-    display: flex;
-    max-width: 90%;
-  }
-
-  div#name-input {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-self: center;
-    transform: scale(1.5);
-    display: none;
-    padding-left: 15px;
-    padding-right: 15px;
-    max-width: 80%;
-  }
-  #name-button {
     width: 100%;
-    max-width: 90%;
   }
 
-  #name-button, input#name-field {
-    margin-top: 10px;
-    max-width: 155px;
-    display: flex; 
-} */
-
-   #name-input {
+  #name-input {
     margin-top: 50px;
   }
 
   #name-field {
     width: auto;
     display: flex;
-    max-width: 150px;
   }
 
   div#name-input {
@@ -330,11 +282,10 @@
     width: 100%;
   }
 
-  
   img#intro-image {
     position: absolute;
     top: 0;
-    left: 18%;
+    left: 0;
     width: 70%;
     height: 60%;
     z-index: -1; /* Set the z-index to 0 */
@@ -346,32 +297,15 @@
     width: 100%;
     z-index: 3;
 
-    #forestenclave {
+    img#forestenclave {
     transform: scale(.9);
     position: relative;
-    right: 50px;
-    top: 50px;
   }
-
-h1 {
-  background-color: rgba(255, 127, 80, .7);
-  top: 36%;
-}
-    
-  /* span#enclavemsg {
-  position: relative;
-  top: 0;
- }  */   
-
-  enclavemsg {
-  position: relative;
-  top: 50px;
- }     
   }
 }
       
   /* Small screens (phones) */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   body {
     font-size: 14px;
     background-size: 100% 108%;
@@ -382,9 +316,6 @@ h1 {
 
   #message {
     font-size: 1em;
-    top: 60px;
-    left: 5px;
-}
   }
 
   .game-container {
@@ -420,17 +351,6 @@ h1 {
     z-index: -1;
     opacity: .9;
 }
-  h1 {
-    background-color: rgba(255, 127, 80, .7);
-    top: 36%;
-    border-radius: 4px;
-  }
-   #enclavemsg {
-  position: relative;
-  top: 0;
- }
-  img#forestenclave, #forestenclave {
-    right: 50px;
 }
 }
 
@@ -558,7 +478,7 @@ h1 {
 
         scene2: function() {
           showMessage("Thank you, " + this.playerName + ", your adventure begins now!");
-          showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.", "./cyoaimages/forestenclave.png", "forestenclave", "enclavemsg");
+          showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.", "./cyoaimages/forestenclave.png", "forestenclave");
 
           this.currentScene = "scene3";
           showOptions([
@@ -713,5 +633,3 @@ function startGame() {
     </script>
   </body>
 </html>
-
-   
