@@ -490,7 +490,7 @@
 
         scene2: function() {
           showMessage("Thank you, " + this.playerName + ", your adventure begins now!");
-          showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.", "./cyoaimages/forestenclave.png", "forestenclave");
+          showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.", "./cyoaimages/forestenclave.png", "forestenclave", "enclavemsg");
 
           this.currentScene = "scene3";
           showOptions([
@@ -580,6 +580,7 @@
   const optionsElement = document.getElementById("options");
   optionsElement.innerHTML = "";
 }
+    
       
       function showOptions(options) {
         const optionsElement = document.getElementById("options");
