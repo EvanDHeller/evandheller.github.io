@@ -465,13 +465,14 @@ displayNextMessage: function() {
   if (this.messageIndex < this.messages.length) {
     showMessage(this.messages[this.messageIndex].text, this.messages[this.messageIndex].image);
 
-    if (this.messageIndex === this.messages.length - 1) {
-      if (this.currentScene !== "endGame") {
-        showContinueButton();
-      } else {
-        showEndMessage();
-      }
+    if (this.currentScene === "startGame" && this.messageIndex === this.messages.length - 1) {
+      // Last message in the startGame scene, show name input instead of continue button
+      showNameInput();
+    } else if (this.messageIndex === this.messages.length - 1 && this.currentScene !== "endGame") {
+      // Last message, show continue button
+      showContinueButton();
     } else {
+      // Display the continue button for other messages
       showContinueButton();
     }
 
