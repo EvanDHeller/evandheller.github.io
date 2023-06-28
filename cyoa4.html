@@ -545,9 +545,16 @@
 
       // Helper functions for displaying messages, options, and managing user input
 
-      function showMessage(message, image = "", imageId = "") {
+function showMessage(message, image = "", imageId = "", messageId = "") {
   const messageElement = document.getElementById("message");
-  messageElement.textContent = message + "\n";
+  messageElement.innerHTML = "";
+
+  const textElement = document.createElement("span");
+  textElement.textContent = message;
+  if (messageId !== "") {
+    textElement.id = messageId;
+  }
+  messageElement.appendChild(textElement);
 
   if (image !== "") {
     const imageElement = document.createElement("img");
