@@ -17,14 +17,44 @@
     <style>
 @import url('https://fonts.googleapis.com/css2?family=Blackwood+Castle&display=swap');
       
+      body, html {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      
       body {
-        display: flex;
+        /*display: flex;
         align-items: center;
         justify-content: center;
         height: 100vh;
         background-color: #f5f5f5;
         font-family: Arial, sans-serif;
         overflow: hidden;
+        background-image: url(./cyoaimages/backgroundborder.png); /* Replace with the path to your vine border image */
+
+       /* background-color: rgba(245, 245, 245, 0.5);
+        background-attachment: fixed;
+        z-index: 0;
+        /*margin: calc(10vw + 10vh);*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background-image: url(./cyoaimages/backgroundborder.png);
+    background-color: rgba(245, 245, 245, 0.5);
+    background-attachment: fixed;
+    z-index: 0;
+    /* margin: calc(10vw + 10vh); */
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: calc(30% = 20px) calc(50% - 800px);
+    position: fixed
       }
 
       #game-container {
@@ -32,12 +62,18 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        width: 400px;
-        height: 400px;
-        background-color: #fff;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(245, 245, 245, 0.5);
         border-radius: 8px;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         padding: 20px;
+        background-image: url(./cyoaimages/backgroundborder.png);
+        background-repeat: repeat-y; /* This will repeat the image vertically */
+        background-position: left top; /* Adjust the position as needed */
+        background-size: auto 100%; /* This will maintain the original image aspect ratio while covering the full height of the screen */
+        opacity: 0.5;
       }
 
       #message {
@@ -49,7 +85,13 @@
         white-space: pre-wrap;
         word-wrap: break-word;
         user-select: none;
-        width: 400px;
+        width: 350px;
+        top: 20px;
+        left: 20px;
+        font-family: 'Cinzel Decorative';
+        text-shadow: 1px 1px black;
+        font-weight: bolder;
+        font-size: 1.2em;
       }
 
       #options {
@@ -79,11 +121,12 @@
         border-radius: 4px;
         cursor: pointer;
         transition: background-color 0.3s ease;
+        margin-left: 40px;
       }
 
       #continue-button,
       #play-again-button {
-        margin-top: 150px;
+        margin-top: 200px;
         position: absolute;
       }
 
@@ -95,7 +138,7 @@
 
       #name-input {
         display: none;
-        margin-top: 150px;
+        margin-top: 200px;
         position: absolute;
       }
 
@@ -147,11 +190,11 @@
       
     img#intro-image {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0; /* Set the z-index to 0 */
+    top: 40px;
+    /* left: 0; */
+    width: 80%;
+    height: 90%;
+    z-index: 0;
   }
 
   h1 {
@@ -243,7 +286,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 80%;
+    width: 70%;
     height: 60%;
     z-index: -1; /* Set the z-index to 0 */
     opacity: .9;
@@ -265,6 +308,14 @@
 @media (max-width: 767px) {
   body {
     font-size: 14px;
+    background-size: 100% 108%;
+    background-position: 0px 0px;
+    position: absolute;
+    background-repeat: no-repeat;
+  }
+
+  #message {
+    font-size: 1em;
   }
 
   .game-container {
@@ -291,6 +342,16 @@
     height: 70px;
     font-size: 20px;
   }
+  img#intro-image {
+    position: absolute;
+    top: 20%;
+    left: 8%;
+    width: 85%;
+    height: 60%;
+    z-index: -1;
+    opacity: .9;
+}
+}
 }
 
 /* Medium screens (tablets) */
