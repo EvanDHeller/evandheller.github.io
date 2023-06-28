@@ -289,7 +289,7 @@
     width: 70%;
     height: 60%;
     z-index: -1; /* Set the z-index to 0 */
-    opacity: .8;
+    opacity: .9;
   
   #start-button {
     position: static;
@@ -545,15 +545,9 @@
 
       // Helper functions for displaying messages, options, and managing user input
 
-function showMessage(message, image = "", imageId = "", textId = "") {
+      function showMessage(message, image = "", imageId = "") {
   const messageElement = document.getElementById("message");
-  const textElement = document.createElement("p");
-  textElement.textContent = message;
-  if (textId !== "") {
-    textElement.id = textId;
-  }
-  messageElement.innerHTML = "";
-  messageElement.appendChild(textElement);
+  messageElement.textContent = message + "\n";
 
   if (image !== "") {
     const imageElement = document.createElement("img");
@@ -564,23 +558,9 @@ function showMessage(message, image = "", imageId = "", textId = "") {
     messageElement.appendChild(imageElement);
   }
 
-  // Preserve the existing buttons
   const optionsElement = document.getElementById("options");
-  const existingButtons = Array.from(optionsElement.querySelectorAll(".option-button"));
   optionsElement.innerHTML = "";
-  existingButtons.forEach((button) => {
-    optionsElement.appendChild(button);
-  });
-
-  // Add event listeners to the preserved buttons
-  existingButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      // Handle button click event
-      // Add your logic here
-    });
-  });
 }
-
 
       function showOptions(options) {
         const optionsElement = document.getElementById("options");
