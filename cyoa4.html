@@ -461,25 +461,20 @@
           this.displayNextMessage();
         },
 
-displayNextMessage: function() {
-  if (this.messageIndex < this.messages.length) {
-    showMessage(this.messages[this.messageIndex].text, this.messages[this.messageIndex].image);
+        displayNextMessage: function() {
+          if (this.messageIndex < this.messages.length) {
+            showMessage(this.messages[this.messageIndex].text, this.messages[this.messageIndex].image);
 
-    if (this.currentScene === "startGame" && this.messageIndex === this.messages.length - 1) {
-      // Last message in the startGame scene, show name input instead of continue button
-      showNameInput();
-    } else if (this.messageIndex === this.messages.length - 1 && this.currentScene !== "endGame") {
-      // Last message, show continue button
-      showContinueButton();
-    } else {
-      // Display the continue button for other messages
-      showContinueButton();
-    }
+            if (this.messageIndex === this.messages.length - 1) {
+              // Last message, show name input instead of continue button
+              showNameInput();
+            } else {
+              showContinueButton();
+            }
 
-    this.messageIndex++;
-  }
-},
-
+            this.messageIndex++;
+          }
+        },
 
         scene2: function() {
           showMessage("Thank you, " + this.playerName + ", your adventure begins now!");
@@ -645,19 +640,9 @@ function startGame() {
       }
 
       function showEndMessage() {
-  const optionsElement = document.getElementById("options");
-  const optionButtons = optionsElement.querySelectorAll(".option-button");
-  const hasOptions = optionButtons.length > 0;
-
-  if (!hasOptions) {
-    const playAgainButton = document.getElementById("play-again-button");
-    playAgainButton.style.display = "inline-block";
-  } else {
-    const continueButton = document.getElementById("continue-button");
-    continueButton.style.display = "inline-block";
-  }
-}
-
+        document.getElementById("continue-button").style.display = "none";
+        document.getElementById("play-again-button").style.display = "inline-block";
+      }
     </script>
   </body>
 </html>
