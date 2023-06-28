@@ -188,18 +188,16 @@
         background-color: #a020f0;
       }
       
-  img#intro-image {
+    img#intro-image {
     position: absolute;
     top: 40px;
     /* left: 0; */
-    width: 60%;
+    width: 80%;
     height: 90%;
     z-index: 0;
-    margin-right: 15px;
-}
   }
 
-  h1, #h1title {
+  h1 {
     position: absolute;
     top: 30%;
     left: 50%;
@@ -547,7 +545,7 @@
 
       // Helper functions for displaying messages, options, and managing user input
 
-function showMessage(message, image = "", imageId = "", messageId = "") {
+      function showMessage(message, image = "", imageId = "", messageId = "") {
   const messageElement = document.getElementById("message");
   messageElement.innerHTML = "";
 
@@ -570,7 +568,7 @@ function showMessage(message, image = "", imageId = "", messageId = "") {
   const optionsElement = document.getElementById("options");
   optionsElement.innerHTML = "";
 }
-
+      
       function showOptions(options) {
         const optionsElement = document.getElementById("options");
         optionsElement.innerHTML = "";
