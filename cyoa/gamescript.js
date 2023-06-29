@@ -17,32 +17,59 @@ const story = {
         this.displayNextMessage();
     },
 
-    displayNextMessage: function () {
-        if (this.messageIndex < this.messages.length) {
-            showMessage(this.messages[this.messageIndex].text, this.messages[this.messageIndex].image);
+ displayNextMessage: function () {
+  if (this.messageIndex < this.messages.length) {
+    showMessage(this.messages[this.messageIndex].text, this.messages[this.messageIndex].image);
 
-            if (this.messageIndex === this.messages.length - 1) {
-                // Last message, show name input instead of continue button
-                showNameInput();
-            } else {
-                showContinueButton();
-            }
+    if (this.messageIndex === this.messages.length - 1) {
+      // Last message, show name input instead of continue button
+      showNameInput();
+    } else {
+      showContinueButton();
+    }
 
-            this.messageIndex++;
-        }
-    },
+    this.messageIndex++;
+  } else {
+    // If all messages are displayed, reset the game
+    this.currentScene = "startGame";
+    resetGame();
+  }
+},
 
-    scene2: function () {
-        showMessage("Thank you, " + this.playerName + ", your adventure begins now!");
-        showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.", "./cyoaimages/forestenclave.png", "forestenclave", "enclavemsg");
 
-        this.currentScene = "scene3";
-        showOptions([
-            { text: "Kick at the rusted lock, hoping it will open.", action: () => this.scene3(1) },
-            { text: "Look around to see if there is anything you can use to open the chest.", action: () => this.scene3(2) },
-            { text: "You know, this is someone's property, I should probably leave it alone.", action: () => this.scene3(3) }
-        ]);
-    },
+scene2: function () {
+    const thankYouMessage = "Thank you, " + this.playerName + ", your adventure begins now!";
+    const enclaveMessage = "As you look around and take in your surroundings, you find yourself in a small wooded enclave.";
+    const enclaveImage = "./cyoaimages/forestenclave.png";
+    const enclaveImageId = "forestenclave";
+    const enclaveMessageId = "enclavemsg";
+    const centerEnclaveMessage = "In the center of the enclave, you notice a cleanly cut tree trunk with a large locked chest atop it.";
+
+    showMessage(thankYouMessage);
+    showContinueButton(); // Display the continue button
+
+    // Attach an event listener to the continue button
+    const continueButton = document.getElementById("continue-button");
+    continueButton.onclick = () => {
+        showMessage(enclaveMessage, enclaveImage, enclaveImageId, enclaveMessageId);
+        showContinueButton(); // Display the continue button
+
+        // Attach an event listener to the continue button
+        const continueButton = document.getElementById("continue-button");
+        continueButton.onclick = () => {
+            showMessage(centerEnclaveMessage);
+            this.currentScene = "scene3";
+            showOptions([
+                { text: "Kick at the rusted lock, hoping it will open.", action: () => this.scene3(1) },
+                { text: "Look around to see if there is anything you can use to open the chest.", action: () => this.scene3(2) },
+                { text: "You know, this is someone's property, I should probably leave it alone.", action: () => this.scene3(3) }
+            ]);
+        };
+    };
+},
+
+
+
 
     scene3: function (option) {
         switch (option) {
@@ -179,11 +206,20 @@ function saveName() {
     } else {
         story.playerName = playerName;
         document.getElementById("name-input").style.display = "none";
-        story.scene2();
+        story.scene2(); // Call scene2 after setting playerName
     }
 }
+
 
 function showEndMessage() {
     document.getElementById("continue-button").style.display = "none";
     document.getElementById("play-again-button").style.display = "inline-block";
+}
+
+function resetGame() {
+  story.currentScene = "startGame"; // Reset current scene to "startGame"
+  story.playerName = null;
+  story.messages = [];
+  story.messageIndex = 0;
+  startGame();
 }
