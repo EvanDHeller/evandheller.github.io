@@ -42,10 +42,11 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: green;
+    background-color: #f5f5f5;
     font-family: Arial, sans-serif;
     overflow: hidden;
     background-image: url(./cyoaimages/backgroundborder.png);
+    background-color: rgba(245, 245, 245, 0.5);
     background-attachment: fixed;
     z-index: 0;
     /* margin: calc(10vw + 10vh); */
@@ -187,11 +188,11 @@
         background-color: #a020f0;
       }
       
-/*    img#intro-image {
+    img#intro-image {
     position: absolute;
     top: 40px;
     left: 19%;
-    width: 60% !important;
+    width: 60%;
     height: 90%;
     z-index: 0;
   }
@@ -208,7 +209,6 @@
     font-family: 'Cinzel Decorative', 'Blackwood Castle',/* "ITC Benguiat",*/ sans-serif;
     /*text-shadow: 0 1px 2px black; */
     text-shadow: 2px 7px 7px black;
-    background-color: transparent !important;
   }
 
   #h1title {
@@ -220,9 +220,7 @@
   top: 60px;
  }     
       
-
-      
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 670px) {
   body {
   display: flex;
   flex-direction: column;
@@ -249,9 +247,7 @@
     margin-top: 30px;
     max-width: 50%;
    /* position: absolute; */
-    top: 60px;
-    left: 5px;
-}
+    top: 90px;
   }
 
   img, #image {
@@ -313,7 +309,6 @@
   #name-field {
     width: auto;
     display: flex;
-    max-width: 150px;
   }
 
   div#name-input {
@@ -346,32 +341,28 @@
     width: 100%;
     z-index: 3;
 
-    #forestenclave {
-    transform: scale(.9);
-    position: relative;
-    right: 50px;
-    top: 50px;
-  }
-
 h1 {
   background-color: rgba(255, 127, 80, .7);
   top: 36%;
 }
-    
-  /* span#enclavemsg {
-  position: relative;
-  top: 0;
- }  */   
-
-  enclavemsg {
-  position: relative;
-  top: 50px;
- }     
+  #enclavemsg {
+    position: relative;
+    top: 30px !important;
+    flex: 1;
   }
+    
+    img#forestenclave, #forestenclave {
+      position: relative;
+      right: 50px !important;
+      flex: 2;
+     transform: scale(1.5);
+    padding-top: 60px !important;
+  
 }
+  }
       
   /* Small screens (phones) */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   body {
     font-size: 14px;
     background-size: 100% 108%;
@@ -382,9 +373,6 @@ h1 {
 
   #message {
     font-size: 1em;
-    top: 60px;
-    left: 5px;
-}
   }
 
   .game-container {
@@ -425,13 +413,6 @@ h1 {
     top: 36%;
     border-radius: 4px;
   }
-   #enclavemsg {
-  position: relative;
-  top: 0;
- }
-  img#forestenclave, #forestenclave {
-    right: 50px;
-}
 }
 
 /* Medium screens (tablets) */
@@ -713,5 +694,3 @@ function startGame() {
     </script>
   </body>
 </html>
-
-   
