@@ -17,25 +17,20 @@ const story = {
         this.displayNextMessage();
     },
 
- displayNextMessage: function () {
-  if (this.messageIndex < this.messages.length) {
-    showMessage(this.messages[this.messageIndex].text, this.messages[this.messageIndex].image);
+    displayNextMessage: function () {
+        if (this.messageIndex < this.messages.length) {
+            showMessage(this.messages[this.messageIndex].text, this.messages[this.messageIndex].image);
 
-    if (this.messageIndex === this.messages.length - 1) {
-      // Last message, show name input instead of continue button
-      showNameInput();
-    } else {
-      showContinueButton();
-    }
+            if (this.messageIndex === this.messages.length - 1) {
+                // Last message, show name input instead of continue button
+                showNameInput();
+            } else {
+                showContinueButton();
+            }
 
-    this.messageIndex++;
-  } else {
-    // If all messages are displayed, reset the game
-    this.currentScene = "startGame";
-    resetGame();
-  }
-},
-
+            this.messageIndex++;
+        }
+    },
 
 scene2: function () {
     const thankYouMessage = "Thank you, " + this.playerName + ", your adventure begins now!";
@@ -214,12 +209,4 @@ function saveName() {
 function showEndMessage() {
     document.getElementById("continue-button").style.display = "none";
     document.getElementById("play-again-button").style.display = "inline-block";
-}
-
-function resetGame() {
-  story.currentScene = "startGame"; // Reset current scene to "startGame"
-  story.playerName = null;
-  story.messages = [];
-  story.messageIndex = 0;
-  startGame();
 }
