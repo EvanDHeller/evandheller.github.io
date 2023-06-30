@@ -17,7 +17,7 @@ const story = {
         this.displayNextMessage();
     },
 
- displayNextMessage: function () {
+displayNextMessage: function () {
   if (this.messageIndex < this.messages.length) {
     // Display the next message
     showMessage(this.messages[this.messageIndex].text, this.messages[this.messageIndex].image);
@@ -36,6 +36,7 @@ const story = {
     resetGame();
   }
 },
+
 
 
 
