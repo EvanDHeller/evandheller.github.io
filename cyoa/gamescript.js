@@ -119,11 +119,11 @@ scene2: function () {
         }
     },
 
-    endGame: function() {
-  showMessage("Congratulations, you have reached the end of the game!");
-  showOptions([{ text: "Play Again", action: () => startGame() }]);
-  this.currentScene = "startGame";
-},
+    endGame: function () {
+        showMessage("Congratulations, you have reached the end of the game!");
+        showOptions([{ text: "Play Again", action: () => this.startGame() }]);
+        this.currentScene = "startGame";
+    },
 };
 
 // Helper functions for displaying messages, options, and managing user input
@@ -212,11 +212,8 @@ function saveName() {
 
 
 function showEndMessage() {
-  const playAgainButton = document.getElementById("play-again-button");
-  playAgainButton.style.display = "inline-block";
-  playAgainButton.onclick = () => startGame();
-  const continueButton = document.getElementById("continue-button");
-  continueButton.style.display = "none";
+    document.getElementById("continue-button").style.display = "none";
+    document.getElementById("play-again-button").style.display = "inline-block";
 }
 
 function resetGame() {
