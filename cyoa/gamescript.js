@@ -121,7 +121,7 @@ scene2: function () {
 
     endGame: function () {
         showMessage("Congratulations, you have reached the end of the game!");
-        showOptions([{ text: "Play Again", action: () => this.startGame() }]);
+        showOptions([{ text: "Play Again", action: () => this.globalStartGame() }]);
         this.currentScene = "startGame";
     },
 };
@@ -174,7 +174,7 @@ function showContinueButton() {
     continueButton.style.display = "inline-block";
 }
 
-function startGame() {
+function globalStartGame() {
     document.getElementById("start-button").style.display = "none";
     document.getElementById("intro-image").style.display = "none";
     document.getElementById("game-title").style.display = "none";
