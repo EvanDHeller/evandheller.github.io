@@ -1,39 +1,42 @@
+
 // Define your story object with scenes and options
 const story = {
-  currentScene: "startGame",
-  playerName: null,
-  messages: [],
-  messageIndex: 0,
+    currentScene: "startGame",
+    playerName: null,
+    messages: [],
+    messageIndex: 0,
 
-  startGame: function() {
-    this.playerName = null;
-    this.messages = [
-      { text: "You have just woken up, you don't know where you are, or how you got there.", image: "" },
-      { text: "You don't even remember your name!", image: "" },
-      { text: "As you yawn and rub your eyes, you realize even a temporary name may be helpful...", image: "" }
-    ];
-    this.messageIndex = 0;
-    this.displayNextMessage();
-  },
+    startGame: function () {
+        this.playerName = null;
+        this.messages = [
+            { text: "You have just woken up, you don't know where you are, or how you got there.", image: "" },
+            { text: "You don't even remember your name!", image: "" },
+            { text: "As you yawn and rub your eyes, you realize even a temporary name may be helpful...", image: "" }
+        ];
+        this.messageIndex = 0;
+        this.displayNextMessage();
+    },
 
-  displayNextMessage: function() {
-    if (this.messageIndex < this.messages.length) {
-      showMessage(this.messages[this.messageIndex].text, this.messages[this.messageIndex].image);
+ displayNextMessage: function () {
+  if (this.messageIndex < this.messages.length) {
+    // Display the next message
+    showMessage(this.messages[this.messageIndex].text, this.messages[this.messageIndex].image);
 
-      if (this.messageIndex === this.messages.length - 1) {
-        // Last message, show name input instead of continue button
-        showNameInput();
-      } else {
-        showContinueButton();
-      }
-
-      this.messageIndex++;
+    if (this.messageIndex === this.messages.length - 1) {
+      // Last message, show name input instead of continue button
+      showNameInput();
     } else {
-      // If all messages are displayed, reset the game
-      this.currentScene = "startGame";
-      resetGame();
+      showContinueButton();
     }
-  },
+
+    this.messageIndex++;
+  } else {
+    // If all messages are displayed, reset the game
+    this.currentScene = "startGame";
+    resetGame();
+  }
+},
+
 
 
 scene2: function () {
@@ -118,11 +121,11 @@ scene2: function () {
         }
     },
 
-     endGame: function() {
-    showMessage("Congratulations, you have reached the end of the game!");
-    showOptions([{ text: "Play Again", action: () => this.startGame() }]);
-    this.currentScene = "startGame";
-  }
+    endGame: function () {
+        showMessage("Congratulations, you have reached the end of the game!");
+        showOptions([{ text: "Play Again", action: () => this.startGame() }]);
+        this.currentScene = "startGame";
+    },
 };
 
 // Helper functions for displaying messages, options, and managing user input
@@ -218,6 +221,7 @@ function showEndMessage() {
 function resetGame() {
   story.currentScene = "startGame"; // Reset current scene to "startGame"
   story.playerName = null;
-  story.messages = []; // Reset messages
+  story.messages = [];
   story.messageIndex = 0;
+  startGame();
 }
