@@ -6,35 +6,31 @@ const story = {
     messages: [],
     messageIndex: 0,
 
-    startGame: function () {
-        this.playerName = null;
-        this.messages = [
+     startGame: function() {
+          this.playerName = null;
+          this.messages = [
             { text: "You have just woken up, you don't know where you are, or how you got there.", image: "" },
             { text: "You don't even remember your name!", image: "" },
             { text: "As you yawn and rub your eyes, you realize even a temporary name may be helpful...", image: "" }
-        ];
-        this.messageIndex = 0;
-        this.displayNextMessage();
-    },
+          ];
+          this.messageIndex = 0;
+          this.displayNextMessage();
+        },
 
- displayNextMessage: function () {
-  if (this.messageIndex < this.messages.length) {
-    showMessage(this.messages[this.messageIndex].text, this.messages[this.messageIndex].image);
+        displayNextMessage: function() {
+          if (this.messageIndex < this.messages.length) {
+            showMessage(this.messages[this.messageIndex].text, this.messages[this.messageIndex].image);
 
-    if (this.messageIndex === this.messages.length - 1) {
-      // Last message, show name input instead of continue button
-      showNameInput();
-    } else {
-      showContinueButton();
-    }
+            if (this.messageIndex === this.messages.length - 1) {
+              // Last message, show name input instead of continue button
+              showNameInput();
+            } else {
+              showContinueButton();
+            }
 
-    this.messageIndex++;
-  } else {
-    // If all messages are displayed, reset the game
-    this.currentScene = "startGame";
-    resetGame();
-  }
-},
+            this.messageIndex++;
+          }
+        },
 
 
 scene2: function () {
