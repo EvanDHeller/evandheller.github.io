@@ -3,6 +3,8 @@ const story = {
   playerName: null,
   messages: [],
   messageIndex: 0,
+
+  // *************************** INTRO PAGE AND GAME INTRODUCTION SCENES *************************************
   scenes: {
     startGame: {
       startGame: function () {
@@ -34,7 +36,7 @@ const story = {
   }
 }
 
-    
+// *************************** STORY SCENES START HERE *****************************************************    
     scene2: {
       scene2: function () {
         showMessage("Thank you, " + story.playerName + ", your adventure begins now!");
@@ -74,6 +76,12 @@ const story = {
         showEndMessage();
       }
     },
+
+// *************************** ADD ADDITIONAL SCENES BELOW HERE ********************************************
+
+
+
+// *************************** END GAME FUNCTIONS **********************************************************
     endGame: {
       endGame: function () {
         showMessage("Congratulations, you have reached the end of the game!");
@@ -83,6 +91,8 @@ const story = {
     }
   }
 };
+
+// *************************** HELPER FUNTIONS & GAME MECHANICS GO HERE *************************************
 
 function showMessage(text, image = "") {
   const messageElement = document.getElementById("message");
@@ -141,5 +151,5 @@ function startGame() {
 
 
 
-
+// *************************** CALLING GAME START, WRITE ALL FUNCTIONS ABOVE HERE *************************************
 startGame();
