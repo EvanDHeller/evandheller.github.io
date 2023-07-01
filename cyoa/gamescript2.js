@@ -39,26 +39,13 @@ const story = {
       }
     },
     scene2: {
-  scene2_1: function() {
-  showMessage("Thank you, " + story.playerName + ", your adventure begins now!");
-  showContinueButton();
-  const continueButton = document.getElementById("continue-button");
-  continueButton.addEventListener("click", story.scenes.scene2.scene2_2);
-},
-scene2_2: function() {
-  showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.");
-  showContinueButton();
-  const continueButton = document.getElementById("continue-button");
-  continueButton.addEventListener("click", story.scenes.scene2.scene2_3);
-},
-scene2_3: function() {
-  showMessage("In the center of the enclave, you notice a cleanly cut tree trunk with a large locked chest atop it.");
-  showOptions([
-    { text: "Kick at the rusted lock, hoping it will open.", action: story.scenes.scene3.scene3_1 },
-    { text: "Look around to see if there is anything you can use to open the chest.", action: story.scenes.scene3.scene3_2 },
-    { text: "You know, this is someone's property, I should probably leave it alone.", action: story.scenes.scene3.scene3_3 }
-  ]);
-},
+       scene2: function () {
+        showMessage("Thank you, " + story.playerName + ", your adventure begins now!");
+        showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.", "./cyoaimages/forestenclave.png", "forestenclave", "enclavemsg");
+        story.currentScene = "scene3";
+        showOptions(story.scenes.scene3.options);
+      }
+    },
     scene3: {
       scene3_1: function () {
         showMessage("You kick at the rusted lock, but it doesn't budge. It seems sturdy.");
@@ -144,14 +131,13 @@ function saveName() {
     // Check if this is the last message in the "startGame" scene
     if (story.messageIndex === story.messages.length - 1) {
       // Progress to the next scene and show the thank you message
-      story.scenes.scene2.scene2_1();
+      story.scenes.scene2.scene2();
     } else {
       // Display the next message in the "startGame" scene
       story.scenes.startGame.displayNextMessage();
     }
   }
 }
-
 
 
 function resetNameInput() {
@@ -193,7 +179,7 @@ function showEndMessage() {
 
 function startGame() {
   const startButton = document.getElementById("start-button");
-  startButton.addEventListener("click", function() {
+  startButton.addEventListener("click", function () {
     // Hide the intro elements
     const introImage = document.getElementById("intro-image");
     const gameTitle = document.getElementById("game-title");
@@ -207,7 +193,5 @@ function startGame() {
     story.scenes.startGame.startGame();
   });
 }
-
-window.addEventListener("DOMContentLoaded", startGame);
 
 startGame();
