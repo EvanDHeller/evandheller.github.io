@@ -3,8 +3,6 @@ const story = {
   playerName: null,
   messages: [],
   messageIndex: 0,
-
-  // *************************** INTRO PAGE AND GAME INTRODUCTION SCENES *************************************
   scenes: {
     startGame: {
       startGame: function () {
