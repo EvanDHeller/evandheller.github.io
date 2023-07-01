@@ -143,7 +143,7 @@ function saveName() {
   // Check if the current scene is the "startGame" scene
   if (story.currentScene === "startGame") {
     // Check if this is the last message in the "startGame" scene
-    if (story.messageIndex === story.messages.length - 1) {
+    if (story.messageIndex === story.scenes.startGame.messages.length - 1) {
       // Progress to scene 2_1
       story.scenes.scene2.scene2_1();
     } else {
@@ -152,6 +152,7 @@ function saveName() {
     }
   }
 }
+
 
 
 
