@@ -32,16 +32,23 @@ const story = {
     },
 
     scene2: function () {
-        showMessage("Thank you, " + this.playerName + ", your adventure begins now!");
+    showMessage("Thank you, " + this.playerName + ", your adventure begins now!");
+    
+    const nextMessage = () => {
         showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.", "./cyoaimages/forestenclave.png", "forestenclave", "enclavemsg");
-
+        
         this.currentScene = "scene3";
         showOptions([
             { text: "Kick at the rusted lock, hoping it will open.", action: () => this.scene3(1) },
             { text: "Look around to see if there is anything you can use to open the chest.", action: () => this.scene3(2) },
             { text: "You know, this is someone's property, I should probably leave it alone.", action: () => this.scene3(3) }
         ]);
-    },
+    };
+    
+    showContinueButton();
+    const continueButton = document.getElementById("continue-button");
+    continueButton.onclick = nextMessage;
+}
 
     scene3: function (option) {
         switch (option) {
