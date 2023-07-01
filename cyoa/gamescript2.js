@@ -209,3 +209,5 @@ function startGame() {
 }
 
 startGame();
+
+startGame();
