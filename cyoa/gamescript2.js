@@ -32,7 +32,7 @@ const story = {
 
     this.messageIndex++;
   }
-}
+},
 
 // *************************** STORY SCENES START HERE *****************************************************    
     scene2: {
