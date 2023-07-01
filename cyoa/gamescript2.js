@@ -39,7 +39,7 @@ const story = {
       }
     },
     scene2: {
-      scene2: function () {
+       scene2: function () {
         showMessage("Thank you, " + story.playerName + ", your adventure begins now!");
         showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.", "./cyoaimages/forestenclave.png", "forestenclave", "enclavemsg");
         story.currentScene = "scene3";
