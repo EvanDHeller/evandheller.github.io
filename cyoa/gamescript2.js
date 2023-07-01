@@ -78,34 +78,46 @@ const story = {
   }
 };
 
-// Helper functions for displaying messages, options, and managing user input
-// ...
-
-function startGame() {
-  document.getElementById("start-button").style.display = "none";
-  document.getElementById("intro-image").style.display = "none";
-  document.getElementById("game-title").style.display = "none";
-  document.getElementById("continue-button").style.display = "none";
-  document.getElementById("play-again-button").style.display = "none";
-  document.getElementById("name-input").style.display = "none";
-  document.getElementById("message").textContent = "";
-  document.getElementById("options").textContent = "";
-  story.scenes.startGame.startGame();
+function showMessage(text, image = "") {
+  const messageElement = document.getElementById("message");
+  messageElement.textContent = text;
+  // Display the image if provided
+  if (image) {
+    const imageElement = document.getElementById("image");
+    imageElement.src = image;
+    imageElement.style.display = "block";
+  }
 }
 
-function continueGame() {
-  const currentScene = story.scenes[story.currentScene];
-  currentScene.displayNextMessage();
+function showOptions(options) {
+  const optionsElement = document.getElementById("options");
+  optionsElement.innerHTML = "";
+
+  options.forEach((option) => {
+    const button = document.createElement("button");
+    button.textContent = option.text;
+    button.addEventListener("click", option.action);
+    optionsElement.appendChild(button);
+  });
 }
 
 function showNameInput() {
-  const nameInput = document.getElementById("name-input");
-  nameInput.style.display = "block";
-  const continueButton = document.getElementById("continue-button");
-  continueButton.style.display = "none";
+  const nameInputContainer = document.getElementById("name-input-container");
+  nameInputContainer.style.display = "block";
 }
 
-// ...
+function showContinueButton() {
+  const continueButton = document.getElementById("continue-button");
+  continueButton.style.display = "block";
+}
 
-// Usage:
+function showEndMessage() {
+  const endMessageElement = document.getElementById("end-message");
+  endMessageElement.style.display = "block";
+}
+
+function startGame() {
+  story.scenes.startGame.startGame();
+}
+
 startGame();
