@@ -14,6 +14,7 @@ const story = {
         ];
         this.messageIndex = 0;
         this.displayNextMessage();
+        }
       },
       
     displayNextMessage: function() {
