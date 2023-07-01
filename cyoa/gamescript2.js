@@ -16,23 +16,24 @@ const story = {
         this.displayNextMessage();
       },
       
-    displayNextMessage: function () {
-      if (this.messageIndex < this.messages.length) {
-        showMessage(this.messages[this.messageIndex].text, this.messages[this.messageIndex].image);
+    displayNextMessage: function() {
+  if (this.messageIndex < this.messages.length) {
+    showMessage(
+      this.messages[this.messageIndex].text,
+      this.messages[this.messageIndex].image
+    );
 
-        if (this.messageIndex === this.messages.length - 1) {
-          showNameInput();
-          const continueButton = document.getElementById("continue-button");
-          continueButton.style.display = "none"; // Hide the Continue button
-        } else {
-          const continueButton = document.getElementById("continue-button");
-          continueButton.style.display = "block"; // Show the Continue button
-        }
-
-        this.messageIndex++;
-      }
+    if (this.messageIndex === this.messages.length - 1) {
+      showNameInput();
+      hideContinueButton();
+    } else {
+      showContinueButton();
     }
-  },
+
+    this.messageIndex++;
+  }
+}
+
     
     scene2: {
       scene2: function () {
