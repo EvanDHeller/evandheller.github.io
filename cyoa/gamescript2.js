@@ -15,7 +15,7 @@ const story = {
         this.messageIndex = 0;
         this.displayNextMessage();
       },
-      displayNextMessage: function() {
+      displayNextMessage: function () {
         if (this.messageIndex < this.messages.length) {
           showMessage(
             this.messages[this.messageIndex].text,
@@ -23,18 +23,13 @@ const story = {
           );
 
           if (this.messageIndex === this.messages.length - 1) {
-            showContinueButton();
-          } else {
+            showNameInput();
             hideContinueButton();
+          } else {
+            showContinueButton();
           }
 
           this.messageIndex++;
-        }
-
-        if (this.currentScene === "startGame" && this.messageIndex === 1) {
-          // Hide the start button after the first message
-          hideStartButton();
-          showNameInput();
         }
       }
     },
@@ -118,11 +113,6 @@ function showContinueButton() {
   const continueButton = document.getElementById("continue-button");
   continueButton.style.display = "block";
   continueButton.addEventListener("click", story.scenes.startGame.displayNextMessage.bind(story.scenes.startGame));
-}
-
-function hideStartButton() {
-  const startButton = document.getElementById("start-button");
-  startButton.style.display = "none";
 }
 
 function hideContinueButton() {
