@@ -117,7 +117,16 @@ function showEndMessage() {
 }
 
 function startGame() {
+  const introImage = document.getElementById("intro-image");
+  const gameTitle = document.getElementById("game-title");
+  const startButton = document.getElementById("start-button");
+
+  introImage.style.display = "none";
+  gameTitle.style.display = "none";
+  startButton.style.display = "none";
+
   story.scenes.startGame.startGame();
 }
+
 
 startGame();
