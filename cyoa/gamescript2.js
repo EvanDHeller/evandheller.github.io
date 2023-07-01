@@ -37,7 +37,7 @@ const story = {
     // Hide the start button after the first message
     hideStartButton();
   }
-}
+},
 
 
 // *************************** STORY SCENES START HERE *****************************************************    
