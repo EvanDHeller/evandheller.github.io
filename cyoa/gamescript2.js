@@ -124,21 +124,24 @@ function saveName() {
   saveButton.textContent = "Saved";
   saveButton.disabled = true;
 
-  hideNameInput();
-
-  // Check if the current scene is the "startGame" scene
-  if (story.currentScene === "startGame") {
-    // Check if this is the last message in the "startGame" scene
-    if (story.messageIndex === story.messages.length - 1) {
-      // Progress to the next scene and show the thank you message
-      story.scenes.scene2.scene2();
-    } else {
-      // Display the next message in the "startGame" scene
-      story.scenes.startGame.displayNextMessage();
-    }
-  }
+  story.scenes.startGame.displayNextMessage();
 }
 
+function resetNameInput() {
+  const nameField = document.getElementById("name-field");
+  nameField.value = "";
+  nameField.disabled = false;
+
+  const saveButton = document.getElementById("name-button");
+  saveButton.addEventListener("click", saveName);
+  saveButton.textContent = "Save";
+  saveButton.disabled = false;
+}
+
+function hideNameInput() {
+  const nameInputContainer = document.getElementById("name-input-container");
+  nameInputContainer.style.display = "none";
+}
 
 function showContinueButton() {
   const continueButton = document.getElementById("continue-button");
