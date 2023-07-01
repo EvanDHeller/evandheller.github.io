@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +16,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
   <title>Stumped?!</title>
 </head>
-
 <body>
   <img id="intro-image" src="./cyoaimages/stump.png" style="display: block; margin-bottom: 20px;">
   <h1 id="game-title" style="display: block; z-index: 2;">
@@ -25,14 +23,16 @@
     <span style="font-weight: bold;" id="h1title">Stumped?!</span>
   </h1>
   <div id="message"></div>
+  <img id="image" src="" style="display: none;">
   <div id="options"></div>
   <div id="name-input-container" style="display: none;">
     <input type="text" id="name-field" placeholder="Enter your name" />
     <button id="name-button">Save</button>
   </div>
   <button id="start-button" onclick="startGame()">Start</button>
+  <button id="continue-button" style="display: none;">Continue</button>
+  <div id="end-message" style="display: none;"></div>
 
   <script src="gamescript2.js"></script>
 </body>
-
 </html>
