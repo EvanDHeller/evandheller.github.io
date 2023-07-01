@@ -16,27 +16,28 @@ const story = {
         this.displayNextMessage();
       },
       displayNextMessage: function() {
-        if (this.messageIndex < this.messages.length) {
-          showMessage(
-            this.messages[this.messageIndex].text,
-            this.messages[this.messageIndex].image
-          );
+  if (this.messageIndex < this.messages.length) {
+    showMessage(
+      this.messages[this.messageIndex].text,
+      this.messages[this.messageIndex].image
+    );
 
-          if (this.messageIndex === this.messages.length - 1) {
-            showNameInput();
-            hideContinueButton();
-          } else {
-            showContinueButton();
-          }
+    if (this.messageIndex === this.messages.length - 1) {
+      showNameInput();
+      hideContinueButton();
+    } else {
+      showContinueButton();
+    }
 
-          this.messageIndex++;
-        }
+    this.messageIndex++;
+  }
 
-        if (this.currentScene === "startGame" && this.messageIndex === 1) {
-          // Hide the start button after the first message
-          hideStartButton();
-        }
-      }
+  if (this.currentScene === "startGame" && this.messageIndex === 2) {
+    // Show the name input container after the third message
+    showNameInput();
+    hideContinueButton();
+  }
+}
     },
     scene2: {
       scene2: function () {
@@ -147,9 +148,20 @@ function startGame() {
     // Hide the Start button
     startButton.style.display = "none";
 
-    // Start the game
-    story.scenes.startGame.startGame();
+    // Show the name input container
+    showNameInput();
+  });
+
+  const saveButton = document.getElementById("save-button");
+  saveButton.addEventListener("click", function () {
+    const nameInput = document.getElementById("name-input");
+    const playerName = nameInput.value.trim();
+    if (playerName !== "") {
+      story.playerName = playerName;
+      story.scenes.startGame.displayNextMessage();
+    }
   });
 }
+
 
 startGame();
