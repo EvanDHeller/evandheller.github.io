@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Stumped?!" />
@@ -15,18 +16,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Blackwood+Castle&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
     <title>Stumped?!</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <img id="intro-image" src="./cyoaimages/stump.png" style="display: block; margin-bottom: 20px;">
     <h1 id="game-title" style="display: block; z-index: 2;">
-  Welcome to:<br>
-  <span style="font-weight: bold;" id="h1title">Stumped?!</span>
-</h1>
+        Welcome to:<br>
+        <span style="font-weight: bold;" id="h1title">Stumped?!</span>
+    </h1>
     <div id="message"></div>
     <div id="options"></div>
     <div id="name-input">
-      <input type="text" id="name-field" placeholder="Enter your name" />
-      <button id="name-button" onclick="saveName()">Save</button>
+        <input type="text" id="name-field" placeholder="Enter your name" />
+        <button id="name-button" onclick="saveName()">Save</button>
     </div>
     <button id="start-button" onclick="startGame()">Start</button>
     <button id="continue-button" onclick="continueGame()" style="display: none;">Continue</button>
@@ -34,5 +36,6 @@
 
     <script src="gamescript3.js">
     </script>
-  </body>
+</body>
+
 </html>
