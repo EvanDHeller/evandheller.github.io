@@ -14,31 +14,31 @@ const story = {
         ];
         this.messageIndex = 0;
         this.displayNextMessage();
-        }
       },
       
-    displayNextMessage: function() {
-  if (this.messageIndex < this.messages.length) {
-    showMessage(
-      this.messages[this.messageIndex].text,
-      this.messages[this.messageIndex].image
-    );
+      displayNextMessage: function() {
+        if (this.messageIndex < this.messages.length) {
+          showMessage(
+            this.messages[this.messageIndex].text,
+            this.messages[this.messageIndex].image
+          );
 
-    if (this.messageIndex === this.messages.length - 1) {
-      showNameInput();
-      hideContinueButton();
-    } else {
-      showContinueButton();
-    }
+          if (this.messageIndex === this.messages.length - 1) {
+            showNameInput();
+            hideContinueButton();
+          } else {
+            showContinueButton();
+          }
 
-    this.messageIndex++;
-  }
+          this.messageIndex++;
+        }
 
-  if (this.currentScene === "startGame" && this.messageIndex === 1) {
-    // Hide the start button after the first message
-    hideStartButton();
-  }
-},
+        if (this.currentScene === "startGame" && this.messageIndex === 1) {
+          // Hide the start button after the first message
+          hideStartButton();
+        }
+      }
+    },
 
 
 // *************************** STORY SCENES START HERE *****************************************************    
