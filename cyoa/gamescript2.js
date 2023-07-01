@@ -117,16 +117,19 @@ function showEndMessage() {
 }
 
 function startGame() {
-  const introImage = document.getElementById("intro-image");
-  const gameTitle = document.getElementById("game-title");
   const startButton = document.getElementById("start-button");
+  startButton.addEventListener("click", function () {
+    // Hide the intro elements
+    const introImage = document.getElementById("intro-image");
+    const gameTitle = document.getElementById("game-title");
+    introImage.style.display = "none";
+    gameTitle.style.display = "none";
 
-  introImage.style.display = "none";
-  gameTitle.style.display = "none";
-  startButton.style.display = "none";
-
-  story.scenes.startGame.startGame();
+    // Start the game
+    story.scenes.startGame.startGame();
+  });
 }
+
 
 
 startGame();
