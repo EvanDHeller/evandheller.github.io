@@ -13,7 +13,29 @@ const story = {
           { text: "As you yawn and rub your eyes, you realize even a temporary name may be helpful...", image: "" }
         ];
         this.messageIndex = 0;
-        displayNextMessage();
+        this.displayNextMessage();
+      },
+      displayNextMessage: function() {
+        if (this.messageIndex < this.messages.length) {
+          showMessage(
+            this.messages[this.messageIndex].text,
+            this.messages[this.messageIndex].image
+          );
+
+          if (this.messageIndex === this.messages.length - 1) {
+            showNameInput();
+            hideContinueButton();
+          } else {
+            showContinueButton();
+          }
+
+          this.messageIndex++;
+        }
+
+        if (this.currentScene === "startGame" && this.messageIndex === 1) {
+          // Hide the start button after the first message
+          hideStartButton();
+        }
       }
     },
     scene2: {
@@ -63,29 +85,6 @@ const story = {
     }
   }
 };
-
-function displayNextMessage() {
-  if (story.messageIndex < story.messages.length) {
-    showMessage(
-      story.messages[story.messageIndex].text,
-      story.messages[story.messageIndex].image
-    );
-
-    if (story.messageIndex === story.messages.length - 1) {
-      showNameInput();
-      hideContinueButton();
-    } else {
-      showContinueButton();
-    }
-
-    story.messageIndex++;
-  }
-
-  if (story.currentScene === "startGame" && story.messageIndex === 1) {
-    // Hide the start button after the first message
-    hideStartButton();
-  }
-}
 
 function showMessage(text, image = "") {
   const messageElement = document.getElementById("message");
