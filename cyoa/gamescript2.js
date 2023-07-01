@@ -15,7 +15,7 @@ const story = {
         this.messageIndex = 0;
         this.displayNextMessage();
       },
-      displayNextMessage: function () {
+      displayNextMessage: function() {
         if (this.messageIndex < this.messages.length) {
           showMessage(
             this.messages[this.messageIndex].text,
@@ -30,6 +30,11 @@ const story = {
           }
 
           this.messageIndex++;
+        }
+
+        if (this.currentScene === "startGame" && this.messageIndex === 1) {
+          // Hide the start button after the first message
+          hideStartButton();
         }
       }
     },
@@ -115,6 +120,11 @@ function showContinueButton() {
   continueButton.addEventListener("click", story.scenes.startGame.displayNextMessage.bind(story.scenes.startGame));
 }
 
+function hideStartButton() {
+  const startButton = document.getElementById("start-button");
+  startButton.style.display = "none";
+}
+
 function hideContinueButton() {
   const continueButton = document.getElementById("continue-button");
   continueButton.style.display = "none";
@@ -126,18 +136,20 @@ function showEndMessage() {
 }
 
 function startGame() {
-  // Hide the intro elements
-  const introImage = document.getElementById("intro-image");
-  const gameTitle = document.getElementById("game-title");
-  introImage.style.display = "none";
-  gameTitle.style.display = "none";
-
-  // Hide the Start button
   const startButton = document.getElementById("start-button");
-  startButton.style.display = "none";
+  startButton.addEventListener("click", function () {
+    // Hide the intro elements
+    const introImage = document.getElementById("intro-image");
+    const gameTitle = document.getElementById("game-title");
+    introImage.style.display = "none";
+    gameTitle.style.display = "none";
 
-  // Start the game
-  story.scenes.startGame.startGame();
+    // Hide the Start button
+    startButton.style.display = "none";
+
+    // Start the game
+    story.scenes.startGame.startGame();
+  });
 }
 
 startGame();
