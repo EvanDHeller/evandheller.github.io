@@ -145,14 +145,13 @@ function saveName() {
     // Check if this is the last message in the "startGame" scene
     if (story.messageIndex === story.messages.length - 1) {
       // Progress to the next scene and show the thank you message
-      story.scenes.scene2.scene2();
+      story.scenes.scene2.scene2_1();
     } else {
       // Display the next message in the "startGame" scene
       story.scenes.startGame.displayNextMessage();
     }
   }
 }
-
 
 function resetNameInput() {
   const nameField = document.getElementById("name-field");
