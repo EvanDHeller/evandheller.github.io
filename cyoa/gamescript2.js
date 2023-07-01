@@ -112,6 +112,17 @@ function showOptions(options) {
 function showNameInput() {
   const nameInputContainer = document.getElementById("name-input-container");
   nameInputContainer.style.display = "block";
+  const nameButton = document.getElementById("name-button");
+  nameButton.addEventListener("click", saveName);
+}
+
+function saveName() {
+  const nameField = document.getElementById("name-field");
+  story.playerName = nameField.value;
+  showMessage("Thank you, " + story.playerName + ", your adventure begins now!");
+  showContinueButton();
+  hideNameInput();
+  story.scenes.startGame.displayNextMessage();
 }
 
 function showContinueButton() {
@@ -128,6 +139,11 @@ function hideStartButton() {
 function hideContinueButton() {
   const continueButton = document.getElementById("continue-button");
   continueButton.style.display = "none";
+}
+
+function hideNameInput() {
+  const nameInputContainer = document.getElementById("name-input-container");
+  nameInputContainer.style.display = "none";
 }
 
 function showEndMessage() {
