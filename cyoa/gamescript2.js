@@ -161,8 +161,10 @@ function startGame() {
     document.getElementById("name-input").style.display = "none";
     document.getElementById("message").textContent = "";
     document.getElementById("options").textContent = "";
+    
     story.startGame();
 }
+
 
 
 function continueGame() {
