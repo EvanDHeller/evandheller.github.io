@@ -144,7 +144,7 @@ function saveName() {
   if (story.currentScene === "startGame") {
     // Check if this is the last message in the "startGame" scene
     if (story.messageIndex === story.messages.length - 1) {
-      // Progress to the next scene and show the thank you message
+      // Progress to scene 2_1
       story.scenes.scene2.scene2_1();
     } else {
       // Display the next message in the "startGame" scene
@@ -152,6 +152,7 @@ function saveName() {
     }
   }
 }
+
 
 function resetNameInput() {
   const nameField = document.getElementById("name-field");
