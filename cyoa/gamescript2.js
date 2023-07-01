@@ -124,7 +124,19 @@ function saveName() {
   saveButton.textContent = "Saved";
   saveButton.disabled = true;
 
-  story.scenes.startGame.displayNextMessage();
+  hideNameInput();
+
+  // Check if the current scene is the "startGame" scene
+  if (story.currentScene === "startGame") {
+    // Check if this is the last message in the "startGame" scene
+    if (story.messageIndex === story.messages.length - 1) {
+      // Progress to the next scene
+      story.scenes.scene2.scene2();
+    } else {
+      // Display the next message in the "startGame" scene
+      story.scenes.startGame.displayNextMessage();
+    }
+  }
 }
 
 function resetNameInput() {
