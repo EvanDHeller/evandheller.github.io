@@ -39,13 +39,12 @@ const story = {
       }
     },
     scene2: {
-       scene2: function () {
-        showMessage("Thank you, " + story.playerName + ", your adventure begins now!");
-        showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.", "./cyoaimages/forestenclave.png", "forestenclave", "enclavemsg");
-        story.currentScene = "scene3";
-        showOptions(story.scenes.scene3.options);
-      }
-    },
+  scene2_1: function () {
+    showMessage("Thank you, " + story.playerName + ", your adventure begins now!");
+    story.currentScene = "scene3";
+    showOptions(story.scenes.scene3.options);
+  }
+},
     scene3: {
       scene3_1: function () {
         showMessage("You kick at the rusted lock, but it doesn't budge. It seems sturdy.");
