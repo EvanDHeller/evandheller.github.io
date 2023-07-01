@@ -15,17 +15,26 @@ const story = {
         this.messageIndex = 0;
         this.displayNextMessage();
       },
-      displayNextMessage: function () {
+      displayNextMessage: function() {
         if (this.messageIndex < this.messages.length) {
-          showMessage(this.messages[this.messageIndex].text, this.messages[this.messageIndex].image);
+          showMessage(
+            this.messages[this.messageIndex].text,
+            this.messages[this.messageIndex].image
+          );
 
           if (this.messageIndex === this.messages.length - 1) {
             showNameInput();
+            hideContinueButton();
           } else {
             showContinueButton();
           }
 
           this.messageIndex++;
+        }
+
+        if (this.currentScene === "startGame" && this.messageIndex === 1) {
+          // Hide the start button after the first message
+          hideStartButton();
         }
       }
     },
@@ -33,7 +42,6 @@ const story = {
       scene2: function () {
         showMessage("Thank you, " + story.playerName + ", your adventure begins now!");
         showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.", "./cyoaimages/forestenclave.png", "forestenclave", "enclavemsg");
-
         story.currentScene = "scene3";
         showOptions(story.scenes.scene3.options);
       }
@@ -109,6 +117,17 @@ function showNameInput() {
 function showContinueButton() {
   const continueButton = document.getElementById("continue-button");
   continueButton.style.display = "block";
+  continueButton.addEventListener("click", story.scenes.startGame.displayNextMessage.bind(story.scenes.startGame));
+}
+
+function hideStartButton() {
+  const startButton = document.getElementById("start-button");
+  startButton.style.display = "none";
+}
+
+function hideContinueButton() {
+  const continueButton = document.getElementById("continue-button");
+  continueButton.style.display = "none";
 }
 
 function showEndMessage() {
@@ -132,8 +151,5 @@ function startGame() {
     story.scenes.startGame.startGame();
   });
 }
-
-
-
 
 startGame();
