@@ -16,28 +16,27 @@ const story = {
         this.displayNextMessage();
       },
       displayNextMessage: function() {
-  if (this.messageIndex < this.messages.length) {
-    showMessage(
-      this.messages[this.messageIndex].text,
-      this.messages[this.messageIndex].image
-    );
+        if (this.messageIndex < this.messages.length) {
+          showMessage(
+            this.messages[this.messageIndex].text,
+            this.messages[this.messageIndex].image
+          );
 
-    if (this.messageIndex === this.messages.length - 1) {
-      showNameInput();
-      hideContinueButton();
-    } else {
-      showContinueButton();
-    }
+          if (this.messageIndex === this.messages.length - 1) {
+            showContinueButton();
+          } else {
+            hideContinueButton();
+          }
 
-    this.messageIndex++;
-  }
+          this.messageIndex++;
+        }
 
-  if (this.currentScene === "startGame" && this.messageIndex === 2) {
-    // Show the name input container after the third message
-    showNameInput();
-    hideContinueButton();
-  }
-}
+        if (this.currentScene === "startGame" && this.messageIndex === 1) {
+          // Hide the start button after the first message
+          hideStartButton();
+          showNameInput();
+        }
+      }
     },
     scene2: {
       scene2: function () {
@@ -137,31 +136,18 @@ function showEndMessage() {
 }
 
 function startGame() {
+  // Hide the intro elements
+  const introImage = document.getElementById("intro-image");
+  const gameTitle = document.getElementById("game-title");
+  introImage.style.display = "none";
+  gameTitle.style.display = "none";
+
+  // Hide the Start button
   const startButton = document.getElementById("start-button");
-  startButton.addEventListener("click", function () {
-    // Hide the intro elements
-    const introImage = document.getElementById("intro-image");
-    const gameTitle = document.getElementById("game-title");
-    introImage.style.display = "none";
-    gameTitle.style.display = "none";
+  startButton.style.display = "none";
 
-    // Hide the Start button
-    startButton.style.display = "none";
-
-    // Show the name input container
-    showNameInput();
-  });
-
-  const saveButton = document.getElementById("save-button");
-  saveButton.addEventListener("click", function () {
-    const nameInput = document.getElementById("name-input");
-    const playerName = nameInput.value.trim();
-    if (playerName !== "") {
-      story.playerName = playerName;
-      story.scenes.startGame.displayNextMessage();
-    }
-  });
+  // Start the game
+  story.scenes.startGame.startGame();
 }
-
 
 startGame();
