@@ -193,7 +193,7 @@ function showEndMessage() {
 
 function startGame() {
   const startButton = document.getElementById("start-button");
-  startButton.addEventListener("click", function () {
+  startButton.addEventListener("click", function() {
     // Hide the intro elements
     const introImage = document.getElementById("intro-image");
     const gameTitle = document.getElementById("game-title");
@@ -207,5 +207,7 @@ function startGame() {
     story.scenes.startGame.startGame();
   });
 }
+
+window.addEventListener("DOMContentLoaded", startGame);
 
 startGame();
