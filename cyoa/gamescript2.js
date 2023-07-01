@@ -125,10 +125,14 @@ function startGame() {
     introImage.style.display = "none";
     gameTitle.style.display = "none";
 
+    // Hide the Start button
+    startButton.style.display = "none";
+
     // Start the game
     story.scenes.startGame.startGame();
   });
 }
+
 
 
 
