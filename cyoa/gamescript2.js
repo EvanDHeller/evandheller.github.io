@@ -32,7 +32,13 @@ const story = {
 
     this.messageIndex++;
   }
-},
+
+  if (this.currentScene === "startGame" && this.messageIndex === 1) {
+    // Hide the start button after the first message
+    hideStartButton();
+  }
+}
+
 
 // *************************** STORY SCENES START HERE *****************************************************    
     scene2: {
