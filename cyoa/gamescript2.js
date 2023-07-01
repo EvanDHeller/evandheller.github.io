@@ -13,40 +13,13 @@ const story = {
           { text: "As you yawn and rub your eyes, you realize even a temporary name may be helpful...", image: "" }
         ];
         this.messageIndex = 0;
-        this.displayNextMessage();
-      },
-      
-      displayNextMessage: function() {
-        if (this.messageIndex < this.messages.length) {
-          showMessage(
-            this.messages[this.messageIndex].text,
-            this.messages[this.messageIndex].image
-          );
-
-          if (this.messageIndex === this.messages.length - 1) {
-            showNameInput();
-            hideContinueButton();
-          } else {
-            showContinueButton();
-          }
-
-          this.messageIndex++;
-        }
-
-        if (this.currentScene === "startGame" && this.messageIndex === 1) {
-          // Hide the start button after the first message
-          hideStartButton();
-        }
+        displayNextMessage();
       }
     },
-
-
-// *************************** STORY SCENES START HERE *****************************************************    
     scene2: {
       scene2: function () {
         showMessage("Thank you, " + story.playerName + ", your adventure begins now!");
         showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.", "./cyoaimages/forestenclave.png", "forestenclave", "enclavemsg");
-
         story.currentScene = "scene3";
         showOptions(story.scenes.scene3.options);
       }
@@ -81,12 +54,6 @@ const story = {
         showEndMessage();
       }
     },
-
-// *************************** ADD ADDITIONAL SCENES BELOW HERE ********************************************
-
-
-
-// *************************** END GAME FUNCTIONS **********************************************************
     endGame: {
       endGame: function () {
         showMessage("Congratulations, you have reached the end of the game!");
@@ -97,7 +64,28 @@ const story = {
   }
 };
 
-// *************************** HELPER FUNTIONS & GAME MECHANICS GO HERE *************************************
+function displayNextMessage() {
+  if (story.messageIndex < story.messages.length) {
+    showMessage(
+      story.messages[story.messageIndex].text,
+      story.messages[story.messageIndex].image
+    );
+
+    if (story.messageIndex === story.messages.length - 1) {
+      showNameInput();
+      hideContinueButton();
+    } else {
+      showContinueButton();
+    }
+
+    story.messageIndex++;
+  }
+
+  if (story.currentScene === "startGame" && story.messageIndex === 1) {
+    // Hide the start button after the first message
+    hideStartButton();
+  }
+}
 
 function showMessage(text, image = "") {
   const messageElement = document.getElementById("message");
@@ -132,6 +120,16 @@ function showContinueButton() {
   continueButton.style.display = "block";
 }
 
+function hideStartButton() {
+  const startButton = document.getElementById("start-button");
+  startButton.style.display = "none";
+}
+
+function hideContinueButton() {
+  const continueButton = document.getElementById("continue-button");
+  continueButton.style.display = "none";
+}
+
 function showEndMessage() {
   const endMessageElement = document.getElementById("end-message");
   endMessageElement.style.display = "block";
@@ -154,7 +152,4 @@ function startGame() {
   });
 }
 
-
-
-// *************************** CALLING GAME START, WRITE ALL FUNCTIONS ABOVE HERE *************************************
 startGame();
