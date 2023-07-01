@@ -117,7 +117,7 @@ function showNameInput() {
 function showContinueButton() {
   const continueButton = document.getElementById("continue-button");
   continueButton.style.display = "block";
-  continueButton.addEventListener("click", displayNextMessage);
+  continueButton.addEventListener("click", story.scenes.startGame.displayNextMessage.bind(story.scenes.startGame));
 }
 
 function hideStartButton() {
