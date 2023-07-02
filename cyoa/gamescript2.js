@@ -150,13 +150,14 @@ function saveName() {
     if (story.messageIndex === story.scenes.startGame.messages.length - 1) {
       // Progress to scene 2_1
       story.currentScene = "scene2";
-      story.scenes.scene2.scene2_1();
+      story.scenes.scene2.scene2_1(); // Call scene2_1 directly
     } else {
       // Display the next message in the "startGame" scene
       story.scenes.startGame.displayNextMessage();
     }
   }
 }
+
 
 
 
