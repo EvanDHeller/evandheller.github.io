@@ -171,12 +171,11 @@ function hideNameInput() {
 function showContinueButton() {
   const continueButton = document.getElementById("continue-button");
   continueButton.style.display = "block";
-  
+
   continueButton.addEventListener("click", function () {
     const currentScene = story.scenes[story.currentScene];
-    if (currentScene.name === "Name Input") {
-      hideContinueButton();
-      showNameInput();
+    if (story.currentScene === "startGame") {
+      currentScene.displayNextMessage();
     } else if (currentScene.messageIndex < currentScene.messages.length) {
       currentScene.displayNextMessage();
     } else {
@@ -190,6 +189,7 @@ function showContinueButton() {
     }
   });
 }
+
 
 
 
