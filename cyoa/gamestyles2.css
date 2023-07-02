@@ -104,7 +104,7 @@ div#name-input-container,
 #try-again-button {
     margin-top: 240px;
     position: absolute;
-    display: none;
+    display: none !important;
 }
 
 .option-button:hover,
