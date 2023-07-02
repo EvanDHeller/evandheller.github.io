@@ -160,7 +160,7 @@ endGameNegative: {
     if (gameEnded) {
       return; // Return early if the game has already ended
     }
-    
+
     gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
 
     showOptions([]);
@@ -182,10 +182,42 @@ endGameNegative: {
       story.scenes.startGame.startGame(); // Call the startGame function to restart the game
     });
 
+    function hideContinueButton() {
+      const continueButton = document.getElementById("continue-button");
+      continueButton.style.display = "none";
+    }
+
     hideContinueButton();
-    showTryAgainButton();
+  },
+
+  // Other functions specific to the endGameNegative scene
+},
+
+showOptions: function (options) {
+  const optionsContainer = document.getElementById("options");
+  optionsContainer.innerHTML = "";
+
+  if (options.length > 0) {
+    options.forEach(option => {
+      const button = document.createElement("button");
+      button.textContent = option.text;
+      button.classList.add("option-button");
+      button.addEventListener("click", option.action);
+      optionsContainer.appendChild(button);
+    });
+    optionsContainer.style.display = "block"; // Show the option container
+  } else {
+    optionsContainer.style.display = "none"; // Hide the option container
   }
-}
+
+  const continueButton = document.getElementById("continue-button");
+  if (options.length > 0) {
+    continueButton.style.display = "none"; // Hide the "Continue" button
+  } else {
+    continueButton.style.display = "block"; // Show the "Continue" button
+  }
+},
+
 
         }
     };
@@ -278,7 +310,7 @@ endGameNegative: {
     function hideNameInput() {
         const nameInputContainer = document.getElementById("name-input-container");
         nameInputContainer.style.display = "none";
-    }
+    } 
 
 
     function showContinueButton() {
@@ -319,7 +351,7 @@ endGameNegative: {
         continueButton.style.display = "none";
     }
 
-function hideTryAgainButton() {
+/* function hideTryAgainButton() {
     var playAgainButton = document.getElementById("play-again-button");
     playAgainButton.style.display = "none";
 }
@@ -331,7 +363,7 @@ function hideTryAgainButton() {
   } else {
     playAgainButton.style.display = "none";
   }
-}
+} */
 
     function showEndMessage() {
         const endMessageElement = document.getElementById("end-message");
