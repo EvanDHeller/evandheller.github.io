@@ -156,42 +156,30 @@ document.addEventListener("DOMContentLoaded", function () {
             },
 
             endGameNegative: {
-                endGameNegative: function() {
-  showOptions([]);
-  showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+                endGameNegative: function () {
+    showOptions([]);
+    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+    var playAgainButton = document.getElementById("play-again-button");
+    playAgainButton.style.display = "block"; // Show the "Play Again" button
+    playAgainButton.textContent = "Try Again"; // Change the text of the button
 
-  var playAgainButton = document.getElementById("play-again-button");
-  playAgainButton.style.display = "block"; // Show the "Play Again" button
-  playAgainButton.textContent = "Try Again"; // Change the text of the button
+    playAgainButton.addEventListener("click", function () {
+        story.currentScene = "startGame"; // Reset the current scene to startGame
+        story.playerName = null; // Reset the player name
+        story.messageIndex = 0; // Reset the message index
 
-  playAgainButton.removeEventListener("click", story.startGame); // Remove the previous click event listener
+        resetNameInput(); // Reset the name input
 
-  playAgainButton.addEventListener("click", function() {
-    // Reset the game state
-    story.currentScene = "startGame";
-    story.playerName = null;
-    story.messages = [];
-    story.messageIndex = 0;
+        hideOptions(); // Hide the option buttons
+        hideMessage(); // Hide the message
 
-    // Clear the message display
-    clearMessage();
+        showIntro(); // Show the intro elements
+        showStartButton(); // Show the Start button
+    });
 
-    // Hide the "Play Again" button
-    playAgainButton.style.display = "none";
-
-    // Show the intro elements
-    const introImage = document.getElementById("intro-image");
-    const gameTitle = document.getElementById("game-title");
-    introImage.style.display = "block";
-    gameTitle.style.display = "block";
-
-    // Show the Start button
-    const startButton = document.getElementById("start-button");
-    startButton.style.display = "block";
-  });
-
-  story.currentScene = "endGameNegative";
+    story.currentScene = "endGameNegative";
 }
+
 
 
 
