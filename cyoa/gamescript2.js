@@ -172,23 +172,9 @@ function showContinueButton() {
   const continueButton = document.getElementById("continue-button");
   continueButton.style.display = "block";
   continueButton.addEventListener("click", function () {
-    story.continue();
+    story.scenes.startGame.displayNextMessage();
   });
 }
-
-// Call the showContinueButton function after each scene is displayed
-story.renderScene = function (scene) {
-  const options = scene.options || [];
-  const hasNameInput = scene.inputType === "name";
-  const isLastScene = options.length === 0 && !hasNameInput;
-
-  if (!isLastScene && options.length === 0 && !hasNameInput) {
-    showContinueButton();
-  } else {
-    const continueButton = document.getElementById("continue-button");
-    continueButton.style.display = "none";
-  }
-};
 
 
 function hideStartButton() {
@@ -223,6 +209,7 @@ function startGame() {
     showContinueButton();
   });
 }
+
 
 startGame();
 });
