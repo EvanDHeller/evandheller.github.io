@@ -103,7 +103,6 @@ body {
 div#name-input-container {
     margin-top: 240px;
     position: absolute;
-    display: none !important;
 }
 
 #try-again-button {
