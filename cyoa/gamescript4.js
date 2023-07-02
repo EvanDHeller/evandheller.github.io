@@ -324,9 +324,13 @@ function hideTryAgainButton() {
     playAgainButton.style.display = "none";
 }
 
-    	function showTryAgainButton() {	
-    var playAgainButton = document.getElementById("play-again-button");	
-    playAgainButton.style.display = "block";	
+    function showTryAgainButton() {
+  var playAgainButton = document.getElementById("play-again-button");
+  if (gameEnded && story.messageIndex === 0) {
+    playAgainButton.style.display = "block";
+  } else {
+    playAgainButton.style.display = "none";
+  }
 }
 
     function showEndMessage() {
