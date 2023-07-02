@@ -161,6 +161,12 @@ document.addEventListener("DOMContentLoaded", function () {
       return; // Return early if the game has already ended
     }
 
+ var endGameNegative = {
+    endGameNegative: function () {
+      if (gameEnded) {
+        return; // Return early if the game has already ended
+      }
+
     gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
 
     showOptions([]);
