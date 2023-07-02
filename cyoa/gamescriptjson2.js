@@ -131,23 +131,22 @@ function showNameInput() {
   saveButton.addEventListener("click", saveName);
 }
 
- function saveName() {
-    const nameField = document.getElementById("name-field");
-    story.playerName = nameField.value;
-    nameField.disabled = true;
+function saveName() {
+  const nameField = document.getElementById("name-field");
+  story.playerName = nameField.value;
+  nameField.disabled = true;
 
-    const saveButton = document.getElementById("name-button");
-    saveButton.removeEventListener("click", saveName);
-    saveButton.textContent = "Saved";
-    saveButton.disabled = true;
+  const saveButton = document.getElementById("name-button");
+  saveButton.removeEventListener("click", saveName);
+  saveButton.textContent = "Saved";
+  saveButton.disabled = true;
 
-    hideNameInput();
+  hideNameInput();
 
-    if (story.currentScene === "startGame") {
-      story.scenes.scene2.scene2_1(); // Call the scene2_1 function directly
-    }
+  if (story.currentScene === "startGame") {
+    story.scenes.startGame.displayNextMessage();
   }
-
+}
 
 
 function resetNameInput() {
