@@ -170,11 +170,8 @@ endGameNegative: {
     playAgainButton.style.display = "block"; // Show the "Try Again" button
     playAgainButton.textContent = "Try Again"; // Change the text of the button
 
-    // Check if the current message index is 0 or 1 and hide the "Try Again" button if true
-    if (story.messageIndex !== 0 && story.messageIndex !== 1) {
-      var styleTag = document.createElement("style");
-      styleTag.innerHTML = "#play-again-button { display: none; }"; // Add the style tag to hide the button
-      document.head.appendChild(styleTag);
+    if (story.messageIndex === 7 || story.messageIndex === 8) {
+      playAgainButton.style.display = "none"; // Hide the "Try Again" button for the specific message indexes
     }
 
     playAgainButton.addEventListener("click", function () {
