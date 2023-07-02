@@ -115,13 +115,20 @@ function showOptions(options) {
   const optionsElement = document.getElementById("options");
   optionsElement.innerHTML = "";
 
+  const buttonContainer = document.createElement("div");
+  buttonContainer.className = "button-container";
+
   options.forEach((option) => {
     const button = document.createElement("button");
     button.textContent = option.text;
     button.addEventListener("click", option.action);
-    optionsElement.appendChild(button);
+    button.className = "option-button"; // Change the class name to "option-button"
+    buttonContainer.appendChild(button);
   });
+
+  optionsElement.appendChild(buttonContainer);
 }
+
 
 function showNameInput() {
   const nameInputContainer = document.getElementById("name-input-container");
