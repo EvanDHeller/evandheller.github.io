@@ -100,12 +100,9 @@ body {
 
 #continue-button,
 #play-again-button,
-div#name-input-container,
-#try-again-button {
+div#name-input-container {
     margin-top: 240px;
     position: absolute;
-    display: flex;
-    align-content: center;
 }
 
 .option-button:hover,
