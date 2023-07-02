@@ -317,10 +317,14 @@ function hideTryAgainButton() {
     playAgainButton.style.display = "none";
 }
 
-    	function showTryAgainButton() {	
-    var playAgainButton = document.getElementById("play-again-button");	
-    playAgainButton.style.display = "block";	
+ function showTryAgainButton() {
+    var playAgainButton = document.getElementById("play-again-button");
+    playAgainButton.style.display = "block";
+
+    playAgainButton.removeEventListener("click", resetGame); // Remove the event listener if it exists
+    playAgainButton.addEventListener("click", resetGame); // Add the event listener
 }
+
 
 function resetGame() {
     hideTryAgainButton();
