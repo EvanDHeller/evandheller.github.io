@@ -101,8 +101,7 @@ body {
 #continue-button,
 #play-again-button,
 div#name-input-container,
-button.option-button::only-child[text() = "Try Again"],
-button.option-button::only-child[text() = "Play Again"] {
+button.option-button::only-child[text() = "Try Again"] {
     margin-top: 240px;
     position: absolute;
 }
