@@ -164,32 +164,15 @@ function showNameInput() {
   saveButton.addEventListener("click", saveName);
 }
 
-function validateName(name) {
-  const regex = /^[A-Za-z\s]+$/; // Only letters and spaces allowed
-  return regex.test(name.trim());
-}
-
 function saveName() {
-  const nameField = document.getElementById("name-input");
-  const nameError = document.getElementById("name-error");
-
-  const playerName = nameField.value.trim();
-
-  if (playerName === "" || !validateName(playerName)) {
-    nameError.textContent = "Please enter a valid name";
-    nameError.style.display = "block";
-    return;
-  }
-
-  story.playerName = playerName;
+  const nameField = document.getElementById("name-field");
+  story.playerName = nameField.value;
   nameField.disabled = true;
 
-  const saveButton = document.getElementById("save-button");
+  const saveButton = document.getElementById("name-button");
   saveButton.removeEventListener("click", saveName);
   saveButton.textContent = "Saved";
   saveButton.disabled = true;
-
-  nameError.style.display = "none";
 
   hideNameInput();
 
@@ -199,17 +182,14 @@ function saveName() {
 }
 
 function resetNameInput() {
-  const nameField = document.getElementById("name-input");
+  const nameField = document.getElementById("name-field");
   nameField.value = "";
   nameField.disabled = false;
 
-  const saveButton = document.getElementById("save-button");
+  const saveButton = document.getElementById("name-button");
   saveButton.addEventListener("click", saveName);
   saveButton.textContent = "Save";
   saveButton.disabled = false;
-
-  const nameError = document.getElementById("name-error");
-  nameError.style.display = "none";
 }
 
 function hideNameInput() {
