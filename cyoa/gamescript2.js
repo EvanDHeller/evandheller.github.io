@@ -155,10 +155,15 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   },
 
-  endGameNegative: {
+ endGameNegative: {
   endGameNegative: function() {
     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
-    showOptions([{ text: "Try Again", action: startGame }]); // Call the startGame function directly
+
+    // Add the "button-try-again" class to the "Try Again" button
+    const tryAgainButton = { text: "Try Again", action: startGame };
+    tryAgainButton.class = "button-try-again";
+    showOptions([tryAgainButton]);
+
     story.currentScene = "startGame";
   }
 }
