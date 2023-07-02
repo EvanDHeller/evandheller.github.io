@@ -315,15 +315,22 @@ document.addEventListener("DOMContentLoaded", function () {
         continueButton.style.display = "none";
     }
 
-function hideTryAgainButton() {
-    var playAgainButton = document.getElementById("play-again-button");
-    playAgainButton.style.display = "none";
-}
+  function resetGame() {
+        story.currentScene = "startGame";
+        resetNameInput();
+        gameEnded = false;
+        hideTryAgainButton();
+    }
 
-    	function showTryAgainButton() {	
-    var playAgainButton = document.getElementById("play-again-button");	
-    playAgainButton.style.display = "block";	
-}
+    function hideTryAgainButton() {
+        var playAgainButton = document.getElementById("play-again-button");
+        playAgainButton.style.display = "none";
+    }
+
+    function showTryAgainButton() {
+        var playAgainButton = document.getElementById("play-again-button");
+        playAgainButton.style.display = "block";
+    }
 
     function showEndMessage() {
         const endMessageElement = document.getElementById("end-message");
