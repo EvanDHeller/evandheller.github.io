@@ -313,9 +313,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 function hideTryAgainButton() {
-    var playAgainButton = document.getElementById("play-again-button");
-    playAgainButton.style.display = "none";
+  var tryAgainButton = document.getElementById("try-again-button");
+  tryAgainButton.style.display = "none"; // Hide the "Try Again" button
 }
+
 
  function showTryAgainButton() {
     var playAgainButton = document.getElementById("play-again-button");
