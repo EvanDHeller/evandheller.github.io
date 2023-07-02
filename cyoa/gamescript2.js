@@ -164,6 +164,8 @@ document.addEventListener("DOMContentLoaded", function () {
   playAgainButton.style.display = "block"; // Show the "Play Again" button
   playAgainButton.textContent = "Try Again"; // Change the text of the button
 
+  playAgainButton.removeEventListener("click", story.startGame); // Remove the previous click event listener
+
   playAgainButton.addEventListener("click", function() {
     // Reset the game state
     story.currentScene = "startGame";
@@ -188,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
     startButton.style.display = "block";
   });
 
-  story.currentScene = "startGame";
+  story.currentScene = "endGameNegative";
 }
 
 
