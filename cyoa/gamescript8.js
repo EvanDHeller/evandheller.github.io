@@ -162,6 +162,14 @@ endGameNegative: {
     }
     
     gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
+     function showTryAgainButton() {
+  var playAgainButton = document.getElementById("play-again-button");
+  if (gameEnded && story.messageIndex === 0) {
+    playAgainButton.style.display = "block";
+  } else {
+    playAgainButton.style.display = "none";
+  }
+}
 
     showOptions([]);
     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
@@ -324,14 +332,6 @@ function hideTryAgainButton() {
     playAgainButton.style.display = "none";
 }
 
-    function showTryAgainButton() {
-  var playAgainButton = document.getElementById("play-again-button");
-  if (gameEnded && story.messageIndex === 0) {
-    playAgainButton.style.display = "block";
-  } else {
-    playAgainButton.style.display = "none";
-  }
-}
 
     function showEndMessage() {
         const endMessageElement = document.getElementById("end-message");
