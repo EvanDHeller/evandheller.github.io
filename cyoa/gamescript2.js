@@ -122,7 +122,10 @@ function showOptions(options) {
     button.addEventListener("click", option.action);
     optionsElement.appendChild(button);
   });
+
+  hideContinueButton(); // Hide the continue button when options are displayed
 }
+
 
 function showNameInput() {
   const nameInputContainer = document.getElementById("name-input-container");
@@ -149,9 +152,6 @@ function saveName() {
   }
 }
 
-
-
-
 function resetNameInput() {
   const nameField = document.getElementById("name-field");
   nameField.value = "";
@@ -170,9 +170,9 @@ function hideNameInput() {
 
 function showContinueButton() {
   const continueButton = document.getElementById("continue-button");
-  continueButton.style.display = "block";
-  continueButton.addEventListener("click", story.scenes.startGame.displayNextMessage.bind(story.scenes.startGame));
+  continueButton.style.display = "none"; // Hide the continue button
 }
+
 
 function hideStartButton() {
   const startButton = document.getElementById("start-button");
