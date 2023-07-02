@@ -329,10 +329,16 @@ function hideTryAgainButton() {
 function resetGame() {
     hideTryAgainButton();
     resetNameInput();
+
+    // Remove the event listener from the "Try Again" button
+    var playAgainButton = document.getElementById("play-again-button");
+    playAgainButton.removeEventListener("click", resetGame);
+
     gameEnded = false; // Reset the gameEnded variable
     story.currentScene = "startGame";
     story.scenes.startGame.startGame(); // Call the startGame function to restart the game
 }
+
 
     
     function showEndMessage() {
