@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function() {
   showOptions([]); // Pass an empty array to hide the option buttons
   showContinueButton();
   const continueButton = document.getElementById("continue-button");
-  continueButton.addEventListener("click", story.endGameNegative);
+  continueButton.addEventListener("click", story.scenes.endGameNegative.endGameNegative);
 },
          scene5_5: function () {
           endGameNegative();
