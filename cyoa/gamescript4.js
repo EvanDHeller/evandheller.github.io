@@ -178,7 +178,7 @@ endGameNegative: {
     playAgainButton.style.display = "block"; // Show the "Try Again" button
     playAgainButton.textContent = "Try Again"; // Change the text of the button
 
-    if (story.messageIndex === 7 || story.messageIndex === 8) {
+    if (story.scenes !== story.scenes.endGameNegative.endGameNegative) {
       playAgainButton.style.display = "none"; // Hide the "Try Again" button for the specific message indexes
     }
 
