@@ -326,6 +326,15 @@ function hideTryAgainButton() {
     playAgainButton.style.display = "block";	
 }
 
+function resetGame() {
+    hideTryAgainButton();
+    resetNameInput();
+    gameEnded = false; // Reset the gameEnded variable
+    story.currentScene = "startGame";
+    story.scenes.startGame.startGame(); // Call the startGame function to restart the game
+}
+
+    
     function showEndMessage() {
         const endMessageElement = document.getElementById("end-message");
         endMessageElement.style.display = "block";
