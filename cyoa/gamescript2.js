@@ -170,14 +170,25 @@ function hideNameInput() {
 
 function showContinueButton() {
   const continueButton = document.getElementById("continue-button");
-
-  if (story.currentScene === "startGame" && story.messageIndex === 0) {
-    continueButton.style.display = "none"; // Hide the continue button for the first message
-  } else {
-    continueButton.style.display = "block";
-    continueButton.addEventListener("click", story.scenes[story.currentScene].displayNextMessage.bind(story.scenes[story.currentScene]));
-  }
+  continueButton.style.display = "block";
+  continueButton.addEventListener("click", function () {
+    story.continue();
+  });
 }
+
+// Call the showContinueButton function after each scene is displayed
+story.renderScene = function (scene) {
+  const options = scene.options || [];
+  const hasNameInput = scene.inputType === "name";
+  const isLastScene = options.length === 0 && !hasNameInput;
+
+  if (!isLastScene && options.length === 0 && !hasNameInput) {
+    showContinueButton();
+  } else {
+    const continueButton = document.getElementById("continue-button");
+    continueButton.style.display = "none";
+  }
+};
 
 
 function hideStartButton() {
