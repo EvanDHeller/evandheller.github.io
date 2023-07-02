@@ -179,11 +179,38 @@ function saveName() {
     nameInputContainer.style.display = "none";
   }
 
-  function showContinueButton() {
-    const continueButton = document.getElementById("continue-button");
-    continueButton.style.display = "block";
-    continueButton.addEventListener("click", story.scenes.startGame.displayNextMessage.bind(story.scenes.startGame));
-  }
+ function showContinueButton() {
+  const continueButton = document.getElementById("continue-button");
+  continueButton.style.display = "block";
+  
+  // Remove existing event listener
+  continueButton.removeEventListener("click", story.scenes.startGame.displayNextMessage.bind(story.scenes.startGame));
+  
+  // Add new event listener
+  continueButton.addEventListener("click", function () {
+    // Check the current scene
+    if (story.currentScene === "startGame") {
+      story.scenes.startGame.displayNextMessage();
+    } else if (story.currentScene === "scene2_1") {
+      story.scenes.scene2.scene2_1();
+    } else if (story.currentScene === "scene2_2") {
+      story.scenes.scene2.scene2_2();
+    } else if (story.currentScene === "scene2_3") {
+      story.scenes.scene2.scene2_3();
+    } else if (story.currentScene === "scene3_1") {
+      story.scenes.scene3.scene3_1();
+    } else if (story.currentScene === "scene3_2") {
+      story.scenes.scene3.scene3_2();
+    } else if (story.currentScene === "scene3_3") {
+      story.scenes.scene3.scene3_3();
+    } else if (story.currentScene === "scene4_1") {
+      story.scenes.scene4.scene4_1();
+    } else if (story.currentScene === "scene4_2") {
+      story.scenes.scene4.scene4_2();
+    }
+  });
+}
+
 
   function hideStartButton() {
     const startButton = document.getElementById("start-button");
