@@ -320,6 +320,11 @@ function hideTryAgainButton() {
     playAgainButton.style.display = "none";
 }
 
+    	function showTryAgainButton() {	
+    var playAgainButton = document.getElementById("play-again-button");	
+    playAgainButton.style.display = "block";	
+}
+
     function showEndMessage() {
         const endMessageElement = document.getElementById("end-message");
         endMessageElement.style.display = "block";
