@@ -170,9 +170,14 @@ function hideNameInput() {
 
 function showContinueButton() {
   const continueButton = document.getElementById("continue-button");
-  continueButton.style.display = "none"; // Hide the continue button
-}
 
+  if (story.currentScene === "startGame" && story.messageIndex === 0) {
+    continueButton.style.display = "none"; // Hide the continue button for the first message
+  } else {
+    continueButton.style.display = "block";
+    continueButton.addEventListener("click", story.scenes.startGame.displayNextMessage.bind(story.scenes.startGame));
+  }
+}
 
 function hideStartButton() {
   const startButton = document.getElementById("start-button");
