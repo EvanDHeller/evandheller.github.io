@@ -172,12 +172,13 @@ document.addEventListener("DOMContentLoaded", function () {
         playAgainButton.textContent = "Try Again"; // Change the text of the button
 
         playAgainButton.addEventListener("click", function () {
-            hideTryAgainButton();
-            resetNameInput();
-            gameEnded = false; // Reset the gameEnded variable
-            story.currentScene = "startGame";
-            story.scenes.startGame.startGame(); // Call the startGame function to restart the game
-        });
+    hideTryAgainButton();
+    resetNameInput();
+    gameEnded = false; // Reset the gameEnded variable
+    story.currentScene = "startGame";
+    story.scenes.startGame.startGame(); // Call the startGame function to restart the game
+});
+
 
         hideContinueButton();
         showTryAgainButton();
