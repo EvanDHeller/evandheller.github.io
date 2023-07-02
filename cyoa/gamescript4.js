@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         scenes: {
             startGame: {
                 startGame: function () {
+                    hideTryAgainButton();
                     this.playerName = null;
                     this.messages = [
                         { text: "You have just woken up, you don't know where you are, or how you got there.", image: "" },
@@ -172,13 +173,12 @@ document.addEventListener("DOMContentLoaded", function () {
         playAgainButton.textContent = "Try Again"; // Change the text of the button
 
         playAgainButton.addEventListener("click", function () {
-    hideTryAgainButton();
-    resetNameInput();
-    gameEnded = false; // Reset the gameEnded variable
-    story.currentScene = "startGame";
-    story.scenes.startGame.startGame(); // Call the startGame function to restart the game
-});
-
+            hideTryAgainButton();
+            resetNameInput();
+            gameEnded = false; // Reset the gameEnded variable
+            story.currentScene = "startGame";
+            story.scenes.startGame.startGame(); // Call the startGame function to restart the game
+        });
 
         hideContinueButton();
         showTryAgainButton();
@@ -321,15 +321,10 @@ function hideTryAgainButton() {
     playAgainButton.style.display = "none";
 }
 
-    function showTryAgainButton() {
-    var playAgainButton = document.getElementById("play-again-button");
-    if (gameEnded) {
-        playAgainButton.style.display = "block";
-    } else {
-        playAgainButton.style.display = "none";
-    }
+    	function showTryAgainButton() {	
+    var playAgainButton = document.getElementById("play-again-button");	
+    playAgainButton.style.display = "block";	
 }
-
 
     function showEndMessage() {
         const endMessageElement = document.getElementById("end-message");
