@@ -149,36 +149,26 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             },
 
-            endGamePositive: {
-                endGamePositive: function () {
-                    showMessage("Congratulations, you have reached the end of the game! You won!");
-                    showOptions([{ text: "Play Again", action: story.scenes.startGame.startGame }]);
-                    story.currentScene = "startGame";
-                }
-            },
+           endGameNegative: {
+  endGameNegative: function () {
+    if (gameEnded) {
+      return; // Return early if the game has already ended
+    }
 
-     endGameNegative: {
-    endGameNegative: function () {
-  if (gameEnded) {
-    return; // Return early if the game has already ended
+    gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
+
+    showOptions([]);
+    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+
+    hideContinueButton();
+    showTryAgainButton();
+
+    var tryAgainButton = document.getElementById("try-again-button");
+    tryAgainButton.removeEventListener("click", resetGame); // Remove the event listener if it exists
+    tryAgainButton.addEventListener("click", resetGame); // Add the event listener
   }
-
-  gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
-
-  showOptions([]);
-  showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
-
-  var tryAgainButton = document.getElementById("try-again-button");
-  tryAgainButton.style.display = "block"; // Show the "Try Again" button
-
-  tryAgainButton.removeEventListener("click", resetGame); // Remove the event listener if it exists
-  tryAgainButton.addEventListener("click", resetGame); // Add the event listener
-
-  hideContinueButton();
-  hidePlayAgainButton();
 }
 
-}
 
         }
     };
@@ -330,16 +320,12 @@ function resetGame() {
   hideTryAgainButton();
   resetNameInput();
 
-  // Hide the save name and input field
-  document.getElementById("save-name").style.display = "none";
-
   // Reset other game variables and states
   gameEnded = false;
   story.currentScene = "startGame";
   story.scenes.startGame.startGame();
-
-  hideTryAgainButton();
 }
+
 
 
 
