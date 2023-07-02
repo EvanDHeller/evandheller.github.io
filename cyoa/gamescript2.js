@@ -157,9 +157,11 @@ function saveName() {
       story.scenes.startGame.displayNextMessage();
     }
   } else if (story.currentScene === "scene2_1") {
+    // Call the corresponding function for scene2_1 directly
     story.scenes.scene2.scene2_1();
   }
 }
+
 
 
 
