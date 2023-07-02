@@ -326,19 +326,21 @@ function hideTryAgainButton() {
     playAgainButton.addEventListener("click", resetGame); // Add the event listener
 }
 
-
 function resetGame() {
     hideTryAgainButton();
     resetNameInput();
 
     // Remove the event listener from the "Try Again" button
-     var tryAgainButton = document.getElementById("try-again-button");
-  tryAgainButton.style.display = "none";
+    var tryAgainButton = document.getElementById("try-again-button");
+    tryAgainButton.style.display = "none";
 
     gameEnded = false; // Reset the gameEnded variable
     story.currentScene = "startGame";
     story.scenes.startGame.startGame(); // Call the startGame function to restart the game
+    
+    hideTryAgainButton(); // Hide the "Try Again" button after resetting the game
 }
+
 
 
     
