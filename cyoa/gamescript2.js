@@ -66,25 +66,23 @@ document.addEventListener("DOMContentLoaded", function() {
           showMessage("You kick at the rusted lock, but it doesn't budge. It seems sturdy.");
           story.currentScene = "scene4";
           showOptions([
-            { text: "Go back to the previous scene.", action: story.scenes.scene2.scene2_3 },
+            { text: "Kick it again, much harder.", action: story.scenes.scene5.scene5_1 },
             { text: "Look around to see if there is anything you can use to open the chest.", action: story.scenes.scene3.scene3_2 },
-            { text: "You know, this is someone's property, I should probably leave it alone.", action: story.scenes.scene3.scene3_3 }
+            { text: "That hurt your pride more than your foot. Well good... you didn't want that stupid chest open anyway.", action: story.scenes.scene3.scene3_3 }
           ]);
         },
         scene3_2: function () {
-          showMessage("You search the area and find a crowbar hidden behind a tree. It might come in handy.");
+          showMessage("You search the area and see...");
           story.currentScene = "scene4";
           showOptions([
-            { text: "Go back to the previous scene.", action: story.scenes.scene2.scene2_3 },
-            { text: "Kick at the rusted lock, hoping it will open.", action: story.scenes.scene3.scene3_1 },
-            { text: "You know, this is someone's property, I should probably leave it alone.", action: story.scenes.scene3.scene3_3 }
+            { text: "...that looking is stupid, let's trying kicking again!", action: story.scenes.scene3.scene3_1 },
+            { text: "Your morals. Maybe I shouldn't touch someone else's shit.", action: story.scenes.scene3.scene3_3 }
           ]);
         },
         scene3_3: function () {
           showMessage("You decide it's best not to meddle with someone else's property and leave the chest alone.");
           story.currentScene = "scene4";
           showOptions([
-            { text: "Go back to the previous scene.", action: story.scenes.scene2.scene2_3 },
             { text: "Kick at the rusted lock, hoping it will open.", action: story.scenes.scene3.scene3_1 },
             { text: "Look around to see if there is anything you can use to open the chest.", action: story.scenes.scene3.scene3_2 }
           ]);
@@ -106,6 +104,36 @@ document.addEventListener("DOMContentLoaded", function() {
           showMessage("You decide it's best not to meddle with someone else's property and leave the chest alone.");
           story.currentScene = "endGame";
           showEndMessage();
+        }
+      },
+
+       scene5: {
+        scene5_1: function () {
+          showMessage("You kick the lock, it jingles but doesn’t break…the same can’t be said for your toe. You lost 30 health.");
+          story.currentScene = "scene4";
+          showOptions([
+            { text: "other option 1 .", action: story.scenes.scene5.scene5_2 },
+            { text: "other option 2", action: story.scenes.scene5.scene5_2 },
+            { text: "other option 3", action: story.scenes.scene5.scene5_3 }
+          ]);
+        },
+        scene5_2: function () {
+          showMessage("You search the area and find a crowbar hidden behind a tree. It might come in handy.");
+          story.currentScene = "scene4";
+          showOptions([
+            { text: "Go back to the previous scene.", action: story.scenes.scene2.scene2_3 },
+            { text: "Kick at the rusted lock, hoping it will open.", action: story.scenes.scene3.scene3_1 },
+            { text: "You know, this is someone's property, I should probably leave it alone.", action: story.scenes.scene3.scene3_3 }
+          ]);
+        },
+        scene5_3: function () {
+          showMessage("You decide it's best not to meddle with someone else's property and leave the chest alone.");
+          story.currentScene = "scene4";
+          showOptions([
+            { text: "Go back to the previous scene.", action: story.scenes.scene2.scene2_3 },
+            { text: "Kick at the rusted lock, hoping it will open.", action: story.scenes.scene3.scene3_1 },
+            { text: "Look around to see if there is anything you can use to open the chest.", action: story.scenes.scene3.scene3_2 }
+          ]);
         }
       },
       endGame: {
