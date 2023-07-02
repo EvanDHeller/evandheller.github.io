@@ -168,7 +168,9 @@ function saveName() {
   const nameField = document.getElementById("name-field");
   const playerName = nameField.value.trim(); // Trim whitespace from the input
 
-  if (playerName === "") {
+  const nameRegex = /^[A-Za-z\s]+$/; // Only letters and spaces allowed
+
+  if (!nameRegex.test(playerName)) {
     showMessage("Please enter a valid name.");
     return;
   }
@@ -187,6 +189,7 @@ function saveName() {
     story.scenes.scene2.scene2_1(); // Call the scene2_1 function directly
   }
 }
+
 
 function resetNameInput() {
   const nameField = document.getElementById("name-field");
