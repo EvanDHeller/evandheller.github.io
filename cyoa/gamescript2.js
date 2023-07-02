@@ -39,15 +39,12 @@ const story = {
       }
     },
     scene2: {
-      scene2_1: function() {
-  showMessage("Thank you, " + story.playerName + ", your adventure begins now!");
-  showContinueButton();
-
-  // Change the event listener to the correct scene transition
-  const continueButton = document.getElementById("continue-button");
-  continueButton.removeEventListener("click", story.scenes.scene2.scene2_1);
-  continueButton.addEventListener("click", story.scenes.scene2.scene2_2);
-}
+           scene2_1: function () {
+        showMessage("Thank you, " + story.playerName + ", your adventure begins now!");
+        showContinueButton();
+        const continueButton = document.getElementById("continue-button");
+        continueButton.addEventListener("click", story.scenes.scene2.scene2_2);
+      },
 
       scene2_2: function () {
         showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.");
