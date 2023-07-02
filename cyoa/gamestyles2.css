@@ -78,7 +78,8 @@ body {
 
 .option-button,
 #continue-button,
-#play-again-button {
+#play-again-button,
+.options {
     margin-top: 15px;
     width: 220px;
     height: auto;
