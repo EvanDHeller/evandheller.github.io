@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const story = {
 const story = {
   currentScene: "startGame",
   playerName: null,
@@ -201,20 +203,23 @@ function showEndMessage() {
 }
 
 function startGame() {
-  const startButton = document.getElementById("start-button");
-  startButton.addEventListener("click", function () {
-    // Hide the intro elements
-    const introImage = document.getElementById("intro-image");
-    const gameTitle = document.getElementById("game-title");
-    introImage.style.display = "none";
-    gameTitle.style.display = "none";
+    const startButton = document.getElementById("start-button");
+    startButton.addEventListener("click", function () {
+      // Hide the intro elements
+      const introImage = document.getElementById("intro-image");
+      const gameTitle = document.getElementById("game-title");
+      introImage.style.display = "none";
+      gameTitle.style.display = "none";
 
-    // Hide the Start button
-    startButton.style.display = "none";
+      // Hide the Start button
+      startButton.style.display = "none";
 
-    // Start the game
-    story.scenes.startGame.startGame();
-  });
-}
+      // Start the game
+      story.scenes.startGame.startGame();
+    });
+  }
+
+  startGame();
+});
 
 startGame();
