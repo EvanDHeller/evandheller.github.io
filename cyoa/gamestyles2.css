@@ -100,8 +100,7 @@ body {
 
 #continue-button,
 #play-again-button,
-#margin-top: 240px;
-    position: absolute; {
+div#name-input-container {
     margin-top: 240px;
     position: absolute;
 }
