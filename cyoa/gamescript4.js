@@ -320,10 +320,15 @@ function hideTryAgainButton() {
     playAgainButton.style.display = "none";
 }
 
-    	function showTryAgainButton() {	
-    var playAgainButton = document.getElementById("play-again-button");	
-    playAgainButton.style.display = "block";	
+    function showTryAgainButton() {
+    var playAgainButton = document.getElementById("play-again-button");
+    if (gameEnded) {
+        playAgainButton.style.display = "block";
+    } else {
+        playAgainButton.style.display = "none";
+    }
 }
+
 
     function showEndMessage() {
         const endMessageElement = document.getElementById("end-message");
