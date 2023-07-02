@@ -166,13 +166,11 @@ endGameNegative: {
     showOptions([]);
     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
 
+    showTryAgainButton();
+
     var playAgainButton = document.getElementById("play-again-button");
     playAgainButton.style.display = "block"; // Show the "Try Again" button
     playAgainButton.textContent = "Try Again"; // Change the text of the button
-
-    if (story.messageIndex === 7 || story.messageIndex === 8) {
-      playAgainButton.style.display = "none"; // Hide the "Try Again" button for the specific message indexes
-    }
 
     playAgainButton.addEventListener("click", function () {
       hideTryAgainButton();
@@ -183,7 +181,6 @@ endGameNegative: {
     });
 
     hideContinueButton();
-    showTryAgainButton();
   }
 }
 
