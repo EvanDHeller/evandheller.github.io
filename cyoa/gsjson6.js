@@ -255,30 +255,32 @@ function hideNameInput() {
 }
 
 
- function showContinueButton() {
-      const continueButton = document.getElementById("continue-button");
-      continueButton.style.display = "block";
+function continueButtonClick() {
+  const currentScene = story.scenes[story.currentScene];
 
-      continueButton.addEventListener("click", function () {
-        const currentScene = story.scenes[story.currentScene];
+  if (currentScene.messageIndex < currentScene.messages.length) {
+    currentScene.displayNextMessage();
+  } else {
+    const sceneKeys = Object.keys(story.scenes);
+    const currentIndex = sceneKeys.indexOf(story.currentScene);
 
-        if (story.currentScene === "startGame") {
-          currentScene.displayNextMessage();
-        } else if (currentScene.messageIndex < currentScene.messages.length) {
-          currentScene.displayNextMessage();
-        } else {
-          const sceneKeys = Object.keys(story.scenes);
-          const currentIndex = sceneKeys.indexOf(story.currentScene);
-          if (currentIndex < sceneKeys.length - 1) {
-            story.currentScene = sceneKeys[currentIndex + 1];
-            showScene();
-          } else {
-            hideContinueButton();
-            showNameInput();
-          }
-        }
-      });
+    if (currentIndex < sceneKeys.length - 1) {
+      story.currentScene = sceneKeys[currentIndex + 1];
+      showScene();
+    } else {
+      hideContinueButton();
+
+      if (story.currentScene === "endGamePositive") {
+        story.scenes.endGamePositive.endGamePositive();
+      } else if (story.currentScene === "endGameNegative") {
+        story.scenes.endGameNegative.endGameNegative();
+      } else {
+        showNameInput();
+      }
     }
+  }
+}
+
 
 
 
