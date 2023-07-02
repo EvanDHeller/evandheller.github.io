@@ -1,3 +1,4 @@
+var gameEnded = false;
 document.addEventListener("DOMContentLoaded", function () {
     const story = {
         currentScene: "startGame",
@@ -155,8 +156,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             },
 
-             endGameNegative: {
+            endGameNegative: {
     endGameNegative: function () {
+        if (gameEnded) {
+            return; // Return early if the game has already ended
+        }
+        
+        gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
+
         showOptions([]);
         showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
 
@@ -167,11 +174,13 @@ document.addEventListener("DOMContentLoaded", function () {
         playAgainButton.addEventListener("click", function () {
             hideTryAgainButton();
             resetNameInput();
+            gameEnded = false; // Reset the gameEnded variable
             story.currentScene = "startGame";
             story.scenes.startGame.startGame(); // Call the startGame function to restart the game
         });
 
-        story.currentScene = "startGame";
+        hideContinueButton();
+        showTryAgainButton();
     }
 }
         }
