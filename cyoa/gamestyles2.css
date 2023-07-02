@@ -101,7 +101,7 @@ body {
 #continue-button,
 #play-again-button,
 div#name-input-container,
-button.option-button:contains("Try Again") {
+.button-try-again {
     margin-top: 240px;
     position: absolute;
 }
