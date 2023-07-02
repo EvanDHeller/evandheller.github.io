@@ -171,10 +171,23 @@ function hideNameInput() {
 function showContinueButton() {
   const continueButton = document.getElementById("continue-button");
   continueButton.style.display = "block";
+  
   continueButton.addEventListener("click", function () {
-    story.scenes.startGame.displayNextMessage();
+    const currentScene = story.scenes[story.currentScene];
+    if (currentScene.messageIndex < currentScene.messages.length) {
+      currentScene.displayNextMessage();
+    } else {
+      if (story.currentScene < story.scenes.length - 1) {
+        story.currentScene++;
+        showScene();
+      } else {
+        hideContinueButton();
+        showNameInput();
+      }
+    }
   });
 }
+
 
 
 function hideStartButton() {
