@@ -155,13 +155,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   },
 
-  endGameNegative: {
-    endGameNegative: function() {
-      showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
-      showOptions([{ text: "Try Again", action: story.scenes.startGame.startGame }]);
-      story.currentScene = "startGame";
-    }
-  }
+   endGameNegative: {
+  endGameNegative: function() {
+    showOptions([]);
+    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+    document.getElementById("play-again-button").style.display = "block"; // Show the "Play Again" button
+    story.currentScene = "startGame";
+}
+}
 }
   };
 
