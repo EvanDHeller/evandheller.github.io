@@ -73,9 +73,9 @@ const story = {
         showOptions(story.scenes.scene4.options);
       },
       scene3_3: function () {
-        showMessage("You decide it's best not to meddle with someone else's property and leave the chest alone.");
+        showMessage("Some third option");
         story.currentScene = "scene4";
-        showEndMessage(story.scene4.options);
+        showOptions(story.scenes.scene4.options);
       }
     },
     scene4: {
@@ -86,6 +86,11 @@ const story = {
         showEndMessage();
       },
       scene4_2: function () {
+        showMessage("You decide it's best not to meddle with someone else's property and leave the chest alone.");
+        story.currentScene = "endGame";
+        showEndMessage();
+      }
+      scene4_3: function () {
         showMessage("You decide it's best not to meddle with someone else's property and leave the chest alone.");
         story.currentScene = "endGame";
         showEndMessage();
