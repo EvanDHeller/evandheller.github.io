@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
         scenes: {
             startGame: {
                 startGame: function () {
-                    hideTryAgainButton();
                     this.playerName = null;
                     this.messages = [
                         { text: "You have just woken up, you don't know where you are, or how you got there.", image: "" },
@@ -158,18 +157,22 @@ document.addEventListener("DOMContentLoaded", function () {
             },
 endGameNegative: {
   endGameNegative: function () {
-    var playAgainButton = document.getElementById("play-again-button");
-    playAgainButton.style.display = "block"; // Show the "Try Again" button
-    playAgainButton.textContent = "Try Again"; // Change the text of the button
     if (gameEnded) {
       return; // Return early if the game has already ended
     }
     
     gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
-   
-    showTryAgainButton();
+
     showOptions([]);
     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+
+    var playAgainButton = document.getElementById("play-again-button");
+    playAgainButton.style.display = "block"; // Show the "Try Again" button
+    playAgainButton.textContent = "Try Again"; // Change the text of the button
+
+    if (story.messageIndex === 7 || story.messageIndex === 8) {
+      playAgainButton.style.display = "none"; // Hide the "Try Again" button for the specific message indexes
+    }
 
     playAgainButton.addEventListener("click", function () {
       hideTryAgainButton();
@@ -180,9 +183,10 @@ endGameNegative: {
     });
 
     hideContinueButton();
-      showOptions([]);
+    showTryAgainButton();
   }
 }
+
         }
     };
 
@@ -320,6 +324,14 @@ function hideTryAgainButton() {
     playAgainButton.style.display = "none";
 }
 
+    function showTryAgainButton() {
+  var playAgainButton = document.getElementById("play-again-button");
+  if (gameEnded && story.messageIndex === 0) {
+    playAgainButton.style.display = "block";
+  } else {
+    playAgainButton.style.display = "none";
+  }
+}
 
     function showEndMessage() {
         const endMessageElement = document.getElementById("end-message");
