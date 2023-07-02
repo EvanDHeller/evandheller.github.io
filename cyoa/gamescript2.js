@@ -109,16 +109,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
        scene5: {
         scene5_1: function () {
-          showMessage("You kick the lock, it jingles but doesn’t break…the same can’t be said for your toe. You lost 30 health.");
+          showMessage("You kick the lock, it jingles but doesn’t break…the same can’t be said for your toe. Lose 30 health.");
           story.currentScene = "scene4";
           showOptions([
-            { text: "other option 1 .", action: story.scenes.scene5.scene5_2 },
-            { text: "other option 2", action: story.scenes.scene5.scene5_2 },
-            { text: "other option 3", action: story.scenes.scene5.scene5_3 }
+            { text: "Momma didn't raise no bitch, kick it again, show it you really mean it!", action: story.scenes.scene5.scene5_2 },
+            { text: "Throw the chest against a tree in frustration.", action: story.scenes.scene5.scene5_2 },
+            { text: "Give up. This chest clearly wants to stay shut more than you want to open it.", action: story.scenes.scene3.scene3_3 }
           ]);
         },
         scene5_2: function () {
-          showMessage("You search the area and find a crowbar hidden behind a tree. It might come in handy.");
+          showMessage("You can practically hear the chest mocking you, as if saying 'Kick me once, shame on me; kick me twice, shame on you.' Lose 30 health.");
           story.currentScene = "scene4";
           showOptions([
             { text: "Go back to the previous scene.", action: story.scenes.scene2.scene2_3 },
