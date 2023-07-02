@@ -157,32 +157,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
             endGameNegative: {
                endGameNegative: function() {
-    showOptions([]);
-    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
-    var playAgainButton = document.getElementById("play-again-button");
-    playAgainButton.style.display = "block"; // Show the "Play Again" button
-    playAgainButton.textContent = "Try Again"; // Change the text of the button
+  showOptions([]);
+  showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+  var tryAgainButton = document.getElementById("play-again-button");
+  tryAgainButton.style.display = "block"; // Show the "Try Again" button
+  tryAgainButton.textContent = "Try Again"; // Change the text of the button
 
-    function resetGame() {
-        story.currentScene = "startGame"; // Reset the current scene to startGame
-        story.playerName = null; // Reset the player name
-        story.messageIndex = 0; // Reset the message index
+  function resetGame() {
+    story.currentScene = "startGame"; // Reset the current scene to startGame
+    story.playerName = null; // Reset the player name
+    story.messageIndex = 0; // Reset the message index
 
-        resetNameInput(); // Reset the name input
+    resetNameInput(); // Reset the name input
 
-        hideOptions(); // Hide the option buttons
-        hideMessage(); // Hide the message
+    hideOptions(); // Hide the option buttons
+    hideMessage(); // Hide the message
 
-        showIntro(); // Show the intro elements
-        showStartButton(); // Show the Start button
+    showIntro(); // Show the intro elements
+    showStartButton(); // Show the Start button
 
-        playAgainButton.removeEventListener("click", resetGame); // Remove the event listener
-    }
+    tryAgainButton.removeEventListener("click", resetGame); // Remove the event listener
+  }
 
-    playAgainButton.addEventListener("click", resetGame);
+  tryAgainButton.addEventListener("click", resetGame);
 
-    story.currentScene = "endGameNegative";
+  story.currentScene = "endGameNegative";
 }
+
 
 
 
