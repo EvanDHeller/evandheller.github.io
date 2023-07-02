@@ -170,7 +170,7 @@ endGameNegative: {
     playAgainButton.style.display = "none";
   }
 }
-
+    showTryAgainButton();
     showOptions([]);
     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
 
@@ -191,7 +191,7 @@ endGameNegative: {
     });
 
     hideContinueButton();
-    showTryAgainButton();
+    hideTryAgainButton();
   }
 }
         }
