@@ -191,7 +191,6 @@ endGameNegative: {
     });
 
     hideContinueButton();
-    hideTryAgainButton();
   }
 }
         }
