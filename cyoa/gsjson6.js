@@ -270,10 +270,15 @@ function continueButtonClick() {
     } else {
       hideContinueButton();
 
-      if (story.currentScene === "endGamePositive") {
-        story.scenes.endGamePositive.endGamePositive();
+      if (story.currentScene === "scene5_4") {
+        document.getElementById("story-container").innerHTML = ""; // Clear the story container
+        endGameNegative();
+      } else if (story.currentScene === "endGamePositive") {
+        document.getElementById("story-container").innerHTML = ""; // Clear the story container
+        endGamePositive();
       } else if (story.currentScene === "endGameNegative") {
-        story.scenes.endGameNegative.endGameNegative();
+        document.getElementById("story-container").innerHTML = ""; // Clear the story container
+        endGameNegative();
       } else {
         showNameInput();
       }
