@@ -157,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
             },
 
             endGameNegative: {
-    function endGameNegative() {
+    endGameNegative: function() {
         if (gameEnded) {
             return; // Return early if the game has already ended
         }
