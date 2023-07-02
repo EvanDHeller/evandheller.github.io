@@ -166,7 +166,14 @@ function showNameInput() {
 
 function saveName() {
   const nameField = document.getElementById("name-field");
-  story.playerName = nameField.value;
+  const playerName = nameField.value.trim(); // Trim whitespace from the input
+
+  if (playerName === "") {
+    showMessage("Please enter a valid name.");
+    return;
+  }
+
+  story.playerName = playerName;
   nameField.disabled = true;
 
   const saveButton = document.getElementById("name-button");
