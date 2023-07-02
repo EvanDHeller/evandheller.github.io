@@ -168,28 +168,31 @@ function hideNameInput() {
   nameInputContainer.style.display = "none";
 }
 
-function showContinueButton() {
-  const continueButton = document.getElementById("continue-button");
-  continueButton.style.display = "block";
 
-  continueButton.addEventListener("click", function () {
-    const currentScene = story.scenes[story.currentScene];
-    if (story.currentScene === "startGame") {
-      currentScene.displayNextMessage();
-    } else if (currentScene.messageIndex < currentScene.messages.length) {
-      currentScene.displayNextMessage();
-    } else {
-      if (story.currentScene < story.scenes.length - 1) {
-        story.currentScene++;
-        showScene();
-      } else {
-        hideContinueButton();
-        showNameInput();
-      }
+ function showContinueButton() {
+      const continueButton = document.getElementById("continue-button");
+      continueButton.style.display = "block";
+
+      continueButton.addEventListener("click", function () {
+        const currentScene = story.scenes[story.currentScene];
+
+        if (story.currentScene === "startGame") {
+          currentScene.displayNextMessage();
+        } else if (currentScene.messageIndex < currentScene.messages.length) {
+          currentScene.displayNextMessage();
+        } else {
+          const sceneKeys = Object.keys(story.scenes);
+          const currentIndex = sceneKeys.indexOf(story.currentScene);
+          if (currentIndex < sceneKeys.length - 1) {
+            story.currentScene = sceneKeys[currentIndex + 1];
+            showScene();
+          } else {
+            hideContinueButton();
+            showNameInput();
+          }
+        }
+      });
     }
-  });
-}
-
 
 
 
