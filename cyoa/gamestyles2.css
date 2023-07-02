@@ -101,9 +101,10 @@ body {
 #continue-button,
 #play-again-button,
 div#name-input-container,
-.button-try-again {
+#try-again-button {
     margin-top: 240px;
     position: absolute;
+    display: flex;
 }
 
 .option-button:hover,
