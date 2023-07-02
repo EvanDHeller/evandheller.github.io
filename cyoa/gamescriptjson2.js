@@ -115,6 +115,12 @@ function showOptions(options) {
   const optionsElement = document.getElementById("options");
   optionsElement.innerHTML = "";
 
+  if (options.length === 0) {
+    // No options available, hide the options container
+    optionsElement.style.display = "none";
+    return;
+  }
+
   const buttonContainer = document.createElement("div");
   buttonContainer.className = "button-container";
 
@@ -122,11 +128,12 @@ function showOptions(options) {
     const button = document.createElement("button");
     button.textContent = option.text;
     button.addEventListener("click", option.action);
-    button.className = "option-button"; // Change the class name to "option-button"
+    button.className = "option-button";
     buttonContainer.appendChild(button);
   });
 
   optionsElement.appendChild(buttonContainer);
+  optionsElement.style.display = "block";
 }
 
 
