@@ -1,5 +1,11 @@
 var gameEnded = false;
 document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener('DOMContentLoaded', () => {
+  const tryAgainButton = document.getElementById('try-again-button');
+
+  tryAgainButton.addEventListener('click', () => {
+    tryAgainButton.style.display = 'none';
+  });
     const story = {
         currentScene: "startGame",
         playerName: null,
