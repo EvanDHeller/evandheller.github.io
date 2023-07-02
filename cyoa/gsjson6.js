@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function() {
   continueButton.addEventListener("click", story.scenes.scene5.scene5_5);
 },
          scene5_5: function () {
-          endGameNegative();
+          return endGameNegative;
         }
       }
 }
@@ -197,8 +197,6 @@ function showOptions(options) {
     continueButton.style.display = "block"; // Show the "Continue" button
   }
 }
-
-
 
 
 function showNameInput() {
@@ -279,7 +277,7 @@ function continueButtonClick() {
           document.getElementById("story-container").innerHTML = ""; // Clear the story container
           
           // Check if the next scene is the endGameNegative function
-          if (story.scenes[nextSceneId] === endGameNegative) {
+          if (story.scenes[nextSceneId]() === endGameNegative) {
             endGameNegative(); // Call the function directly
           } else {
             story.scenes[nextSceneId](); // Call the next scene function directly
