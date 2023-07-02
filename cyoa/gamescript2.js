@@ -157,15 +157,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
  endGameNegative: {
   endGameNegative: function() {
-    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
-
-    // Add the "button-try-again" class to the "Try Again" button
-    const tryAgainButton = { text: "Try Again", action: startGame };
-    tryAgainButton.class = "button-try-again";
-    showOptions([tryAgainButton]);
-
-    story.currentScene = "startGame";
-  }
+  showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+  
+  var tryAgainButton = document.createElement("button");
+  tryAgainButton.innerText = "Try Again";
+  tryAgainButton.id = "try-again-button"; // Add the id attribute
+  
+  tryAgainButton.addEventListener("click", startGame);
+  
+  showOptions([tryAgainButton]);
+  
+  story.currentScene = "startGame";
+}
 }
 }
   };
