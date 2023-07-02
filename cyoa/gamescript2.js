@@ -174,7 +174,10 @@ function showContinueButton() {
   
   continueButton.addEventListener("click", function () {
     const currentScene = story.scenes[story.currentScene];
-    if (currentScene.messageIndex < currentScene.messages.length) {
+    if (currentScene.name === "Name Input") {
+      hideContinueButton();
+      showNameInput();
+    } else if (currentScene.messageIndex < currentScene.messages.length) {
       currentScene.displayNextMessage();
     } else {
       if (story.currentScene < story.scenes.length - 1) {
@@ -187,6 +190,7 @@ function showContinueButton() {
     }
   });
 }
+
 
 
 
