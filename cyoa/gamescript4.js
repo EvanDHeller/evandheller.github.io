@@ -332,8 +332,8 @@ function resetGame() {
     resetNameInput();
 
     // Remove the event listener from the "Try Again" button
-    var playAgainButton = document.getElementById("play-again-button");
-    playAgainButton.removeEventListener("click", resetGame);
+     var tryAgainButton = document.getElementById("try-again-button");
+  tryAgainButton.style.display = "none";
 
     gameEnded = false; // Reset the gameEnded variable
     story.currentScene = "startGame";
