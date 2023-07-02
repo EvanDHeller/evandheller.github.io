@@ -166,7 +166,21 @@ function showNameInput() {
 
 function saveName() {
   const nameField = document.getElementById("name-field");
-  story.playerName = nameField.value;
+  const name = nameField.value.trim(); // Trim whitespace from the input
+
+  // Regular expression to match valid names (letters and spaces only)
+  const nameRegex = /^[a-zA-Z\s]+$/;
+
+  if (name === '' || !nameRegex.test(name)) {
+    // Display error message
+    const errorMessage = document.getElementById("name-error-message");
+    errorMessage.textContent = "Please enter a valid name";
+    errorMessage.style.display = "block";
+    return; // Stop execution if the name is not valid
+  }
+
+  // Valid name, proceed with saving
+  story.playerName = name;
   nameField.disabled = true;
 
   const saveButton = document.getElementById("name-button");
@@ -176,10 +190,20 @@ function saveName() {
 
   hideNameInput();
 
+  // Check if the current scene is the "startGame" scene
   if (story.currentScene === "startGame") {
-    story.scenes.scene2.scene2_1(); // Call the scene2_1 function directly
+    // Check if this is the last message in the "startGame" scene
+    if (story.messageIndex === story.scenes.startGame.messages.length - 1) {
+      // Progress to scene 2_2
+      story.currentScene = "scene2";
+      story.scenes.scene2.scene2_2();
+    } else {
+      // Display the next message in the "startGame" scene
+      story.scenes.startGame.displayNextMessage();
+    }
   }
 }
+
 
 function resetNameInput() {
   const nameField = document.getElementById("name-field");
