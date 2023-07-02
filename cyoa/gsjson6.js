@@ -164,6 +164,18 @@ document.addEventListener("DOMContentLoaded", function() {
 }
   };
 
+
+  function endGameNegative() {
+    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+    showOptions([{ text: "Try Again", action: story.scenes.startGame.startGame }]);
+    story.currentScene = "startGame";
+  }  
+
+  function endGamePositive() {
+      showMessage("Congratulations, you have reached the end of the game! You won!");
+      showOptions([{ text: "Play Again", action: story.scenes.startGame.startGame }]);
+      story.currentScene = "startGame";
+  
 function showMessage(text, image = "") {
   const messageElement = document.getElementById("message");
   messageElement.textContent = text;
