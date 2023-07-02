@@ -226,7 +226,6 @@ function startGame() {
 
     // Start the game
     story.scenes.startGame.startGame();
-    showContinueButton();
   });
 }
 
