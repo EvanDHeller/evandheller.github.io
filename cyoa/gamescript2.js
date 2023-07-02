@@ -39,12 +39,12 @@ const story = {
       }
     },
     scene2: {
-           scene2_1: function () {
-        showMessage("Thank you, " + story.playerName + ", your adventure begins now!");
-        showContinueButton();
-        const continueButton = document.getElementById("continue-button");
-        continueButton.addEventListener("click", story.scenes.scene2.scene2_2);
-      },
+        scene2_1: function () {
+  showMessage("Thank you, " + story.playerName + ", your adventure begins now!");
+  showContinueButton();
+  const nextMessageButton = document.getElementById("continue-button");
+  nextMessageButton.addEventListener("click", story.scenes.scene2.scene2_2); // Assign listener to the next message button
+}
 
       scene2_2: function () {
         showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.");
