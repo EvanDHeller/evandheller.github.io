@@ -157,25 +157,22 @@ document.addEventListener("DOMContentLoaded", function () {
             },
 
             endGameNegative: {
-    endGameNegative: function () {
+    function endGameNegative() {
         if (gameEnded) {
             return; // Return early if the game has already ended
         }
-        
-        gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
+
+        gameEnded = true;
 
         showOptions([]);
         showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
 
         var playAgainButton = document.getElementById("play-again-button");
-        playAgainButton.style.display = "block"; // Show the "Try Again" button
-        playAgainButton.textContent = "Try Again"; // Change the text of the button
+        playAgainButton.style.display = "block";
+        playAgainButton.textContent = "Try Again";
 
         playAgainButton.addEventListener("click", function () {
-            hideTryAgainButton();
-            resetNameInput();
-            gameEnded = false; // Reset the gameEnded variable
-            story.currentScene = "startGame";
+            resetGame(); // Reset the game state
             story.scenes.startGame.startGame(); // Call the startGame function to restart the game
         });
 
