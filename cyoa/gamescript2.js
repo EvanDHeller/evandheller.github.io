@@ -156,12 +156,12 @@ document.addEventListener("DOMContentLoaded", function() {
   },
 
   endGameNegative: {
-    endGameNegative: function() {
-      showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
-      showOptions([{ text: "Try Again", action: story.scenes.startGame.startGame }]);
-      story.currentScene = "startGame";
-    }
+  endGameNegative: function() {
+    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+    showOptions([{ text: "Try Again", action: startGame }]); // Call the startGame function directly
+    story.currentScene = "startGame";
   }
+}
 }
   };
 
