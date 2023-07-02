@@ -164,56 +164,52 @@ function showNameInput() {
   saveButton.addEventListener("click", saveName);
 }
 
+function validateName(name) {
+  const regex = /^[A-Za-z\s]+$/; // Only letters and spaces allowed
+  return regex.test(name.trim());
+}
+
 function saveName() {
-  const nameField = document.getElementById("name-field");
-  const name = nameField.value.trim(); // Trim whitespace from the input
+  const nameField = document.getElementById("name-input");
+  const nameError = document.getElementById("name-error");
 
-  // Regular expression to match valid names (letters and spaces only)
-  const nameRegex = /^[a-zA-Z\s]+$/;
+  const playerName = nameField.value.trim();
 
-  if (name === '' || !nameRegex.test(name)) {
-    // Display error message
-    const errorMessage = document.getElementById("name-error-message");
-    errorMessage.textContent = "Please enter a valid name";
-    errorMessage.style.display = "block";
-    return; // Stop execution if the name is not valid
+  if (playerName === "" || !validateName(playerName)) {
+    nameError.textContent = "Please enter a valid name";
+    nameError.style.display = "block";
+    return;
   }
 
-  // Valid name, proceed with saving
-  story.playerName = name;
+  story.playerName = playerName;
   nameField.disabled = true;
 
-  const saveButton = document.getElementById("name-button");
+  const saveButton = document.getElementById("save-button");
   saveButton.removeEventListener("click", saveName);
   saveButton.textContent = "Saved";
   saveButton.disabled = true;
 
+  nameError.style.display = "none";
+
   hideNameInput();
 
-  // Check if the current scene is the "startGame" scene
   if (story.currentScene === "startGame") {
-    // Check if this is the last message in the "startGame" scene
-    if (story.messageIndex === story.scenes.startGame.messages.length - 1) {
-      // Progress to scene 2_2
-      story.currentScene = "scene2";
-      story.scenes.scene2.scene2_2();
-    } else {
-      // Display the next message in the "startGame" scene
-      story.scenes.startGame.displayNextMessage();
-    }
+    story.scenes.scene2.scene2_1(); // Call the scene2_1 function directly
   }
 }
 
-
 function resetNameInput() {
-  const nameField = document.getElementById("name-field");
+  const nameField = document.getElementById("name-input");
   nameField.value = "";
   nameField.disabled = false;
 
-  const saveButton = document.getElementById("name-button");
+  const saveButton = document.getElementById("save-button");
   saveButton.addEventListener("click", saveName);
   saveButton.textContent = "Save";
   saveButton.disabled = false;
+
+  const nameError = document.getElementById("name-error");
+  nameError.style.display = "none";
 }
 
 function hideNameInput() {
