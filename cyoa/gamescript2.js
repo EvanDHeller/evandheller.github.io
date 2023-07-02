@@ -305,6 +305,11 @@ document.addEventListener("DOMContentLoaded", function () {
         continueButton.style.display = "none";
     }
 
+function hideTryAgainButton() {
+    var playAgainButton = document.getElementById("play-again-button");
+    playAgainButton.style.display = "none";
+}
+
     function showEndMessage() {
         const endMessageElement = document.getElementById("end-message");
         endMessageElement.style.display = "block";
