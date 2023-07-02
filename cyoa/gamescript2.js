@@ -175,9 +175,10 @@ function showContinueButton() {
     continueButton.style.display = "none"; // Hide the continue button for the first message
   } else {
     continueButton.style.display = "block";
-    continueButton.addEventListener("click", story.scenes.startGame.displayNextMessage.bind(story.scenes.startGame));
+    continueButton.addEventListener("click", story.scenes[story.currentScene].displayNextMessage.bind(story.scenes[story.currentScene]));
   }
 }
+
 
 function hideStartButton() {
   const startButton = document.getElementById("start-button");
