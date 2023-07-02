@@ -171,6 +171,9 @@ document.addEventListener("DOMContentLoaded", function () {
     story.messages = [];
     story.messageIndex = 0;
 
+    // Clear the message display
+    clearMessage();
+
     // Hide the "Play Again" button
     playAgainButton.style.display = "none";
 
@@ -187,6 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   story.currentScene = "startGame";
 }
+
 
 
 
