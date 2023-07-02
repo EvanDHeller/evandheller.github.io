@@ -157,22 +157,25 @@ document.addEventListener("DOMContentLoaded", function () {
             },
 
             endGameNegative: {
-    endGameNegative: function() {
+    endGameNegative: function () {
         if (gameEnded) {
             return; // Return early if the game has already ended
         }
-
-        gameEnded = true;
+        
+        gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
 
         showOptions([]);
         showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
 
         var playAgainButton = document.getElementById("play-again-button");
-        playAgainButton.style.display = "block";
-        playAgainButton.textContent = "Try Again";
+        playAgainButton.style.display = "block"; // Show the "Try Again" button
+        playAgainButton.textContent = "Try Again"; // Change the text of the button
 
         playAgainButton.addEventListener("click", function () {
-            resetGame(); // Reset the game state
+            hideTryAgainButton();
+            resetNameInput();
+            gameEnded = false; // Reset the gameEnded variable
+            story.currentScene = "startGame";
             story.scenes.startGame.startGame(); // Call the startGame function to restart the game
         });
 
@@ -312,22 +315,15 @@ document.addEventListener("DOMContentLoaded", function () {
         continueButton.style.display = "none";
     }
 
-  function resetGame() {
-        story.currentScene = "startGame";
-        resetNameInput();
-        gameEnded = false;
-        hideTryAgainButton();
-    }
+function hideTryAgainButton() {
+    var playAgainButton = document.getElementById("play-again-button");
+    playAgainButton.style.display = "none";
+}
 
-    function hideTryAgainButton() {
-        var playAgainButton = document.getElementById("play-again-button");
-        playAgainButton.style.display = "none";
-    }
-
-    function showTryAgainButton() {
-        var playAgainButton = document.getElementById("play-again-button");
-        playAgainButton.style.display = "block";
-    }
+    	function showTryAgainButton() {	
+    var playAgainButton = document.getElementById("play-again-button");	
+    playAgainButton.style.display = "block";	
+}
 
     function showEndMessage() {
         const endMessageElement = document.getElementById("end-message");
