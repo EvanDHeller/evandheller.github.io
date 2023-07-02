@@ -42,15 +42,12 @@ document.addEventListener("DOMContentLoaded", function () {
       scene2: {
         scene2_1: function () {
           showMessage("Thank you, " + story.playerName + ", your adventure begins now!");
+          story.currentScene = "scene2_1"; // Update the current scene
           showContinueButton();
-          const nextMessageButton = document.getElementById("continue-button");
-          nextMessageButton.addEventListener("click", story.scenes.scene2.scene2_2); // Assign listener to the next message button
         },
         scene2_2: function () {
           showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.");
           showContinueButton();
-          const continueButton = document.getElementById("continue-button");
-          continueButton.addEventListener("click", story.scenes.scene2.scene2_3);
         },
         scene2_3: function () {
           showMessage("In the center of the enclave, you notice a cleanly cut tree trunk with a large locked chest atop it.");
@@ -64,12 +61,12 @@ document.addEventListener("DOMContentLoaded", function () {
       scene3: {
         scene3_1: function () {
           showMessage("You kick at the rusted lock, but it doesn't budge. It seems sturdy.");
-          story.currentScene = "scene4";
+          story.currentScene = "scene3_1"; // Update the current scene
           showOptions(story.scenes.scene4.options);
         },
         scene3_2: function () {
           showMessage("You search the area and find a crowbar hidden behind a tree. It might come in handy.");
-          story.currentScene = "scene4";
+          story.currentScene = "scene3_2"; // Update the current scene
           showOptions(story.scenes.scene4.options);
         },
         scene3_3: function () {
@@ -132,38 +129,22 @@ document.addEventListener("DOMContentLoaded", function () {
     saveButton.addEventListener("click", saveName);
   }
 
-function saveName() {
-  const nameField = document.getElementById("name-field");
-  story.playerName = nameField.value;
-  nameField.disabled = true;
+  function saveName() {
+    const nameField = document.getElementById("name-field");
+    story.playerName = nameField.value;
+    nameField.disabled = true;
 
-  const saveButton = document.getElementById("name-button");
-  saveButton.removeEventListener("click", saveName);
-  saveButton.textContent = "Saved";
-  saveButton.disabled = true;
+    const saveButton = document.getElementById("name-button");
+    saveButton.removeEventListener("click", saveName);
+    saveButton.textContent = "Saved";
+    saveButton.disabled = true;
 
-  hideNameInput();
+    hideNameInput();
 
-  // Check if the current scene is the "startGame" scene
-  if (story.currentScene === "startGame") {
-    // Check if this is the last message in the "startGame" scene
-    if (story.messageIndex === story.scenes.startGame.messages.length - 1) {
-      // Set the current scene to "scene2_1"
-      story.currentScene = "scene2_1";
-      // Call the corresponding function for scene2_1 directly
-      story.scenes.scene2.scene2_1();
-    } else {
-      // Display the next message in the "startGame" scene
-      story.scenes.startGame.displayNextMessage();
+    if (story.currentScene === "startGame") {
+      story.scenes.scene2.scene2_1(); // Call the scene2_1 function directly
     }
-  } else if (story.currentScene === "scene2_1") {
-    // Call the corresponding function for scene2_1 directly
-    story.scenes.scene2.scene2_1();
   }
-}
-
-
-
 
   function resetNameInput() {
     const nameField = document.getElementById("name-field");
@@ -181,38 +162,33 @@ function saveName() {
     nameInputContainer.style.display = "none";
   }
 
- function showContinueButton() {
-  const continueButton = document.getElementById("continue-button");
-  continueButton.style.display = "block";
-  
-  // Remove existing event listener
-  continueButton.removeEventListener("click", story.scenes.startGame.displayNextMessage.bind(story.scenes.startGame));
-  
-  // Add new event listener
-  continueButton.addEventListener("click", function () {
-    // Check the current scene
-    if (story.currentScene === "startGame") {
-      story.scenes.startGame.displayNextMessage();
-    } else if (story.currentScene === "scene2_1") {
-      story.scenes.scene2.scene2_1();
-    } else if (story.currentScene === "scene2_2") {
-      story.scenes.scene2.scene2_2();
-    } else if (story.currentScene === "scene2_3") {
-      story.scenes.scene2.scene2_3();
-    } else if (story.currentScene === "scene3_1") {
-      story.scenes.scene3.scene3_1();
-    } else if (story.currentScene === "scene3_2") {
-      story.scenes.scene3.scene3_2();
-    } else if (story.currentScene === "scene3_3") {
-      story.scenes.scene3.scene3_3();
-    } else if (story.currentScene === "scene4_1") {
-      story.scenes.scene4.scene4_1();
-    } else if (story.currentScene === "scene4_2") {
-      story.scenes.scene4.scene4_2();
-    }
-  });
-}
+  function showContinueButton() {
+    const continueButton = document.getElementById("continue-button");
+    continueButton.style.display = "block";
+    continueButton.removeEventListener("click", story.scenes.startGame.displayNextMessage.bind(story.scenes.startGame));
 
+    continueButton.addEventListener("click", function () {
+      if (story.currentScene === "startGame") {
+        story.scenes.startGame.displayNextMessage();
+      } else if (story.currentScene === "scene2_1") {
+        story.scenes.scene2.scene2_1();
+      } else if (story.currentScene === "scene2_2") {
+        story.scenes.scene2.scene2_2();
+      } else if (story.currentScene === "scene2_3") {
+        story.scenes.scene2.scene2_3();
+      } else if (story.currentScene === "scene3_1") {
+        story.scenes.scene3.scene3_1();
+      } else if (story.currentScene === "scene3_2") {
+        story.scenes.scene3.scene3_2();
+      } else if (story.currentScene === "scene3_3") {
+        story.scenes.scene3.scene3_3();
+      } else if (story.currentScene === "scene4_1") {
+        story.scenes.scene4.scene4_1();
+      } else if (story.currentScene === "scene4_2") {
+        story.scenes.scene4.scene4_2();
+      }
+    });
+  }
 
   function hideStartButton() {
     const startButton = document.getElementById("start-button");
@@ -232,16 +208,13 @@ function saveName() {
   function startGame() {
     const startButton = document.getElementById("start-button");
     startButton.addEventListener("click", function () {
-      // Hide the intro elements
       const introImage = document.getElementById("intro-image");
       const gameTitle = document.getElementById("game-title");
       introImage.style.display = "none";
       gameTitle.style.display = "none";
 
-      // Hide the Start button
       startButton.style.display = "none";
 
-      // Start the game
       story.scenes.startGame.startGame();
     });
   }
