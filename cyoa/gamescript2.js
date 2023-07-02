@@ -174,12 +174,20 @@ document.addEventListener("DOMContentLoaded", function () {
     // Hide the "Play Again" button
     playAgainButton.style.display = "none";
 
-    // Start the game
-    story.scenes.startGame.startGame();
+    // Show the intro elements
+    const introImage = document.getElementById("intro-image");
+    const gameTitle = document.getElementById("game-title");
+    introImage.style.display = "block";
+    gameTitle.style.display = "block";
+
+    // Show the Start button
+    const startButton = document.getElementById("start-button");
+    startButton.style.display = "block";
   });
 
   story.currentScene = "startGame";
 }
+
 
 
             }
