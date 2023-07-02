@@ -139,7 +139,6 @@ function saveName() {
 
   const saveButton = document.getElementById("name-button");
   saveButton.removeEventListener("click", saveName);
-  saveButton.addEventListener("click", story.scenes.scene2.scene2_1);
   saveButton.textContent = "Saved";
   saveButton.disabled = true;
 
@@ -151,6 +150,8 @@ function saveName() {
     if (story.messageIndex === story.scenes.startGame.messages.length - 1) {
       // Set the current scene to "scene2_1"
       story.currentScene = "scene2_1";
+      // Call the corresponding function for scene2_1 directly
+      story.scenes.scene2.scene2_1();
     } else {
       // Display the next message in the "startGame" scene
       story.scenes.startGame.displayNextMessage();
@@ -159,6 +160,7 @@ function saveName() {
     story.scenes.scene2.scene2_1();
   }
 }
+
 
 
   function resetNameInput() {
