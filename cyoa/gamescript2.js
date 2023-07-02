@@ -155,7 +155,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             },
 
-             endGameNegative: {
                 endGameNegative: {
   endGameNegative: function () {
     showOptions([]);
@@ -175,8 +174,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 }
 
-
-            }
         }
     };
 
