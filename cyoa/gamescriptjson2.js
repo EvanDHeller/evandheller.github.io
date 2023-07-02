@@ -137,6 +137,7 @@ function showOptions(options) {
 }
 
 
+
 function showNameInput() {
   const nameInputContainer = document.getElementById("name-input-container");
   nameInputContainer.style.display = "block";
