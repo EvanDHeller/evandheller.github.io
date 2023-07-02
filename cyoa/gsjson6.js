@@ -270,10 +270,21 @@ function continueButtonClick() {
     } else {
       hideContinueButton();
 
-      if (story.currentScene === "scene5_4") {
-        document.getElementById("story-container").innerHTML = ""; // Clear the story container
-        endGameNegative();
-      } else if (story.currentScene === "endGamePositive") {
+      const currentSceneId = story.currentScene;
+      const scenePattern = /^scene(\d+)_(\d+)$/;
+
+      if (scenePattern.test(currentSceneId)) {
+        const [, sceneNum, endNum] = currentSceneId.match(scenePattern);
+
+        const nextSceneId = `scene${Number(sceneNum) + 1}_${Number(endNum) + 1}`;
+        if (story.scenes.hasOwnProperty(nextSceneId) && story.scenes[nextSceneId].content === endGameNegative) {
+          document.getElementById("story-container").innerHTML = ""; // Clear the story container
+          endGameNegative();
+          return;
+        }
+      }
+
+      if (story.currentScene === "endGamePositive") {
         document.getElementById("story-container").innerHTML = ""; // Clear the story container
         endGamePositive();
       } else if (story.currentScene === "endGameNegative") {
