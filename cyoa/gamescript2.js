@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function() {
 const story = {
   currentScene: "startGame",
   playerName: null,
@@ -206,3 +207,4 @@ function startGame() {
 }
 
 startGame();
+});
