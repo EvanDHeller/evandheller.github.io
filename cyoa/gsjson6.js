@@ -289,19 +289,26 @@ function continueButtonClick() {
         const [, sceneNum, endNum] = currentSceneId.match(scenePattern);
 
         const nextSceneId = `scene${Number(sceneNum) + 1}_${Number(endNum) + 1}`;
-        if (story.scenes.hasOwnProperty(nextSceneId) && story.scenes[nextSceneId].content === endGameNegative) {
+        if (story.scenes.hasOwnProperty(nextSceneId)) {
           document.getElementById("story-container").innerHTML = ""; // Clear the story container
-          endGameNegative();
+          
+          // Check if the next scene is the endGameNegative function
+          if (story.scenes[nextSceneId] === endGameNegative) {
+            endGameNegative(); // Call the function directly
+          } else {
+            story.scenes[nextSceneId](); // Call the next scene function directly
+          }
           return;
         }
       }
 
+      // Handle end game scenes
       if (story.currentScene === "endGamePositive") {
         document.getElementById("story-container").innerHTML = ""; // Clear the story container
-        endGamePositive();
+        endGamePositive(); // Call the function directly
       } else if (story.currentScene === "endGameNegative") {
         document.getElementById("story-container").innerHTML = ""; // Clear the story container
-        endGameNegative();
+        endGameNegative(); // Call the function directly
       } else {
         showNameInput();
       }
