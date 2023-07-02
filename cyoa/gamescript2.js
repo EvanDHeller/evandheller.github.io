@@ -157,20 +157,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
             endGameNegative: {
                endGameNegative: {
-    endGameNegative: function () {
-        showOptions([]);
-        showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
-        var playAgainButton = document.getElementById("play-again-button");
-        playAgainButton.style.display = "block"; // Show the "Play Again" button
-        playAgainButton.textContent = "Try Again"; // Change the text of the button
+    endGameNegative: {
+                endGameNegative: function () {
+                    showOptions([]);
+                    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+                    var playAgainButton = document.getElementById("play-again-button");
+                    playAgainButton.style.display = "block"; // Show the "Play Again" button
+                    playAgainButton.textContent = "Try Again"; // Change the text of the button
 
-        playAgainButton.addEventListener("click", function () {
-            hideTryAgainButton(); // Add this line to hide the button
-            story.scenes.startGame.startGame(); // Call the startGame function to restart the game
-        });
+                    playAgainButton.addEventListener("click", function () {
+                        story.scenes.startGame.startGame(); // Call the startGame function to restart the game
+                    });
 
-        story.currentScene = "startGame";
-    }
+                    story.currentScene = "startGame";
+                }
 }
 
 
