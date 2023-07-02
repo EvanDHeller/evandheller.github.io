@@ -170,6 +170,12 @@ endGameNegative: {
     playAgainButton.style.display = "block"; // Show the "Try Again" button
     playAgainButton.textContent = "Try Again"; // Change the text of the button
 
+      playAgainButton.addEventListener("click", function () {
+  console.log("Try Again button clicked");
+  // Rest of the code for restarting the game
+});
+
+
     if (story.messageIndex === 7 || story.messageIndex === 8) {
       playAgainButton.style.display = "none"; // Hide the "Try Again" button for the specific message indexes
     }
