@@ -145,17 +145,18 @@ function saveName() {
 
   // Check if the current scene is the "startGame" scene
   if (story.currentScene === "startGame") {
+    // Display the next message in the "startGame" scene
+    story.scenes.startGame.displayNextMessage();
+
     // Check if this is the last message in the "startGame" scene
-    if (story.messageIndex === story.scenes.startGame.messages.length - 1) {
+    if (story.messageIndex === story.scenes.startGame.messages.length) {
       // Progress to scene 2_1
       story.currentScene = "scene2";
       story.scenes.scene2.scene2_1();
-    } else {
-      // Display the next message in the "startGame" scene
-      story.scenes.startGame.displayNextMessage();
     }
   }
 }
+
 
 
 function resetNameInput() {
