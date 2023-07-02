@@ -132,13 +132,14 @@ document.addEventListener("DOMContentLoaded", function () {
     saveButton.addEventListener("click", saveName);
   }
 
-  function saveName() {
+function saveName() {
   const nameField = document.getElementById("name-field");
   story.playerName = nameField.value;
   nameField.disabled = true;
 
   const saveButton = document.getElementById("name-button");
   saveButton.removeEventListener("click", saveName);
+  saveButton.addEventListener("click", story.scenes.scene2.scene2_1);
   saveButton.textContent = "Saved";
   saveButton.disabled = true;
 
@@ -150,8 +151,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (story.messageIndex === story.scenes.startGame.messages.length - 1) {
       // Set the current scene to "scene2_1"
       story.currentScene = "scene2_1";
-      // Call the corresponding function for scene2_1 directly
-      story.scenes.scene2.scene2_1();
     } else {
       // Display the next message in the "startGame" scene
       story.scenes.startGame.displayNextMessage();
