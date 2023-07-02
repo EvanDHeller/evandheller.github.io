@@ -15,7 +15,7 @@ const story = {
         this.messageIndex = 0;
         this.displayNextMessage();
       },
-      displayNextMessage: function() {
+      displayNextMessage: function () {
         if (this.messageIndex < this.messages.length) {
           showMessage(
             this.messages[this.messageIndex].text,
@@ -39,11 +39,25 @@ const story = {
       }
     },
     scene2: {
-      scene2: function () {
+      scene2_1: function () {
         showMessage("Thank you, " + story.playerName + ", your adventure begins now!");
-        showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.", "./cyoaimages/forestenclave.png", "forestenclave", "enclavemsg");
-        story.currentScene = "scene3";
-        showOptions(story.scenes.scene3.options);
+        showContinueButton();
+        const continueButton = document.getElementById("continue-button");
+        continueButton.addEventListener("click", story.scenes.scene2.scene2_2);
+      },
+      scene2_2: function () {
+        showMessage("As you look around and take in your surroundings, you find yourself in a small wooded enclave.");
+        showContinueButton();
+        const continueButton = document.getElementById("continue-button");
+        continueButton.addEventListener("click", story.scenes.scene2.scene2_3);
+      },
+      scene2_3: function () {
+        showMessage("In the center of the enclave, you notice a cleanly cut tree trunk with a large locked chest atop it.");
+        showOptions([
+          { text: "Kick at the rusted lock, hoping it will open.", action: story.scenes.scene3.scene3_1 },
+          { text: "Look around to see if there is anything you can use to open the chest.", action: story.scenes.scene3.scene3_2 },
+          { text: "You know, this is someone's property, I should probably leave it alone.", action: story.scenes.scene3.scene3_3 }
+        ]);
       }
     },
     scene3: {
@@ -112,6 +126,9 @@ function showOptions(options) {
 function showNameInput() {
   const nameInputContainer = document.getElementById("name-input-container");
   nameInputContainer.style.display = "block";
+
+  const saveButton = document.getElementById("name-button");
+  saveButton.addEventListener("click", saveName);
 }
 
 function saveName() {
@@ -124,8 +141,23 @@ function saveName() {
   saveButton.textContent = "Saved";
   saveButton.disabled = true;
 
-  story.scenes.startGame.displayNextMessage();
+  hideNameInput();
+
+  // Check if the current scene is the "startGame" scene
+  if (story.currentScene === "startGame") {
+    // Display the next message in the "startGame" scene
+    story.scenes.startGame.displayNextMessage();
+
+    // Check if this is the last message in the "startGame" scene
+    if (story.messageIndex === story.scenes.startGame.messages.length) {
+      // Progress to scene 2_1
+      story.currentScene = "scene2";
+      story.scenes.scene2.scene2_1();
+    }
+  }
 }
+
+
 
 function resetNameInput() {
   const nameField = document.getElementById("name-field");
