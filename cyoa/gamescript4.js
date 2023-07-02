@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         scenes: {
             startGame: {
                 startGame: function () {
+                    hideTryAgainButton();
                     this.playerName = null;
                     this.messages = [
                         { text: "You have just woken up, you don't know where you are, or how you got there.", image: "" },
