@@ -79,7 +79,8 @@ body {
 .option-button,
 #continue-button,
 #play-again-button,
-.options {
+.options,
+#try-again-button {
     margin-top: 15px;
     width: 220px;
     height: auto;
@@ -100,7 +101,8 @@ body {
 
 #continue-button,
 #play-again-button,
-div#name-input-container {
+div#name-input-container,
+#try-again-button {
     margin-top: 240px;
     position: absolute;
 }
