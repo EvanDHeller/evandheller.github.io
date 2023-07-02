@@ -162,6 +162,7 @@ function saveName() {
 
 
 
+
 function resetNameInput() {
   const nameField = document.getElementById("name-field");
   nameField.value = "";
