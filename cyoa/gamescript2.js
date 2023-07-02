@@ -130,18 +130,30 @@ function showMessage(text, image = "") {
 }
 
 function showOptions(options) {
-  const optionsElement = document.getElementById("options");
-  optionsElement.innerHTML = "";
+  const optionsContainer = document.getElementById("options");
+  optionsContainer.innerHTML = "";
 
-  options.forEach((option) => {
-    const button = document.createElement("button");
-    button.textContent = option.text;
-    button.addEventListener("click", option.action);
-    optionsElement.appendChild(button);
-  });
+  if (options.length > 0) {
+    options.forEach(option => {
+      const button = document.createElement("button");
+      button.textContent = option.text;
+      button.classList.add("option-button");
+      button.addEventListener("click", option.action);
+      optionsContainer.appendChild(button);
+    });
+    optionsContainer.style.display = "block"; // Show the option container
+  } else {
+    optionsContainer.style.display = "none"; // Hide the option container
+  }
 
-  hideContinueButton(); // Hide the continue button when options are displayed
+  const continueButton = document.getElementById("continue-button");
+  if (options.length > 0) {
+    continueButton.style.display = "none"; // Hide the "Continue" button
+  } else {
+    continueButton.style.display = "block"; // Show the "Continue" button
+  }
 }
+
 
 
 function showNameInput() {
