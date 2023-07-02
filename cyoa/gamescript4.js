@@ -1,11 +1,5 @@
 var gameEnded = false;
 document.addEventListener("DOMContentLoaded", function () {
-    document.addEventListener('DOMContentLoaded', () => {
-  const tryAgainButton = document.getElementById('try-again-button');
-
-  tryAgainButton.addEventListener('click', () => {
-    tryAgainButton.style.display = 'none';
-  });
     const story = {
         currentScene: "startGame",
         playerName: null,
@@ -155,32 +149,36 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             },
 
-           endGameNegative: {
-  endGameNegative: function () {
-    if (gameEnded) {
-      return; // Return early if the game has already ended
-    }
+            endGamePositive: {
+                endGamePositive: function () {
+                    showMessage("Congratulations, you have reached the end of the game! You won!");
+                    showOptions([{ text: "Play Again", action: story.scenes.startGame.startGame }]);
+                    story.currentScene = "startGame";
+                }
+            },
 
- var endGameNegative = {
+     endGameNegative: {
     endGameNegative: function () {
-      if (gameEnded) {
-        return; // Return early if the game has already ended
-      }
-
-    gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
-
-    showOptions([]);
-    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
-
-    hideContinueButton();
-    showTryAgainButton();
-
-    var tryAgainButton = document.getElementById("try-again-button");
-    tryAgainButton.removeEventListener("click", resetGame); // Remove the event listener if it exists
-    tryAgainButton.addEventListener("click", resetGame); // Add the event listener
+  if (gameEnded) {
+    return; // Return early if the game has already ended
   }
+
+  gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
+
+  showOptions([]);
+  showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+
+  var tryAgainButton = document.getElementById("try-again-button");
+  tryAgainButton.style.display = "block"; // Show the "Try Again" button
+
+  tryAgainButton.removeEventListener("click", resetGame); // Remove the event listener if it exists
+  tryAgainButton.addEventListener("click", resetGame); // Add the event listener
+
+  hideContinueButton();
+  hidePlayAgainButton();
 }
 
+}
 
         }
     };
@@ -328,18 +326,19 @@ function hideTryAgainButton() {
     playAgainButton.addEventListener("click", resetGame); // Add the event listener
 }
 
+
 function resetGame() {
-  hideTryAgainButton();
-  resetNameInput();
+    hideTryAgainButton();
+    resetNameInput();
 
-  // Reset other game variables and states
-  gameEnded = false;
-  story.currentScene = "startGame";
-  story.scenes.startGame.startGame();
+    // Remove the event listener from the "Try Again" button
+     var tryAgainButton = document.getElementById("try-again-button");
+  tryAgainButton.style.display = "none";
+
+    gameEnded = false; // Reset the gameEnded variable
+    story.currentScene = "startGame";
+    story.scenes.startGame.startGame(); // Call the startGame function to restart the game
 }
-
-
-
 
 
     
