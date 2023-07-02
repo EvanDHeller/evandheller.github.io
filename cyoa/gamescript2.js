@@ -164,6 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     playAgainButton.textContent = "Try Again"; // Change the text of the button
 
                     playAgainButton.addEventListener("click", function () {
+                        hideTryAgainButton();
                         story.scenes.startGame.startGame(); // Call the startGame function to restart the game
                     });
 
