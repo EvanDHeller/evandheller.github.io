@@ -180,6 +180,7 @@ endGameNegative: {
     });
 
     hideContinueButton();
+      showOptions([]);
   }
 }
         }
