@@ -133,31 +133,34 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function saveName() {
-    const nameField = document.getElementById("name-field");
-    story.playerName = nameField.value;
-    nameField.disabled = true;
+  const nameField = document.getElementById("name-field");
+  story.playerName = nameField.value;
+  nameField.disabled = true;
 
-    const saveButton = document.getElementById("name-button");
-    saveButton.removeEventListener("click", saveName);
-    saveButton.textContent = "Saved";
-    saveButton.disabled = true;
+  const saveButton = document.getElementById("name-button");
+  saveButton.removeEventListener("click", saveName);
+  saveButton.textContent = "Saved";
+  saveButton.disabled = true;
 
-    hideNameInput();
+  hideNameInput();
 
-    // Check if the current scene is the "startGame" scene
-    if (story.currentScene === "startGame") {
-      // Check if this is the last message in the "startGame" scene
-      if (story.messageIndex === story.scenes.startGame.messages.length - 1) {
-        // Set the current scene to "scene2_1"
-        story.currentScene = "scene2_1";
-        // Call the corresponding function for scene2_1 directly
-        story.scenes.scene2.scene2_1();
-      } else {
-        // Display the next message in the "startGame" scene
-        story.scenes.startGame.displayNextMessage();
-      }
+  // Check if the current scene is the "startGame" scene
+  if (story.currentScene === "startGame") {
+    // Check if this is the last message in the "startGame" scene
+    if (story.messageIndex === story.scenes.startGame.messages.length - 1) {
+      // Set the current scene to "scene2_1"
+      story.currentScene = "scene2_1";
+      // Call the corresponding function for scene2_1 directly
+      story.scenes.scene2.scene2_1();
+    } else {
+      // Display the next message in the "startGame" scene
+      story.scenes.startGame.displayNextMessage();
     }
+  } else if (story.currentScene === "scene2_1") {
+    story.scenes.scene2.scene2_1();
   }
+}
+
 
   function resetNameInput() {
     const nameField = document.getElementById("name-field");
