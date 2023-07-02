@@ -148,16 +148,16 @@ function saveName() {
   if (story.currentScene === "startGame") {
     // Check if this is the last message in the "startGame" scene
     if (story.messageIndex === story.scenes.startGame.messages.length - 1) {
-      // Progress to scene 2_1
-      story.currentScene = "scene2";
-      story.scenes.startGame.displayNextMessage(); // Call displayNextMessage to progress to scene2_1
+      // Set the current scene to "scene2_1"
+      story.currentScene = "scene2_1";
+      // Call the corresponding function for scene2_1 directly
+      story.scenes.scene2.scene2_1();
     } else {
       // Display the next message in the "startGame" scene
       story.scenes.startGame.displayNextMessage();
     }
   }
 }
-
 
 
 
