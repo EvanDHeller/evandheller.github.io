@@ -118,22 +118,31 @@ document.addEventListener("DOMContentLoaded", function() {
           ]);
         },
         scene5_2: function () {
-          showMessage("You can practically hear the chest mocking you, as if saying 'Kick me once, shame on me; kick me twice, shame on you.' Lose 30 health.");
+          showMessage("You can practically hear the chest mocking you, as if saying 'Kick me once, shame on me; kick me thrice, shame on you.' Lose 30 health.");
           story.currentScene = "scene4";
           showOptions([
-            { text: "Go back to the previous scene.", action: story.scenes.scene2.scene2_3 },
+            { text: "Fourth time's the charm, right?", action: story.scenes.scene5.scene5_3 },
             { text: "Kick at the rusted lock, hoping it will open.", action: story.scenes.scene3.scene3_1 },
             { text: "You know, this is someone's property, I should probably leave it alone.", action: story.scenes.scene3.scene3_3 }
           ]);
         },
         scene5_3: function () {
-          showMessage("You decide it's best not to meddle with someone else's property and leave the chest alone.");
+          showMessage("...But I guess you’re lacking charm, as you kick it a third time with your broken toe, you feel the rust enter the open wound. You feel woozy. And probably have Tetanus. Lose 80  health.");
           story.currentScene = "scene4";
           showOptions([
-            { text: "Go back to the previous scene.", action: story.scenes.scene2.scene2_3 },
+            { text: "One more time. Kicking is the hill I die on, it’s who I am! I’m nothing without it!", action: story.scenes.scene5.scene5_4 },
             { text: "Kick at the rusted lock, hoping it will open.", action: story.scenes.scene3.scene3_1 },
             { text: "Look around to see if there is anything you can use to open the chest.", action: story.scenes.scene3.scene3_2 }
           ]);
+        },
+          scene5_4: function () {
+          showMessage("Using all your remaining energy, you kick your bloodied stump at the lock. You miss your kick entirely, and fall backwards, hitting your head on the ground. Consciousness is starting to fade… Lose 160 health.");
+          showContinueButton();
+          const continueButton = document.getElementById("continue-button");
+          continueButton.addEventListener("click", story.scenes.scene2.scene2_2);
+        },
+         scene5_5: function () {
+          showMessage("Sorry, " + story.playerName + ", you died the way you lived, kicking things. GAME OVER,");
         }
       },
       endGame: {
