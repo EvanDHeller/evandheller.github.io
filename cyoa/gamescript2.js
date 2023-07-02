@@ -136,11 +136,12 @@ document.addEventListener("DOMContentLoaded", function() {
           ]);
         },
           scene5_4: function () {
-          showMessage("Using all your remaining energy, you kick your bloodied stump at the lock. You miss your kick entirely, and fall backwards, hitting your head on the ground. Consciousness is starting to fade… Lose 160 health.");
-          showContinueButton();
-          const continueButton = document.getElementById("continue-button");
-          continueButton.addEventListener("click", story.scenes.scene5.scene5_5);
-        },
+  showMessage("Using all your remaining energy, you kick your bloodied stump at the lock. You miss your kick entirely, and fall backwards, hitting your head on the ground. Consciousness is starting to fade… Lose 160 health.");
+  showOptions([]); // Pass an empty array to hide the option buttons
+  showContinueButton();
+  const continueButton = document.getElementById("continue-button");
+  continueButton.addEventListener("click", story.scenes.scene5.scene5_5);
+},
          scene5_5: function () {
           endGameNegative();
         }
