@@ -139,10 +139,10 @@ document.addEventListener("DOMContentLoaded", function() {
           showMessage("Using all your remaining energy, you kick your bloodied stump at the lock. You miss your kick entirely, and fall backwards, hitting your head on the ground. Consciousness is starting to fade… Lose 160 health.");
           showContinueButton();
           const continueButton = document.getElementById("continue-button");
-          continueButton.addEventListener("click", story.scenes.scene2.scene2_2);
+          continueButton.addEventListener("click", story.scenes.scene5.scene5_5);
         },
          scene5_5: function () {
-          showMessage("Sorry, " + story.playerName + ", you died the way you lived, kicking things. GAME OVER,");
+          endGameNegative();
         }
       },
       endGamePositive: {
