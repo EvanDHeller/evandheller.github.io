@@ -9,37 +9,14 @@ document.addEventListener("DOMContentLoaded", function () {
             startGame: {
                 startGame: function () {
                     this.playerName = null;
+                    this.messageIndex = 0;
+                    this.displayNextMessage();
                     this.messages = [
                         { text: "You have just woken up, you don't know where you are, or how you got there.", image: "" },
                         { text: "You don't even remember your name!", image: "" },
                         { text: "As you yawn and rub your eyes, you realize even a temporary name may be helpful...", image: "" }
-                    ];
-                    this.messageIndex = 0;
-                    this.displayNextMessage();
+                    ];    
                 },
-                displayNextMessage: function () {
-                    if (this.messageIndex < this.messages.length) {
-                        showMessage(
-                            this.messages[this.messageIndex].text,
-                            this.messages[this.messageIndex].image
-                        );
-
-                        if (this.messageIndex === this.messages.length - 1) {
-                            showNameInput();
-                            hideContinueButton();
-                        } else {
-                            showContinueButton();
-                        }
-
-                        this.messageIndex++;
-                    }
-
-                    if (this.currentScene === "startGame" && this.messageIndex === 1) {
-                        // Hide the start button after the first message
-                        hideStartButton();
-                    }
-                }
-            },
             scene2: {
                 scene2_1: function () {
                     showMessage("Thank you, " + story.playerName + ", your adventure begins now!");
@@ -190,6 +167,32 @@ endGameNegative: {
         }
     };
 
+
+        displayNextMessage: function () {
+                    if (this.messageIndex < this.messages.length) {
+                        showMessage(
+                            this.messages[this.messageIndex].text,
+                            this.messages[this.messageIndex].image
+                        );
+
+                        if (this.messageIndex === this.messages.length - 1) {
+                            showNameInput();
+                            hideContinueButton();
+                        } else {
+                            showContinueButton();
+                        }
+
+                        this.messageIndex++;
+                    }
+
+                    if (this.currentScene === "startGame" && this.messageIndex === 1) {
+                        // Hide the start button after the first message
+                        hideStartButton();
+                    }
+                }
+            },
+
+    
     function showMessage(text, image = "") {
         const messageElement = document.getElementById("message");
         messageElement.textContent = text;
