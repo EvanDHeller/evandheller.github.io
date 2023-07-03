@@ -155,12 +155,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 endGameNegative: function () {
                     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
                     
-              /*      
+                    
                     if (gameEnded) {
                         return; // Return early if the game has already ended
                     }
 
-                    gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended */
+                 //   gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended 
 
                     showOptions([]);
                     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
