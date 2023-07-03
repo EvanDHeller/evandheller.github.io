@@ -345,9 +345,13 @@ function saveName() {
 
   hideNameInput();
 
+  const sceneMessage = document.getElementById("scene-message");
+  sceneMessage.style.display = "none"; // Hide the scene message
+
   story.currentScene = story.scenes.scene2.scene2_1;
   story.scenes.scene2.scene2_1();
 }
+
 
 
 
