@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
         scenes: {
             startGame: {
                 startGame: function () {
-                    hideTryAgainButton();
                     this.playerName = null;
                     this.messages = [
                         { text: "You have just woken up, you don't know where you are, or how you got there.", image: "" },
@@ -157,12 +156,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             },
 
-     endGameNegative: {
+            endGameNegative: {
     endGameNegative: function () {
         if (gameEnded) {
             return; // Return early if the game has already ended
         }
-
+        
         gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
 
         showOptions([]);
@@ -172,14 +171,18 @@ document.addEventListener("DOMContentLoaded", function () {
         playAgainButton.style.display = "block"; // Show the "Try Again" button
         playAgainButton.textContent = "Try Again"; // Change the text of the button
 
-        playAgainButton.removeEventListener("click", resetGame); // Remove the event listener if it exists
-        playAgainButton.addEventListener("click", resetGame); // Add the event listener
+        playAgainButton.addEventListener("click", function () {
+            hideTryAgainButton();
+            resetNameInput();
+            gameEnded = false; // Reset the gameEnded variable
+            story.currentScene = "startGame";
+            story.scenes.startGame.startGame(); // Call the startGame function to restart the game
+        });
 
         hideContinueButton();
         showTryAgainButton();
     }
 }
-
         }
     };
 
@@ -322,15 +325,6 @@ function hideTryAgainButton() {
     playAgainButton.style.display = "block";	
 }
 
-function resetGame() {
-    hideTryAgainButton();
-    resetNameInput();
-    gameEnded = false; // Reset the gameEnded variable
-    story.currentScene = "startGame";
-    story.scenes.startGame.startGame(); // Call the startGame function to restart the game
-}
-
-    
     function showEndMessage() {
         const endMessageElement = document.getElementById("end-message");
         endMessageElement.style.display = "block";
