@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 showContinueButton();
                 const continueButton = document.getElementById("continue-button");
                 continueButton.addEventListener("click", story.scenes.scene2.scene1_2);
+                }
             },
             scene1_2: function () {
                 showMessage("You don't even remember your name!", image: "");
