@@ -34,7 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 startGame();
         this.startGame();
             },
-            scene1_1: function () {
+          scene1: {
+                scene1_1: function () {
                 showMessage("You have just woken up, you don't know where you are, or how you got there.", image: "")
                 showContinueButton();
                 const continueButton = document.getElementById("continue-button");
@@ -51,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 showContinueButton();
                 const continueButton = document.getElementById("continue-button");
                 continueButton.addEventListener("click", story.scenes.scene2.scene2_1);
+              }
             },
             scene2: {
                 scene2_1: function () {
