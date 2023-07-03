@@ -144,47 +144,46 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             },
 
+            endGamePositive: {
+                endGamePositive: function () {
+                    showMessage("Congratulations, you have reached the end of the game! You won!");
+                    showOptions([{ text: "Play Again", action: story.scenes.startGame.startGame }]);
+                    story.currentScene = "startGame";
+                }
+            },
             endGameNegative: {
-  endGameNegative: function () {
-    if (gameEnded) {
-      return; // Return early if the game has already ended
-    }
+                endGameNegative: function () {
+                    if (gameEnded) {
+                        return; // Return early if the game has already ended
+                    }
 
-    gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
-  var scenes = {
-    startScenes: function() {
-      // Your code here to start the scenes
-      story.scenes.scene1.scene1_1();
-    }
-  };
+                    gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
 
-  function startButtonClicked() {
-    scenes.startScenes();
-  }
-    showOptions([]);
-    showMessage(
-      "Sorry, " +
-      story.playerName +
-      ", yours was not a story with a happy ending. Better luck next time!"
-    );
+                    showOptions([]);
+                    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
 
-    var playAgainButton = document.getElementById("play-again-button");
-    playAgainButton.style.display = "block"; // Show the "Try Again" button
-    playAgainButton.textContent = "Try Again"; // Change the text of the button
+                    var playAgainButton = document.getElementById("play-again-button");
+                    playAgainButton.style.display = "block"; // Show the "Try Again" button
+                    playAgainButton.textContent = "Try Again"; // Change the text of the button
 
-    playAgainButton.addEventListener("click", function () {
-      hideTryAgainButton();
-      resetNameInput();
-      gameEnded = false; // Reset the gameEnded variable
-      story.currentScene = "startGame";
-      story.scenes.startGame(); // Call the startGame function to restart the game
-      
-      resetGame(); // Call the resetGame function to fully reset the game
-    });
-  }
-}
+                    if (story.messageIndex === 7 || story.messageIndex === 8) {
+                        playAgainButton.style.display = "none"; // Hide the "Try Again" button for the specific message indexes
+                    }
 
-    
+                    playAgainButton.addEventListener("click", function () {
+                        hideTryAgainButton();
+                        resetNameInput();
+                        gameEnded = false; // Reset the gameEnded variable
+                        story.currentScene = "startGame";
+                        story.scenes.startGame(); // Call the startGame function to restart the game
+                    });
+
+                    hideContinueButton();
+                    showTryAgainButton();
+                }
+            }
+
+        }
     };
 //**************************************GLOBAL FUNCTIONS*******************************************************************************************
 
@@ -368,29 +367,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 //**************************************ENDGAME & PLAYAGAIN FUNCTIONS***********************************************************************
-    
-    function resetGame() {
-  showMessage("Game Over!"); // Display the end game message
-
-  // Show the play again button and set its click event listener
-  playAgainButton.style.display = "block";
-  playAgainButton.addEventListener("click", reset(){
-    // Reset variables and states to their initial values
-
-    // Reset any game-specific elements to their initial states
-    // ...
-
-    // Hide the end game message and play again button
-    playAgainButton.style.display = "none";
-    message.style.display = "none";
-    hideOptions();
-    hideContinueButton();
-
-    // Start the game again
-    startGame();
-  });
-}
-}
     
     function hideTryAgainButton() {
         var playAgainButton = document.getElementById("play-again-button");
