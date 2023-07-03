@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         resetNameInput();
                         gameEnded = false; // Reset the gameEnded variable
                         story.currentScene = "startGame";
-                        story.scenes.startGame.startGame(); // Call the startGame function to restart the game
+                        story.scenes.startGame(); // Call the startGame function to restart the game
                     });
 
                     hideContinueButton();
@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
     };
-
+//**************************************GLOBAL FUNCTIONS******************************************************************************
 
     function startGame() {
         const startButton = document.getElementById("start-button");
@@ -201,6 +201,12 @@ document.addEventListener("DOMContentLoaded", function () {
             story.currentScene = "scene1_1"; // Set the current scene to scene1_1
             story.scenes.scene1.scene1_1(); // Call the scene1_1 function to display the scene
         });
+    }
+
+
+    function hideStartButton() {
+        const startButton = document.getElementById("start-button");
+        startButton.style.display = "none";
     }
 
 
@@ -272,6 +278,36 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    function showContinueButton() {
+        const continueButton = document.getElementById("continue-button");
+        continueButton.style.display = "block";
+
+        continueButton.addEventListener("click", function () {
+            const currentScene = story.scenes[story.currentScene];
+
+            if (story.currentScene === "startGame") {
+                currentScene.displayNextMessage();
+            } else if (currentScene.messageIndex < currentScene.messages.length) {
+                currentScene.displayNextMessage();
+            } else {
+                const sceneKeys = Object.keys(story.scenes);
+                const currentIndex = sceneKeys.indexOf(story.currentScene);
+                if (currentIndex < sceneKeys.length - 1) {
+                    story.currentScene = sceneKeys[currentIndex + 1];
+                    showScene();
+                } else {
+                    hideContinueButton();
+                    showNameInput();
+                }
+            }
+        });
+    }
+
+    function hideContinueButton() {
+        const continueButton = document.getElementById("continue-button");
+        continueButton.style.display = "none";
+    }
+
 
     function showNameInput() {
         const nameInputContainer = document.getElementById("name-input-container");
@@ -302,9 +338,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         hideNameInput();
 
-        story.currentScene === story.scenes.scene2.scene2_1;
+        story.currentScene = story.scenes.scene2.scene2_1;
         story.scenes.scene2.scene2_1();
     }
+
 
     function resetNameInput() {
         const nameField = document.getElementById("name-field");
@@ -322,42 +359,6 @@ document.addEventListener("DOMContentLoaded", function () {
         nameInputContainer.style.display = "none";
     }
 
-
-    function showContinueButton() {
-        const continueButton = document.getElementById("continue-button");
-        continueButton.style.display = "block";
-
-        continueButton.addEventListener("click", function () {
-            const currentScene = story.scenes[story.currentScene];
-
-            if (story.currentScene === "startGame") {
-                currentScene.displayNextMessage();
-            } else if (currentScene.messageIndex < currentScene.messages.length) {
-                currentScene.displayNextMessage();
-            } else {
-                const sceneKeys = Object.keys(story.scenes);
-                const currentIndex = sceneKeys.indexOf(story.currentScene);
-                if (currentIndex < sceneKeys.length - 1) {
-                    story.currentScene = sceneKeys[currentIndex + 1];
-                    showScene();
-                } else {
-                    hideContinueButton();
-                    showNameInput();
-                }
-            }
-        });
-    }
-
-
-    function hideStartButton() {
-        const startButton = document.getElementById("start-button");
-        startButton.style.display = "none";
-    }
-
-    function hideContinueButton() {
-        const continueButton = document.getElementById("continue-button");
-        continueButton.style.display = "none";
-    }
 
     function hideTryAgainButton() {
         var playAgainButton = document.getElementById("play-again-button");
