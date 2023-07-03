@@ -321,9 +321,9 @@ function hideTryAgainButton() {
  function showTryAgainButton() {
     var playAgainButton = document.getElementById("play-again-button");
     playAgainButton.style.display = "block";
-
+     playAgainButton.addEventListener("click", resetGame); // Add the event listener
     playAgainButton.removeEventListener("click", resetGame); // Remove the event listener if it exists
-    playAgainButton.addEventListener("click", resetGame); // Add the event listener
+   
 }
 
 function resetGame() {
