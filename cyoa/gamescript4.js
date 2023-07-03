@@ -325,16 +325,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const nameRegex = /^[A-Za-z\s]+$/; // Only letters and spaces allowed
 
+  const nameError = document.getElementById("name-error");
+
   if (!nameRegex.test(playerName)) {
-    const nameError = document.getElementById("name-error");
     nameError.textContent = "Please enter a valid name.";
     nameError.style.display = "block"; // Show the error message
 
     return;
-  } else {
-    const nameError = document.getElementById("name-error");
-    nameError.style.display = "none"; // Hide the error message
   }
+
+  nameError.style.display = "none"; // Hide the error message
 
   story.playerName = playerName;
   nameField.disabled = true;
@@ -351,6 +351,7 @@ document.addEventListener("DOMContentLoaded", function () {
   story.currentScene = story.scenes.scene2.scene2_1;
   story.scenes.scene2.scene2_1();
 }
+
 
 
 
