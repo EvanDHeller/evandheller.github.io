@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             },
 
-            endGameNegative: {
+             endGameNegative: {
                 endGameNegative: function () {
                     showOptions([]);
                     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
@@ -302,6 +302,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const continueButton = document.getElementById("continue-button");
         continueButton.style.display = "none";
     }
+
+function hideTryAgainButton() {
+    var playAgainButton = document.getElementById("play-again-button");
+    playAgainButton.style.display = "none";
+}
 
     function showEndMessage() {
         const endMessageElement = document.getElementById("end-message");
