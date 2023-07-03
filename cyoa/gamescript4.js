@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
     };
-
+//**************************************GLOBAL FUNCTIONS******************************************************************************
 
     function startGame() {
         const startButton = document.getElementById("start-button");
