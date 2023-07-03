@@ -341,13 +341,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   hideNameInput();
 
-  if (story.currentScene === "scene1_3") {
-    showMessage("Your name has been saved. Let's continue the story!");
-  }
-
   story.currentScene = story.scenes.scene2.scene2_1;
   story.scenes.scene2.scene2_1();
 }
+
 
 
     function resetNameInput() {
