@@ -320,30 +320,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
      
-    function saveName() {
+     function saveName() {
         const nameField = document.getElementById("name-field");
-        const playerName = nameField.value.trim(); // Trim whitespace from the input
-
-        const nameRegex = /^[A-Za-z\s]+$/; // Only letters and spaces allowed
-
-        if (!nameRegex.test(playerName)) {
-            showMessage("Please enter a valid name.");
-            return;
+        const playerName = nameField.value;
+        if (playerName.trim() === "") {
+          showMessage("Please enter a valid name.");
+        } else {
+          story.playerName = playerName;
+          document.getElementById("name-input").style.display = "none";
+          story.scene2.scene2_1();
+          story.currentScene = "scene2_1";
         }
+      }
 
-        story.playerName = playerName;
-        nameField.disabled = true;
-
-        const saveButton = document.getElementById("name-button");
-        saveButton.removeEventListener("click", saveName);
-        saveButton.textContent = "Saved";
-        saveButton.disabled = true;
-
-        hideNameInput();
-
-        story.currentScene = story.scenes.scene2.scene2_1;
-        story.scenes.scene2.scene2_1();
-    }
 
     function resetNameInput() {
         const nameField = document.getElementById("name-field");
