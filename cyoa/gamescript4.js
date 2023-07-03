@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", function () {
         saveButton.addEventListener("click", saveName);
     }
 
-    function saveName() {
+     function saveName() {
         const nameField = document.getElementById("name-field");
         const playerName = nameField.value.trim(); // Trim whitespace from the input
 
@@ -342,7 +342,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (story.currentScene === "scene1_3") {
             story.scenes.scene2.scene2_1(); // Call the scene2_1 function directly
-            story.currentScene === "scene2_1";
         }
     }
 
