@@ -183,8 +183,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         }
     };
-//**************************************GLOBAL FUNCTIONS******************************************************************************
+//**************************************GLOBAL FUNCTIONS*******************************************************************************************
 
+    
+//**************************************START & NAVIGATION FUNCTIONS********************************************************************
     function startGame() {
         const startButton = document.getElementById("start-button");
         startButton.addEventListener("click", function () {
@@ -239,8 +241,6 @@ document.addEventListener("DOMContentLoaded", function () {
             currentScene.displayNextMessage();
         }
     }
-
-
 
     function showMessage(text, image = "") {
         const messageElement = document.getElementById("message");
@@ -308,6 +308,8 @@ document.addEventListener("DOMContentLoaded", function () {
         continueButton.style.display = "none";
     }
 
+//**************************************NAME MECHANICS*********************************************************************************
+    
 
     function showNameInput() {
         const nameInputContainer = document.getElementById("name-input-container");
@@ -346,8 +348,6 @@ document.addEventListener("DOMContentLoaded", function () {
     story.scenes.scene2.scene2_1();
 }
 
-
-
     function resetNameInput() {
         const nameField = document.getElementById("name-field");
         nameField.value = "";
@@ -364,7 +364,8 @@ document.addEventListener("DOMContentLoaded", function () {
         nameInputContainer.style.display = "none";
     }
 
-
+//**************************************ENDGAME & PLAYAGAIN FUNCTIONS***********************************************************************
+    
     function hideTryAgainButton() {
         var playAgainButton = document.getElementById("play-again-button");
         playAgainButton.style.display = "none";
