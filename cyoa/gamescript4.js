@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     showMessage("As you yawn and rub your eyes, you realize even a temporary name may be helpful...", "");
                     showNameInput();
                     saveName();
+                    hideContinueButton();
                 }
             },
             scene2: {
