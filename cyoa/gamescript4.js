@@ -1,4 +1,4 @@
-var gameEnded = false;
+
 document.addEventListener("DOMContentLoaded", function () {
     const story = {
         currentScene: "startGame",
@@ -12,6 +12,7 @@ scenes: {
         this.playerName: null,
         this.messages: [],
         this.messageIndex: 0,
+        var gameEnded = false;
             },
         startGame();
         this.startGame();
