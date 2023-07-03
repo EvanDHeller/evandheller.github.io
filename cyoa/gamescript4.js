@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 scene2_1: function () {
                     showMessage("Thank you, " + story.playerName + ", your adventure begins now!");
                     showContinueButton();
+                    hideNameInput();
                     const continueButton = document.getElementById("continue-button");
                     continueButton.addEventListener("click", story.scenes.scene2.scene2_2);
                 },
