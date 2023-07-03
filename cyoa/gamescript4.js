@@ -156,19 +156,45 @@ document.addEventListener("DOMContentLoaded", function () {
             },
 
             endGameNegative: {
-                endGameNegative: function () {
-                    showOptions([]);
-                    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
-                    var playAgainButton = document.getElementById("play-again-button");
-                    playAgainButton.style.display = "block"; // Show the "Play Again" button
-                    playAgainButton.textContent = "Try Again"; // Change the text of the button
+                endGameNegative: function() {
+  showOptions([]);
+  showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
 
-                    playAgainButton.addEventListener("click", function () {
-                        story.scenes.startGame.startGame(); // Call the startGame function to restart the game
-                    });
+  var playAgainButton = document.getElementById("play-again-button");
+  playAgainButton.style.display = "block"; // Show the "Play Again" button
+  playAgainButton.textContent = "Try Again"; // Change the text of the button
 
-                    story.currentScene = "startGame";
-                }
+  playAgainButton.removeEventListener("click", story.startGame); // Remove the previous click event listener
+
+  playAgainButton.addEventListener("click", function() {
+    // Reset the game state
+    story.currentScene = "startGame";
+    story.playerName = null;
+    story.messages = [];
+    story.messageIndex = 0;
+
+    // Clear the message display
+    clearMessage();
+
+    // Hide the "Play Again" button
+    playAgainButton.style.display = "none";
+
+    // Show the intro elements
+    const introImage = document.getElementById("intro-image");
+    const gameTitle = document.getElementById("game-title");
+    introImage.style.display = "block";
+    gameTitle.style.display = "block";
+
+    // Show the Start button
+    const startButton = document.getElementById("start-button");
+    startButton.style.display = "block";
+  });
+
+  story.currentScene = "endGameNegative";
+}
+
+
+
 
             }
         }
