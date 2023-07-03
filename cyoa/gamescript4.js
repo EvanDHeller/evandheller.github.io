@@ -360,10 +360,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-
-
-
-
     function hideTryAgainButton() {
         var playAgainButton = document.getElementById("play-again-button");
         playAgainButton.style.display = "none";
