@@ -11,7 +11,7 @@ function startGame() {
     startButton.style.display = "none";
 
     // Start the game
-    story.currentScene = "scene1_1"; // Set the current scene to scene1_1
+    story.currentScene = "scene1"; // Set the current scene to scene1_1
     showScene(); // Call the showScene function to display the scene
   });
 }
