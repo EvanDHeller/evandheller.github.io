@@ -30,8 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 scene1_3: function () {
                     showMessage("As you yawn and rub your eyes, you realize even a temporary name may be helpful...", "");
                     showNameInput();
-                    saveButton.addEventListener("click", saveName);
                     hideContinueButton();
+                    saveButton.addEventListener("click", saveName);
+                   
                 }
             },
             scene2: {
