@@ -302,9 +302,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         hideNameInput();
 
-        if (story.currentScene === "startGame") {
-            story.scenes.scene2.scene2_1(); // Call the scene2_1 function directly
-        }
+        story.currentScene === story.scenes.scene2.scene2_1;
+        story.scenes.scene2.scene2_1();
     }
 
     function resetNameInput() {
