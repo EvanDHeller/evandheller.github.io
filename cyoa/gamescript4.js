@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", function () {
         saveButton.addEventListener("click", saveName);
     }
 
-   function saveName() {
+function saveName() {
   const nameField = document.getElementById("name-field");
   const playerName = nameField.value.trim(); // Trim whitespace from the input
 
@@ -329,10 +329,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const nameError = document.getElementById("name-error");
     nameError.textContent = "Please enter a valid name.";
     nameError.style.display = "block"; // Show the error message
-
-    // Hide the scene message
-    const sceneMessage = document.getElementById("scene-message");
-    sceneMessage.style.display = "none";
 
     return;
   }
@@ -352,6 +348,7 @@ document.addEventListener("DOMContentLoaded", function () {
   story.currentScene = story.scenes.scene2.scene2_1;
   story.scenes.scene2.scene2_1();
 }
+
 
 
     function resetNameInput() {
