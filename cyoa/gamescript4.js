@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 scene1_3: function () {
                     showMessage("As you yawn and rub your eyes, you realize even a temporary name may be helpful...", "");
                     showNameInput();
-                    saveName();
+                    saveButton.addEventListener("click", saveName);
                     hideContinueButton();
                 }
             },
@@ -320,7 +320,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
      
-    function saveName() {
+ function saveName() {
   const nameField = document.getElementById("name-field");
   const playerName = nameField.value.trim(); // Trim whitespace from the input
 
@@ -341,10 +341,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   hideNameInput();
 
-  story.currentScene = story.scenes.scene2.scene2_1;
-  story.scenes.scene2.scene2_1();
+  if (story.currentScene === story.scenes.scene1.scene1_3) {
+    scene1_3(); // Call the scene1_3 function to display the default message
+  }
 }
-
 
 
     function resetNameInput() {
