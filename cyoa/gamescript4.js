@@ -29,9 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         scene1_3: function () {
           showMessage("As you yawn and rub your eyes, you realize even a temporary name may be helpful...", "");
-          showContinueButton();
-          const continueButton = document.getElementById("continue-button");
-          continueButton.addEventListener("click", story.scenes.scene2.scene2_1);
+          showNameInput();
+          saveName();
         }
       },
       scene2: {
