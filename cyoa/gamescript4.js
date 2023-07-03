@@ -11,7 +11,8 @@ function startGame() {
     startButton.style.display = "none";
 
     // Start the game
-    story.scenes.startGame.startGame();
+    story.currentScene = "scene1_1"; // Set the current scene to scene1_1
+    showScene(); // Call the showScene function to display the scene
   });
 }
 
@@ -245,6 +246,37 @@ function startGame() {
     }
 },
 
+function showScene() {
+  const currentScene = story.scenes[story.currentScene];
+
+  // Clear the messages container
+  const messageElement = document.getElementById("message");
+  messageElement.textContent = "";
+
+  // Clear the image container
+  const imageElement = document.getElementById("image");
+  imageElement.src = "";
+  imageElement.style.display = "none";
+
+  // Display the messages of the current scene
+  if (currentScene.messages) {
+    currentScene.messages.forEach(message => {
+      showMessage(message.text, message.image);
+    });
+  }
+
+  // Display the options of the current scene
+  if (currentScene.options) {
+    showOptions(currentScene.options);
+  }
+
+  // Call the displayNextMessage function of the current scene
+  if (currentScene.displayNextMessage) {
+    currentScene.displayNextMessage();
+  }
+}
+
+                          
 
     function showMessage(text, image = "") {
         const messageElement = document.getElementById("message");
