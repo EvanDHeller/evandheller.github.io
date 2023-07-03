@@ -5,36 +5,36 @@ document.addEventListener("DOMContentLoaded", function () {
         playerName: null,
         messages: [],
         messageIndex: 0,
-scenes: {
-    scene1: {
-        startGame: function () {
-        this.currentScene: "startGame",
-        this.playerName: null,
-        this.messages: [],
-        this.messageIndex: 0,
+        scenes: {
+            scene1: {
+                startGame: function () {
+                    this.currentScene: "startGame",
+                        this.playerName: null,
+                            this.messages: [],
+                                this.messageIndex: 0,
         var gameEnded = false;
-            },
-        startGame();
+                },
+                startGame();
         this.startGame();
-        },
-        scene1_1: function () {
-            showMessage("You have just woken up, you don't know where you are, or how you got there.", image: "")
-            showContinueButton();
-                    const continueButton = document.getElementById("continue-button");
-                    continueButton.addEventListener("click", story.scenes.scene2.scene1_2);
-        },
-        scene1_2: function () {
-            showMessage("You don't even remember your name!", image: "");
-            showContinueButton();
-                    const continueButton = document.getElementById("continue-button");
-                    continueButton.addEventListener("click", story.scenes.scene2.scene1_3);
-        },
-        scene1_3: function () {
-            showMessage("As you yawn and rub your eyes, you realize even a temporary name may be helpful...", image: "");
-            showContinueButton();
-                    const continueButton = document.getElementById("continue-button");
-                    continueButton.addEventListener("click", story.scenes.scene2.scene2_1);
-    },
+            },
+            scene1_1: function () {
+                showMessage("You have just woken up, you don't know where you are, or how you got there.", image: "")
+                showContinueButton();
+                const continueButton = document.getElementById("continue-button");
+                continueButton.addEventListener("click", story.scenes.scene2.scene1_2);
+            },
+            scene1_2: function () {
+                showMessage("You don't even remember your name!", image: "");
+                showContinueButton();
+                const continueButton = document.getElementById("continue-button");
+                continueButton.addEventListener("click", story.scenes.scene2.scene1_3);
+            },
+            scene1_3: function () {
+                showMessage("As you yawn and rub your eyes, you realize even a temporary name may be helpful...", image: "");
+                showContinueButton();
+                const continueButton = document.getElementById("continue-button");
+                continueButton.addEventListener("click", story.scenes.scene2.scene2_1);
+            },
             scene2: {
                 scene2_1: function () {
                     showMessage("Thank you, " + story.playerName + ", your adventure begins now!");
@@ -150,67 +150,67 @@ scenes: {
                     story.currentScene = "startGame";
                 }
             },
-endGameNegative: {
-  endGameNegative: function () {
-    if (gameEnded) {
-      return; // Return early if the game has already ended
-    }
-    
-    gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
+            endGameNegative: {
+                endGameNegative: function () {
+                    if (gameEnded) {
+                        return; // Return early if the game has already ended
+                    }
 
-    showOptions([]);
-    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+                    gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
 
-    var playAgainButton = document.getElementById("play-again-button");
-    playAgainButton.style.display = "block"; // Show the "Try Again" button
-    playAgainButton.textContent = "Try Again"; // Change the text of the button
+                    showOptions([]);
+                    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
 
-    if (story.messageIndex === 7 || story.messageIndex === 8) {
-      playAgainButton.style.display = "none"; // Hide the "Try Again" button for the specific message indexes
-    }
+                    var playAgainButton = document.getElementById("play-again-button");
+                    playAgainButton.style.display = "block"; // Show the "Try Again" button
+                    playAgainButton.textContent = "Try Again"; // Change the text of the button
 
-    playAgainButton.addEventListener("click", function () {
-      hideTryAgainButton();
-      resetNameInput();
-      gameEnded = false; // Reset the gameEnded variable
-      story.currentScene = "startGame";
-      story.scenes.startGame.startGame(); // Call the startGame function to restart the game
-    });
+                    if (story.messageIndex === 7 || story.messageIndex === 8) {
+                        playAgainButton.style.display = "none"; // Hide the "Try Again" button for the specific message indexes
+                    }
 
-    hideContinueButton();
-    showTryAgainButton();
-  }
-}
+                    playAgainButton.addEventListener("click", function () {
+                        hideTryAgainButton();
+                        resetNameInput();
+                        gameEnded = false; // Reset the gameEnded variable
+                        story.currentScene = "startGame";
+                        story.scenes.startGame.startGame(); // Call the startGame function to restart the game
+                    });
+
+                    hideContinueButton();
+                    showTryAgainButton();
+                }
+            }
 
         }
     };
 
 
-        displayNextMessage: function () {
-                    if (this.messageIndex < this.messages.length) {
-                        showMessage(
-                            this.messages[this.messageIndex].text,
-                            this.messages[this.messageIndex].image
-                        );
+    displayNextMessage: function () {
+        if (this.messageIndex < this.messages.length) {
+            showMessage(
+                this.messages[this.messageIndex].text,
+                this.messages[this.messageIndex].image
+            );
 
-                        if (this.messageIndex === this.messages.length - 1) {
-                            showNameInput();
-                            hideContinueButton();
-                        } else {
-                            showContinueButton();
-                        }
+            if (this.messageIndex === this.messages.length - 1) {
+                showNameInput();
+                hideContinueButton();
+            } else {
+                showContinueButton();
+            }
 
-                        this.messageIndex++;
-                    }
+            this.messageIndex++;
+        }
 
-                    if (this.currentScene === "startGame" && this.messageIndex === 1) {
-                        // Hide the start button after the first message
-                        hideStartButton();
-                    }
-                }
-            },
+        if (this.currentScene === "startGame" && this.messageIndex === 1) {
+            // Hide the start button after the first message
+            hideStartButton();
+        }
+    }
+},
 
-    
+
     function showMessage(text, image = "") {
         const messageElement = document.getElementById("message");
         messageElement.textContent = text;
@@ -341,18 +341,18 @@ endGameNegative: {
     }
 
 function hideTryAgainButton() {
-    var playAgainButton = document.getElementById("play-again-button");
-    playAgainButton.style.display = "none";
-}
+        var playAgainButton = document.getElementById("play-again-button");
+        playAgainButton.style.display = "none";
+    }
 
     function showTryAgainButton() {
-  var playAgainButton = document.getElementById("play-again-button");
-  if (gameEnded && story.messageIndex === 0) {
-    playAgainButton.style.display = "block";
-  } else {
-    playAgainButton.style.display = "none";
-  }
-}
+        var playAgainButton = document.getElementById("play-again-button");
+        if (gameEnded && story.messageIndex === 0) {
+            playAgainButton.style.display = "block";
+        } else {
+            playAgainButton.style.display = "none";
+        }
+    }
 
     function showEndMessage() {
         const endMessageElement = document.getElementById("end-message");
