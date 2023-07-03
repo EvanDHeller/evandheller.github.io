@@ -19,22 +19,22 @@ document.addEventListener("DOMContentLoaded", function () {
           showMessage("You have just woken up, you don't know where you are, or how you got there.", "");
           showContinueButton();
           const continueButton = document.getElementById("continue-button");
-          continueButton.addEventListener("click", story.scenes.scene2.scene1_2);
-        }
-      },
-      scene2: {
-        scene1_2: function () {
+          continueButton.addEventListener("click", story.scenes.scene1.scene1_2);
+        },
+         scene1_2: function () {
           showMessage("You don't even remember your name!", "");
           showContinueButton();
           const continueButton = document.getElementById("continue-button");
-          continueButton.addEventListener("click", story.scenes.scene2.scene1_3);
+          continueButton.addEventListener("click", story.scenes.scene1.scene1_3);
         },
         scene1_3: function () {
           showMessage("As you yawn and rub your eyes, you realize even a temporary name may be helpful...", "");
           showContinueButton();
           const continueButton = document.getElementById("continue-button");
           continueButton.addEventListener("click", story.scenes.scene2.scene2_1);
-        },
+        }
+      },
+      scene2: {
         scene2_1: function () {
           showMessage("Thank you, " + story.playerName + ", your adventure begins now!");
           showContinueButton();
