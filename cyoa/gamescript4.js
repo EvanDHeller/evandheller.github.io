@@ -1,3 +1,4 @@
+var gameEnded = false;
 document.addEventListener("DOMContentLoaded", function () {
     const story = {
         currentScene: "startGame",
@@ -7,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         scenes: {
             startGame: {
                 startGame: function () {
+                    hideTryAgainButton();
                     this.playerName = null;
                     this.messages = [
                         { text: "You have just woken up, you don't know where you are, or how you got there.", image: "" },
@@ -155,23 +157,26 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             },
 
-              endGameNegative: {
+     endGameNegative: {
     endGameNegative: function () {
+        if (gameEnded) {
+            return; // Return early if the game has already ended
+        }
+
+        gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
+
         showOptions([]);
         showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
-        showTryAgainButton(); // Show the "Try Again" button
 
         var playAgainButton = document.getElementById("play-again-button");
+        playAgainButton.style.display = "block"; // Show the "Try Again" button
         playAgainButton.textContent = "Try Again"; // Change the text of the button
 
-        playAgainButton.addEventListener("click", function () {
-            hideTryAgainButton();
-            resetNameInput();
-            story.currentScene = "startGame";
-            story.scenes.startGame.startGame(); // Call the startGame function to restart the game
-        });
+        playAgainButton.removeEventListener("click", resetGame); // Remove the event listener if it exists
+        playAgainButton.addEventListener("click", resetGame); // Add the event listener
 
-        story.currentScene = "startGame";
+        hideContinueButton();
+        showTryAgainButton();
     }
 }
 
@@ -312,11 +317,20 @@ function hideTryAgainButton() {
     playAgainButton.style.display = "none";
 }
 
-function showTryAgainButton() {
-    var playAgainButton = document.getElementById("play-again-button");
-    playAgainButton.style.display = "block";
+    	function showTryAgainButton() {	
+    var playAgainButton = document.getElementById("play-again-button");	
+    playAgainButton.style.display = "block";	
 }
 
+function resetGame() {
+    hideTryAgainButton();
+    resetNameInput();
+    gameEnded = false; // Reset the gameEnded variable
+    story.currentScene = "startGame";
+    story.scenes.startGame.startGame(); // Call the startGame function to restart the game
+}
+
+    
     function showEndMessage() {
         const endMessageElement = document.getElementById("end-message");
         endMessageElement.style.display = "block";
