@@ -177,9 +177,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         story.currentScene = "startGame";
                         story.scenes.startGame(); // Call the startGame function to restart the game
                     });
-
-                    hideContinueButton();
-                    showTryAgainButton();
+                        resetGame();
+                    
                 }
             }
 
@@ -367,6 +366,29 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 //**************************************ENDGAME & PLAYAGAIN FUNCTIONS***********************************************************************
+    
+    function resetGame() {
+  showMessage("Game Over!"); // Display the end game message
+
+  // Show the play again button and set its click event listener
+  playAgainButton.style.display = "block";
+  playAgainButton.addEventListener("click", reset(){
+    // Reset variables and states to their initial values
+
+    // Reset any game-specific elements to their initial states
+    // ...
+
+    // Hide the end game message and play again button
+    playAgainButton.style.display = "none";
+    message.style.display = "none";
+    hideOptions();
+    hideContinueButton();
+
+    // Start the game again
+    startGame();
+  });
+}
+}
     
     function hideTryAgainButton() {
         var playAgainButton = document.getElementById("play-again-button");
