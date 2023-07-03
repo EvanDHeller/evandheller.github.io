@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         scenes: {
             startGame: {
                 startGame: function () {
+                    hideTryAgainButton();
                     this.playerName = null;
                     this.messages = [
                         { text: "You have just woken up, you don't know where you are, or how you got there.", image: "" },
@@ -156,33 +157,29 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             },
 
-            endGameNegative: {
+     endGameNegative: {
     endGameNegative: function () {
-        if (gameEnded) {
-            return; // Return early if the game has already ended
-        }
-        
-        gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
+  if (gameEnded) {
+    return; // Return early if the game has already ended
+  }
 
-        showOptions([]);
-        showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+  gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
 
-        var playAgainButton = document.getElementById("play-again-button");
-        playAgainButton.style.display = "block"; // Show the "Try Again" button
-        playAgainButton.textContent = "Try Again"; // Change the text of the button
+  showOptions([]);
+  showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
 
-        playAgainButton.addEventListener("click", function () {
-            hideTryAgainButton();
-            resetNameInput();
-            gameEnded = false; // Reset the gameEnded variable
-            story.currentScene = "startGame";
-            story.scenes.startGame.startGame(); // Call the startGame function to restart the game
-        });
+  var tryAgainButton = document.getElementById("try-again-button");
+  tryAgainButton.style.display = "block"; // Show the "Try Again" button
 
-        hideContinueButton();
-        showTryAgainButton();
-    }
+  tryAgainButton.removeEventListener("click", resetGame); // Remove the event listener if it exists
+  tryAgainButton.addEventListener("click", resetGame); // Add the event listener
+
+  hideContinueButton();
+  hidePlayAgainButton();
 }
+
+}
+
         }
     };
 
@@ -316,15 +313,35 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 function hideTryAgainButton() {
+  var tryAgainButton = document.getElementById("try-again-button");
+  tryAgainButton.style.display = "none"; // Hide the "Try Again" button
+}
+
+
+ function showTryAgainButton() {
     var playAgainButton = document.getElementById("play-again-button");
-    playAgainButton.style.display = "none";
+    playAgainButton.style.display = "block";
+
+    playAgainButton.removeEventListener("click", resetGame); // Remove the event listener if it exists
+    playAgainButton.addEventListener("click", resetGame); // Add the event listener
 }
 
-    	function showTryAgainButton() {	
-    var playAgainButton = document.getElementById("play-again-button");	
-    playAgainButton.style.display = "block";	
+
+function resetGame() {
+    hideTryAgainButton();
+    resetNameInput();
+
+    // Remove the event listener from the "Try Again" button
+     var tryAgainButton = document.getElementById("try-again-button");
+  tryAgainButton.style.display = "none";
+
+    gameEnded = false; // Reset the gameEnded variable
+    story.currentScene = "startGame";
+    story.scenes.startGame.startGame(); // Call the startGame function to restart the game
 }
 
+
+    
     function showEndMessage() {
         const endMessageElement = document.getElementById("end-message");
         endMessageElement.style.display = "block";
