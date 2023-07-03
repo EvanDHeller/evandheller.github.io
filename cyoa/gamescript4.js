@@ -340,11 +340,10 @@ document.addEventListener("DOMContentLoaded", function () {
   saveButton.textContent = "Saved";
   saveButton.disabled = true;
 
-  hideNameInput();
-
   if (story.currentScene === story.scenes.scene1.scene1_3) {
     scene1_3(); // Call the scene1_3 function to display the default message
   }
+    hideNameInput();
     story.currentScene = "scene2_1";
     story.scenes.scene2.scene2_1(); 
 }
