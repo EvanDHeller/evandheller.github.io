@@ -320,18 +320,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
      
-     function saveName() {
-        const nameField = document.getElementById("name-field");
-        const playerName = nameField.value;
-        if (playerName.trim() === "") {
-          showMessage("Please enter a valid name.");
-        } else {
-          story.playerName = playerName;
-          document.getElementById("name-input").style.display = "none";
-          story.scene2.scene2_1();
-          story.currentScene = "scene2_1";
-        }
-      }
+    function saveName() {
+  const nameField = document.getElementById("name-field");
+  const playerName = nameField.value.trim(); // Trim whitespace from the input
+
+  const nameRegex = /^[A-Za-z\s]+$/; // Only letters and spaces allowed
+
+  if (!nameRegex.test(playerName)) {
+    showMessage("Please enter a valid name.");
+    return;
+  }
+
+  story.playerName = playerName;
+  nameField.disabled = true;
+
+  const saveButton = document.getElementById("name-button");
+  saveButton.removeEventListener("click", saveName);
+  saveButton.textContent = "Saved";
+  saveButton.disabled = true;
+
+  hideNameInput();
+
+  if (story.currentScene === "scene1_3") {
+    showMessage("Your name has been saved. Let's continue the story!");
+  }
+
+  story.currentScene = story.scenes.scene2.scene2_1;
+  story.scenes.scene2.scene2_1();
+}
 
 
     function resetNameInput() {
