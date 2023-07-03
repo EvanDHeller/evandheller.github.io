@@ -281,30 +281,31 @@ document.addEventListener("DOMContentLoaded", function () {
         saveButton.addEventListener("click", saveName);
     }
 
-    function saveName() {
-        const nameField = document.getElementById("name-field");
-        const playerName = nameField.value.trim(); // Trim whitespace from the input
+   function saveName() {
+    const nameField = document.getElementById("name-field");
+    const playerName = nameField.value.trim(); // Trim whitespace from the input
 
-        const nameRegex = /^[A-Za-z\s]+$/; // Only letters and spaces allowed
+    const nameRegex = /^[A-Za-z\s]+$/; // Only letters and spaces allowed
 
-        if (!nameRegex.test(playerName)) {
-            showMessage("Please enter a valid name.");
-            return;
-        }
-
-        story.playerName = playerName;
-        nameField.disabled = true;
-
-        const saveButton = document.getElementById("name-button");
-        saveButton.removeEventListener("click", saveName);
-        saveButton.textContent = "Saved";
-        saveButton.disabled = true;
-
-        hideNameInput();
-
-        story.currentScene === story.scenes.scene2.scene2_1;
-        story.scenes.scene2.scene2_1();
+    if (!nameRegex.test(playerName)) {
+        showMessage("Please enter a valid name.");
+        return;
     }
+
+    story.playerName = playerName;
+    nameField.disabled = true;
+
+    const saveButton = document.getElementById("name-button");
+    saveButton.removeEventListener("click", saveName);
+    saveButton.textContent = "Saved";
+    saveButton.disabled = true;
+
+    hideNameInput();
+
+    story.currentScene = story.scenes.scene2.scene2_1;
+    story.scenes.scene2.scene2_1();
+}
+
 
     function resetNameInput() {
         const nameField = document.getElementById("name-field");
