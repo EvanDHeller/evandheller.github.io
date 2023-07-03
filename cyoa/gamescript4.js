@@ -319,34 +319,40 @@ document.addEventListener("DOMContentLoaded", function () {
         saveButton.addEventListener("click", saveName);
     }
 
-    function saveName() {
-    const nameField = document.getElementById("name-field");
-    const playerName = nameField.value.trim(); // Trim whitespace from the input
+   function saveName() {
+  const nameField = document.getElementById("name-field");
+  const playerName = nameField.value.trim(); // Trim whitespace from the input
 
-    const nameRegex = /^[A-Za-z\s]+$/; // Only letters and spaces allowed
+  const nameRegex = /^[A-Za-z\s]+$/; // Only letters and spaces allowed
 
-    if (!nameRegex.test(playerName)) {
-        const nameError = document.getElementById("name-error");
-        nameError.textContent = "Please enter a valid name.";
-        nameError.style.display = "block"; // Show the error message
-        return;
-    }
-
+  if (!nameRegex.test(playerName)) {
     const nameError = document.getElementById("name-error");
-    nameError.style.display = "none"; // Hide the error message
+    nameError.textContent = "Please enter a valid name.";
+    nameError.style.display = "block"; // Show the error message
 
-    story.playerName = playerName;
-    nameField.disabled = true;
+    // Hide the scene message
+    const sceneMessage = document.getElementById("scene-message");
+    sceneMessage.style.display = "none";
 
-    const saveButton = document.getElementById("name-button");
-    saveButton.textContent = "Saved";
-    saveButton.disabled = true;
+    return;
+  }
 
-    hideNameInput();
+  const nameError = document.getElementById("name-error");
+  nameError.style.display = "none"; // Hide the error message
 
-    story.currentScene = story.scenes.scene2.scene2_1;
-    story.scenes.scene2.scene2_1();
+  story.playerName = playerName;
+  nameField.disabled = true;
+
+  const saveButton = document.getElementById("name-button");
+  saveButton.textContent = "Saved";
+  saveButton.disabled = true;
+
+  hideNameInput();
+
+  story.currentScene = story.scenes.scene2.scene2_1;
+  story.scenes.scene2.scene2_1();
 }
+
 
     function resetNameInput() {
         const nameField = document.getElementById("name-field");
