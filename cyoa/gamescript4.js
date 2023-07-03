@@ -155,38 +155,34 @@ document.addEventListener("DOMContentLoaded", function () {
                     story.currentScene = "startGame";
                 }
             },
-endGameNegative: {
-  endGameNegative: function () {
-    if (gameEnded) {
-      return; // Return early if the game has already ended
+
+            endGameNegative: {
+    endGameNegative: function () {
+        if (gameEnded) {
+            return; // Return early if the game has already ended
+        }
+        
+        gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
+
+        showOptions([]);
+        showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+
+        var playAgainButton = document.getElementById("play-again-button");
+        playAgainButton.style.display = "block"; // Show the "Try Again" button
+        playAgainButton.textContent = "Try Again"; // Change the text of the button
+
+        playAgainButton.addEventListener("click", function () {
+            hideTryAgainButton();
+            resetNameInput();
+            gameEnded = false; // Reset the gameEnded variable
+            story.currentScene = "startGame";
+            story.scenes.startGame.startGame(); // Call the startGame function to restart the game
+        });
+
+        hideContinueButton();
+        showTryAgainButton();
     }
-    
-    gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
-
-    showOptions([]);
-    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
-
-    var playAgainButton = document.getElementById("play-again-button");
-    playAgainButton.style.display = "block"; // Show the "Try Again" button
-    playAgainButton.textContent = "Try Again"; // Change the text of the button
-
-    if (story.messageIndex === 7 || story.messageIndex === 8) {
-      playAgainButton.style.display = "none"; // Hide the "Try Again" button for the specific message indexes
-    }
-
-    playAgainButton.addEventListener("click", function () {
-      hideTryAgainButton();
-      resetNameInput();
-      gameEnded = false; // Reset the gameEnded variable
-      story.currentScene = "startGame";
-      story.scenes.startGame.startGame(); // Call the startGame function to restart the game
-    });
-
-    hideContinueButton();
-    showTryAgainButton();
-  }
 }
-
         }
     };
 
@@ -324,13 +320,9 @@ function hideTryAgainButton() {
     playAgainButton.style.display = "none";
 }
 
-    function showTryAgainButton() {
-  var playAgainButton = document.getElementById("play-again-button");
-  if (gameEnded && story.messageIndex === 0) {
-    playAgainButton.style.display = "block";
-  } else {
-    playAgainButton.style.display = "none";
-  }
+    	function showTryAgainButton() {	
+    var playAgainButton = document.getElementById("play-again-button");	
+    playAgainButton.style.display = "block";	
 }
 
     function showEndMessage() {
