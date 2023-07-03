@@ -320,40 +320,31 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function saveName() {
-  const nameField = document.getElementById("name-field");
-  const playerName = nameField.value.trim(); // Trim whitespace from the input
+        const nameField = document.getElementById("name-field");
+        const playerName = nameField.value.trim(); // Trim whitespace from the input
 
-  const nameRegex = /^[A-Za-z\s]+$/; // Only letters and spaces allowed
+        const nameRegex = /^[A-Za-z\s]+$/; // Only letters and spaces allowed
 
-  const nameError = document.getElementById("name-error");
+        if (!nameRegex.test(playerName)) {
+            showMessage("Please enter a valid name.");
+            return;
+        }
 
-  if (!nameRegex.test(playerName)) {
-    nameError.textContent = "Please enter a valid name.";
-    nameError.style.display = "block"; // Show the error message
+        story.playerName = playerName;
+        nameField.disabled = true;
 
-    return;
-  }
+        const saveButton = document.getElementById("name-button");
+        saveButton.removeEventListener("click", saveName);
+        saveButton.textContent = "Saved";
+        saveButton.disabled = true;
 
-  nameError.style.display = "none"; // Hide the error message
+        hideNameInput();
 
-  story.playerName = playerName;
-  nameField.disabled = true;
-
-  const saveButton = document.getElementById("name-button");
-  saveButton.textContent = "Saved";
-  saveButton.disabled = true;
-
-  hideNameInput();
-
-  const sceneMessage = document.getElementById("scene-message");
-  sceneMessage.style.display = "none"; // Hide the scene message
-
-  story.currentScene = story.scenes.scene2.scene2_1;
-  story.scenes.scene2.scene2_1();
-}
-
-
-
+        if (story.currentScene === "scene1_3") {
+            story.scenes.scene2.scene2_1(); // Call the scene2_1 function directly
+            story.currentScene === "scene2_1";
+        }
+    }
 
     function resetNameInput() {
         const nameField = document.getElementById("name-field");
