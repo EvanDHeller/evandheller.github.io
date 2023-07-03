@@ -105,10 +105,10 @@ div#name-input-container {
     position: absolute;
 }
 
-#try-again-button {
+/*#try-again-button {
     margin-top: 240px;
     position: absolute;
-    display: none; }
+    display: none; }*/
 
 .option-button:hover,
 #continue-button:hover,
