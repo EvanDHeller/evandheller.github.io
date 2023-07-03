@@ -5,18 +5,35 @@ document.addEventListener("DOMContentLoaded", function () {
         playerName: null,
         messages: [],
         messageIndex: 0,
-        scenes: {
-            startGame: {
-                startGame: function () {
-                    this.playerName = null;
-                    this.messageIndex = 0;
-                    displayNextMessage();
-                    this.messages = [
-                        { text: "You have just woken up, you don't know where you are, or how you got there.", image: "" },
-                        { text: "You don't even remember your name!", image: "" },
-                        { text: "As you yawn and rub your eyes, you realize even a temporary name may be helpful...", image: "" }
-                    ];    
-                },
+scenes: {
+    scene1: {
+        startGame: function () {
+        this.currentScene: "startGame",
+        this.playerName: null,
+        this.messages: [],
+        this.messageIndex: 0,
+            },
+        startGame();
+        this.startGame();
+        },
+        scene1_1: function () {
+            showMessage("You have just woken up, you don't know where you are, or how you got there.", image: "")
+            showContinueButton();
+                    const continueButton = document.getElementById("continue-button");
+                    continueButton.addEventListener("click", story.scenes.scene2.scene1_2);
+        },
+        scene1_2: function () {
+            showMessage("You don't even remember your name!", image: "");
+            showContinueButton();
+                    const continueButton = document.getElementById("continue-button");
+                    continueButton.addEventListener("click", story.scenes.scene2.scene1_3);
+        },
+        scene1_3: function () {
+            showMessage("As you yawn and rub your eyes, you realize even a temporary name may be helpful...", image: "");
+            showContinueButton();
+                    const continueButton = document.getElementById("continue-button");
+                    continueButton.addEventListener("click", story.scenes.scene2.scene2_1);
+    },
             scene2: {
                 scene2_1: function () {
                     showMessage("Thank you, " + story.playerName + ", your adventure begins now!");
