@@ -153,17 +153,21 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             endGameNegative: {
                 endGameNegative: function () {
+                    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+                    
+              /*      
                     if (gameEnded) {
                         return; // Return early if the game has already ended
                     }
 
-                    gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
+                    gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended */
 
                     showOptions([]);
                     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
-
-                    var playAgainButton = document.getElementById("play-again-button");
-                    playAgainButton.style.display = "block"; // Show the "Try Again" button
+                    playAgainButton.textContent = "Try Again";
+                  /*  var playAgainButton = document.getElementById("play-again-button"); */
+                    playAgainButton();
+                   /* playAgainButton.style.display = "block"; // Show the "Try Again" button
                     playAgainButton.textContent = "Try Again"; // Change the text of the button
 
                     if (story.messageIndex === 7 || story.messageIndex === 8) {
@@ -177,9 +181,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         story.currentScene = "startGame";
                         story.scenes.startGame(); // Call the startGame function to restart the game
                     });
-
+                     hideTryAgainButton();
+                        resetNameInput();
                     hideContinueButton();
-                    showTryAgainButton();
+                    showTryAgainButton(); */
                 }
             }
 
@@ -383,8 +388,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
     function playAgainButtion() {
+         hideTryAgainButton();
+        resetNameInput();
+        hideContinueButton();
+         showTryAgainButton();
         const saveButton = document.getElementById("play-again-button");
         saveButton.addEventListener("click", story.scenes.startGame);
+        play-again-button.style.display = "block";
     }
 
     function showEndMessage() {
