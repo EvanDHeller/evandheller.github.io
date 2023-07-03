@@ -158,22 +158,23 @@ document.addEventListener("DOMContentLoaded", function () {
                     showOptions([]);
                     playAgainButton();
                     playAgainButton.textContent = "Try Again";
+                    playAgainButton.style.display = "block";
         }
                     
                     
-                   // if (gameEnded) {
-                     //   return; // Return early if the game has already ended
-                  //  }
+                   if (gameEnded) {
+                     return; // Return early if the game has already ended
+                   }
 
-                 //   gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended 
+                   gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended 
 
                     
                     //showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
                     
                   /*  var playAgainButton = document.getElementById("play-again-button"); */
                  //   playAgainButton();
-                   /* playAgainButton.style.display = "block"; // Show the "Try Again" button
-                    playAgainButton.textContent = "Try Again"; // Change the text of the button
+                     // Show the "Try Again" button
+                 /*   playAgainButton.textContent = "Try Again"; // Change the text of the button
 
                     if (story.messageIndex === 7 || story.messageIndex === 8) {
                         playAgainButton.style.display = "none"; // Hide the "Try Again" button for the specific message indexes
@@ -189,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
                      hideTryAgainButton();
                         resetNameInput();
                     hideContinueButton();
-                    showTryAgainButton(); */
+                    showTryAgainButton() */
                 }
             }
 
