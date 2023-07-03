@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 startGame: function () {
                     this.playerName = null;
                     this.messageIndex = 0;
-                    this.displayNextMessage();
+                    displayNextMessage();
                     this.messages = [
                         { text: "You have just woken up, you don't know where you are, or how you got there.", image: "" },
                         { text: "You don't even remember your name!", image: "" },
