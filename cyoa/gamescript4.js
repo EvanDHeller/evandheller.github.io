@@ -381,6 +381,11 @@ document.addEventListener("DOMContentLoaded", function () {
             playAgainButton.style.display = "none";
         }
     }
+    
+    function playAgainButtion() {
+        const saveButton = document.getElementById("play-again-button");
+        saveButton.addEventListener("click", story.scenes.startGame);
+    }
 
     function showEndMessage() {
         const endMessageElement = document.getElementById("end-message");
