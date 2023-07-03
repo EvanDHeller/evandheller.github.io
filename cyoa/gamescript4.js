@@ -151,7 +151,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     gameEnded = true; // Set the gameEnded variable to true to indicate that the game has ended
+  var scenes = {
+    startScenes: function() {
+      // Your code here to start the scenes
+      story.scenes.scene1.scene1_1();
+    }
+  };
 
+  function startButtonClicked() {
+    scenes.startScenes();
+  }
     showOptions([]);
     showMessage(
       "Sorry, " +
