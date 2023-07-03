@@ -223,31 +223,6 @@ function startGame() {
   });
 }
 
-    
-
-    function displayNextMessage () {
-        if (this.messageIndex < this.messages.length) {
-            showMessage(
-                this.messages[this.messageIndex].text,
-                this.messages[this.messageIndex].image
-            );
-
-            if (this.messageIndex === this.messages.length - 1) {
-                showNameInput();
-                hideContinueButton();
-            } else {
-                showContinueButton();
-            }
-
-            this.messageIndex++;
-        }
-
-        if (this.currentScene === "startGame" && this.messageIndex === 1) {
-            // Hide the start button after the first message
-            hideStartButton();
-        }
-    }
-},
 
 function showScene() {
   const currentScene = story.scenes[story.currentScene];
@@ -318,8 +293,6 @@ function showScene() {
     }
 
 
-
-
     function showNameInput() {
         const nameInputContainer = document.getElementById("name-input-container");
         nameInputContainer.style.display = "block";
@@ -353,7 +326,6 @@ function showScene() {
             story.scenes.scene2.scene2_1(); // Call the scene2_1 function directly
         }
     }
-
 
     function resetNameInput() {
         const nameField = document.getElementById("name-field");
@@ -398,8 +370,6 @@ function showScene() {
     }
 
 
-
-
     function hideStartButton() {
         const startButton = document.getElementById("start-button");
         startButton.style.display = "none";
@@ -428,24 +398,6 @@ function hideTryAgainButton() {
         const endMessageElement = document.getElementById("end-message");
         endMessageElement.style.display = "block";
     }
-
-   /* function startGame() {
-        const startButton = document.getElementById("start-button");
-        startButton.addEventListener("click", function () {
-            // Hide the intro elements
-            const introImage = document.getElementById("intro-image");
-            const gameTitle = document.getElementById("game-title");
-            introImage.style.display = "none";
-            gameTitle.style.display = "none";
-
-            // Hide the Start button
-            startButton.style.display = "none";
-
-            // Start the game
-            story.scenes.startGame.startGame();
-        });
-    } */
-
 
     startGame();
 });
