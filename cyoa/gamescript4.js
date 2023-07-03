@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         resetNameInput();
                         gameEnded = false; // Reset the gameEnded variable
                         story.currentScene = "startGame";
-                        story.scenes.startGame.startGame(); // Call the startGame function to restart the game
+                        story.scenes.startGame(); // Call the startGame function to restart the game
                     });
 
                     hideContinueButton();
