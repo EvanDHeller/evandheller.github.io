@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
 
-    displayNextMessage: function () {
+    function displayNextMessage () {
         if (this.messageIndex < this.messages.length) {
             showMessage(
                 this.messages[this.messageIndex].text,
