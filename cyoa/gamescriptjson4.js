@@ -1,4 +1,195 @@
 document.addEventListener("DOMContentLoaded", function() {
+
+  function endGameNegative() {
+    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+    showOptions([{ text: "Try Again", action: story.scenes.startGame.startGame }]);
+    story.currentScene = "startGame";
+  }  
+
+  function endGamePositive() {
+      showMessage("Congratulations, you have reached the end of the game! You won!");
+      showOptions([{ text: "Play Again", action: story.scenes.startGame.startGame }]);
+      story.currentScene = "startGame";
+  }
+  
+function showMessage(text, image = "") {
+  const messageElement = document.getElementById("message");
+  messageElement.textContent = text;
+  // Display the image if provided
+  if (image) {
+    const imageElement = document.getElementById("image");
+    imageElement.src = image;
+    imageElement.style.display = "block";
+  }
+}
+
+function showOptions(options) {
+  const optionsContainer = document.getElementById("options");
+  optionsContainer.innerHTML = "";
+
+  if (options.length > 0) {
+    options.forEach(option => {
+      const button = document.createElement("button");
+      button.textContent = option.text;
+      button.classList.add("option-button");
+      button.addEventListener("click", option.action);
+      optionsContainer.appendChild(button);
+    });
+    optionsContainer.style.display = "block"; // Show the option container
+  } else {
+    optionsContainer.style.display = "none"; // Hide the option container
+  }
+
+  const continueButton = document.getElementById("continue-button");
+  if (options.length > 0) {
+    continueButton.style.display = "none"; // Hide the "Continue" button
+  } else {
+    continueButton.style.display = "block"; // Show the "Continue" button
+  }
+}
+
+
+function showNameInput() {
+  const nameInputContainer = document.getElementById("name-input-container");
+  nameInputContainer.style.display = "block";
+
+  const saveButton = document.getElementById("name-button");
+  saveButton.addEventListener("click", saveName);
+}
+
+function saveName() {
+  const nameField = document.getElementById("name-field");
+  const playerName = nameField.value.trim(); // Trim whitespace from the input
+
+  const nameRegex = /^[A-Za-z\s]+$/; // Only letters and spaces allowed
+
+  if (!nameRegex.test(playerName)) {
+    showMessage("Please enter a valid name.");
+    return;
+  }
+
+  story.playerName = playerName;
+  nameField.disabled = true;
+
+  const saveButton = document.getElementById("name-button");
+  saveButton.removeEventListener("click", saveName);
+  saveButton.textContent = "Saved";
+  saveButton.disabled = true;
+
+  hideNameInput();
+
+  if (story.currentScene === "startGame") {
+    story.scenes.scene2.scene2_1(); // Call the scene2_1 function directly
+  }
+}
+
+
+function resetNameInput() {
+  const nameField = document.getElementById("name-field");
+  nameField.value = "";
+  nameField.disabled = false;
+
+  const saveButton = document.getElementById("name-button");
+  saveButton.addEventListener("click", saveName);
+  saveButton.textContent = "Save";
+  saveButton.disabled = false;
+}
+
+function hideNameInput() {
+  const nameInputContainer = document.getElementById("name-input-container");
+  nameInputContainer.style.display = "none";
+}
+
+
+function continueButtonClick() {
+  const currentScene = story.scenes[story.currentScene];
+
+  if (currentScene.messageIndex < currentScene.messages.length) {
+    currentScene.displayNextMessage();
+  } else {
+    const sceneKeys = Object.keys(story.scenes);
+    const currentIndex = sceneKeys.indexOf(story.currentScene);
+
+    if (currentIndex < sceneKeys.length - 1) {
+      story.currentScene = sceneKeys[currentIndex + 1];
+      showScene();
+    } else {
+      hideContinueButton();
+
+      const currentSceneId = story.currentScene;
+      const scenePattern = /^scene(\d+)_(\d+)$/;
+
+      if (scenePattern.test(currentSceneId)) {
+        const [, sceneNum, endNum] = currentSceneId.match(scenePattern);
+
+        const nextSceneId = `scene${Number(sceneNum) + 1}_${Number(endNum) + 1}`;
+        if (story.scenes.hasOwnProperty(nextSceneId)) {
+          document.getElementById("story-container").innerHTML = ""; // Clear the story container
+          
+          // Check if the next scene is the endGameNegative function
+          if (story.scenes[nextSceneId]() === endGameNegative) {
+            endGameNegative(); // Call the function directly
+          } else {
+            story.scenes[nextSceneId](); // Call the next scene function directly
+          }
+          return;
+        }
+      }
+
+      // Handle end game scenes
+      if (story.currentScene === "endGamePositive") {
+        document.getElementById("story-container").innerHTML = ""; // Clear the story container
+        endGamePositive(); // Call the function directly
+      } else if (story.currentScene === "endGameNegative") {
+        document.getElementById("story-container").innerHTML = ""; // Clear the story container
+        endGameNegative(); // Call the function directly
+      } else {
+        showNameInput();
+      }
+    }
+  }
+}
+
+
+
+
+
+function hideStartButton() {
+  const startButton = document.getElementById("start-button");
+  startButton.style.display = "none";
+}
+
+function hideContinueButton() {
+  const continueButton = document.getElementById("continue-button");
+  continueButton.style.display = "none";
+}
+
+function showEndMessage() {
+  const endMessageElement = document.getElementById("end-message");
+  endMessageElement.style.display = "block";
+}
+
+function startGame() {
+  const startButton = document.getElementById("start-button");
+  startButton.addEventListener("click", function () {
+    // Hide the intro elements
+    const introImage = document.getElementById("intro-image");
+    const gameTitle = document.getElementById("game-title");
+    introImage.style.display = "none";
+    gameTitle.style.display = "none";
+
+    // Hide the Start button
+    startButton.style.display = "none";
+
+    // Start the game
+    story.scenes.startGame.startGame();
+  });
+}
+
+
+startGame();
+
+  
   const story = {
     currentScene: "startGame",
     playerName: null,
@@ -143,178 +334,9 @@ document.addEventListener("DOMContentLoaded", function() {
   continueButton.addEventListener("click", story.scenes.scene5.scene5_5);
 },
          scene5_5: function () {
-          endGameNegative();
+          return endGameNegative;
         }
-      },
-      endGamePositive: {
-    endGamePositive: function() {
-      showMessage("Congratulations, you have reached the end of the game! You won!");
-      showOptions([{ text: "Play Again", action: story.scenes.startGame.startGame }]);
-      story.currentScene = "startGame";
-    }
-  },
-
-  endGameNegative: {
-    endGameNegative: function() {
-      showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
-      showOptions([{ text: "Try Again", action: story.scenes.startGame.startGame }]);
-      story.currentScene = "startGame";
-    }
-  }
+      }
 }
   };
-
-function showMessage(text, image = "") {
-  const messageElement = document.getElementById("message");
-  messageElement.textContent = text;
-  // Display the image if provided
-  if (image) {
-    const imageElement = document.getElementById("image");
-    imageElement.src = image;
-    imageElement.style.display = "block";
-  }
-}
-
-function showOptions(options) {
-  const optionsContainer = document.getElementById("options");
-  optionsContainer.innerHTML = "";
-
-  if (options.length > 0) {
-    options.forEach(option => {
-      const button = document.createElement("button");
-      button.textContent = option.text;
-      button.classList.add("option-button");
-      button.addEventListener("click", option.action);
-      optionsContainer.appendChild(button);
-    });
-    optionsContainer.style.display = "block"; // Show the option container
-  } else {
-    optionsContainer.style.display = "none"; // Hide the option container
-  }
-
-  const continueButton = document.getElementById("continue-button");
-  if (options.length > 0) {
-    continueButton.style.display = "none"; // Hide the "Continue" button
-  } else {
-    continueButton.style.display = "block"; // Show the "Continue" button
-  }
-}
-
-
-
-
-function showNameInput() {
-  const nameInputContainer = document.getElementById("name-input-container");
-  nameInputContainer.style.display = "block";
-
-  const saveButton = document.getElementById("name-button");
-  saveButton.addEventListener("click", saveName);
-}
-
-function saveName() {
-  const nameField = document.getElementById("name-field");
-  const playerName = nameField.value.trim(); // Trim whitespace from the input
-
-  const nameRegex = /^[A-Za-z\s]+$/; // Only letters and spaces allowed
-
-  if (!nameRegex.test(playerName)) {
-    showMessage("Please enter a valid name.");
-    return;
-  }
-
-  story.playerName = playerName;
-  nameField.disabled = true;
-
-  const saveButton = document.getElementById("name-button");
-  saveButton.removeEventListener("click", saveName);
-  saveButton.textContent = "Saved";
-  saveButton.disabled = true;
-
-  hideNameInput();
-
-  if (story.currentScene === "startGame") {
-    story.scenes.scene2.scene2_1(); // Call the scene2_1 function directly
-  }
-}
-
-
-function resetNameInput() {
-  const nameField = document.getElementById("name-field");
-  nameField.value = "";
-  nameField.disabled = false;
-
-  const saveButton = document.getElementById("name-button");
-  saveButton.addEventListener("click", saveName);
-  saveButton.textContent = "Save";
-  saveButton.disabled = false;
-}
-
-function hideNameInput() {
-  const nameInputContainer = document.getElementById("name-input-container");
-  nameInputContainer.style.display = "none";
-}
-
-
- function showContinueButton() {
-      const continueButton = document.getElementById("continue-button");
-      continueButton.style.display = "block";
-
-      continueButton.addEventListener("click", function () {
-        const currentScene = story.scenes[story.currentScene];
-
-        if (story.currentScene === "startGame") {
-          currentScene.displayNextMessage();
-        } else if (currentScene.messageIndex < currentScene.messages.length) {
-          currentScene.displayNextMessage();
-        } else {
-          const sceneKeys = Object.keys(story.scenes);
-          const currentIndex = sceneKeys.indexOf(story.currentScene);
-          if (currentIndex < sceneKeys.length - 1) {
-            story.currentScene = sceneKeys[currentIndex + 1];
-            showScene();
-          } else {
-            hideContinueButton();
-            showNameInput();
-          }
-        }
-      });
-    }
-
-
-
-
-function hideStartButton() {
-  const startButton = document.getElementById("start-button");
-  startButton.style.display = "none";
-}
-
-function hideContinueButton() {
-  const continueButton = document.getElementById("continue-button");
-  continueButton.style.display = "none";
-}
-
-function showEndMessage() {
-  const endMessageElement = document.getElementById("end-message");
-  endMessageElement.style.display = "block";
-}
-
-function startGame() {
-  const startButton = document.getElementById("start-button");
-  startButton.addEventListener("click", function () {
-    // Hide the intro elements
-    const introImage = document.getElementById("intro-image");
-    const gameTitle = document.getElementById("game-title");
-    introImage.style.display = "none";
-    gameTitle.style.display = "none";
-
-    // Hide the Start button
-    startButton.style.display = "none";
-
-    // Start the game
-    story.scenes.startGame.startGame();
-  });
-}
-
-
-startGame();
 });
