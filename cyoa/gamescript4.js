@@ -1,22 +1,21 @@
-function startGame() {
-  const startButton = document.getElementById("start-button");
-  startButton.addEventListener("click", function () {
-    // Hide the intro elements
-    const introImage = document.getElementById("intro-image");
-    const gameTitle = document.getElementById("game-title");
-    introImage.style.display = "none";
-    gameTitle.style.display = "none";
-
-    // Hide the Start button
-    startButton.style.display = "none";
-
-    // Start the game
-    story.currentScene = "scene1_1"; // Set the current scene to scene1_1
-    story.scenes.scene1.scene1_1(); // Call the scene1_1 function to display the scene
-  });
-}
-
 document.addEventListener("DOMContentLoaded", function () {
+  function startGame() {
+    const startButton = document.getElementById("start-button");
+    startButton.addEventListener("click", function () {
+      // Hide the intro elements
+      const introImage = document.getElementById("intro-image");
+      const gameTitle = document.getElementById("game-title");
+      introImage.style.display = "none";
+      gameTitle.style.display = "none";
+
+      // Hide the Start button
+      startButton.style.display = "none";
+
+      // Start the game
+      story.currentScene = "scene1_1"; // Set the current scene to scene1_1
+      story.scenes.scene1.scene1_1(); // Call the scene1_1 function to display the scene
+    });
+  }
   const story = {
     currentScene: "startGame",
     playerName: null,
