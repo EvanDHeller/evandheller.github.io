@@ -317,7 +317,7 @@ document.addEventListener("DOMContentLoaded", function () {
         saveButton.addEventListener("click", saveName);
     }
 
-function saveName() {
+    function saveName() {
     const nameField = document.getElementById("name-field");
     const playerName = nameField.value.trim(); // Trim whitespace from the input
 
@@ -326,10 +326,13 @@ function saveName() {
     if (!nameRegex.test(playerName)) {
         const nameError = document.getElementById("name-error");
         nameError.textContent = "Please enter a valid name.";
+        nameError.style.display = "block"; // Show the error message
         return;
     }
 
-    // Move the name validation after the error check
+    const nameError = document.getElementById("name-error");
+    nameError.style.display = "none"; // Hide the error message
+
     story.playerName = playerName;
     nameField.disabled = true;
 
