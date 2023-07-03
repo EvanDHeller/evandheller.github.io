@@ -27,6 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
         this.playerName = null;
         this.messages = [];
         this.messageIndex = 0;
+        story.currentScene = "scene1_1";
+        story.scenes.scene1.scene1_1();
       },
       scene1: {
         scene1_1: function () {
