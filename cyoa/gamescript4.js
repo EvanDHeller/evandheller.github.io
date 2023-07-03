@@ -327,19 +327,20 @@ function hideTryAgainButton() {
 }
 
 function resetGame() {
-    hideTryAgainButton();
-    resetNameInput();
+  hideTryAgainButton();
+  resetNameInput();
 
-    // Remove the event listener from the "Try Again" button
-    var tryAgainButton = document.getElementById("try-again-button");
-    tryAgainButton.style.display = "none";
+  // Hide the save name and input field
+  document.getElementById("save-name").style.display = "none";
 
-    gameEnded = false; // Reset the gameEnded variable
-    story.currentScene = "startGame";
-    story.scenes.startGame.startGame(); // Call the startGame function to restart the game
-    
-    hideTryAgainButton(); // Hide the "Try Again" button after resetting the game
+  // Reset other game variables and states
+  gameEnded = false;
+  story.currentScene = "startGame";
+  story.scenes.startGame.startGame();
+
+  hideTryAgainButton();
 }
+
 
 
 
