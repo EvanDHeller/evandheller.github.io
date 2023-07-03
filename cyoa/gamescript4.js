@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", function () {
         saveButton.addEventListener("click", saveName);
     }
 
-function saveName() {
+    function saveName() {
   const nameField = document.getElementById("name-field");
   const playerName = nameField.value.trim(); // Trim whitespace from the input
 
@@ -331,10 +331,10 @@ function saveName() {
     nameError.style.display = "block"; // Show the error message
 
     return;
+  } else {
+    const nameError = document.getElementById("name-error");
+    nameError.style.display = "none"; // Hide the error message
   }
-
-  const nameError = document.getElementById("name-error");
-  nameError.style.display = "none"; // Hide the error message
 
   story.playerName = playerName;
   nameField.disabled = true;
@@ -351,7 +351,6 @@ function saveName() {
   story.currentScene = story.scenes.scene2.scene2_1;
   story.scenes.scene2.scene2_1();
 }
-
 
 
 
