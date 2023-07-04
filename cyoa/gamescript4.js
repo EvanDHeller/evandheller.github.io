@@ -369,14 +369,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     
  function playAgainButton() {
-  const saveButton = document.getElementById("play-again-button");
-
-  const startGameHandler = function () {
-    saveButton.removeEventListener("click", startGameHandler);
+  const restartButton = document.getElementById("play-again-button");
+  restartButton.style.display = "block";
+  const restartGameHandler = function () {
+    restartButton.removeEventListener("click", restartGameHandler);
     story.scenes.startGame();
   };
 
-  saveButton.addEventListener("click", startGameHandler);
+  restartButton.addEventListener("click", startGameHandler);
 }
 
 
