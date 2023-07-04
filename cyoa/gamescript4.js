@@ -164,11 +164,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function resetGame() {
   // Reset the story object and start the game from the beginning
-  story.currentScene = "startGame";
+  
   story.playerName = null;
   story.messages = [];
   story.messageIndex = 0;
-
+  story.currentScene = "scene1_1";
   // Reset any other necessary variables or states
 
   // Clear any displayed content or UI elements
