@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.playerName = null;
                 this.messages = [];
                 this.messageIndex = 0;
-                let gameEnded = false;
+                var gameEnded = false;
                 story.currentScene = "scene1_1";
                 story.scenes.scene1.scene1_1();
             },
@@ -142,20 +142,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
                 scene5_5: function () {
                     endGameNegative();
-                },
-                scene5_6: function () {
-                    endGamePositive();
                 }
             },
 
             endGamePositive: {
                 endGamePositive: function () {
-                gameEnd = true;
-                     gameEnded = true; 
-                    if (gameEnded) {
-                showMessage("Congratulations, you have reached the end of the game!");
-                showOptions([{ text: "Try Again?", action: story.scenes.startGame }]);
-                    }
+                    showMessage("Congratulations, you have reached the end of the game! You won!");
+                    showOptions([{ text: "Play Again", action: story.scenes.startGame.startGame }]);
+                    story.currentScene = "startGame";
+                }
             },
             endGameNegative: {
                 endGameNegative: function () {
@@ -165,9 +160,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     
                     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
                     showOptions([]);
-                    hideContinueButton();
-                    playAgainButton();
-                    
+                    showContinueButton();
+                    this.messages = [];
+                    this.messageIndex = 0;
+                    const continueButton = document.getElementById("continue-button");
+                    continueButton.addEventListener("click", story.scenes.startGame);
                     }
                 }
             }
@@ -370,24 +367,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
     
- function playAgainButton() {
-  const restartButton = document.getElementById("play-again-button");
-  restartButton.style.display = "block";
-  const restartGameHandler = function () {
-    restartButton.removeEventListener("click", restartGameHandler);
-    restartButton.style.display = "none";
-    story.currentScene = "startGame";
-                story.playerName = null;
-                story.messages = [];
-                story.messageIndex = 0;
-                let gameEnded = false;
-                story.currentScene = "scene1_1";
-                story.scenes.scene1.scene1_1();
-          };
-
-  restartButton.addEventListener("click", restartGameHandler);
-}
-
+    function playAgainButtion() {
+        const saveButton = document.getElementById("play-again-button");
+        saveButton.addEventListener("click", story.scenes.startGame);
+    }
 
     function showEndMessage() {
         const endMessageElement = document.getElementById("end-message");
