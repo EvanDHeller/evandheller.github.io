@@ -261,6 +261,40 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function showContinueButton() {
+  const continueButton = document.getElementById("continue-button");
+
+  // Remove the previous event listener, if any
+  continueButton.removeEventListener("click", continueButtonClickHandler);
+
+  // Add the new event listener
+  continueButton.addEventListener("click", continueButtonClickHandler);
+
+  // Show the continue button
+  continueButton.style.display = "block";
+}
+
+function continueButtonClickHandler() {
+  const currentScene = story.scenes[story.currentScene];
+  currentScene.displayNextMessage();
+}
+
+
+/*    function showContinueButton() {
+
+        continueButton.removeEventListener("click", function () {
+            const currentScene = story.scenes[story.currentScene];
+            currentScene.displayNextMessage();}
+            
+        const continueButton = document.getElementById("continue-button");
+        continueButton.style.display = "block";
+
+        continueButton.addEventListener("click", function () {
+            const currentScene = story.scenes[story.currentScene];
+            currentScene.displayNextMessage();
+                    }
+                                        }          */  
+
+  /*  function showContinueButton() {
         const continueButton = document.getElementById("continue-button");
         continueButton.style.display = "block";
 
@@ -283,7 +317,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
         });
-    }
+    } */
 
     function hideContinueButton() {
         const continueButton = document.getElementById("continue-button");
