@@ -154,13 +154,11 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             endGameNegative: {
                 endGameNegative: function () {
-    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+                showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
     showOptions([]);
-    showContinueButton();
-    this.messages = [];
-    this.messageIndex = 0;
-    const continueButton = document.getElementById("continue-button");
-    continueButton.addEventListener("click", resetGame);
+    const playAgainButton = document.getElementById("play-again-button");
+    playAgainButton.style.display = "block"; // Show the play again button
+    playAgainButton.addEventListener("click", resetGame);
   }
 }
 
@@ -175,7 +173,10 @@ function resetGame() {
 
   // Clear any displayed content or UI elements
 
-  // Show the initial scene or UI elements for starting the game
+  // Show the initial scene or UI elements for starting the game again
+
+  const playAgainButton = document.getElementById("play-again-button");
+  playAgainButton.style.display = "none"; // Hide the play again button after resetting the game
 }
             }
         }
