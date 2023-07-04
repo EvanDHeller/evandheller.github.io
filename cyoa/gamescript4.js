@@ -373,17 +373,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function resetGame() {
-  story.currentScene = "startGame";
+  
   story.playerName = null;
   story.messages = [];
   story.messageIndex = 0;
-  // Clear any displayed content or UI elements
-
+  story.currentScene = "startGame";
   // Show the initial scene or UI elements for starting the game again
   const playAgainButton = document.getElementById("play-again-button");
   playAgainButton.style.display = "none";
 }
-
 
     startGame();
 });
