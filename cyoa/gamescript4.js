@@ -367,10 +367,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
     
-    function playAgainButtion() {
-        const saveButton = document.getElementById("play-again-button");
-        saveButton.addEventListener("click", story.scenes.startGame);
-    }
+   function playAgainButton() {
+    const saveButton = document.getElementById("play-again-button");
+    
+    const startGameHandler = function() {
+        story.scenes.startGame();
+        saveButton.removeEventListener("click", startGameHandler);
+    };
+
+    saveButton.addEventListener("click", startGameHandler);
+}
+
 
     function showEndMessage() {
         const endMessageElement = document.getElementById("end-message");
