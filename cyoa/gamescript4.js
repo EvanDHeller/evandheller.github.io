@@ -373,11 +373,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function resetGame() {
-  
   story.playerName = null;
   story.messages = [];
   story.messageIndex = 0;
   story.currentScene = "startGame";
+  story.scenes.startGame();
   // Show the initial scene or UI elements for starting the game again
   const playAgainButton = document.getElementById("play-again-button");
   playAgainButton.style.display = "none";
