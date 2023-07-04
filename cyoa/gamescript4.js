@@ -373,10 +373,15 @@ document.addEventListener("DOMContentLoaded", function () {
   restartButton.style.display = "block";
   const restartGameHandler = function () {
     restartButton.removeEventListener("click", restartGameHandler);
-    restartButton.style.display = "block";
-    story.currentScene = "startGame";
-    story.scenes.startGame();
-  };
+    restartButton.style.display = "none";
+    this.currentScene = "startGame";
+                this.playerName = null;
+                this.messages = [];
+                this.messageIndex = 0;
+                var gameEnded = false;
+                story.currentScene = "scene1_1";
+                story.scenes.scene1.scene1_1();
+          };
 
   restartButton.addEventListener("click", restartGameHandler);
 }
