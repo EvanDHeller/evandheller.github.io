@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.playerName = null;
                 this.messages = [];
                 this.messageIndex = 0;
+                var gameEnded = false;
                 story.currentScene = "scene1_1";
                 story.scenes.scene1.scene1_1();
             },
@@ -159,10 +160,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     
                     showOptions([]);
                     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
-
+    
+                    const startGameListener = function() {
+                        story.scenes.startGame();
+                        continueButton.removeEventListener("click", startGameListener);
+                                };
+                        
                     showContinueButton();
                     const continueButton = document.getElementById("continue-button");
-                    continueButton.addEventListener("click", story.scenes.startGame);
+                    continueButton.addEventListener("click", startGameListener);
                     continueButton.textContent = "Try Again";
                     }
                 }
