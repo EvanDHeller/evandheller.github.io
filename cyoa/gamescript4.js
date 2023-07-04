@@ -151,9 +151,8 @@ document.addEventListener("DOMContentLoaded", function () {
             endGamePositive: {
                 endGamePositive: function () {
                 showMessage("Congratulations, you have reached the end of the game!");
-                showOptions([{ text: "Play Again", action: () => this.startGame() }]);
-                this.currentScene = "startGame";
-                }
+                 showOptions([
+                        { text: "Try Again?", action: story.scenes.startGame },
             },
             endGameNegative: {
                 endGameNegative: function () {
