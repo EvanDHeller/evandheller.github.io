@@ -161,15 +161,15 @@ document.addEventListener("DOMContentLoaded", function () {
                     showOptions([]);
                     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
     
-                    const startGameListener = function() {
-                        continueButton.removeEventListener("click", startGameListener);
+                    const restartGameListener = function() {
+                        playAgainButton.removeEventListener("click", restartGameListener);
                         story.scenes.startGame();
                                 };
                         
                     showContinueButton();
-                    const continueButton = document.getElementById("play-again-button");
-                    continueButton.addEventListener("click", startGameListener);
-                    continueButton.textContent = "Try Again";
+                    const playAgainButton = document.getElementById("play-again-button");
+                    playAgainButton.addEventListener("click", restartGameListener);
+                    playAgainButton.textContent = "Try Again";
                     }
                 }
             }
