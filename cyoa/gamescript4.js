@@ -368,15 +368,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
     
-   function playAgainButton() {
-    const saveButton = document.getElementById("play-again-button");
-    
-    const startGameHandler = function() {
-        story.scenes.startGame();
-        saveButton.removeEventListener("click", startGameHandler);
-    };
+ function playAgainButton() {
+  const saveButton = document.getElementById("play-again-button");
 
-    saveButton.addEventListener("click", startGameHandler);
+  const startGameHandler = function () {
+    saveButton.removeEventListener("click", startGameHandler);
+    story.scenes.startGame();
+  };
+
+  saveButton.addEventListener("click", startGameHandler);
 }
 
 
