@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
             startGame: function () {
                 this.currentScene = "startGame";
                 this.playerName = null;
+                messagesContainer.innerHTML = ""; // Clears the innerHTML of the messages container
                 this.messages = [];
                 this.messageIndex = 0;
                 var gameEnded = false;
