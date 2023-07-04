@@ -382,6 +382,7 @@ document.addEventListener("DOMContentLoaded", function () {
   playAgainButton.style.display = "none";
   const continueButton = document.getElementById("continue-button");
   continueButton.removeEventListener("click", story.scenes.scene1.scene1_2);
+  playAgainButton.removeEventListener("click", resetGame);
   story.scenes.startGame();
 }
 
