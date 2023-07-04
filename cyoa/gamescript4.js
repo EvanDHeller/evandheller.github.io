@@ -376,7 +376,7 @@ document.addEventListener("DOMContentLoaded", function () {
     story.scenes.startGame();
   };
 
-  restartButton.addEventListener("click", startGameHandler);
+  restartButton.addEventListener("click", restartGameHandler);
 }
 
 
