@@ -158,22 +158,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     gameEnded = true; 
                     if (gameEnded) {
                     
-                    showOptions([]);
                     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
-    
-                    const startGameListener = function() {
-                        story.scenes.startGame();
-                        continueButton.removeEventListener("click", startGameListener);
-                                };
-                        
+                    showOptions([]);
                     showContinueButton();
+                    this.messages = [];
+                    this.messageIndex = 0;
                     const continueButton = document.getElementById("continue-button");
-                    continueButton.addEventListener("click", startGameListener);
-                    continueButton.textContent = "Try Again";
+                    continueButton.addEventListener("click", story.scenes.startGame);
                     }
                 }
             }
-
         }
     };
 //**************************************GLOBAL FUNCTIONS*******************************************************************************************
