@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-
+const restartButton = document.getElementById("play-again-button");
+    
     const story = {
         currentScene: "startGame",
         playerName: null,
@@ -154,7 +155,6 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             endGameNegative: {
                 endGameNegative: function () {
-                   const saveButton = document.getElementById("play-again-button");
                     gameEnded = true; 
                     if (gameEnded) {
                     
@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     hideContinueButton();
                     story.messages = [];
                     story.messageIndex = 0;
-                    saveButton.addEventListener("click", story.scenes.startGame);
+                    restartButton.addEventListener("click", story.scenes.startGame);
                         
                     }
                 }
