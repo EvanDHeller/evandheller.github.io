@@ -355,6 +355,8 @@ function resetGame() {
     story.messageIndex = 0;
    // hideContinueButton();
     hidePlayAgainButton();
+    const messagesContainer = document.getElementById("messages");
+    messagesContainer.innerHTML = ""; // Clears the innerHTML of the messages container
     story.currentScene = "scene1_1";
     story.scenes.scene1.scene1_1(); 
     
