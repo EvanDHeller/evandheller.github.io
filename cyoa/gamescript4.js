@@ -374,10 +374,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const restartGameHandler = function () {
     restartButton.removeEventListener("click", restartGameHandler);
     restartButton.style.display = "none";
-    this.currentScene = "startGame";
-                this.playerName = null;
+    story.currentScene = "startGame";
+                story.playerName = null;
                // this.messages = [];
-                this.messageIndex = 0;
+                story.messageIndex = 0;
                 let gameEnded = false;
                 story.currentScene = "scene1_1";
                 story.scenes.scene1.scene1_1();
