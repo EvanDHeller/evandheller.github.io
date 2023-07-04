@@ -410,15 +410,24 @@ function continueButtonClickHandler() {
     }
 
     function resetGame() {
+  document.getElementById("start-button").style.display = "none";
+  document.getElementById("intro-image").style.display = "none";
+  document.getElementById("game-title").style.display = "none";
+  document.getElementById("continue-button").style.display = "none";
+  document.getElementById("play-again-button").style.display = "none";
+  document.getElementById("name-input").style.display = "none";
+  document.getElementById("message").textContent = "";
+  document.getElementById("options").textContent = "";
   story.playerName = null;
   story.messages = [];
   story.messageIndex = 0;
-  story.currentScene = "startGame";
   // Show the initial scene or UI elements for starting the game again
   const playAgainButton = document.getElementById("play-again-button");
   playAgainButton.style.display = "none";
   playAgainButton.removeEventListener("click", resetGame);
-  story.scenes.startGame();
+  story.currentScene = "scene1_1";
+  story.scenes.scene1.scene1_1(); 
+  //story.scenes.startGame(); erase this line probably
 }
 
     startGame();
