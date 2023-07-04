@@ -154,19 +154,29 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             endGameNegative: {
                 endGameNegative: function () {
-                     
-                    gameEnded = true; 
-                    if (gameEnded) {
-                    
-                    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
-                    showOptions([]);
-                    showContinueButton();
-                    this.messages = [];
-                    this.messageIndex = 0;
-                    const continueButton = document.getElementById("continue-button");
-                    continueButton.addEventListener("click", story.scenes.startGame);
-                    }
-                }
+    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+    showOptions([]);
+    showContinueButton();
+    this.messages = [];
+    this.messageIndex = 0;
+    const continueButton = document.getElementById("continue-button");
+    continueButton.addEventListener("click", resetGame);
+  }
+}
+
+function resetGame() {
+  // Reset the story object and start the game from the beginning
+  story.currentScene = "startGame";
+  story.playerName = null;
+  story.messages = [];
+  story.messageIndex = 0;
+
+  // Reset any other necessary variables or states
+
+  // Clear any displayed content or UI elements
+
+  // Show the initial scene or UI elements for starting the game
+}
             }
         }
     };
