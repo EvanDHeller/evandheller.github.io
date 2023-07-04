@@ -158,19 +158,12 @@ document.addEventListener("DOMContentLoaded", function () {
                      
                     gameEnded = true; 
                     if (gameEnded) {
-                    
-                    showOptions([]);
+                   
                     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
-    
-                    const startGameListener = function() {
-                        story.scenes.startGame();
-                        continueButton.removeEventListener("click", startGameListener);
-                        hideContinueButton();
-                                };
-                        
+                    showOptions([]);
                     showContinueButton();
                     const continueButton = document.getElementById("continue-button");
-                    continueButton.addEventListener("click", startGameListener);
+                    continueButton.addEventListener("click", story.scenes.startGame);
                     continueButton.textContent = "Try Again";
                     }
                 }
