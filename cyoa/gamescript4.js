@@ -160,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     
                     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
                     showOptions([]);
+                    hideContinueButton();
                     playAgainButton();
                     
                     }
