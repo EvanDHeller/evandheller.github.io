@@ -138,36 +138,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     showOptions([]); // Pass an empty array to hide the option buttons
                     showContinueButton();
                     const continueButton = document.getElementById("continue-button");
-                    continueButton.addEventListener("click", story.scenes.endGameNegative.endGameNegative);
+                    continueButton.addEventListener("click", story.scenes.scene5.scene5_5);
                 },
                 scene5_5: function () {
-                    endGameNegative();
+                    gameEndNegative();
                 }
-            },
-
-            endGamePositive: {
-                endGamePositive: function () {
-                    showMessage("Congratulations, you have reached the end of the game! You won!");
-                    showOptions([{ text: "Play Again", action: story.scenes.startGame.startGame }]);
-                    story.currentScene = "startGame";
-                }
-            },
-            endGameNegative: {
-                endGameNegative: function () {
-                     
-                    gameEnded = true; 
-                    if (gameEnded) {
-                    
-                    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
-                    showOptions([]);
-                    showContinueButton();
-                    this.messages = [];
-                    this.messageIndex = 0;
-                    const continueButton = document.getElementById("continue-button");
-                    continueButton.addEventListener("click", story.scenes.startGame);
-                    }
-                }
-            }
+            }  
         }
     };
 //**************************************GLOBAL FUNCTIONS*******************************************************************************************
@@ -358,24 +334,36 @@ document.addEventListener("DOMContentLoaded", function () {
         playAgainButton.style.display = "none";
     }
 
-    function showTryAgainButton() {
-        var playAgainButton = document.getElementById("play-again-button");
-        if (gameEnded && story.messageIndex === 0) {
-            playAgainButton.style.display = "block";
-        } else {
-            playAgainButton.style.display = "none";
-        }
-    }
-    
-    function playAgainButtion() {
-        const saveButton = document.getElementById("play-again-button");
-        saveButton.addEventListener("click", story.scenes.startGame);
-    }
+function gameEndNegative() {
+    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+    showOptions([]);
+    hideContinueButton();
+    hideTryAgainButton();
+    showPlayAgainButton();
+}
 
-    function showEndMessage() {
-        const endMessageElement = document.getElementById("end-message");
-        endMessageElement.style.display = "block";
-    }
+function showPlayAgainButton() {
+    const playAgainButton = document.getElementById("play-again-button");
+    playAgainButton.style.display = "block";
+    playAgainButton.addEventListener("click", resetGame);
+}
+
+function resetGame() {
+    story.playerName = null;
+    story.messages = [];
+    story.currentScene = "startGame";
+    story.messageIndex = 0;
+   // hideContinueButton();
+    hidePlayAgainButton();
+    story.currentScene = "scene1_1";
+    story.scenes.scene1.scene1_1(); 
+    
+}
+
+function hidePlayAgainButton() {
+    const playAgainButton = document.getElementById("play-again-button");
+    playAgainButton.style.display = "none";
+}
 
     startGame();
 });
