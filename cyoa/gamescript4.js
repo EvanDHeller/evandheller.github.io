@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
         messageIndex: 0,
         scenes: {
             startGame: function () {
+                const continueButton = document.getElementById("continue-button");
+                continueButton.removeEventListener("click", story.scenes.startGame);
                 this.currentScene = "startGame";
                 this.playerName = null;
                 this.messages = [];
