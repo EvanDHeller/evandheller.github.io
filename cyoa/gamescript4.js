@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-
+    
+const playAgainButton = document.getElementById("play-again-button");
+playAgainButton.addEventListener("click", resetGame);
+    
     const story = {
         currentScene: "startGame",
         playerName: null,
@@ -11,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.playerName = null;
                 this.messages = [];
                 this.messageIndex = 0;
-                var gameEnded = false;
+                let gameEnded = false;
                 story.currentScene = "scene1_1";
                 story.scenes.scene1.scene1_1();
             },
@@ -156,10 +159,9 @@ document.addEventListener("DOMContentLoaded", function () {
   endGameNegative: function () {
     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
     showOptions([]);
-    hideContinueButton();
     const playAgainButton = document.getElementById("play-again-button");
     playAgainButton.style.display = "block"; // Show the play again button
-    playAgainButton.addEventListener("click", resetGame);
+   // playAgainButton.addEventListener("click", resetGame);
   }
 }
 
