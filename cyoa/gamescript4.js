@@ -361,6 +361,17 @@ function resetGame() {
     story.scenes.scene1.scene1_1(); 
 }
 
+function restartGame() {
+  document.getElementById("start-button").style.display = "none";
+  document.getElementById("intro-image").style.display = "none";
+  document.getElementById("game-title").style.display = "none";
+  document.getElementById("continue-button").style.display = "none";
+  document.getElementById("play-again-button").style.display = "none";
+  document.getElementById("name-input").style.display = "none";
+  document.getElementById("message").textContent = "";
+  document.getElementById("options").textContent = "";
+  story.startGame();
+}
 
 function hidePlayAgainButton() {
     const playAgainButton = document.getElementById("play-again-button");
