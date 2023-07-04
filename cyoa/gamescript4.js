@@ -163,9 +163,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
     
                     const startGameListener = function() {
-                        hideContinueButton();
                         story.scenes.startGame();
                         continueButton.removeEventListener("click", startGameListener);
+                        hideContinueButton();
                                 };
                         
                     showContinueButton();
