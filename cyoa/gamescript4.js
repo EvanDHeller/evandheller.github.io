@@ -334,45 +334,10 @@ document.addEventListener("DOMContentLoaded", function () {
         playAgainButton.style.display = "none";
     }
 
-    function showTryAgainButton() {
-        const playAgainButton = document.getElementById("play-again-button");
-        if (gameEnded && story.messageIndex === 0) {
-            playAgainButton.style.display = "block";
-        } else {
-            playAgainButton.style.display = "none";
-        }
-    }
-    
-  function resetGame() {
-                story.playerName = null;
-                story.messages = [];
-                story.messageIndex = 0;
-                gameEnded = false;
-                const nameInputContainer = document.getElementById("name-input-container");
-                playAgainButton.style.display = "none";
-                story.currentScene = "startGame";
-                story.scenes.startGame();      
-                       }
-   
-    
-    function playAgainButtion() {
-        const saveButton = document.getElementById("play-again-button");
-        saveButton.addEventListener("click", story.scenes.startGame);
-    }
-
-    function showEndMessage() {
-        const endMessageElement = document.getElementById("end-message");
-        endMessageElement.style.display = "block";
-    }
-  
-  // ...
-
 function gameEndNegative() {
     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
     showOptions([]);
     hideContinueButton();
-    story.messages = [];
-    story.messageIndex = 0;
     hideTryAgainButton();
     showPlayAgainButton();
 }
@@ -384,13 +349,15 @@ function showPlayAgainButton() {
 }
 
 function resetGame() {
-    this.playerName = null;
-    this.messages = [];
-    this.messageIndex = 0;
-    hideTryAgainButton();
+    story.playerName = null;
+    story.messages = [];
+    story.currentScene = "startGame";
+    story.messageIndex = 0;
+   // hideContinueButton();
     hidePlayAgainButton();
-    this.currentScene = "startGame";
-    story.scenes.startGame();
+    story.currentScene = "scene1_1";
+    story.scenes.scene1.scene1_1(); 
+    
 }
 
 function hidePlayAgainButton() {
