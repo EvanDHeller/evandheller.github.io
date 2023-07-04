@@ -1,8 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    
-const playAgainButton = document.getElementById("play-again-button");
-playAgainButton.addEventListener("click", resetGame);
-    
+
     const story = {
         currentScene: "startGame",
         playerName: null,
@@ -14,7 +11,7 @@ playAgainButton.addEventListener("click", resetGame);
                 this.playerName = null;
                 this.messages = [];
                 this.messageIndex = 0;
-                let gameEnded = false;
+                var gameEnded = false;
                 story.currentScene = "scene1_1";
                 story.scenes.scene1.scene1_1();
             },
@@ -156,16 +153,21 @@ playAgainButton.addEventListener("click", resetGame);
                 }
             },
             endGameNegative: {
-  endGameNegative: function () {
-    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
-    showOptions([]);
-    hideContinueButton();
-    const playAgainButton = document.getElementById("play-again-button");
-    playAgainButton.style.display = "block"; // Show the play again button
-   // playAgainButton.addEventListener("click", resetGame);
-  }
-}
-
+                endGameNegative: function () {
+                     
+                    gameEnded = true; 
+                    if (gameEnded) {
+                    
+                    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+                    showOptions([]);
+                    showContinueButton();
+                    this.messages = [];
+                    this.messageIndex = 0;
+                    const continueButton = document.getElementById("continue-button");
+                    continueButton.addEventListener("click", story.scenes.startGame);
+                    }
+                }
+            }
         }
     };
 //**************************************GLOBAL FUNCTIONS*******************************************************************************************
@@ -264,40 +266,6 @@ playAgainButton.addEventListener("click", resetGame);
     }
 
     function showContinueButton() {
-  const continueButton = document.getElementById("continue-button");
-
-  // Remove the previous event listener, if any
-  continueButton.removeEventListener("click", continueButtonClickHandler);
-
-  // Add the new event listener
-  continueButton.addEventListener("click", continueButtonClickHandler);
-
-  // Show the continue button
-  continueButton.style.display = "block";
-}
-
-function continueButtonClickHandler() {
-  const currentScene = story.scenes[story.currentScene];
-  currentScene.displayNextMessage();
-}
-
-
-/*    function showContinueButton() {
-
-        continueButton.removeEventListener("click", function () {
-            const currentScene = story.scenes[story.currentScene];
-            currentScene.displayNextMessage();}
-            
-        const continueButton = document.getElementById("continue-button");
-        continueButton.style.display = "block";
-
-        continueButton.addEventListener("click", function () {
-            const currentScene = story.scenes[story.currentScene];
-            currentScene.displayNextMessage();
-                    }
-                                        }          */  
-
-  /*  function showContinueButton() {
         const continueButton = document.getElementById("continue-button");
         continueButton.style.display = "block";
 
@@ -320,7 +288,7 @@ function continueButtonClickHandler() {
                 }
             }
         });
-    } */
+    }
 
     function hideContinueButton() {
         const continueButton = document.getElementById("continue-button");
@@ -408,27 +376,6 @@ function continueButtonClickHandler() {
         const endMessageElement = document.getElementById("end-message");
         endMessageElement.style.display = "block";
     }
-
-    function resetGame() {
-  document.getElementById("start-button").style.display = "none";
-  document.getElementById("intro-image").style.display = "none";
-  document.getElementById("game-title").style.display = "none";
-  document.getElementById("continue-button").style.display = "none";
-  document.getElementById("play-again-button").style.display = "none";
-  document.getElementById("name-input").style.display = "none";
-  document.getElementById("message").textContent = "";
-  document.getElementById("options").textContent = "";
-  story.playerName = null;
-  story.messages = [];
-  story.messageIndex = 0;
-  // Show the initial scene or UI elements for starting the game again
-  const playAgainButton = document.getElementById("play-again-button");
-  playAgainButton.style.display = "none";
-  playAgainButton.removeEventListener("click", resetGame);
-  story.currentScene = "scene1_1";
-  story.scenes.scene1.scene1_1(); 
-  //story.scenes.startGame(); erase this line probably
-}
 
     startGame();
 });
