@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.playerName = null;
                 this.messages = [];
                 this.messageIndex = 0;
-                var gameEnded = false;
+                let gameEnded = false;
                 story.currentScene = "scene1_1";
                 story.scenes.scene1.scene1_1();
             },
@@ -376,9 +376,9 @@ document.addEventListener("DOMContentLoaded", function () {
     restartButton.style.display = "none";
     this.currentScene = "startGame";
                 this.playerName = null;
-                this.messages = [];
+               // this.messages = [];
                 this.messageIndex = 0;
-                var gameEnded = false;
+                let gameEnded = false;
                 story.currentScene = "scene1_1";
                 story.scenes.scene1.scene1_1();
           };
