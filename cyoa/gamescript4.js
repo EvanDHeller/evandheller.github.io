@@ -165,8 +165,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     continueButton.addEventListener("click", story.scenes.startGame);
                     continueButton.textContent = "Try Again";
                     const continueButton = document.getElementById("continue-button");
-                    continueButton.removeEventListener("click", story.scenes.startGame);
-                    continueButton.textContent = "Continue";
+                    continueButton.removeEventListener("click", story.scenes.scene1.scene1_1);
                     }
                 }
             }
