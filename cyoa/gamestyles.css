@@ -66,7 +66,7 @@ body {
     font-size: 1.2em;
 }
 
-#options {
+#options, .options {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,7 +78,8 @@ body {
 
 .option-button,
 #continue-button,
-#play-again-button {
+/*#play-again-button,*/
+.options {
     margin-top: 15px;
     width: 220px;
     height: auto;
@@ -94,13 +95,20 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-left: 40px;
+    display: flex;
 }
 
 #continue-button,
-#play-again-button {
+/*#play-again-button,*/
+div#name-input-container {
     margin-top: 240px;
     position: absolute;
 }
+
+/*#try-again-button {
+    margin-top: 240px;
+    position: absolute;
+    display: none; }*/
 
 .option-button:hover,
 #continue-button:hover,
@@ -182,18 +190,20 @@ h1 {
     font-family: 'Cinzel Decorative', 'Blackwood Castle',
         /* "ITC Benguiat",*/
         sans-serif;
-    text-shadow: 0 1px 2px black;
-}
-
-span#enclavemsg {
-    top: 70px;
+    /*text-shadow: 0 1px 2px black; */
+    text-shadow: 2px 7px 7px black;
 }
 
 #h1title {
     font-size: 37px;
 }
 
-@media only screen and (max-width: 600px) {
+#enclavemsg {
+    position: relative;
+    top: 60px;
+}
+
+@media only screen and (max-width: 670px) {
     body {
         display: flex;
         flex-direction: column;
@@ -219,9 +229,10 @@ span#enclavemsg {
         position: relative;
         flex: 1;
         padding-top: 50px;
-        margin-top: 70px;
+        margin-top: 30px;
         max-width: 50%;
-        left: -1px;
+        /* position: absolute; */
+        top: 90px;
     }
 
     img,
@@ -240,16 +251,9 @@ span#enclavemsg {
     }
 
     .option-button {
-        width: 310px;
-        display: flex;
-        justify-content: center;
-        position: inherit;
-        padding-right: 20px;
-        padding-left: 20px;
-        margin-left: 35px;
-        margin-right: 35px;
-        padding-top: 11px;
-        padding-bottom: 11px;
+        width: 90%;
+        margin-left: 0;
+        max-width: 70%;
     }
 
     #name-input {
@@ -276,10 +280,11 @@ span#enclavemsg {
         width: 100%;
     }
 
+
     img#intro-image {
         position: absolute;
         top: 0;
-        left: 0;
+        left: 18%;
         width: 70%;
         height: 60%;
         z-index: -1;
@@ -292,136 +297,150 @@ span#enclavemsg {
             width: 100%;
             z-index: 3;
 
+            h1 {
+                background-color: rgba(255, 127, 80, .7);
+                top: 36%;
+            }
+
             #enclavemsg {
                 position: relative;
-                top: 60px;
+                top: 30px !important;
+                flex: 1;
             }
 
-            img#forestenclave {
-                transform: scale(.9);
+            img#forestenclave,
+            #forestenclave {
                 position: relative;
-                margin-left: -30px;
+                right: 50px !important;
+                flex: 2;
+                transform: scale(1.5);
+                padding-top: 60px !important;
+
             }
         }
-    }
 
-    /* Small screens (phones) */
-    @media (max-width: 767px) {
-        body {
-            font-size: 14px;
-            background-size: 100% 108%;
-            background-position: 0px 0px;
-            position: absolute;
-            background-repeat: no-repeat;
+        /* Small screens (phones) */
+        @media (max-width: 767px) {
+            body {
+                font-size: 14px;
+                background-size: 100% 108%;
+                background-position: 0px 0px;
+                position: absolute;
+                background-repeat: no-repeat;
+            }
+
+            #message {
+                font-size: 1em;
+            }
+
+            .game-container {
+                /* Adjust layout properties for smaller screens */
+                width: 90%;
+                margin: 0 auto;
+            }
+
+            .score-container {
+                /* Adjust font size and padding for smaller screens */
+                font-size: 20px;
+                padding: 10px;
+            }
+
+            .grid {
+                /* Adjust grid layout for smaller screens */
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+            }
+
+            .grid-item {
+                /* Adjust size and font properties for smaller screens */
+                width: 70px;
+                height: 70px;
+                font-size: 20px;
+            }
+
+            img#intro-image {
+                position: absolute;
+                top: 20%;
+                left: 8%;
+                width: 85%;
+                height: 60%;
+                z-index: -1;
+                opacity: .9;
+            }
+
+            h1 {
+                background-color: rgba(255, 127, 80, .7);
+                top: 36%;
+                border-radius: 4px;
+            }
         }
 
-        #message {
-            font-size: 1em;
+        /* Medium screens (tablets) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            body {
+                font-size: 16px;
+            }
+
+            .game-container {
+                /* Adjust layout properties for medium screens */
+                width: 80%;
+                margin: 0 auto;
+            }
+
+            .score-container {
+                /* Adjust font size and padding for medium screens */
+                font-size: 24px;
+                padding: 15px;
+            }
+
+            .grid {
+                /* Adjust grid layout for medium screens */
+                grid-template-columns: repeat(5, 1fr);
+                gap: 15px;
+            }
+
+            .grid-item {
+                /* Adjust size and font properties for medium screens */
+                width: 90px;
+                height: 90px;
+                font-size: 24px;
+            }
         }
 
-        .game-container {
-            /* Adjust layout properties for smaller screens */
-            width: 90%;
-            margin: 0 auto;
+        /* Large screens (desktops) */
+        @media (min-width: 1024px) {
+            body {
+                font-size: 18px;
+            }
+
+            .game-container {
+                /* Adjust layout properties for large screens */
+                width: 70%;
+                margin: 0 auto;
+            }
+
+            .score-container {
+                /* Adjust font size and padding for large screens */
+                font-size: 28px;
+                padding: 20px;
+            }
+
+            .grid {
+                /* Adjust grid layout for large screens */
+                grid-template-columns: repeat(6, 1fr);
+                gap: 20px;
+            }
+
+            .grid-item {
+                /* Adjust size and font properties for large screens */
+                width: 110px;
+                height: 110px;
+                font-size: 28px;
+            }
         }
 
-        .score-container {
-            /* Adjust font size and padding for smaller screens */
-            font-size: 20px;
-            padding: 10px;
+        /* IMAGES ACCOMPANYING MESSAGES */
+
+        img#forestenclave {
+            transform: scale(1.5);
         }
-
-        .grid {
-            /* Adjust grid layout for smaller screens */
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-        }
-
-        .grid-item {
-            /* Adjust size and font properties for smaller screens */
-            width: 70px;
-            height: 70px;
-            font-size: 20px;
-        }
-
-        img#intro-image {
-            position: absolute;
-            top: 20%;
-            left: 8%;
-            width: 85%;
-            height: 60%;
-            z-index: -1;
-            opacity: .9;
-        }
-    }
-}
-
-/* Medium screens (tablets) */
-@media (min-width: 768px) and (max-width: 1023px) {
-    body {
-        font-size: 16px;
-    }
-
-    .game-container {
-        /* Adjust layout properties for medium screens */
-        width: 80%;
-        margin: 0 auto;
-    }
-
-    .score-container {
-        /* Adjust font size and padding for medium screens */
-        font-size: 24px;
-        padding: 15px;
-    }
-
-    .grid {
-        /* Adjust grid layout for medium screens */
-        grid-template-columns: repeat(5, 1fr);
-        gap: 15px;
-    }
-
-    .grid-item {
-        /* Adjust size and font properties for medium screens */
-        width: 90px;
-        height: 90px;
-        font-size: 24px;
-    }
-}
-
-/* Large screens (desktops) */
-@media (min-width: 1024px) {
-    body {
-        font-size: 18px;
-    }
-
-    .game-container {
-        /* Adjust layout properties for large screens */
-        width: 70%;
-        margin: 0 auto;
-    }
-
-    .score-container {
-        /* Adjust font size and padding for large screens */
-        font-size: 28px;
-        padding: 20px;
-    }
-
-    .grid {
-        /* Adjust grid layout for large screens */
-        grid-template-columns: repeat(6, 1fr);
-        gap: 20px;
-    }
-
-    .grid-item {
-        /* Adjust size and font properties for large screens */
-        width: 110px;
-        height: 110px;
-        font-size: 28px;
-    }
-}
-
-/* IMAGES ACCOMPANYING MESSAGES */
-
-img#forestenclave {
-    transform: scale(1.5);
-}
