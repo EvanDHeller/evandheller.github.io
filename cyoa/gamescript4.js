@@ -376,7 +376,7 @@ document.addEventListener("DOMContentLoaded", function () {
     restartButton.style.display = "none";
     story.currentScene = "startGame";
                 story.playerName = null;
-               // this.messages = [];
+                this.messages = [];
                 story.messageIndex = 0;
                 let gameEnded = false;
                 story.currentScene = "scene1_1";
