@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 this.messages = [];
                 this.messageIndex = 0;
                 var gameEnded = false;
+                hideContinueButton();
                 story.currentScene = "scene1_1";
                 story.scenes.scene1.scene1_1();
             },
