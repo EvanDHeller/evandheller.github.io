@@ -157,15 +157,20 @@ document.addEventListener("DOMContentLoaded", function () {
                      
                     gameEnded = true; 
                     if (gameEnded) {
-                   
-                    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+                    
                     showOptions([]);
+                    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+    
+                    const startGameListener = function() {
+                        story.scenes.startGame();
+                        continueButton.removeEventListener("click", startGameListener);
+                        startButton.style.display = "none";
+                                };
+                        
                     showContinueButton();
                     const continueButton = document.getElementById("continue-button");
-                    continueButton.addEventListener("click", story.scenes.startGame);
+                    continueButton.addEventListener("click", startGameListener);
                     continueButton.textContent = "Try Again";
-                    const continueButton = document.getElementById("continue-button");
-                    continueButton.removeEventListener("click", story.scenes.scene1.scene1_1);
                     }
                 }
             }
