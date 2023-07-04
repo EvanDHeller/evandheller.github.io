@@ -166,7 +166,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         story.scenes.startGame();
                                 };
                         
-                    showContinueButton();
                     const playAgainButton = document.getElementById("play-again-button");
                     playAgainButton.addEventListener("click", restartGameListener);
                     playAgainButton.textContent = "Try Again";
