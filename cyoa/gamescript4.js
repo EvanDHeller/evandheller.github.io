@@ -380,6 +380,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // Show the initial scene or UI elements for starting the game again
   const playAgainButton = document.getElementById("play-again-button");
   playAgainButton.style.display = "none";
+  const continueButton = document.getElementById("continue-button");
+  continueButton.removeEventListener("click", story.scenes.scene1.scene1_2);
   story.scenes.startGame();
 }
 
