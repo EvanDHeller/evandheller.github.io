@@ -160,11 +160,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     
                     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
                     showOptions([]);
-                    showContinueButton();
-                    this.messages = [];
-                    this.messageIndex = 0;
-                    const continueButton = document.getElementById("continue-button");
-                    continueButton.addEventListener("click", story.scenes.startGame);
+                    playAgainButton();
+                    
                     }
                 }
             }
