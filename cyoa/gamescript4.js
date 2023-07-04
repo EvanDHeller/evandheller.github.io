@@ -154,17 +154,17 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             endGameNegative: {
                 endGameNegative: function () {
-                     
+                   const saveButton = document.getElementById("play-again-button");
                     gameEnded = true; 
                     if (gameEnded) {
                     
                     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
                     showOptions([]);
-                    showContinueButton();
-                    this.messages = [];
-                    this.messageIndex = 0;
-                    const continueButton = document.getElementById("continue-button");
-                    continueButton.addEventListener("click", story.scenes.startGame);
+                    hideContinueButton();
+                    story.messages = [];
+                    story.messageIndex = 0;
+                    saveButton.addEventListener("click", story.scenes.startGame);
+                        
                     }
                 }
             }
