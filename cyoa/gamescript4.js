@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 endGamePositive: function () {
                 showMessage("Congratulations, you have reached the end of the game!");
                  showOptions([
-                        { text: "Try Again?", action: story.scenes.startGame }]);
+                        { text: "Try Again?", action: story.scenes.startGame.startGame }]);
             },
             endGameNegative: {
                 endGameNegative: function () {
