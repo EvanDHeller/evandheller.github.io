@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     showOptions([]); // Pass an empty array to hide the option buttons
                     showContinueButton();
                     const continueButton = document.getElementById("continue-button");
-                    continueButton.addEventListener("click", story.scenes.endGameNegative.endGameNegative);
+                    continueButton.addEventListener("click", story.scenes.endGamePositive.endGamePositive);
                 },
                 scene5_5: function () {
                     endGameNegative();
@@ -150,9 +150,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             endGamePositive: {
                 endGamePositive: function () {
-                    showMessage("Congratulations, you have reached the end of the game! You won!");
-                    showOptions([{ text: "Play Again", action: story.scenes.startGame.startGame }]);
-                    story.currentScene = "startGame";
+                showMessage("Congratulations, you have reached the end of the game!");
+                showOptions([{ text: "Play Again", action: () => this.startGame() }]);
+                this.currentScene = "startGame";
                 }
             },
             endGameNegative: {
