@@ -156,6 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
   endGameNegative: function () {
     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
     showOptions([]);
+    hideContinueButton();
     const playAgainButton = document.getElementById("play-again-button");
     playAgainButton.style.display = "block"; // Show the play again button
     playAgainButton.addEventListener("click", resetGame);
