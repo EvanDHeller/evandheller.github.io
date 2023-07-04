@@ -373,6 +373,8 @@ document.addEventListener("DOMContentLoaded", function () {
   restartButton.style.display = "block";
   const restartGameHandler = function () {
     restartButton.removeEventListener("click", restartGameHandler);
+    restartButton.style.display = "block";
+    story.currentScene = "startGame";
     story.scenes.startGame();
   };
 
