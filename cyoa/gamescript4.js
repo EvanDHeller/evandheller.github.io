@@ -142,6 +142,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 },
                 scene5_5: function () {
                     endGameNegative();
+                },
+                scene5_6: function () {
+                    endGamePositive();
                 }
             },
 
