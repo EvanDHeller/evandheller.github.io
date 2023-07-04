@@ -142,8 +142,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     continueButton.addEventListener("click", story.scenes.scene5.scene5_5);
                 },
                 scene5_5: function () {
-                 
-                 
+                   const continueButton = document.getElementById("continue-button");
+                    continueButton.removeEventListener("click", story.scenes.scene5.scene5_5);
                     gameEndNegative();
                 }
             }  
@@ -341,6 +341,7 @@ function gameEndNegative() {
     showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
     showOptions([]);
     hideContinueButton();
+    hideTryAgainButton();
     showPlayAgainButton();
 }
 
@@ -415,17 +416,6 @@ function hidePlayAgainButton() {
     const playAgainButton = document.getElementById("play-again-button");
     playAgainButton.style.display = "none";
 }
-  
-  function removeAllEventHandlersFromContinueButtons() {
-  const continueButtons = document.getElementsByClassName('continue-button');
-  
-  for (let i = 0; i < continueButtons.length; i++) {
-    const continueButton = continueButtons[i];
-    const clonedButton = continueButton.cloneNode(true);
-    continueButton.parentNode.replaceChild(clonedButton, continueButton);
-  }
-}
-
   
   /*function removeAllEventHandlers(element) {
   const eventTypes = ['click', 'mouseover', 'keydown']; // Add more event types as needed
