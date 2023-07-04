@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
-  
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:title" content="Stumped?!" />
     <meta property="og:description" content="A Funny Choose Your Own Adventure Game" />
     <meta property="og:image" content="./cyoaimages/stumpedurlshare" />
-    <link rel="stylesheet" href="gamestyles.css">
+    <link rel="stylesheet" href="gamestyles2.css">
     <link rel="apple-touch-icon" sizes="180x180" href="./cyoaimages/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./cyoaimages/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./cyoaimages/favicon-16x16.png">
@@ -26,14 +26,20 @@
     </h1>
     <div id="message"></div>
     <div id="options"></div>
-    <div id="name-input">
-        <input type="text" id="name-field" placeholder="Enter your name" />
-        <button id="name-button" onclick="saveName()">Save</button>
-    </div>
-    <button id="start-button" onclick="globalStartGame()">Start</button>
-    <button id="continue-button" onclick="continueGame()" style="display: none;">Continue</button>
-    <button id="play-again-button" onclick="globalStartGame()" style="display: none;">Play Again</button>
-    <script src="gamescript.js"></script>
+    <div id="name-input-container" style="display: none;">
+  <div id="name-error" style="display: none;"></div>
+  <input type="text" id="name-field" placeholder="Enter your name">
+  <button id="name-button">Save</button>
+</div>
+
+    <button id="start-button">Start</button>
+    <button id="continue-button" style="display: none;">Continue</button>
+    <button id="play-again-button" style="display: none; onclick="startButtonClicked()"">Play Again</button>
+    <button id="try-again-button" style="display: none;">Try Again</button>
+
+
+    <script src="gamescript4.js">
+    </script>
 </body>
 
 </html>
