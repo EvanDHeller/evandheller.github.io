@@ -164,7 +164,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     const startGameListener = function() {
                         story.scenes.startGame();
                         continueButton.removeEventListener("click", startGameListener);
-                        hideContinueButton();
                                 };
                         
                     showContinueButton();
