@@ -75,7 +75,9 @@ document.addEventListener("DOMContentLoaded", function () {
                     story.currentScene = "scene4";
                     showOptions([
                         { text: "...that looking is stupid, let's trying kicking again!", action: story.scenes.scene3.scene3_1 },
-                        { text: "Your morals. Maybe I shouldn't touch someone else's shit.", action: story.scenes.scene3.scene3_3 }
+                        { text: "Your morals. Maybe I shouldn't touch someone else's shit.", action: story.scenes.scene3.scene3_3 },
+                        { text: "A big rock. Not graceful, but it'd probably get the job done.", action: story.scenes.scene3.scene3_3 },
+                        { text: "Large footprints, can't believe I didn't see these before.", action: story.scenes.scene3.scene3_3 }
                     ]);
                 },
                 scene3_3: function () {
