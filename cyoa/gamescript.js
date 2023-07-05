@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     showNameInput();
                     hideContinueButton();
                     saveButton.addEventListener("click", saveName);
-                   
+
                 }
             },
             scene2: {
@@ -142,17 +142,17 @@ document.addEventListener("DOMContentLoaded", function () {
                     continueButton.addEventListener("click", story.scenes.scene5.scene5_5);
                 },
                 scene5_5: function () {
-                   const continueButton = document.getElementById("continue-button");
+                    const continueButton = document.getElementById("continue-button");
                     continueButton.removeEventListener("click", story.scenes.scene5.scene5_5);
                     gameEndNegative();
                 }
-            }  
+            }
         }
     };
-//**************************************GLOBAL FUNCTIONS*******************************************************************************************
+    //**************************************GLOBAL FUNCTIONS*******************************************************************************************
 
-    
-//**************************************START & NAVIGATION FUNCTIONS********************************************************************
+
+    //**************************************START & NAVIGATION FUNCTIONS********************************************************************
     function startGame() {
         const startButton = document.getElementById("start-button");
         startButton.addEventListener("click", function () {
@@ -244,34 +244,34 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-   function showContinueButton() {
-  const continueButton = document.getElementById("continue-button");
-  continueButton.style.display = "block";
+    function showContinueButton() {
+        const continueButton = document.getElementById("continue-button");
+        continueButton.style.display = "block";
 
-  // Remove the event listener from the previous continue button, if any
-  const clonedContinueButton = continueButton.cloneNode(true);
-  continueButton.parentNode.replaceChild(clonedContinueButton, continueButton);
+        // Remove the event listener from the previous continue button, if any
+        const clonedContinueButton = continueButton.cloneNode(true);
+        continueButton.parentNode.replaceChild(clonedContinueButton, continueButton);
 
-  clonedContinueButton.addEventListener("click", function () {
-    const currentScene = story.scenes[story.currentScene];
+        clonedContinueButton.addEventListener("click", function () {
+            const currentScene = story.scenes[story.currentScene];
 
-    if (story.currentScene === "startGame") {
-      currentScene.displayNextMessage();
-    } else if (currentScene.messageIndex < currentScene.messages.length) {
-      currentScene.displayNextMessage();
-    } else {
-      const sceneKeys = Object.keys(story.scenes);
-      const currentIndex = sceneKeys.indexOf(story.currentScene);
-      if (currentIndex < sceneKeys.length - 1) {
-        story.currentScene = sceneKeys[currentIndex + 1];
-        showScene();
-      } else {
-        hideContinueButton();
-        showNameInput();
-      }
+            if (story.currentScene === "startGame") {
+                currentScene.displayNextMessage();
+            } else if (currentScene.messageIndex < currentScene.messages.length) {
+                currentScene.displayNextMessage();
+            } else {
+                const sceneKeys = Object.keys(story.scenes);
+                const currentIndex = sceneKeys.indexOf(story.currentScene);
+                if (currentIndex < sceneKeys.length - 1) {
+                    story.currentScene = sceneKeys[currentIndex + 1];
+                    showScene();
+                } else {
+                    hideContinueButton();
+                    showNameInput();
+                }
+            }
+        });
     }
-  });
-}
 
 
     function hideContinueButton() {
@@ -279,8 +279,8 @@ document.addEventListener("DOMContentLoaded", function () {
         continueButton.style.display = "none";
     }
 
-//**************************************NAME MECHANICS*********************************************************************************
-    
+    //**************************************NAME MECHANICS*********************************************************************************
+
 
     function showNameInput() {
         const nameInputContainer = document.getElementById("name-input-container");
@@ -290,33 +290,33 @@ document.addEventListener("DOMContentLoaded", function () {
         saveButton.addEventListener("click", saveName);
     }
 
-     
- function saveName() {
-  const nameField = document.getElementById("name-field");
-  const playerName = nameField.value.trim(); // Trim whitespace from the input
 
-  const nameRegex = /^[A-Za-z\s]+$/; // Only letters and spaces allowed
+    function saveName() {
+        const nameField = document.getElementById("name-field");
+        const playerName = nameField.value.trim(); // Trim whitespace from the input
 
-  if (!nameRegex.test(playerName)) {
-    showMessage("Please enter a valid name.");
-    return;
-  }
+        const nameRegex = /^[A-Za-z\s]+$/; // Only letters and spaces allowed
 
-  story.playerName = playerName;
-  nameField.disabled = true;
+        if (!nameRegex.test(playerName)) {
+            showMessage("Please enter a valid name.");
+            return;
+        }
 
-  const saveButton = document.getElementById("name-button");
-  saveButton.removeEventListener("click", saveName);
-  saveButton.textContent = "Saved";
-  saveButton.disabled = true;
+        story.playerName = playerName;
+        nameField.disabled = true;
 
-  if (story.currentScene === story.scenes.scene1.scene1_3) {
-    scene1_3(); // Call the scene1_3 function to display the default message
-  }
-    hideNameInput();
-    story.currentScene = "scene2_1";
-    story.scenes.scene2.scene2_1(); 
-}
+        const saveButton = document.getElementById("name-button");
+        saveButton.removeEventListener("click", saveName);
+        saveButton.textContent = "Saved";
+        saveButton.disabled = true;
+
+        if (story.currentScene === story.scenes.scene1.scene1_3) {
+            scene1_3(); // Call the scene1_3 function to display the default message
+        }
+        hideNameInput();
+        story.currentScene = "scene2_1";
+        story.scenes.scene2.scene2_1();
+    }
 
 
     function resetNameInput() {
@@ -335,116 +335,61 @@ document.addEventListener("DOMContentLoaded", function () {
         nameInputContainer.style.display = "none";
     }
 
-//**************************************ENDGAME & PLAYAGAIN FUNCTIONS***********************************************************************
-    
-    function hideTryAgainButton() {
-        var playAgainButton = document.getElementById("play-again-button");
-        playAgainButton.style.display = "none";
+    //**************************************ENDGAME & PLAYAGAIN FUNCTIONS***********************************************************************
+
+    function gameEndNegative() {
+        showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
+        showOptions([]);
+        hideContinueButton();
+        hideTryAgainButton();
+        showPlayAgainButton();
     }
 
-function gameEndNegative() {
-    showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
-    showOptions([]);
-    hideContinueButton();
-    hideTryAgainButton();
-    showPlayAgainButton();
-}
+    function showPlayAgainButton() {
+        const playAgainButton = document.getElementById("play-again-button");
+        playAgainButton.style.display = "block";
+        playAgainButton.addEventListener("click", resetGame);
+    }
 
-function showPlayAgainButton() {
-    const playAgainButton = document.getElementById("play-again-button");
-    playAgainButton.style.display = "block";
-    playAgainButton.addEventListener("click", resetGame);
-}
-  
-  function resetGame() {
-  // Reset the story object
-  story.playerName = null;
-  story.messages = [];
-  story.messageIndex = 0;
+    function resetGame() {
+        // Reset the story object
+        story.playerName = null;
+        story.messages = [];
+        story.messageIndex = 0;
 
-  // Reset the name input
-  resetNameInput();
+        // Reset the name input
+        resetNameInput();
 
-  // Hide the play again button
-  hidePlayAgainButton();
-  hideContinueButton();
-  // Show the start button
-  const startButton = document.getElementById("start-button");
-  startButton.style.display = "block";
+        // Hide the play again button
+        hidePlayAgainButton();
+        hideContinueButton();
+        // Show the start button
+        const startButton = document.getElementById("start-button");
+        startButton.style.display = "block";
+        document.getElementById("intro-image").style.display = "block";
+        document.getElementById("game-title").style.display = "block";
+        // Reset the game UI
+        const messageElement = document.getElementById("message");
+        messageElement.textContent = "";
+        const imageElement = document.getElementById("image");
+        imageElement.src = "";
+        imageElement.style.display = "none";
+        const optionsContainer = document.getElementById("options");
+        optionsContainer.innerHTML = "";
+        optionsContainer.style.display = "none";
+        hideContinueButton();
+        hideNameInput();
 
-  // Reset the game UI
-  const messageElement = document.getElementById("message");
-  messageElement.textContent = "";
-  const imageElement = document.getElementById("image");
-  imageElement.src = "";
-  imageElement.style.display = "none";
-  const optionsContainer = document.getElementById("options");
-  optionsContainer.innerHTML = "";
-  optionsContainer.style.display = "none";
-  hideContinueButton();
-  hideNameInput();
+        // Remove the event listener from the continue button
 
-  // Remove the event listener from the continue button
-  
-  // Load the scene1_1
-  loadScene("startGame");
-    story.scenes.startGame();
-}
+        // Load the scene1_1
+        loadScene("startGame");
+        story.scenes.startGame();
+    }
 
-
-/*function resetGame() {
-    story.playerName = null;
-    story.messages = [];
-    story.currentScene = "startGame";
-    story.messageIndex = 0;
-    hideContinueButton();
-    hidePlayAgainButton();
-    const messagesContainer = document.getElementById("messages");
-    messagesContainer.innerHTML = ""; // Clears the innerHTML of the messages container
-    story.currentScene = "scene1_1";
-    story.scenes.scene1.scene1_1(); 
-} */
-
-function restartGame() {
-  document.getElementById("start-button").style.display = "none";
-  document.getElementById("intro-image").style.display = "none";
-  document.getElementById("game-title").style.display = "none";
-  document.getElementById("continue-button").style.display = "none";
-  document.getElementById("play-again-button").style.display = "none";
-  document.getElementById("name-input").style.display = "none";
-  document.getElementById("message").textContent = "";
-  document.getElementById("options").textContent = "";
-  story.startGame();
-}
-
-function hidePlayAgainButton() {
-    const playAgainButton = document.getElementById("play-again-button");
-    playAgainButton.style.display = "none";
-}
-  
-  /*function removeAllEventHandlers(element) {
-  const eventTypes = ['click', 'mouseover', 'keydown']; // Add more event types as needed
-
-  eventTypes.forEach(eventType => {
-    const eventHandlers = getEventHandlers(element, eventType);
-    eventHandlers.forEach(eventHandler => {
-      element.removeEventListener(eventType, eventHandler);
-    });
-  });
-}
-
-function getEventHandlers(element, eventType) {
-  const eventListeners = getEventListeners(element);
-  return eventListeners[eventType].map(eventListener => eventListener.listener);
-}
-
-function getEventListeners(element) {
-  if (!element.__eventListeners) {
-    element.__eventListeners = {};
-  }
-  return element.__eventListeners;
-} */
-
-
+    function hidePlayAgainButton() {
+        const playAgainButton = document.getElementById("play-again-button");
+        playAgainButton.style.display = "none";
+    }
     startGame();
 });
