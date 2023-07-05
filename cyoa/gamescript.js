@@ -18,19 +18,19 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             scene1: {
                 scene1_1: function () {
-                    showMessage("You have just woken up, you don't know where you are, or how you got there.", "");
+                    showMessage("You have just woken up. Your mind is still hazy, but something doesn't feel right.", "");
                     showContinueButton();
                     const continueButton = document.getElementById("continue-button");
                     continueButton.addEventListener("click", story.scenes.scene1.scene1_2);
                 },
                 scene1_2: function () {
-                    showMessage("You don't even remember your name!", "");
+                    showMessage("\"Where even am I? Oh god, what's my name??\" ", "");
                     showContinueButton();
                     const continueButton = document.getElementById("continue-button");
                     continueButton.addEventListener("click", story.scenes.scene1.scene1_3);
                 },
                 scene1_3: function () {
-                    showMessage("As you yawn and rub your eyes, you realize even a temporary name may be helpful...", "");
+                    showMessage("As you yawn and rub the sleep from your eyes, you try to remember your name. It... it was something like", "");
                     showNameInput();
                     hideContinueButton();
                     saveButton.addEventListener("click", saveName);
