@@ -273,7 +273,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-
     function hideContinueButton() {
         const continueButton = document.getElementById("continue-button");
         continueButton.style.display = "none";
@@ -289,7 +288,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const saveButton = document.getElementById("name-button");
         saveButton.addEventListener("click", saveName);
     }
-
 
     function saveName() {
         const nameField = document.getElementById("name-field");
@@ -318,7 +316,6 @@ document.addEventListener("DOMContentLoaded", function () {
         story.scenes.scene2.scene2_1();
     }
 
-
     function resetNameInput() {
         const nameField = document.getElementById("name-field");
         nameField.value = "";
@@ -336,6 +333,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     //**************************************ENDGAME & PLAYAGAIN FUNCTIONS***********************************************************************
+
+    function hideTryAgainButton() {
+        var playAgainButton = document.getElementById("play-again-button");
+        playAgainButton.style.display = "none";
+    }
 
     function gameEndNegative() {
         showMessage("Sorry, " + story.playerName + ", yours was not a story with a happy ending. Better luck next time!");
@@ -379,7 +381,6 @@ document.addEventListener("DOMContentLoaded", function () {
         optionsContainer.style.display = "none";
         hideContinueButton();
         hideNameInput();
-
         // Remove the event listener from the continue button
 
         // Load the scene1_1
@@ -387,9 +388,22 @@ document.addEventListener("DOMContentLoaded", function () {
         story.scenes.startGame();
     }
 
+    function restartGame() {
+        document.getElementById("start-button").style.display = "none";
+        document.getElementById("intro-image").style.display = "none";
+        document.getElementById("game-title").style.display = "none";
+        document.getElementById("continue-button").style.display = "none";
+        document.getElementById("play-again-button").style.display = "none";
+        document.getElementById("name-input").style.display = "none";
+        document.getElementById("message").textContent = "";
+        document.getElementById("options").textContent = "";
+        story.startGame();
+    }
+
     function hidePlayAgainButton() {
         const playAgainButton = document.getElementById("play-again-button");
         playAgainButton.style.display = "none";
     }
+
     startGame();
 });
