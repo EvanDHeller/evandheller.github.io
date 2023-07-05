@@ -78,7 +78,7 @@ body {
 
 .option-button,
 #continue-button,
-/*#play-again-button,*/
+#play-again-button,
 .options {
     margin-top: 15px;
     width: 220px;
@@ -99,9 +99,9 @@ body {
 }
 
 #continue-button,
-/*#play-again-button,*/
+#play-again-button,
 div#name-input-container {
-    margin-top: 240px;
+    margin-top: 320px;
     position: absolute;
 }
 
