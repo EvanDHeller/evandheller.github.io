@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     continueButton.addEventListener("click", story.scenes.scene1.scene1_3);
                 },
                 scene1_3: function () {
-                    showMessage("As you yawn and rub the sleep from your eyes, you try to remember your name. It... it was something like", "");
+                    showMessage("As you yawn and rub the sleep from your eyes, you try to remember your name. It... it was something like...", "");
                     showNameInput();
                     hideContinueButton();
                     saveButton.addEventListener("click", saveName);
